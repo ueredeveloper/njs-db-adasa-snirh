@@ -1,0 +1,16 @@
+# Ignore Node.js modules
+node_modules/
+
+# Ignore logs
+logs/
+*.log
+
+# Ignore environment variables
+.env
+
+# Ignore backend dependencies
+backend/node_modules/
+
+# Ignore Parcel cache and output files
+frontend/.cache/
+frontend/dist/
