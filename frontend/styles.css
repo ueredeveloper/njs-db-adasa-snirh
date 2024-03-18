@@ -1,15 +1,25 @@
 #tab-grants-view button.active {
     background-color: rgb(156 163 175);
   }
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  /* scroolbar width https://www.digitalocean.com/community/tutorials/css-scrollbars */
-  #list-grants-view::-webkit-scrollbar {
-    width: 15px;               /* width of the entire scrollbar */
-  }
-  #list-grants-view::-webkit-scrollbar-thumb {
-    background-color:gray;    /* color of the scroll thumb */
-        /* roundness of the scroll thumb */
-    border: 0px solid;  /* creates padding around scroll thumb */
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+/* scroolbar width https://www.digitalocean.com/community/tutorials/css-scrollbars */
+#list-grants-view::-webkit-scrollbar {
+  width: 15px;               /* width of the entire scrollbar */
+}
+#list-grants-view::-webkit-scrollbar-thumb {
+  background-color:gray;    /* color of the scroll thumb */
+      /* roundness of the scroll thumb */
+  border: 0px solid;  /* creates padding around scroll thumb */
+}
+
+
+
+
+
+
+.div-btn:nth-child(even)
+  {
+    background-color: green;
   }
