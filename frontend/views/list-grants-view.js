@@ -17,9 +17,10 @@ const ListGrantsView = {
         grantsTables.forEach(table => {
 
             this.div.append(`
+            <div class="absolute right-4 bg-red-500 z-10 h-20 w-20"></div>
             <table class=${table.className} id=${table.id}>
                 <!-- congela a tag thead -->
-                <thead class="sticky top-0 z-10" >
+                <thead class="sticky top-0" >
                 </thead>
                 <tbody></tbody>
             </table>
@@ -66,8 +67,8 @@ const ListGrantsView = {
         keysValues.map(item => {
             tbody.append(
                 `
-           <tr>
-            
+           <tr class="hover:bg-gray-100">
+        
       
            ${item.map(item => `
             <td>
