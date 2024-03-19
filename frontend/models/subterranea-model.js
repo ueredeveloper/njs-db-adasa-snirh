@@ -38,11 +38,7 @@ const SubterraneaModel = {
 
         let subterraneas = await fetchSubterraneo();
 
-        console.log(subterraneas)
-
-
-        return subterraneas;
-
+        return subterraneas.recordset;
 
     }
 }

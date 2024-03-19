@@ -1,10 +1,17 @@
 import SubterraneaModel from "../models/subterranea-model";
 import { maxLengthOfStrings } from "../utils";
+import MapView from "./map-view";
 
 const ListGrantsView = {
-    init: function () {
-        this.div = $('#list-grants-view')
+    init: async function () {
+        this.div = $('#list-grants-view');
+        // Listagem de outorgas do banco de dados.
+        this.list = await SubterraneaModel.listSubterraneas();
+        // Valores das colunas de cabeçalho da lista de outorgas.
+        this.theads = await this.createTheadsValues();
+        // Renderização da tabela com cabeçalho.
         this.render();
+        // Renderização das outorgas.
         this.renderSubterranea();
     },
     render: function async() {
@@ -27,50 +34,38 @@ const ListGrantsView = {
             </table>
         `)
 
-            this.renderTheadsTable(table.id)
+            this.renderTheads(table.id)
 
         });
 
     },
-    renderTheadsTable: async function (id) {
-        // Busca lista de  outorgas
+    renderTheads: async function (id) {
 
-        let { recordset } = await SubterraneaModel.list;
-
-        // Captura o primeiro objeto com os valores (key, value)
-        let keyValues = Object.entries(recordset[0]);
-        // Separa os valores `key` para criar os cabeçalhos (thead)
-
-        let theads = keyValues.map(th => th[0]);
-        // Adiciona coluna a mais para  os botões
-        theads.push(``);
-
-        let maxLengths = maxLengthOfStrings(recordset);
+        // Descreve tamanho mínimo de cada coluna de acordo com o tamanho da string do cabeçalho ou valor (th ou td).
+        let minLenghts = maxLengthOfStrings(await this.list);
 
         // Regula largura da coluna  de acordo com o tamanho do tamanho do dado (string)
-        let thStyleWidth = maxLengths[0].map(ml => `style="min-width:${ml}em"`);
+        let thStyleWidth = minLenghts[0].map(ml => `style="min-width:${ml}em"`);
         //Cria os cabeçalhos (thead)
         $(`#${id}`).find('thead').append(`
               <tr>
-              ${theads.map((th, index) => `<th class="bg-gray-200" ${thStyleWidth[index]}>${th}</th>`)}
+              ${this.theads.map((th, index) => `<th class="bg-gray-200" ${thStyleWidth[index]}>${th}</th>`)}
               </tr>`)
 
     },
     renderSubterranea: async function () {
 
-        let { recordset } = await SubterraneaModel.list;
-
         let tbody = $('#list-sub').find('tbody')
 
-        let keysValues = recordset.map(rec => {
-            return Object.entries(rec);
+        let keysValues = await this.list.map(item => {
+            return Object.entries(item);
         });
 
         // preenchimento da tbody tag
         keysValues.map((item, index) => {
 
             // Valor necessário para criar classe para randomizar a cor da linha (ver criação de botões).
-            let classIndex = index%2;
+            let classIndex = index % 2;
 
             tbody.append(
                 `
@@ -99,47 +94,60 @@ const ListGrantsView = {
        
            ${item.map((item, index, array) => {
                     // Se for o último index (último valor da array), onde estão os botões, mudar css e assim para congelar linhas no lado direito da tabela
-                    if (index === array.length - 1) {     
-                            // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
-                            return `<td class="td-bg-${classIndex} sticky right-0 ">${item[1]}</td>`; 
+                    if (index === array.length - 1) {
+                        // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
+                        return `<td class="td-bg-${classIndex} sticky right-0 ">${item[1]}</td>`;
                     }
-                    return `<td>${item[1]}</td>`
+                    return `<td class="td-grants-data text-center">${item[1]}</td>`
                 })
                 }</tr>`
             )
         });
 
         $('[id^="btn-selection"]').click(function () {
+
+            // Captura tr tag
             let parentRow = $(this).closest('tr');
-            // Find all td elements within the parent row
-            let tds = parentRow.find('td');
-            // Convert the DOM element to a jQuery object
-            let tdLatitude = $(tds[3]);
-            let tdLongitude = $(tds[4]);
-            let tdEndereco = $(tds[6]);
-            let tdCPFCNPJ = $(tds[7]);
-            let tdUsuario = $(tds[8]);
+            // Captura valores da linha  selecionada (td)
+            let tds = parentRow.find('.td-grants-data');
+            // Cria objecto a partir da linha selecionada
+            let grant = {}
+            // Interage com os  valores das linhas e preenche o objeto.
+            tds.each(function (index, element) {
+                let textContent = $(element).text();
+                grant[ListGrantsView.theads[index]] = textContent
+            });
+            // Cria posição no mapa.
+            let position = ListGrantsView.createLatLngPosition(grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE);
 
-            // Get the inner HTML of the div
-            let latitude = tdLatitude.find('div.px-4').html();
-            let longitude = tdLongitude.find('div.px-4').html();
-            let endereco = tdEndereco.find('div.px-4').html();
-            let cpfcnpj = tdCPFCNPJ.find('div.px-4').html();
-            let usuario = tdUsuario.find('div.px-4').html();
-
-
-
-            let params = {
-                latitude: latitude.trim(),
-                longitude: longitude.trim(),
-                endereco: endereco,
-                cpfcnpj: cpfcnpj,
-                usuario: usuario
-            }
-
-            console.log(params)
+            // Mostra a posição utilizando a ferramenta marcador (Marker).
+            MapView.addMarker(position);
 
         });
+    },
+    createTheadsValues: async function () {
+
+        // Captura o primeiro objeto com os valores (key, value)
+        let keyValues = Object.entries(await this.list[0]);
+        // Separa os valores `key` para criar os cabeçalhos (thead)
+
+        let theads = keyValues.map(th => th[0]);
+        // Adiciona coluna a mais para  os botões
+        theads.push(``);
+
+        return theads;
+
+    },
+    /**
+     * Cria posição de acordo com Gmaps API.
+     * @param {*} latitude 
+     * @param {*} longitude 
+     * @returns {object} position. Posição geográfica Gmaps API.
+     */
+    createLatLngPosition: function (latitude, longitude) {
+        // Converte o valor para float e muda vígula para  ponto.
+        let position = { lat: parseFloat(latitude.replace(/,/g, '.')), lng: parseFloat(longitude.replace(/,/g, '.')) }
+        return position;
     }
 }
 
