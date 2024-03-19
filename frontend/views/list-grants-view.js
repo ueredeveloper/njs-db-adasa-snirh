@@ -67,7 +67,11 @@ const ListGrantsView = {
         });
 
         // preenchimento da tbody tag
-        keysValues.map(item => {
+        keysValues.map((item, index) => {
+
+            // Valor necessário para criar classe para randomizar a cor da linha (ver criação de botões).
+            let classIndex = index%2;
+
             tbody.append(
                 `
            <tr class="tr-btn hover:bg-gray-100">
@@ -92,10 +96,12 @@ const ListGrantsView = {
            
            
            `])}
+       
            ${item.map((item, index, array) => {
                     // Se for o último index (último valor da array), onde estão os botões, mudar css e assim para congelar linhas no lado direito da tabela
-                    if (index === array.length - 1) {
-                        return `<td class="sticky right-0 ">${item[1]}</td>`
+                    if (index === array.length - 1) {     
+                            // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
+                            return `<td class="td-bg-${classIndex} sticky right-0 ">${item[1]}</td>`; 
                     }
                     return `<td>${item[1]}</td>`
                 })

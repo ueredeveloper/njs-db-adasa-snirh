@@ -19,7 +19,9 @@ tr:nth-child(even) {
 
 
 
-.div-btn:nth-child(even)
-  {
-    background-color: green;
+.td-bg-0 {
+background-color: #FFFFFF;
+}
+.td-bg-1 {
+  background-color: #DDDDDD;
   }
