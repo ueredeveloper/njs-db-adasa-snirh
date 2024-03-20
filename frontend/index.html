@@ -18,16 +18,38 @@
 
   <div class="flex flex-row h-96  w-full" styles="height: 100%">
     <div id="map" class="w-1/4"></div>
-    <div id="map" class="w-3/4 flex-auto">
-      <div id="list-snirh">
-        <div id="tab-grants-view" class="block">
+    <div class="w-3/4 flex-auto">
+      <!-- Outorgas - Adasa -->
+      <div>
+        <!-- Tabs -->
+        <div id="tab-grants-view"></div>
+
+        <!-- Tabelas --> 
+
+          <div id="tab-grants-view" class="block"></div>
+
+          <div> ADASA </div>
+          
           <!-- Esta div adiciona proteção de visualização na linha das colunas, na coluna fixa com botões. Isto para que 
-                ao arrastar as linhas os botões não se sobreponham aos nomes das colunas--> 
-          <div style="position:absolute;right:0.9rem;top:2.3rem;height:1.5rem;z-index:10;;width:6.15rem" class="bg-gray-200"></div>
-        </div>
-        <div id="list-grants-view" class="h-80 block overflow-auto">
-        </div>
+                  ao arrastar as linhas os botões não se sobreponham aos nomes das colunas-->
+          <div style="position:absolute;right:0.9rem;top:2.3rem;height:1.5rem;z-index:10;;width:6.15rem"
+            class="bg-gray-200"></div>
+          <div id="list-grants-view" class="h-72 block overflow-auto"></div>
+          
+          <div> SNIRH</div>
+          <div id="list-snirh-grants-view" class="h-72 block overflow-auto"></div>
       </div>
+
+      <!-- Outorgas - SNIRH -->
+        <!-- Tabs -->
+        <div id="tab-grants-snirh-view"></div>
+
+        <!-- Tabelas -->
+    
+      <!--
+<div id="list-snirh-grants-view" class="h-72 block overflow-auto"></div>
+      -->
+
     </div>
 
     <!--

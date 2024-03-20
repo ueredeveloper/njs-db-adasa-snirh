@@ -12,4 +12,18 @@ const maxLengthOfStrings = (array) => {
     return maxLengths;
 }
 
-module.exports = { maxLengthOfStrings }
+const createTheadsValues = async (list) => {
+
+    // Captura o primeiro objeto com os valores (key, value)
+    let keyValues = Object.entries(await list[0]);
+    // Separa os valores `key` para criar os cabeçalhos (thead)
+
+    let theads = keyValues.map(th => th[0]);
+    // Adiciona coluna a mais para  os botões
+    theads.push(``);
+
+    return theads;
+
+};
+
+module.exports = { maxLengthOfStrings, createTheadsValues }
