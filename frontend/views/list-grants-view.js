@@ -22,11 +22,10 @@ const ListGrantsView = {
         ]
 
         grantsTables.forEach(table => {
-            /* A primeira div adiciona proteção de visualização na linha das colunas. Isto para que 
-                ao arrastar as linhas os botões não se sobreponham aos nomes das colunas */
+            
             this.div.append(`
-            <div style="position:absolute;right:0.9rem;height:1.65rem;z-index:10;;width:6.15rem" class="bg-gray-200"></div>
             <table class=${table.className} id=${table.id}>
+           
                 <!-- congela a tag thead -->
                 <thead class="sticky top-0" >
                 </thead>

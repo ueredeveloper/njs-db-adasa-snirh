@@ -11,20 +11,36 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
- 
+
 </head>
 
 <body>
 
-  <div class="flex flex-row h-96  w-full bg-gray-500" styles="height: 100%">
-    <div id="map" class="flex-1 bg-red-500"></div>
+  <div class="flex flex-row h-96  w-full" styles="height: 100%">
+    <div id="map" class="w-1/4"></div>
+    <div id="map" class="w-3/4 flex-auto">
+      <div id="list-snirh">
+        <div id="tab-grants-view" class="block">
+          <!-- Esta div adiciona proteção de visualização na linha das colunas, na coluna fixa com botões. Isto para que 
+                ao arrastar as linhas os botões não se sobreponham aos nomes das colunas--> 
+          <div style="position:absolute;right:0.9rem;top:2.3rem;height:1.5rem;z-index:10;;width:6.15rem" class="bg-gray-200"></div>
+        </div>
+        <div id="list-grants-view" class="h-80 block overflow-auto">
+        </div>
+      </div>
+    </div>
+
+    <!--
     <div class="flex-1 bg-green-500">
       <div id="list-adasa"></div>
-      <div id="list-snirh"></div>
+      <div id="list-snirh">
+        <div id="tab-grants-view" class="block"></div>
+        <div id="list-grants-view" class="h-80 block overflow-auto">
+        </div>
+      </div>
     </div>
-  </div>
-  <div id="tab-grants-view" class="block"></div>
-  <div id="list-grants-view" class="h-80 block overflow-auto">
+    -->
+
 
   </div>
 
