@@ -2,7 +2,7 @@ import ListGrantsController from "../../controllers/list-grants-controller";
 
 const AccordionView = {
     init: function (colspanValue, btnIndexId) {
-
+        this.ListGrantsController;
 
         return this.render(colspanValue, btnIndexId);
 
@@ -29,6 +29,12 @@ const AccordionView = {
             } else {
                 panel.show();
             }
+            if (!this.ListGrantsController){
+               
+               this.ListGrantsController = new ListGrantsController.init(btnIndexId)
+            } 
+
+           
 
         });
 
@@ -62,8 +68,10 @@ const AccordionView = {
 
                     </buttom>
         
-                <!-- Div de Dados -->
-                    <div id="list-grants-view-${btnIndexId}" class="panel bg-green-100 hidden p-10"></div>
+                    <!-- Div de abertura da função acordeon -->
+                    <div id="list-grants-view-${btnIndexId}" 
+                        class="panel overflow-auto h-32 top-0 bg-green-100 hidden">
+                    </div>
             </td>
         </tr>`
     }

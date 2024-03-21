@@ -25,7 +25,7 @@ const ListGrantsView = {
         grantsTables.forEach(table => {
             
             this.div.append(`
-            <table class=${table.className} id=${table.id}>
+            <table class="${table.className} w-full" id=${table.id}>
                 <!-- congela a tag thead -->
                 <thead class="sticky top-0 bg-green-300 z-10" >
                 </thead>
@@ -44,7 +44,7 @@ const ListGrantsView = {
         let minLenghts = maxLengthOfStrings(await this.list);
 
         // Regula largura da coluna  de acordo com o tamanho do tamanho do dado (string)
-        let thStyleWidth = minLenghts[0].map(ml => `style="min-width:${ml}em"`);
+        let thStyleWidth = minLenghts[0].map(ml => `style="min-width:${ml}rem;max-width:${ml}rem;"`);
         //Cria os cabeçalhos (thead)
         $(`#${id}`).find('thead').append(`
               <tr>
