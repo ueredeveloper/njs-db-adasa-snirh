@@ -3,9 +3,10 @@ import { maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
 const ListGrantsView = {
-    init: async function (btnIndexId) {
+    init: async function (accordionIndex) {
 
-        this.div = $(`#list-grants-view-${btnIndexId}`);
+        this.div = $(`#list-grants-view-${accordionIndex}`);
+        this.accordionIndex = accordionIndex;
         // Listagem de outorgas do banco de dados.
         this.list = await SubterraneaModel.listSubterraneas();
         // Valores das colunas de cabeçalho da lista de outorgas.
@@ -13,17 +14,17 @@ const ListGrantsView = {
         // Renderização da tabela com cabeçalho.
         this.render();
         // Renderização das outorgas.
-        this.renderSubterranea();
+        this.renderSubterranea(accordionIndex);
     },
     render: function async() {
 
         let grantsTables = [
-            { className: 'list-grants-tables', id: 'list-sub', },
-            { className: 'list-grants-tables hidden', id: 'list-sup', }
+            { className: 'list-grants-tables', id: `list-sub-${this.accordionIndex}`, },
+            { className: 'list-grants-tables hidden', id: `list-sup-${this.accordionIndex}`, }
         ]
 
         grantsTables.forEach(table => {
-            
+
             this.div.append(`
             <table class="${table.className} w-full" id=${table.id}>
                 <!-- congela a tag thead -->
@@ -52,9 +53,9 @@ const ListGrantsView = {
               </tr>`)
 
     },
-    renderSubterranea: async function () {
+    renderSubterranea: async function (accordionIndex) {
 
-        let tbody = $('#list-sub').find('tbody')
+        let tbody = $(`#list-sub-${accordionIndex}`).find('tbody')
 
         let keysValues = await this.list.map(item => {
             return Object.entries(item);
