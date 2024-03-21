@@ -26,4 +26,12 @@ const createTheadsValues = async (list) => {
 
 };
 
-module.exports = { maxLengthOfStrings, createTheadsValues }
+const createLatLngPosition = (latitude, longitude) => {
+
+    // Converte o valor para float e muda vígula para  ponto.
+    let position = { lat: parseFloat(latitude.replace(/,/g, '.')), lng: parseFloat(longitude.replace(/,/g, '.')) }
+    return position;
+
+};
+
+export { maxLengthOfStrings, createTheadsValues, createLatLngPosition }

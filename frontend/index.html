@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adasa - SNIRH</title>
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://maps.googleapis.com/maps/api/js?key=" async defer></script>
+  
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -15,44 +15,24 @@
 </head>
 
 <body>
+  <!--  async defer -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=" ></script>
 
   <div class="flex flex-row h-96  w-full" styles="height: 100%">
-    <div id="map" class="w-1/4"></div>
+    <div id="map" class="w-1/4 h-full"></div>
     <div class="w-3/4 flex-auto">
       <!-- Outorgas - Adasa -->
       <div>
+        <div> Adasa </div>
         <!-- Tabs -->
         <div id="tab-grants-view"></div>
+        <div id="tab-grants-view" class="block"></div>
 
-        <!-- Tabelas --> 
+        <div id="list-grants-snirh-view" class="h-96 block overflow-auto"></div>
 
-          <div id="tab-grants-view" class="block"></div>
-
-          <div> ADASA </div>
-          
-          <!-- Esta div adiciona proteção de visualização na linha das colunas, na coluna fixa com botões. Isto para que 
-                  ao arrastar as linhas os botões não se sobreponham aos nomes das colunas-->
-          <div style="position:absolute;right:0.9rem;top:2.3rem;height:1.5rem;z-index:10;;width:6.15rem"
-            class="bg-gray-200"></div>
-          <div id="list-grants-view" class="h-72 block overflow-auto"></div>
-          
-          <div> SNIRH</div>
-          <div id="list-snirh-grants-view" class="h-72 block overflow-auto"></div>
       </div>
 
-      <!-- Outorgas - SNIRH -->
-        <!-- Tabs -->
-        <div id="tab-grants-snirh-view"></div>
-
-        <!-- Tabelas -->
-    
       <!--
-<div id="list-snirh-grants-view" class="h-72 block overflow-auto"></div>
-      -->
-
-    </div>
-
-    <!--
     <div class="flex-1 bg-green-500">
       <div id="list-adasa"></div>
       <div id="list-snirh">
@@ -64,9 +44,11 @@
     -->
 
 
-  </div>
+    </div>
 
-  <script src="./script.js"></script>
+    
+    <script src="./script.js"></script>
+    
 
 
 </body>

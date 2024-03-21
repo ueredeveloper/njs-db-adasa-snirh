@@ -4,11 +4,11 @@ import { fetchSubterraneo } from "../services/fetchSubterraneo";
 const { default: ListGrantsView } = require("../views/list-grants-view")
 
 const ListGrantsController = {
-    init: async function(){
+    init: async function(btnIndexId){
 
         //GrantsModels.grants = await fetchAllGrants();
         SubterraneaModel.list = await SubterraneaModel.listSubterraneas()
-        ListGrantsView.init();
+        ListGrantsView.init(btnIndexId);
     }
 }
 

@@ -3,8 +3,9 @@ import { maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
 const ListGrantsView = {
-    init: async function () {
-        this.div = $('#list-grants-view');
+    init: async function (btnIndexId) {
+
+        this.div = $(`#list-grants-view-${btnIndexId}`);
         // Listagem de outorgas do banco de dados.
         this.list = await SubterraneaModel.listSubterraneas();
         // Valores das colunas de cabeçalho da lista de outorgas.
@@ -25,9 +26,8 @@ const ListGrantsView = {
             
             this.div.append(`
             <table class=${table.className} id=${table.id}>
-           
                 <!-- congela a tag thead -->
-                <thead class="sticky top-0" >
+                <thead class="sticky top-0 bg-green-300 z-10" >
                 </thead>
                 <tbody></tbody>
             </table>

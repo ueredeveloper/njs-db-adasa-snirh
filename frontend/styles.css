@@ -1,27 +1,43 @@
 #tab-grants-view button.active {
-    background-color: rgb(156 163 175);
-  }
+  background-color: rgb(156 163 175);
+}
+
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+
 /* scroolbar width https://www.digitalocean.com/community/tutorials/css-scrollbars */
 #list-grants-view::-webkit-scrollbar {
-  width: 15px;               /* width of the entire scrollbar */
+  width: 15px;
+  /* width of the entire scrollbar */
 }
+
 #list-grants-view::-webkit-scrollbar-thumb {
-  background-color:gray;    /* color of the scroll thumb */
-      /* roundness of the scroll thumb */
-  border: 0px solid;  /* creates padding around scroll thumb */
+  background-color: gray;
+  /* color of the scroll thumb */
+  /* roundness of the scroll thumb */
+  border: 0px solid;
+  /* creates padding around scroll thumb */
 }
 
+/* scroolbar width https://www.digitalocean.com/community/tutorials/css-scrollbars */
+#list-grants-snirh-view::-webkit-scrollbar {
+  width: 15px;
+  /* width of the entire scrollbar */
+}
 
-
-
-
+#list-grants-snirh-view::-webkit-scrollbar-thumb {
+  background-color: gray;
+  /* color of the scroll thumb */
+  /* roundness of the scroll thumb */
+  border: 0px solid;
+  /* creates padding around scroll thumb */
+}
 
 .td-bg-0 {
-background-color: #FFFFFF;
+  background-color: #FFFFFF;
 }
+
 .td-bg-1 {
   background-color: #DDDDDD;
-  }
+}

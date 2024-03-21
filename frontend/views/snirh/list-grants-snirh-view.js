@@ -1,16 +1,16 @@
+import ListGrantsController from "../../controllers/list-grants-controller";
 import SNIRHGrantsModel from "../../models/snirh/snirh-grants-model";
+import MapView from "../map-view";
+import AccordionView from "./accordion-view";
 
-const { createTheadsValues, maxLengthOfStrings } = require("../../utils");
+const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../../utils");
 
 const ListGrantsSNIRHView = {
     init: async function () {
-        this.div = $('#list-snirh-grants-view');
+        this.div = $('#list-grants-snirh-view');
         this.list = await SNIRHGrantsModel.listGrants();
         this.theads = await createTheadsValues(this.list);
         this.render();
-
-
-
 
     },
     render: async function () {
@@ -21,24 +21,24 @@ const ListGrantsSNIRHView = {
         ]
 
         grantsTables.forEach(table => {
-            
+
             this.div.append(`
             <table class=${table.className} id=${table.id}>
                 <!-- congela a tag thead -->
-                <thead class="sticky top-0" >
+                <thead class="sticky top-0 z-10" >
                 </thead>
                 <tbody></tbody>
             </table>
         `)
 
-          this.renderTheads(table.id);
+            this.renderTheads(table.id);
 
-          this.renderTBodys();
+            this.renderTBodys();
 
         });
 
-    }, 
-    renderTheads: async function(tableId){
+    },
+    renderTheads: async function (tableId) {
 
         // Descreve tamanho mínimo de cada coluna de acordo com o tamanho da string do cabeçalho ou valor (th ou td).
         let minLenghts = maxLengthOfStrings(await this.list);
@@ -52,7 +52,8 @@ const ListGrantsSNIRHView = {
               </tr>`)
 
     },
-    renderTBodys: async function(){
+    renderTBodys: async function () {
+
         let tbody = $('#list-snirh-sub').find('tbody')
 
         let keysValues = await this.list.map(item => {
@@ -61,6 +62,8 @@ const ListGrantsSNIRHView = {
 
         // preenchimento da tbody tag
         keysValues.map((item, index) => {
+            console.log(index)
+           // ListGrantsController.init(index)
 
             // Valor necessário para criar classe para randomizar a cor da linha (ver criação de botões).
             let classIndex = index % 2;
@@ -91,6 +94,7 @@ const ListGrantsSNIRHView = {
            `])}
        
            ${item.map((item, index, array) => {
+
                     // Se for o último index (último valor da array), onde estão os botões, mudar css e assim para congelar linhas no lado direito da tabela
                     if (index === array.length - 1) {
                         // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
@@ -98,7 +102,11 @@ const ListGrantsSNIRHView = {
                     }
                     return `<td class="td-snirh-grants-data text-center">${item[1]}</td>`
                 })
-                }</tr>`
+                }
+                </tr>
+               
+                ${AccordionView.init(item.length - 1, index)}
+                `
             )
         });
 
@@ -113,10 +121,10 @@ const ListGrantsSNIRHView = {
             // Interage com os  valores das linhas e preenche o objeto.
             tds.each(function (index, element) {
                 let textContent = $(element).text();
-                grant[ListGrantsView.theads[index]] = textContent
+                grant[ListGrantsSNIRHView.theads[index]] = textContent
             });
             // Cria posição no mapa.
-            let position = ListGrantsView.createLatLngPosition(grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE);
+            let position = createLatLngPosition(grant.INT_NU_LATITUDE, grant.INT_NU_LONGITUDE);
 
             // Mostra a posição utilizando a ferramenta marcador (Marker).
             MapView.addMarker(position);

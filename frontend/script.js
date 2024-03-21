@@ -5,5 +5,5 @@ const { default: TabGrantsView } = require("./views/tab-grants-view");
 
 MapController.init();
 TabGrantsView.init();
-ListGrantsController.init();
+ListGrantsController.init(200);
 ListGrantsSNIRHController.init()
