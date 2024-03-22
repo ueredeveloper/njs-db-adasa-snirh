@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sql = require("mssql");
 const mssqlConfig = require('../mssql-config');
-const queryInsertSubterranea = require("../queries/query-insert-subterranea");
+const queryInsertSuperficial = require("../queries/query-insert-superficial");
 
 
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST, SUPABASE_URL, SUPABASE_KEY } = process.env;
@@ -17,15 +17,15 @@ const config = {
 
 
 // simple movie average
-router.get("/select-subterraneas", async (req, res) => {
+router.post("/select-superficiais", async (req, res) => {
 
-    let ids = [1,2,3,4,5]
+    let {ids} = req.body;
 
     sql.connect(config, function (err) {
 
         if (err) console.log(err);
 
-        let query = queryInsertSubterranea();
+        let query = queryInsertSuperficial(ids)
 
         // criar requirisão
         var request = new sql.Request();

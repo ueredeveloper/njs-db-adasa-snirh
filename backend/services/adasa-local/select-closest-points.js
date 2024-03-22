@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const sql = require("mssql");
 const mssqlConfig = require('../mssql-config');
-const queryInsertSubterranea = require("../queries/query-insert-subterranea");
+const queryClorestPoints = require("../queries/query-closest-points");
 
 
-const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST, SUPABASE_URL, SUPABASE_KEY } = process.env;
+const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST } = process.env;
 
 // configurações do banco
 const config = {
@@ -17,15 +17,17 @@ const config = {
 
 
 // simple movie average
-router.get("/select-subterraneas", async (req, res) => {
+router.get("/select-closest-points", async (req, res) => {
 
-    let ids = [1,2,3,4,5]
+    let { latitude, longitude } = req.query;
+
+    console.log(latitude, longitude)
 
     sql.connect(config, function (err) {
 
         if (err) console.log(err);
 
-        let query = queryInsertSubterranea();
+        let query = queryClorestPoints(latitude, longitude);
 
         // criar requirisão
         var request = new sql.Request();

@@ -1,7 +1,9 @@
 const queryInsertSubterranea = () => {
     return `
         use srh;
-        /*RETORNA AS CAPTAÇÕES SUBTERRANEAS - VERIFICAR SE QUER QUE PREENCHA COM NULL OU EM BRANCO OS CAMPOS SEM DADOS*/
+        /* Criado por Welber Ferreira
+            RETORNA AS CAPTAÇÕES SUBTERRANEAS - VERIFICAR SE QUER QUE PREENCHA COM NULL OU EM BRANCO OS CAMPOS SEM DADOS
+        */
         SELECT 1 as INT_TIN_CD, 
 
         A.ID_TIPO_INTERFERENCIA AS INT_TSU_CD, 
@@ -622,5 +624,4 @@ const queryInsertSubterranea = () => {
         AND A.ID_INTERFERENCIA > 2459 AND A.ID_INTERFERENCIA < 2486
     `
 }
-
 module.exports = queryInsertSubterranea;

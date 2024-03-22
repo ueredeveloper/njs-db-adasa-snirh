@@ -2,8 +2,14 @@
 
 ## 2024-03-21
 
-### Tarefas Pendentes:
-- [ ] Adicionar coluna de outorgas do banco de dados da Adasa na tabela de dados do banco da Ana utilizando o SNIRH.
+### Tarefas:
+- [X] Adicionar tablea de outorgas do banco de dados da Adasa dentro da tabela de dados do banco da Ana utilizando o SNIRH.
 
-## Tarefas Concluídas:
-- Nenhuma ainda.
+## 2024-03-21
+- [X] Melhorar css para que a tabela Adasa não se sobressaia à thead da tabela SNIRH.
+    - Foi retirar z-index: 10 do elemento `table` no `list-grants-view`.
+- [] Verificar a possibilidade de buscar pontos por proximidade utilizando SQL. Já foi feito testes utilizando a biblioteca ...
+
+
+
+

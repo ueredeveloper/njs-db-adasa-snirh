@@ -28,7 +28,7 @@ const ListGrantsView = {
             this.div.append(`
             <table class="${table.className} w-full" id=${table.id}>
                 <!-- congela a tag thead -->
-                <thead class="sticky top-0 bg-green-300 z-10" >
+                <thead class="sticky top-0 bg-green-300" >
                 </thead>
                 <tbody></tbody>
             </table>
