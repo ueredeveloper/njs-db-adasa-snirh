@@ -48,7 +48,7 @@ const ListGrantsSNIRHView = {
         //Cria os cabeçalhos (thead)
         $(`#${tableId}`).find('thead').append(`
               <tr>
-              ${this.theads.map((th, index) => `<th class="bg-gray-200" ${thStyleWidth[index]}>${th}</th>`)}
+              ${this.theads.map((th, index) => `<th ${thStyleWidth[index]}>${th}</th>`)}
               </tr>`)
 
     },

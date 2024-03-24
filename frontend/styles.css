@@ -2,9 +2,49 @@
   background-color: rgb(156 163 175);
 }
 
-tr:nth-child(even) {
+.list-grants-snirh-tables tr:nth-child(even) {
   background-color: #dddddd;
 }
+
+.list-grants-snirh-tables th {
+  background-color:#3a55b4
+}
+/*.list-grants-tables tr:nth-child(even) {
+  background-color: #197ef1;
+}*/
+
+/** Customizando table interna */
+.list-grants-tables {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.list-grants-tables thead th {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+.list-grants-tables th,
+.list-grants-tables td {
+    padding: 5px 5px;
+}
+.list-grants-tables tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.list-grants-tables tbody tr:nth-of-type(even) {
+    background-color: #dbe4f0; /* Updated to a beautiful shade of blue */
+}
+.list-grants-tables tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
+.list-grants-tables tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+.list-grants-tables tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+
 
 /* scroolbar width https://www.digitalocean.com/community/tutorials/css-scrollbars */
 #list-grants-view::-webkit-scrollbar {

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adasa - SNIRH</title>
   <link rel="stylesheet" href="styles.css" />
-  
+
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -16,40 +16,26 @@
 
 <body>
   <!--  async defer -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=" ></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key="></script>
 
-  <div class="flex flex-row h-96  w-full" styles="height: 100%">
+  <div class="flex flex-row h-screen w-full">
+    <!-- Left Map -->
     <div id="map" class="w-1/4 h-full"></div>
+    <!-- Right - Tabs, Tables -->
     <div class="w-3/4 flex-auto">
-      <!-- Outorgas - Adasa -->
-      <div>
+      <div class="h-full w-full flex flex-col">
         <div> Adasa </div>
         <!-- Tabs -->
         <div id="tab-grants-view"></div>
         <div id="tab-grants-view" class="block"></div>
-
-        <div id="list-grants-snirh-view" class="h-96 block overflow-auto"></div>
+        <!-- Tables -->
+        <div id="list-grants-snirh-view" class="block overflow-auto h-full"></div>
 
       </div>
-
-      <!--
-    <div class="flex-1 bg-green-500">
-      <div id="list-adasa"></div>
-      <div id="list-snirh">
-        <div id="tab-grants-view" class="block"></div>
-        <div id="list-grants-view" class="h-80 block overflow-auto">
-        </div>
-      </div>
     </div>
-    -->
+  </div>
 
-
-    </div>
-
-    
-    <script src="./script.js"></script>
-    
-
+  <script src="./script.js"></script>
 
 </body>
 

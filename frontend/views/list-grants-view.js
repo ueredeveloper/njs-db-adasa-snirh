@@ -26,9 +26,9 @@ const ListGrantsView = {
         grantsTables.forEach(table => {
 
             this.div.append(`
-            <table class="${table.className} w-full" id=${table.id}>
+            <table class="${table.className} w-full " id=${table.id}>
                 <!-- congela a tag thead -->
-                <thead class="sticky top-0 bg-green-300" >
+                <thead class="sticky top-0 " >
                 </thead>
                 <tbody></tbody>
             </table>
@@ -49,7 +49,7 @@ const ListGrantsView = {
         //Cria os cabeçalhos (thead)
         $(`#${id}`).find('thead').append(`
               <tr>
-              ${this.theads.map((th, index) => `<th class="bg-gray-200" ${thStyleWidth[index]}>${th}</th>`)}
+              ${this.theads.map((th, index) => `<th ${thStyleWidth[index]}>${th}</th>`)}
               </tr>`)
 
     },

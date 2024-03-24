@@ -71,7 +71,7 @@ const AccordionView = {
         
                     <!-- Div de abertura da função acordeon -->
                     <div id="list-grants-view-${accordionIndex}" 
-                        class="panel overflow-auto h-32 top-0 bg-green-100 hidden">
+                        class="panel overflow-auto h-48 top-0 hidden m-2">
                     </div>
             </td>
         </tr>`
