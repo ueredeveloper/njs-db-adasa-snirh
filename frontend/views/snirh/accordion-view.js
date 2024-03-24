@@ -9,7 +9,7 @@ const AccordionView = {
 
     },
     render: function (colspanValue, accordionIndex) {
-        
+
         // Ações dos botões
         $(`#btn-edit${accordionIndex}`).on('click', function (event) {
 
@@ -42,28 +42,26 @@ const AccordionView = {
         // Ìcones dos botões
         $(`#svgMinus${accordionIndex}`).html(`
             <svg 
-                class="w-4 h-4 " 
+                class="w-4 h-4" 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
             </svg>`);
         $(`#svgPlus${accordionIndex}`).html(`
             <svg 
-                class="w-4 h-4 " 
+                class="w-4 h-4" 
                 xmlns="http://www.w3.org/2000/svg" fill="none" 
                 viewBox="0 0 24 24" stroke-width="1.5" 
                 stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>`);
 
-
-
         // Retorno
         return `
         <tr>
             <td colspan="${colspanValue}" class="td-search border-0 p-0">
                 <!-- Abertura do acordeon -->
-                    <buttom id="btn-edit${accordionIndex}" class="accordion w-full h-full cursor-pointer">
+                    <buttom id="btn-edit${accordionIndex}" class="accordion cursor-pointer">
                         <span id="svgPlus${accordionIndex}"></span>
                         <span id="svgMinus${accordionIndex}" style="display:none;"></span>
 
