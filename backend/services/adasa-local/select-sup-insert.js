@@ -4,6 +4,7 @@ const mssqlConfig = require('../mssql-config');
 const queryInsertSuperficial = require("../queries/query-insert-superficial");
 
 
+
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST, SUPABASE_URL, SUPABASE_KEY } = process.env;
 
 // configurações do banco

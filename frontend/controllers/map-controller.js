@@ -1,6 +1,5 @@
 import MapView from "../views/map-view";
 
-
 const MapController = {
     init: function () {
         // Initialize the view

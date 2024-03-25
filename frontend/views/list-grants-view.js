@@ -16,6 +16,7 @@ const ListGrantsView = {
         // Renderização das outorgas.
         this.renderSubterranea(accordionIndex);
     },
+    
     render: function async() {
 
         let grantsTables = [

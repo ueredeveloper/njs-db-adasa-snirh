@@ -1,4 +1,5 @@
 const queryClorestPoints = (latitude, longitude) => {
+    
     return `
     USE SRH;
     DECLARE @point GEOMETRY;

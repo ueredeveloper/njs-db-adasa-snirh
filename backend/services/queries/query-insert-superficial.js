@@ -1,4 +1,5 @@
 const queryInsertSuperficial = (ids)=> {
+    
 
     let paramsIds = ids.join(',')
 

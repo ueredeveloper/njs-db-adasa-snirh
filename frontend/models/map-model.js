@@ -1,4 +1,5 @@
 const MapModel = {
+    
     // Function to initialize the map
     initMap: function () {
         // Initialize the map

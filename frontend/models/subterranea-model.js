@@ -11,6 +11,7 @@ const SubterraneaModel = {
     list:[],
 
     listSubterraneas: async function () {
+        
 
         const data = {
             "recordsets": [

@@ -26,6 +26,7 @@ const createTheadsValues = async (list) => {
 
 };
 
+
 const createLatLngPosition = (latitude, longitude) => {
 
     // Converte o valor para float e muda vígula para  ponto.

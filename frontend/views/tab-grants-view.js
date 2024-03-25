@@ -3,6 +3,7 @@ const TabGrantsView = {
         this.div = $('#tab-grants-view');
         this.render();
 
+        
     },
     render: function () {
 

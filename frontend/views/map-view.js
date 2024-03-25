@@ -1,5 +1,6 @@
 import MapModel from "../models/map-model";
 
+
 const MapView = {
     init: function () {
         // Initialize the map

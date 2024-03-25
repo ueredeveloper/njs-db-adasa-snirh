@@ -4,6 +4,7 @@ const mssqlConfig = require('../mssql-config');
 const queryClorestPoints = require("../queries/query-closest-points");
 
 
+
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST } = process.env;
 
 // configurações do banco

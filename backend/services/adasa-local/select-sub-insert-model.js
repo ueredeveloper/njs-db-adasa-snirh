@@ -4,6 +4,7 @@ const mssqlConfig = require('../mssql-config');
 const queryInsertSubterranea = require("../queries/query-insert-subterranea");
 
 
+
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST, SUPABASE_URL, SUPABASE_KEY } = process.env;
 
 // configurações do banco
