@@ -4,7 +4,7 @@ const TopHandlersSimpleSearch = ()=> {
             type="text" 
             id="inputSearch" 
             placeholder="Buscar nome, cpf/cnpj" 
-            class="flex-1 w-full h-full p-2 rounded-lg border-2 border-gray-200" 
+            class="flex-1 w-full h-full h-28 p-2 rounded-lg border-2 border-gray-200" 
         />
     `;
 }

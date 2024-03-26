@@ -1,4 +1,4 @@
-import { fetchSubterraneo } from "../services/fetchSubterraneo";
+//import { fetchSubterraneo } from "../services/fetchSubterraneo";
 
 const SubterraneaModel = {
     subterranea: {
@@ -118,7 +118,7 @@ const SubterraneaModel = {
 
         //let subterraneas = await fetchSubterraneo();
 
-        return subterraneas.recordset;
+       // return subterraneas.recordset;
 
     }
 }

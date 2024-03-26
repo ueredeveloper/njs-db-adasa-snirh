@@ -1,13 +1,26 @@
+import exportCsv from "../services/export-csv";
 import TopHandlersSimpleSearch from "./top-handlers-simple-search";
 import TopHandlersSnirhSearch from "./top-handlers-snirh-search";
+
 
 const TopHandlersView = {
     init: function () {
 
-        this.div = $('#top-handlers')
+        this.div = $('#top-handlers');
+        this.searchParams = {
+            uf: ''
+        }
         this.render();
 
-        $('#btnSearch').on('click', function () {
+        $('#btnSearch').on('click', async function () {
+
+            console.log (TopHandlersView.searchParams)
+
+          let _exportCsv = await exportCsv(TopHandlersView.searchParams);
+
+          console.log(_exportCsv)
+
+
 
         })
         $('#checkTypeSearch').change(function (e) {
@@ -26,21 +39,29 @@ const TopHandlersView = {
 
         })
 
+        $(document).on('searchSnirhChanged', (event, params) => {
+            this.searchParams = params;
+
+            console.log('this.search params ', this.searchParams)
+        });
+
+
+
     },
     render: function () {
 
 
         this.div.append(
             `
-            <form class="flex flex-1 flex-row m-2">
+            <div class="flex flex-1 flex-row m-2">
 
             <!-- Busca Simples -->
-            <div class="flex-1 h-20 " id="simpleSearch">
+            <div class="flex-1 h-30 hidden" id="simpleSearch">
             ${TopHandlersSimpleSearch()}
             </div>
         
             <!-- Busca SNIRH -->
-            <div class="flex-1 h-20 bg-gray-100 hidden" id="snirhSearch">
+            <div class="flex-1 h-30 bg-gray-100" id="snirhSearch">
             ${TopHandlersSnirhSearch()}
             </div>
         
@@ -53,9 +74,9 @@ const TopHandlersView = {
               <input 
                 type="button" value="Buscar" 
                 id="btnSearch" 
-                class="h-20 p-2 bg-gray-200 cursor-pointer rouded-lg hover:bg-violet-600 active:bg-violet-700" />
+                class="h-full p-2 bg-gray-200 cursor-pointer rouded-lg hover:bg-violet-600 active:bg-violet-700" />
             </div>
-          </form>
+          </div>
         
             `
 
