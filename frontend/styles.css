@@ -2,46 +2,46 @@
   background-color: rgb(156 163 175);
 }
 
-.list-grants-snirh-tables tr:nth-child(even) {
+.list-snirh tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.list-grants-snirh-tables th {
+.list-snirh th {
   color: #ffffff;
   background-color:#3a55b4
 }
-/*.list-grants-tables tr:nth-child(even) {
+/*.list-adasa tr:nth-child(even) {
   background-color: #197ef1;
 }*/
 
 /** Customizando table interna */
-.list-grants-tables {
+.list-adasa {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.list-grants-tables thead th {
+.list-adasa thead th {
   background-color: #009879;
   color: #ffffff;
   text-align: left;
 }
 
-.list-grants-tables th,
-.list-grants-tables td {
+.list-adasa th,
+.list-adasa td {
     padding: 5px 5px;
 }
-.list-grants-tables tbody tr {
+.list-adasa tbody tr {
     border-bottom: 1px solid #dddddd;
 }
 
-.list-grants-tables tbody tr:nth-of-type(even) {
+.list-adasa tbody tr:nth-of-type(even) {
     background-color: #dbe4f0; /* Updated to a beautiful shade of blue */
 }
-.list-grants-tables tbody tr:nth-of-type(odd) {
+.list-adasa tbody tr:nth-of-type(odd) {
     background-color: white;
 }
-.list-grants-tables tbody tr:last-of-type {
+.list-adasa tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
-.list-grants-tables tbody tr.active-row {
+.list-adasa tbody tr.active-row {
     font-weight: bold;
     color: #009879;
 }
@@ -63,12 +63,12 @@
 }
 
 /* scroolbar width https://www.digitalocean.com/community/tutorials/css-scrollbars */
-#list-grants-snirh-view::-webkit-scrollbar {
+#list-snirh-view::-webkit-scrollbar {
   width: 15px;
   /* width of the entire scrollbar */
 }
 
-#list-grants-snirh-view::-webkit-scrollbar-thumb {
+#list-snirh-view::-webkit-scrollbar-thumb {
   background-color: gray;
   /* color of the scroll thumb */
   /* roundness of the scroll thumb */

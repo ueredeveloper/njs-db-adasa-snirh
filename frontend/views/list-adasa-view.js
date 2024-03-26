@@ -2,7 +2,7 @@ import SubterraneaModel from "../models/subterranea-model";
 import { maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
-const ListGrantsView = {
+const ListAdasaView = {
     init: async function (accordionIndex) {
 
         this.div = $(`#list-grants-view-${accordionIndex}`);
@@ -20,8 +20,8 @@ const ListGrantsView = {
     render: function async() {
 
         let grantsTables = [
-            { className: 'list-grants-tables', id: `list-sub-${this.accordionIndex}`, },
-            { className: 'list-grants-tables hidden', id: `list-sup-${this.accordionIndex}`, }
+            { className: 'list-adasa', id: `list-sub-${this.accordionIndex}`, },
+            { className: 'list-adasa hidden', id: `list-sup-${this.accordionIndex}`, }
         ]
 
         grantsTables.forEach(table => {
@@ -50,7 +50,7 @@ const ListGrantsView = {
         //Cria os cabeçalhos (thead)
         $(`#${id}`).find('thead').append(`
               <tr>
-              ${this.theads.map((th, index) => `<th ${thStyleWidth[index]}>${th}</th>`)}
+              ${this.theads.map((th, index) => `<th class="th-adasa" ${thStyleWidth[index]}>${th}</th>`)}
               </tr>`)
 
     },
@@ -99,7 +99,7 @@ const ListGrantsView = {
                         // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
                         return `<td class="td-bg-${classIndex} sticky right-0 ">${item[1]}</td>`;
                     }
-                    return `<td class="td-grants-data text-center">${item[1]}</td>`
+                    return `<td class="td-adasa text-center">${item[1]}</td>`
                 })
                 }</tr>`
             )
@@ -110,16 +110,16 @@ const ListGrantsView = {
             // Captura tr tag
             let parentRow = $(this).closest('tr');
             // Captura valores da linha  selecionada (td)
-            let tds = parentRow.find('.td-grants-data');
+            let tds = parentRow.find('.td-adasa');
             // Cria objecto a partir da linha selecionada
             let grant = {}
             // Interage com os  valores das linhas e preenche o objeto.
             tds.each(function (index, element) {
                 let textContent = $(element).text();
-                grant[ListGrantsView.theads[index]] = textContent
+                grant[ListAdasaView.theads[index]] = textContent
             });
             // Cria posição no mapa.
-            let position = ListGrantsView.createLatLngPosition(grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE);
+            let position = ListAdasaView.createLatLngPosition(grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE);
 
             // Mostra a posição utilizando a ferramenta marcador (Marker).
             MapView.addMarker(position);
@@ -152,4 +152,4 @@ const ListGrantsView = {
     }
 }
 
-export default ListGrantsView;
+export default ListAdasaView;

@@ -31,7 +31,7 @@ const TabGrantsView = {
             $(this).addClass('active');
         
             // adiciona class hidden (display: none) que remove a tabela do documento.
-            $('.list-grants-snirh-tables').addClass('hidden');
+            $('.list-snirh').addClass('hidden');
             // remove o display: hidden da tabela que se quer mostrar
             // adiciona a tabela na tela com display: block.
             $(`#${tableId}`).removeClass('hidden').addClass('block');

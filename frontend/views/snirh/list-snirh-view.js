@@ -5,9 +5,9 @@ import AccordionView from "./accordion-view";
 
 const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../../utils");
 
-const ListGrantsSNIRHView = {
+const ListSnirhView = {
     init: async function () {
-        this.div = $('#list-grants-snirh-view');
+        this.div = $('#list-snirh-view');
         this.list = await SNIRHGrantsModel.listGrants();
         this.theads = await createTheadsValues(this.list);
         this.render();
@@ -16,8 +16,8 @@ const ListGrantsSNIRHView = {
     render: async function () {
 
         let grantsTables = [
-            { className: 'list-grants-snirh-tables', id: 'list-snirh-sub', },
-            { className: 'list-grants-snirh-tables hidden', id: 'list-snirh-sup', }
+            { className: 'list-snirh', id: 'list-snirh-sub', },
+            { className: 'list-snirh hidden', id: 'list-snirh-sup', }
         ]
 
         grantsTables.forEach(table => {
@@ -48,7 +48,7 @@ const ListGrantsSNIRHView = {
         //Cria os cabeçalhos (thead)
         $(`#${tableId}`).find('thead').append(`
               <tr>
-              ${this.theads.map((th, index) => `<th ${thStyleWidth[index]}>${th}</th>`)}
+              ${this.theads.map((th, index) => `<th class="th-snirh" ${thStyleWidth[index]}>${th}</th>`)}
               </tr>`)
 
     },
@@ -100,7 +100,7 @@ const ListGrantsSNIRHView = {
                         // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
                         return `<td class="td-bg-${classIndex} sticky right-0 ">${item[1]}</td>`;
                     }
-                    return `<td class="td-snirh-grants-data text-center">${item[1]}</td>`
+                    return `<td class="td-snirh text-center">${item[1]}</td>`
                 })
                 }
                 </tr>
@@ -115,13 +115,13 @@ const ListGrantsSNIRHView = {
             // Captura tr tag
             let parentRow = $(this).closest('tr');
             // Captura valores da linha  selecionada (td)
-            let tds = parentRow.find('.td-snirh-grants-data');
+            let tds = parentRow.find('.td-snirh');
             // Cria objecto a partir da linha selecionada
             let grant = {}
             // Interage com os  valores das linhas e preenche o objeto.
             tds.each(function (index, element) {
                 let textContent = $(element).text();
-                grant[ListGrantsSNIRHView.theads[index]] = textContent
+                grant[ListSnirhView.theads[index]] = textContent
             });
             // Cria posição no mapa.
             let position = createLatLngPosition(grant.INT_NU_LATITUDE, grant.INT_NU_LONGITUDE);
@@ -133,4 +133,4 @@ const ListGrantsSNIRHView = {
     }
 }
 
-export default ListGrantsSNIRHView;
+export default ListSnirhView;

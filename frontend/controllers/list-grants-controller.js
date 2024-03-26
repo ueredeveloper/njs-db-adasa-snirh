@@ -1,7 +1,7 @@
 import SubterraneaModel from "../models/subterranea-model";
 import { fetchSubterraneo } from "../services/fetchSubterraneo";
 
-const { default: ListGrantsView } = require("../views/list-grants-view")
+const { default: ListGrantsView } = require("../views/list-adasa-view")
 
 
 const ListGrantsController = {
