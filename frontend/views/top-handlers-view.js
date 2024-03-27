@@ -1,4 +1,6 @@
+import SNIRHGrantsModel from "../models/snirh/snirh-grants-model";
 import exportCsv from "../services/export-csv";
+import ListSnirhView from "./snirh/list-snirh-view";
 import TopHandlersSimpleSearch from "./top-handlers-simple-search";
 import TopHandlersSnirhSearch from "./top-handlers-snirh-search";
 
@@ -10,7 +12,7 @@ const TopHandlersView = {
         this.searchParams = {
             "uf": "DF",
             "dataInicio": "20200101000000",
-            "dataFim": "20220101000000",
+            "dataFim": "20230101000000",
             "idDominialidade": "1",
             "idTipoOutorga": "1",
             "idSituacaoOutorga": "1",
@@ -20,17 +22,21 @@ const TopHandlersView = {
         }
         this.render();
 
-        $('#btnSearch').on('click', async function () {
+        // Add click event listener to the button
+        $('#btnSearch').on('click', async () => {
+            try {
+                // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
+                let { data } = await exportCsv(TopHandlersView.searchParams);
+                // Remove o último ítem vem vazio vazio.
+                data.pop();
+    
+                $(document).trigger("updateSnirhList", [data]);
 
-            console.log(TopHandlersView.searchParams)
+            } catch (error) {
+                console.error(error);
+            }
+        });
 
-            let _exportCsv = await exportCsv(TopHandlersView.searchParams);
-
-            console.log(_exportCsv)
-
-
-
-        })
         $('#checkTypeSearch').change(function (e) {
 
             let isChecked = $(this).is(":checked");
@@ -49,11 +55,7 @@ const TopHandlersView = {
 
         $(document).on('searchSnirhChanged', (event, params) => {
             this.searchParams = params;
-
-            console.log('this.search params ', this.searchParams)
         });
-
-
 
     },
     render: function () {

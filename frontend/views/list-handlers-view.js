@@ -36,6 +36,7 @@ const ListHandlersView = {
                 // Seleciona aqueles cabeçalhos que serão mostrados na tabela simples, com poucas colunas
                 let thIndex = theads.map((element, index) => {
                     // adicionar um sort para o nome, endere vir primeiro...
+
                     if (
                         element === 'INT_CD'
                         || element === 'EMP_NM_EMPREENDIMENTO'
@@ -44,6 +45,8 @@ const ListHandlersView = {
                         || element === 'INT_NU_LONGITUDE'
                         || element === 'EMP_DS_LOGRADOURO'
                         || element === 'INT_CD_ORIGEM'
+                        // adiciona th dos botões
+                        || element === ''
                     ) {
                         return index;
                     }
@@ -52,6 +55,8 @@ const ListHandlersView = {
 
                 // Seleciona aqueles cabeçalhos que serão mostrados na tabela simples, com poucas colunas
                 let thAdasaIndex = theadsAdasa.map((element, index) => {
+
+                    
                     // adicionar um sort para o nome, endere vir primeiro...
                     if (
                         element === 'INT_TIN_CD'
@@ -61,6 +66,8 @@ const ListHandlersView = {
                         || element === 'EMP_NU_CPFCNPJ'
                         || element === 'EMP_NM_USUARIO'
                         || element === 'EMP_DS_LOGRADOURO'
+                        // adiciona th dos botões
+                        || element === ''
                     ) {
                         return index;
                     }

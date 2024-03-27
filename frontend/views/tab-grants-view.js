@@ -22,7 +22,6 @@ const TabGrantsView = {
         $('.tablinks').on('click', function() {
             let tableId = $(this).val();
 
-            console.log(tableId)
             // Remove a classe 'active' de todos os botões
             $('.tablinks').removeClass('active');
             

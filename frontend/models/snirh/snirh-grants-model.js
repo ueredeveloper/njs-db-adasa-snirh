@@ -232,11 +232,10 @@ const SNIRHGrantsModel = {
     },
     list: [],
     
-
     listGrants: async function () {
 
         // Dados para teste
-        let data = {
+        let {data} = {
             "data": [
                 {
                     "INT_CD": "11XX989",
@@ -1177,8 +1176,7 @@ const SNIRHGrantsModel = {
             }
         }
 
-        return await data.data;
-
+        return await data
         // Busca no servidor dados reais.
 
         // let subterraneas = await fetchSubterraneo();
