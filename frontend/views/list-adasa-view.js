@@ -6,6 +6,7 @@ const ListAdasaView = {
     init: async function (accordionIndex) {
 
         this.div = $(`#list-grants-view-${accordionIndex}`);
+        
         this.accordionIndex = accordionIndex;
         // Listagem de outorgas do banco de dados.
         this.list = await SubterraneaModel.listSubterraneas();
@@ -29,7 +30,8 @@ const ListAdasaView = {
             this.div.append(`
             <table class="${table.className} w-full " id=${table.id}>
                 <!-- congela a tag thead -->
-                <thead class="sticky top-0 " >
+                <!-- z-index 9, thead acima do scroll das linhas -->
+                <thead class="sticky top-0" style="z-index:9" >
                 </thead>
                 <tbody></tbody>
             </table>
@@ -74,7 +76,7 @@ const ListAdasaView = {
         
            <!-- adiciona botões -->
            ${item.push(['', `
-            <div class="div-btn flex flex-row justify-around w-24 min-w-24 max-w-24">
+            <div class="div-btn flex flex-row justify-around w-24 min-w-24 max-w-2">
                 <!-- select button -->
                 <button id="btn-selection" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5">
@@ -97,7 +99,7 @@ const ListAdasaView = {
                     // Se for o último index (último valor da array), onde estão os botões, mudar css e assim para congelar linhas no lado direito da tabela
                     if (index === array.length - 1) {
                         // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
-                        return `<td class="td-bg-${classIndex} sticky right-0 ">${item[1]}</td>`;
+                        return `<td class="td-bg-${classIndex} sticky right-0 z-7">${item[1]}</td>`;
                     }
                     return `<td class="td-adasa text-center">${item[1]}</td>`
                 })

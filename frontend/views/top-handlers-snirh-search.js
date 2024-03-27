@@ -3,15 +3,15 @@ const TopHandlersSnirhSearch = () => {
     const $this = $(this); // Store reference to $(this)
 
     $this.params = {
-        uf: 'DF',
-        dataInicio: '',
-        dataFim: '',
-        idDominialidade: '',
-        idTipoOutorga: '',
-        idSituacaoOutorga: '',
-        idFinalidade: '',
-        pagina: 1,
-        tamanhoPagina: 30
+        "uf": "DF",
+        "dataInicio": "20200101000000",
+        "dataFim": "20210101000000",
+        "idDominialidade": "1",
+        "idTipoOutorga": "1",
+        "idSituacaoOutorga": "1",
+        "idFinalidade": "5",
+        "pagina": 1,
+        "tamanhoPagina": 30
     }
 
     // Estado

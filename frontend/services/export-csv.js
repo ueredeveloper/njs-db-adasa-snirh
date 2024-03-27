@@ -1,6 +1,6 @@
 
 const exportCsv = async (params) => {
-    console.log(params)
+
 
      let {
          uf, idFinalidade, dataInicio, dataFim,
@@ -27,13 +27,14 @@ const exportCsv = async (params) => {
             }
         });
 
+        console.log(data)
         const data = await response.json();
 
         return data;
 
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).send('Internal Server Error');
+        //res.status(500).send('Internal Server Error');
     }
 
 

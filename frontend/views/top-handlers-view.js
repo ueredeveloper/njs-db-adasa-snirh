@@ -8,17 +8,25 @@ const TopHandlersView = {
 
         this.div = $('#top-handlers');
         this.searchParams = {
-            uf: ''
+            "uf": "DF",
+            "dataInicio": "20200101000000",
+            "dataFim": "20220101000000",
+            "idDominialidade": "1",
+            "idTipoOutorga": "1",
+            "idSituacaoOutorga": "1",
+            "idFinalidade": "5",
+            "pagina": 1,
+            "tamanhoPagina": 30
         }
         this.render();
 
         $('#btnSearch').on('click', async function () {
 
-            console.log (TopHandlersView.searchParams)
+            console.log(TopHandlersView.searchParams)
 
-          let _exportCsv = await exportCsv(TopHandlersView.searchParams);
+            let _exportCsv = await exportCsv(TopHandlersView.searchParams);
 
-          console.log(_exportCsv)
+            console.log(_exportCsv)
 
 
 
@@ -56,12 +64,12 @@ const TopHandlersView = {
             <div class="flex flex-1 flex-row m-2">
 
             <!-- Busca Simples -->
-            <div class="flex-1 h-30 hidden" id="simpleSearch">
+            <div class="flex-1 h-30 my-10" id="simpleSearch">
             ${TopHandlersSimpleSearch()}
             </div>
         
             <!-- Busca SNIRH -->
-            <div class="flex-1 h-30 bg-gray-100" id="snirhSearch">
+            <div class="flex-1 h-30 my-2 bg-gray-100 hidden" id="snirhSearch">
             ${TopHandlersSnirhSearch()}
             </div>
         
@@ -71,10 +79,14 @@ const TopHandlersView = {
                 <input type="checkbox" class="px-2" id="checkTypeSearch" />
               </div>
         
-              <input 
-                type="button" value="Buscar" 
+              <button 
                 id="btnSearch" 
-                class="h-full p-2 bg-gray-200 cursor-pointer rouded-lg hover:bg-violet-600 active:bg-violet-700" />
+                class="h-full p-4 bg-gray-200 cursor-pointer rounded-lg hover:bg-violet-600 active:bg-violet-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+
+                </button>
             </div>
           </div>
         
