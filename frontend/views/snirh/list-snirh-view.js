@@ -3,7 +3,7 @@ import SNIRHGrantsModel from "../../models/snirh/snirh-grants-model";
 import MapView from "../map-view";
 import AccordionContent from "./accordion-content";
 
-const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../../utils");
+const { createTheadsValues, maxLengthOfStrings, createLatLngPosition, sortTbodyLikeThead } = require("../../utils");
 
 const ListSnirhView = {
     init: async function () {
@@ -13,8 +13,12 @@ const ListSnirhView = {
         this.render();
 
         $(document).on("updateSnirhList", async (event, data) => {
+
+            
             // Update the list with the received data
             this.list = await data;
+
+            console.log(this.list)
 
             // Re-render the view
             this.renderTBodys(this.list)
@@ -67,9 +71,16 @@ const ListSnirhView = {
 
         let tbody = $('#list-snirh-sub').find('tbody')
 
+        tbody.empty();
+
         let keysValues = await list.map(item => {
             return Object.entries(item);
         });
+        console.log(keysValues)
+
+        keysValues = sortTbodyLikeThead(keysValues, this.theads);
+
+        console.log(keysValues)
 
         // preenchimento da tbody tag
         keysValues.map((item, index) => {

@@ -35,4 +35,20 @@ const createLatLngPosition = (latitude, longitude) => {
 
 };
 
-export { maxLengthOfStrings, createTheadsValues, createLatLngPosition }
+const sortTbodyLikeThead = (tbodys, theads) => {
+
+    return tbodys.map(tbody => {
+        let sortedTbody = [];
+        theads.forEach(key => {
+          let foundItem = tbody.find(item => item[0] === key);
+          if (foundItem) {
+            sortedTbody.push(foundItem);
+          }
+        });
+        return sortedTbody;
+      });
+  }
+
+
+
+export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, sortTbodyLikeThead }
