@@ -11,7 +11,7 @@ const TopHandlersSnirhSearch = () => {
         "idSituacaoOutorga": "1",
         "idFinalidade": "5",
         "pagina": 1,
-        "tamanhoPagina": 30
+        "tamanhoPagina": 10000
     }
 
     // Estado

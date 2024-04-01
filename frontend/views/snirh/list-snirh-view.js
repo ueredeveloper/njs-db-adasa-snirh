@@ -65,8 +65,12 @@ const ListSnirhView = {
     },
     renderTBodys: async function (list) {
 
-        let tbody = $('#list-snirh-sub').find('tbody')
+        let tbody = $('#list-snirh-sub').find('tbody');
 
+        // Se houver dados na tabela, limpar.
+        tbody.empty();
+
+        // Capturar key e value da lista.
         let keysValues = await list.map(item => {
             return Object.entries(item);
         });
@@ -115,7 +119,7 @@ const ListSnirhView = {
                 })
                 }
                 </tr>
-                    ${AccordionContent(item.length - 1, index)}
+                    ${AccordionContent(item.length - 1, index, item)}
                 </tr>
                 `
             )

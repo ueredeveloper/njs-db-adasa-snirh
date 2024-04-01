@@ -1,12 +1,19 @@
 import ListGrantsController from "../../controllers/list-grants-controller";
 
-const AccordionContent = (colspanValue, accordionIndex) => {
+const AccordionContent = (colspanValue, accordionIndex, item) => {
+
+    // Converte array em objeto (outorga)
+    const snirhGrant = Object.fromEntries(item);
 
     const $this = $(this);
 
     // Gera id único para o botão
     let btnId = `btn-edit-${accordionIndex}`;
 
+    // Talvez não seja necessário remover os listners dos botões, no momento está funcionando.
+    function removeButtonEventListener() {
+        $(`#${btnId}`).off('click'); // Remove click event listener
+    }
 
     $(document).ready(function () {
 
@@ -47,7 +54,7 @@ const AccordionContent = (colspanValue, accordionIndex) => {
             }
             if (!this.ListGrantsController) {
 
-                this.ListGrantsController = new ListGrantsController.init(accordionIndex)
+                this.ListGrantsController = new ListGrantsController.init(accordionIndex, snirhGrant)
             }
 
         });

@@ -2,8 +2,8 @@
 
 import selectClosestPoints from "../services/select-closest-points";
 
-const SubterraneaModel = {
-    subterranea: {
+const SuperficialModel = {
+    superficial: {
         "INT_TIN_CD": 1,
         "INT_TSU_CD": 2,
         "INT_TSI_CD": "",
@@ -12,9 +12,9 @@ const SubterraneaModel = {
     },
     list:[],
 
-    listSubterraneas: async function () {
+    selectClosestPoints : async function (latitude, longitude) {
         
-
+/*
         const data = {
             "recordsets": [
                 [
@@ -112,27 +112,19 @@ const SubterraneaModel = {
                 ]
             ]
         };
-        
-        console.log(data);
+        */
+        //console.log(data);
         
 
-        return data.recordsets[0];
+        //return data.recordsets[0];
 
-        //let subterraneas = await fetchSubterraneo();
+        let {recordset} = await selectClosestPoints(latitude, longitude)
 
-       // return subterraneas.recordset;
+        console.log('superficial model sel clo points',recordset)
 
-    },
-    selectClosestPoints : async function (latitude, longitude) {
-  
-        
-                let {recordset} = await selectClosestPoints(latitude, longitude)
+        return recordset;
 
-                console.log('subterranea model sel clo points',recordset)
-        
-                return recordset;
-        
-            }
+    }
 }
 
-export default SubterraneaModel;
+export default SuperficialModel;
