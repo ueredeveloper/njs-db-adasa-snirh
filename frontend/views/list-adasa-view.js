@@ -3,13 +3,13 @@ import { maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
 const ListAdasaView = {
-    init: async function (accordionIndex) {
+    init: async function (accordionIndex, latitude, longitude) {
 
         this.div = $(`#list-grants-view-${accordionIndex}`);
-        
+
         this.accordionIndex = accordionIndex;
         // Listagem de outorgas do banco de dados.
-        this.list = await SubterraneaModel.listSubterraneas();
+        this.list = await SubterraneaModel.selectClosestPoints(latitude, longitude)
         // Valores das colunas de cabeçalho da lista de outorgas.
         this.theads = await this.createTheadsValues();
         // Renderização da tabela com cabeçalho.
@@ -17,7 +17,7 @@ const ListAdasaView = {
         // Renderização das outorgas.
         this.renderSubterranea(accordionIndex);
     },
-    
+
     render: function async() {
 
         let grantsTables = [
@@ -129,6 +129,8 @@ const ListAdasaView = {
         });
     },
     createTheadsValues: async function () {
+
+        console.log('teste: list adasa ', this.list)
 
         // Captura o primeiro objeto com os valores (key, value)
         let keyValues = Object.entries(await this.list[0]);

@@ -1,6 +1,8 @@
 const querySelectSubterraneaForInsert = (ids) => {
 
-    let paramsIds = ids.join(',')
+    let paramsIds = ids.join(',');
+
+    console.log('ids: ', ids, 'in sql params: ', paramsIds)
     
     return `
         use srh;

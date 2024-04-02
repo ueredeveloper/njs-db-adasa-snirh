@@ -19,9 +19,8 @@ const querySelectClosestPoints = (latitude, longitude) => {
         FROM [gisadmin].[INTERFERENCIA] A
         INNER JOIN gisadmin.EMPREENDIMENTO B ON A.ID_EMPREENDIMENTO = B.ID_EMPREENDIMENTO
         INNER JOIN gisadmin.USUARIO C ON B.ID_USUARIO = C.ID_USUARIO
-    
-        
-    ) AS SubQuery
-    ORDER BY DISTANCE`
+        ) AS SubQuery
+        ORDER BY DISTANCE`
 }
+
 module.exports = querySelectClosestPoints;

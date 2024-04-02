@@ -18,59 +18,41 @@ const config = {
     server: ADASA_HOST,
     database: ADASA_DATABASE,
     trustServerCertificate: true,
-};
-
-
-// simple movie average
+};/**
+    Captura os ponto mais próximos do ponto selecionado.
+*/
 router.get("/select-closest-points", async (req, res) => {
 
     let { latitude, longitude } = req.query;
-
-    console.log(latitude, longitude);
-
-    let closestPoints;
-
+    console.log('backend - select-closest-points: ', latitude, longitude)
     sql.connect(config, async function (err) {
 
         if (err) console.log(err);
 
-        let query1 = await querySelectClosestPoints(latitude, longitude);
+        try {
 
-        console.log(query1)
-        // criar requirisão
-        var request = new sql.Request();
+            const request = new sql.Request();
+            // Captura os pontos mais próximos.
+            let query1 = await querySelectClosestPoints(latitude, longitude);
 
-       
+            let {recordset} = await request.query(query1);
+            // Captura as outorgas no modelo da Ana utilizando os ids dos pontos mais próximos.
+            let query2 = await querySelectSubterraneaForInsert(recordset.map(c => c.ID_INTERFERENCIA));
 
-        request.query(query1, async function (err, recordset) {
-            if (err) console.log(err);
+            console.log(query2)
 
-            //res.send(recordset)
-            console.log(recordset)
-            closestPoints = await recordset;
+            let points = await request.query(query2);
 
-        });
+            res.send(points);
 
-       
+            sql.close();
 
-      //  let query2 = querySelectSubterraneaForInsert()
-        
-       /* request.query(query, async function (err, recordset) {
-            if (err) console.log(err);
-
-            //res.send(recordset)
-            closestPoints = await recordset;
-
-            querySelectSubterraneaForInsert()
-
-        });*/
+        } catch (err) {
+            console.error("Error:", error);
+        }
 
     });// fim sql connect
 
-    console.log(closestPoints)
-
-
-    //res.send("fetch subterraneo - services running");
 });
 
 module.exports = router;
