@@ -9,7 +9,9 @@ const TabGrantsView = {
 
         let tabButtons = [
             { id: 'btn-list-sub', innerHTML: 'Subterrâneo', value: 'list-snirh-sub' },
-            { id: 'btn-list-sup', innerHTML: 'Superficial', value: 'list-snirh-sup'}
+            { id: 'btn-list-sup', innerHTML: 'Superficial', value: 'list-snirh-sup'},
+            { id: 'btn-list-lan', innerHTML: 'Lançamento', value: 'list-snirh-lan'},
+            { id: 'btn-list-bar', innerHTML: 'Barragem', value: 'list-snirh-bar'},
         ]
         tabButtons.forEach(button => this.div.append(`
             <button 
@@ -34,6 +36,9 @@ const TabGrantsView = {
             // remove o display: hidden da tabela que se quer mostrar
             // adiciona a tabela na tela com display: block.
             $(`#${tableId}`).removeClass('hidden').addClass('block');
+
+            $(document).trigger('showTableById', tableId);
+
         });
 
        

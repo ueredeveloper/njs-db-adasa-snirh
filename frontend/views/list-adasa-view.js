@@ -22,6 +22,7 @@ const ListAdasaView = {
 
         let grantsTables = [
             { className: 'list-adasa', id: `list-sub-${this.accordionIndex}`, },
+            // hidden: não mostrar no  início, somente mostrar as outorgas subterrâneas
             { className: 'list-adasa hidden', id: `list-sup-${this.accordionIndex}`, }
         ]
 

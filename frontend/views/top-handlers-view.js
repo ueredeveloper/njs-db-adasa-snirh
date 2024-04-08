@@ -11,7 +11,7 @@ const TopHandlersView = {
         this.div = $('#top-handlers');
         this.searchParams = {
             "uf": "DF",
-            "dataInicio": "20200101000000",
+            "dataInicio": "20180101000000",
             "dataFim": "20230101000000",
             "idDominialidade": "1",
             "idTipoOutorga": "1",
@@ -27,10 +27,10 @@ const TopHandlersView = {
             try {
                 // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
                 let { data } = await exportCsv(TopHandlersView.searchParams);
-                // Remove o último ítem vem vazio vazio.
+                // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
                 data.pop();
     
-                $(document).trigger("updateSnirhList", [data]);
+                $(document).trigger("updateSnirhTables", [data]);
 
             } catch (error) {
                 console.error(error);

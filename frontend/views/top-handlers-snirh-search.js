@@ -4,7 +4,7 @@ const TopHandlersSnirhSearch = () => {
 
     $this.params = {
         "uf": "DF",
-        "dataInicio": "20200101000000",
+        "dataInicio": "20180101000000",
         "dataFim": "20230101000000",
         "idDominialidade": "1",
         "idTipoOutorga": "1",

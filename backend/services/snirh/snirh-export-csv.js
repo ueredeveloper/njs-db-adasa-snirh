@@ -34,11 +34,17 @@ router.get('/snirh-export-csv', async (req, res) => {
       'Authorization': SNIRH_TOKEN,
     }
   })
-    .then(response => response.text())
-    .then(text => papa.parse(text, {
+    .then(response => {
+      let text = response.text()
+      return text;
+    })
+    .then(text => {
+
+      //retorna conversão de csv para json.
+      return papa.parse(text, {
       header: true,
       delimiter: ";"
-    }))
+    })})
     .catch(err => console.log(err));
 
 
