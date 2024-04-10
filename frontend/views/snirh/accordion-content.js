@@ -5,10 +5,10 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
     // Converte array em objeto (outorga)
     const snirhGrant = Object.fromEntries(item);
 
-    const $this = $(this);
+    //const $this = $(this);
 
     // Gera id único para o botão
-    let btnId = `btn-edit-${accordionIndex}`;
+    let btnId = `btn-edit-${item[0][1]}`; // item[0][1] = ['INT_CD', '926053'] = 926053
 
     // Talvez não seja necessário remover os listners dos botões, no momento está funcionando.
     function removeButtonEventListener() {
@@ -18,14 +18,14 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
     $(document).ready(function () {
 
         // Ìcones dos botões
-        $(`#svgMinus${accordionIndex}`).html(`
+        $(`#svg-minus-${item[0][1]}`).html(`
             <svg 
                 class="w-4 h-4" 
                 xmlns="http://www.w3.org/2000/svg" 
                 fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
             </svg>`);
-        $(`#svgPlus${accordionIndex}`).html(`
+        $(`#svg-plus-${item[0][1]}`).html(`
             <svg 
                 class="w-4 h-4" 
                 xmlns="http://www.w3.org/2000/svg" fill="none" 
@@ -39,8 +39,8 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
 
             event.preventDefault();
 
-            $(`#svgPlus${accordionIndex}`).toggle();
-            $(`#svgMinus${accordionIndex}`).toggle();
+            $(`#svg-plus-${item[0][1]}`).toggle();
+            $(`#svg-minus-${item[0][1]}`).toggle();
 
             $(this).toggleClass('active');
 
@@ -53,8 +53,7 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
                 panel.show();
             }
             if (!this.ListGrantsController) {
-
-                this.ListGrantsController = new ListGrantsController.init(accordionIndex, snirhGrant)
+                this.ListGrantsController = new ListGrantsController.init(item[0][1], snirhGrant)
             }
 
         });
@@ -63,11 +62,11 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
 
     return `<td colspan="${colspanValue}" class="td-search border-0 p-0">
                 <button id="${btnId}" class="accordion cursor-pointer w-full">
-                    <span id="svgPlus${accordionIndex}"></span>
-                    <span id="svgMinus${accordionIndex}" style="display:none;"></span>
+                    <span id="svg-plus-${item[0][1]}"></span>
+                    <span id="svg-minus-${item[0][1]}" style="display:none;"></span>
                 </button>
                 <!-- Div de abertura da função acordeon -->
-                <div id="list-grants-view-${accordionIndex}" 
+                <div id="list-grants-view-${item[0][1]}" 
                     class="panel overflow-auto h-48 top-0 hidden m-2">
                 </div>
             </td>

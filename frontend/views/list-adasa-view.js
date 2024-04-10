@@ -131,8 +131,6 @@ const ListAdasaView = {
     },
     createTheadsValues: async function () {
 
-        console.log('teste: list adasa ', this.list)
-
         // Captura o primeiro objeto com os valores (key, value)
         let keyValues = Object.entries(await this.list[0]);
         // Separa os valores `key` para criar os cabeçalhos (thead)

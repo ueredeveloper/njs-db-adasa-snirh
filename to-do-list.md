@@ -17,6 +17,8 @@
 - [] Criar manipuladores da planilha.
     Eu criei a div com id `list-handlers` para isso.
 
+## 2024-04-09
+- [] Melhorar ids de botões no component `AccordionView`.
 
 
 

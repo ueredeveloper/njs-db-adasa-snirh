@@ -1,7 +1,5 @@
 const selectClosestPoints = async (latitude, longitude) => {
 
-    console.log(latitude,longitude)
-    
     // Constructing the URL with parameters
     let url = new URL('http://localhost:3000/services/select-closest-points');
     url.searchParams.append('latitude', latitude);

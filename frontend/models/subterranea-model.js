@@ -113,8 +113,6 @@ const SubterraneaModel = {
             ]
         };
         
-        console.log(data);
-        
 
         return data.recordsets[0];
 

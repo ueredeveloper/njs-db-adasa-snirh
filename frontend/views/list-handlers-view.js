@@ -1,11 +1,24 @@
 const ListHandlersView = {
     init: function () {
         this.div = $('#list-handlers');
+        
+        this.tables = [
+            { class: 'list-snirh', id: 'list-snirh-sub', tipo: '1', subtipo: '2' },
+            { class: 'list-snirh hidden', id: 'list-snirh-sup', tipo: '1', subtipo: '1' },
+            { class: 'list-snirh hidden', id: 'list-snirh-lan', tipo: '2', subtipo: '1' },
+            { class: 'list-snirh hidden', id: 'list-snirh-bar', tipo: '3', subtipo: '1' }
+        ];
 
         this.render();
-        $('#toggleColumns').change(function (e) {
+
+
+        $('#toggle-columns').change(function (e) {
 
             var isChecked = $(this).is(":checked");
+
+
+
+            
             // ListSnirhView
             let tagThead = $('#list-snirh-sub').find('thead');
             let tagTbody = $('#list-snirh-sub').find('tbody');
@@ -15,6 +28,7 @@ const ListHandlersView = {
 
             // ListAdasaView
             let tagAdasaThead = $('#list-snirh-sub').find('table').find('thead');
+    
             let tagAdasaTbody = $('#list-snirh-sub').find('table').find('tbody');
 
             let tagAdasaTr = tagAdasaThead.find('tr');
@@ -22,7 +36,7 @@ const ListHandlersView = {
 
             if (isChecked) {
 
-    
+
                 //Captura todos os textos do cabeçalho
                 let theads = tagsThs.map(function (index, th) {
                     return $(th).text();
@@ -56,7 +70,7 @@ const ListHandlersView = {
                 // Seleciona aqueles cabeçalhos que serão mostrados na tabela simples, com poucas colunas
                 let thAdasaIndex = theadsAdasa.map((element, index) => {
 
-                    
+
                     // adicionar um sort para o nome, endere vir primeiro...
                     if (
                         element === 'INT_TIN_CD'
@@ -76,7 +90,7 @@ const ListHandlersView = {
 
                 // Adiciona a última coluna, dos botões
                 thIndex.push(theads.length - 1)
-                thAdasaIndex.push(theadsAdasa.length-1)
+                thAdasaIndex.push(theadsAdasa.length - 1)
 
 
                 // Busca os componentes necessários para mostrar as colunas específicas.
@@ -84,19 +98,19 @@ const ListHandlersView = {
                 thTrs.each(function (index, tr) {
                     // Buscar as ths apenas com a classe `th-snirh`, pois há outras ths da outra tabela inserida.
                     let tds = $(tr).find('.th-snirh');
-    
+
                     tds.each(function (index, th) {
                         if (!thIndex.includes(index)) { // Check if the current index is in the list
                             $(th).css("display", "none");
                         }
                     });
                 });
-    
+
                 let tbTrs = tagTbody.find('tr');
                 tbTrs.each(function (index, tr) {
                     // Buscar as tds apenas com a classe `td-snirh`, pois há outras tds da outra tabela inserida.
                     let tds = $(tr).find('.td-snirh');
-    
+
                     tds.each(function (index, td) {
                         if (!thIndex.includes(index)) { // Check if the current index is in the list
                             $(td).css("display", "none");
@@ -109,19 +123,19 @@ const ListHandlersView = {
                 thAdasaTrs.each(function (index, tr) {
                     // Buscar as ths apenas com a classe `th-snirh`, pois há outras ths da outra tabela inserida.
                     let tds = $(tr).find('.th-adasa');
-    
+
                     tds.each(function (index, th) {
                         if (!thAdasaIndex.includes(index)) { // Check if the current index is in the list
                             $(th).css("display", "none");
                         }
                     });
                 });
-    
+
                 let tbAdasaTrs = tagAdasaTbody.find('tr');
                 tbAdasaTrs.each(function (index, tr) {
                     // Buscar as tds apenas com a classe `td-snirh`, pois há outras tds da outra tabela inserida.
                     let tds = $(tr).find('.td-adasa');
-    
+
                     tds.each(function (index, td) {
                         if (!thAdasaIndex.includes(index)) { // Check if the current index is in the list
                             $(td).css("display", "none");
@@ -134,28 +148,28 @@ const ListHandlersView = {
                 let thTrs = tagThead.find('tr');
                 thTrs.each(function (index, tr) {
                     let tds = $(tr).find('th');
-    
+
                     tds.each(function (index, th) {
-                       
-                            $(th).css("display", "table-cell");
-                       
+
+                        $(th).css("display", "table-cell");
+
                     });
                 });
-    
+
                 let tbTrs = tagTbody.find('tr');
                 tbTrs.each(function (index, tr) {
                     let tds = $(tr).find('td');
-    
+
                     tds.each(function (index, td) {
-                       
-                            $(td).css("display", "table-cell");
-                       
+
+                        $(td).css("display", "table-cell");
+
                     });
                 });
 
             }
 
-           
+
 
 
         })
@@ -164,8 +178,8 @@ const ListHandlersView = {
     render() {
         this.div.append(`
         <form>
-            <input type="checkbox" id="toggleColumns">
-            <label for="toggleColumns"> Alternar colunas </label>
+            <input type="checkbox" id="toggle-columns">
+            <label for="toggle-columns"> Alternar colunas </label>
         </form>
             `)
     }

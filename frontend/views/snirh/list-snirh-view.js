@@ -82,12 +82,8 @@ const ListSnirhView = {
 
             let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo)
 
-            console.log('render theadss ', this.list)
-
             // Descreve tamanho mínimo de cada coluna de acordo com o tamanho da string do cabeçalho ou valor (th ou td).
             let minLenghts = maxLengthOfStrings(list);
-
-            console.log(minLenghts, list)
 
             // Regula largura da coluna  de acordo com o tamanho do tamanho do dado (string)
             let thStyleWidth = minLenghts[0].map(ml => `style="min-width:${ml}em"`);
@@ -102,9 +98,14 @@ const ListSnirhView = {
     },
     renderContentsTables: async function () {
 
+        // Para utilizar nas tabs com botões (Superficial, Subterrâneo, ect). Se o tamanho for maior que zero, mostraráo o botão, ou se zero, não mostrará.
+        let displayTabButtons = []
+
         this.tables.forEach(table => {
 
-            let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo)
+            let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
+
+            displayTabButtons.push({id: table.id, value: table.id, len: list.length})
 
             // Só criar theads de listas com resultado, listas vazias não.
             if (list.length !== 0) {
@@ -204,7 +205,9 @@ const ListSnirhView = {
 
                 });
             }
-        })
+        });
+
+        $(document).trigger("displayTabButtons", [displayTabButtons]);
 
     }
 }

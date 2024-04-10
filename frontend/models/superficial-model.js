@@ -120,8 +120,6 @@ const SuperficialModel = {
 
         let {recordset} = await selectClosestPoints(latitude, longitude)
 
-        console.log('superficial model sel clo points',recordset)
-
         return recordset;
 
     }
