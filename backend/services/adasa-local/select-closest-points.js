@@ -24,7 +24,7 @@ const config = {
 router.get("/select-closest-points", async (req, res) => {
 
     let { latitude, longitude } = req.query;
-    console.log('backend - select-closest-points: ', latitude, longitude)
+
     sql.connect(config, async function (err) {
 
         if (err) console.log(err);
@@ -38,8 +38,6 @@ router.get("/select-closest-points", async (req, res) => {
             let {recordset} = await request.query(query1);
             // Captura as outorgas no modelo da Ana utilizando os ids dos pontos mais próximos.
             let query2 = await querySelectSubterraneaForInsert(recordset.map(c => c.ID_INTERFERENCIA));
-
-            console.log(query2)
 
             let points = await request.query(query2);
 

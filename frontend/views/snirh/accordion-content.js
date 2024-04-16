@@ -61,7 +61,7 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
     });
 
     return `<td colspan="${colspanValue}" class="td-search border-0 p-0">
-                <button id="${btnId}" class="accordion cursor-pointer w-full">
+                <button id="${btnId}" class="accordion cursor-pointer w-full focus:bg-violet-500">
                     <span id="svg-plus-${item[0][1]}"></span>
                     <span id="svg-minus-${item[0][1]}" style="display:none;"></span>
                 </button>

@@ -1,9 +1,7 @@
 const queryInsertSuperficial = (ids)=> {
     
-
     let paramsIds = ids.join(',')
 
-    console.log('query in sup paramsIds ', paramsIds)
     return `
         USE SRH;
 

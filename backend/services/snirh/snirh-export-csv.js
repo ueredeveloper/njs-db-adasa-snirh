@@ -5,6 +5,7 @@ const csv = require('csv-parser');
 const papa = require('papaparse');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const axios = require('axios');
+const { readFile, readSnirhFile, writeSnirhFile } = require('../../utils/read-write-and-verify-file');
 
 const router = express.Router();
 
@@ -39,13 +40,44 @@ router.get('/snirh-export-csv', async (req, res) => {
       return text;
     })
     .then(text => {
-
       //retorna conversão de csv para json.
       return papa.parse(text, {
-      header: true,
-      delimiter: ";"
-    })})
+        header: true,
+        delimiter: ";"
+      })
+    })
     .catch(err => console.log(err));
+
+  /*
+  console.log('save snirh-files.json')
+  fs.writeFile('./backend/data/snirh-files.json', JSON.stringify(response), (err) => {
+    if (err) throw err;
+  })*/
+
+  readSnirhFile((err, existingData) => {
+    if (err) {
+      console.error('Error reading file:', err);
+      return;
+    }
+
+    let { data } = response;
+
+    // retirar último resultado vazio, por causa da conversão csv para json.
+    //data.pop();
+
+    // Unir arrays
+    let newExistingData = existingData.map(item=> item);
+    let mergedArray = newExistingData.concat(data);
+
+    // Remove duplicates based on INT_CD
+    let uniqueArray = Object.values(mergedArray.reduce((acc, obj) => {
+      acc[obj.INT_CD] = obj;
+      return acc;
+    }, {}));
+
+    writeSnirhFile(uniqueArray)
+
+  });
 
 
   res.send(response);

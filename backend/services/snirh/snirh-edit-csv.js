@@ -4,8 +4,7 @@ router.get('/atualizar', async (req, res) => {
     let url = "https://www.snirh.gov.br/cnarh40_treinamento/rest/api/atualizar?uf=DF";
   
     let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
-    console.log(SNIRH_TOKEN)
-  
+
     let file = './csv/insercao-chatgpt-null.csv';
     //let file = './csv/edicao.csv';
     // ler o arquivo csv

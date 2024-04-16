@@ -29,6 +29,10 @@ const TopHandlersView = {
                 let { data } = await exportCsv(TopHandlersView.searchParams);
                 // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
                 data.pop();
+
+
+                
+
     
                 $(document).trigger("updateSnirhTables", [data]);
 
