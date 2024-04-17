@@ -130,4 +130,4 @@ dist
 .pnp.*
 
 # Dados do SNIRH
-/data
+backend/data/snirh-files.json

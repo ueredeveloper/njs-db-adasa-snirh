@@ -66,16 +66,38 @@ router.get('/snirh-export-csv', async (req, res) => {
     //data.pop();
 
     // Unir arrays
-    let newExistingData = existingData.map(item=> item);
+    /*let newExistingData = existingData.map(item=> item);
     let mergedArray = newExistingData.concat(data);
 
     // Remove duplicates based on INT_CD
     let uniqueArray = Object.values(mergedArray.reduce((acc, obj) => {
       acc[obj.INT_CD] = obj;
       return acc;
-    }, {}));
+    }, {}));*/
 
-    writeSnirhFile(uniqueArray)
+    /*
+    * Remove items buscados para depois inserir novamente. Assim os ítems buscados sempre serão atualizados ao salvar neste banco local
+    */
+    function removeValue(value, index, arr) {
+      // Revome novos valores buscados
+      return data.map(item => {
+  
+        if (value.INT_CD === item.INT_CD) {
+          // remoção se existente no json
+          arr.splice(index, 1);
+          return true;
+        }
+        return false;
+      })
+    }
+
+    // Filtrar retirando os valores buscados.
+    let newData = existingData.filter(removeValue)
+    // Atualização com os novos valores buscados.
+    newData.push(data.map(d=>d));
+
+    // Escrita do banco de dados com valores antigos não solicitados e os novos solicitados.
+    writeSnirhFile(newData)
 
   });
 
