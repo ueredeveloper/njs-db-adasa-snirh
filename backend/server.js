@@ -7,7 +7,8 @@ const cors = require('cors');
 const { 
   fetchSubterraneo, selectSubInsertModel, 
   snirhExportJson, snirhExportCsv, 
-  selectClosestPoints, selectSupInsert } = require('./services');
+  selectClosestPoints, selectSupInsert, 
+  selectDesktopDb} = require('./services');
 
 
   
@@ -23,6 +24,7 @@ app.use('/services', snirhExportJson);
 app.use('/services', snirhExportCsv);
 app.use('/services', selectClosestPoints);
 app.use('/services', selectSupInsert);
+app.use('/services', selectDesktopDb);
 
 // Create a new proxy server instance
 const proxy = httpProxy.createProxyServer();
