@@ -19,7 +19,7 @@ const ListHandlersView = {
 
                 // ListSnirhView
                 let tagThead = $(`#${element.id}`).find('thead');
-                console.log('tag head ', tagThead)
+            
                 let tagTbody = $(`#${element.id}`).find('tbody');
 
                 let tagTr = tagThead.find('tr');

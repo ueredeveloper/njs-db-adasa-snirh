@@ -1,9 +1,8 @@
-import SNIRHGrantsModel from "../models/snirh/snirh-grants-model";
+
 import exportCsv from "../services/export-csv";
-import ListSnirhView from "./snirh/list-snirh-view";
+import selectByDesktopDb from "../services/select-by-desktop-db";
 import TopHandlersSimpleSearch from "./top-handlers-simple-search";
 import TopHandlersSnirhSearch from "./top-handlers-snirh-search";
-
 
 const TopHandlersView = {
     init: function () {
@@ -24,21 +23,43 @@ const TopHandlersView = {
 
         // Add click event listener to the button
         $('#btn-search').on('click', async () => {
-            try {
-                // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
-                let { data } = await exportCsv(TopHandlersView.searchParams);
-                // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
-                data.pop();
 
+            // Verifica se a busca é simples ou pelo SNIRH.
+            let isChecked = $('#checkTypeSearch').is(":checked");
 
-                
+            if (isChecked) {
 
-    
-                $(document).trigger("updateSnirhTables", [data]);
+                console.log('if is checked ', isChecked)
 
-            } catch (error) {
-                console.error(error);
+                try {
+                    // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
+                    let { data } = await exportCsv(TopHandlersView.searchParams);
+                    // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
+                    data.pop();
+
+                    $(document).trigger("updateSnirhTables", [data]);
+
+                } catch (error) {
+                    console.error(error);
+                }
+
+            } else {
+
+                console.log('else ischecked, simple search ')
+                try {
+
+                    let search = $('#inputSearch').val();
+
+                    let data = await selectByDesktopDb(search);
+
+                    $(document).trigger("updateSnirhTables", [data]);
+
+                } catch (error) {
+                    console.log('simple search error: ', error)
+                }
+
             }
+
         });
 
         $('#checkTypeSearch').change(function (e) {
@@ -63,7 +84,6 @@ const TopHandlersView = {
 
     },
     render: function () {
-
 
         this.div.append(
             `

@@ -123,11 +123,8 @@ const SubterraneaModel = {
     },
     selectClosestPoints : async function (latitude, longitude) {
   
-        
                 let {recordset} = await selectClosestPoints(latitude, longitude)
 
-                console.log('subterranea model sel clo points',recordset)
-        
                 return recordset;
         
             }

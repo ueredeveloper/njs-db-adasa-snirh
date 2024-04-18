@@ -15,6 +15,9 @@ const MapModel = {
             position: position,
             map: this.map
         });
+    }, 
+    setMapCenter : function (position){
+        this.map.setCenter(position)
     }
 };
 

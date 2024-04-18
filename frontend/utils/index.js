@@ -1,5 +1,4 @@
 const maxLengthOfStrings = (array) => {
-    console.log('metho max le ', array)
 
     let maxLengths = array.map(record => {
         let max_lengths = [];

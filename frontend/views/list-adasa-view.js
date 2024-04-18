@@ -126,6 +126,7 @@ const ListAdasaView = {
 
             // Mostra a posição utilizando a ferramenta marcador (Marker).
             MapView.addMarker(position);
+            MapView.setMapCenter(position);
 
         });
     },
