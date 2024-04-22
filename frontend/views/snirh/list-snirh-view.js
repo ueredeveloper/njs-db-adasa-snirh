@@ -24,18 +24,14 @@ const ListSnirhView = {
             // Update the list with the received data
             this.list = await data;
 
-            //this.renderTheads()
-
             // Re-render the view
-            this.renderContentsTables()
+            this.renderContentsTables();
         });
 
         $(document).on('showTableById', (event, tableId) => {
             this.tableId = tableId;
 
-            //this.renderTheads()
-
-            this.renderContentsTables()
+            this.renderContentsTables();
         });
 
 
@@ -106,6 +102,19 @@ const ListSnirhView = {
             let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
 
             displayTabButtons.push({id: table.id, value: table.id, len: list.length})
+
+            /* list => A lista a filtrada por tipo de outorga, subterrânea, superficial etc: 
+            Exemplo:   [ 
+                    {
+                        "INT_CD": "926009",
+                        "INT_TIN_DS": "Barragem",
+                        "INT_TIN_CD": "3",
+                        "INT_TSU_DS": "Superficial",
+                        "INT_TSU_CD": "1",
+                    },
+                    ...
+                ]
+            */
 
             // Só criar theads de listas com resultado, listas vazias não.
             if (list.length !== 0) {
@@ -205,6 +214,9 @@ const ListSnirhView = {
                     MapView.setMapCenter(position)
 
                 });
+            } else {
+                // Limpa a tabela na parte tbody quando não houver outorga
+                $(`#${table.id}`).find('tbody').empty()
             }
         });
 

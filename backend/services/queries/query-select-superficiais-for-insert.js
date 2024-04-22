@@ -1,5 +1,5 @@
-const queryInsertSuperficial = (ids)=> {
-    
+const querySelectSuperficiaisForInsert = (ids)=> {
+
     let paramsIds = ids.join(',')
 
     return `
@@ -432,4 +432,4 @@ const queryInsertSuperficial = (ids)=> {
     order by A.DT_PUBLICACAO;
 `
 }
-module.exports = queryInsertSuperficial;
+module.exports = querySelectSuperficiaisForInsert;

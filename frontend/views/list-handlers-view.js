@@ -51,12 +51,13 @@ const ListHandlersView = {
     
                         if (
                             element === 'INT_CD'
+                            || element === 'EMP_NM_USUARIO'
                             || element === 'EMP_NM_EMPREENDIMENTO'
                             || element === 'EMP_NU_CPFCNPJ'
                             || element === 'INT_NU_LATITUDE'
                             || element === 'INT_NU_LONGITUDE'
                             || element === 'EMP_DS_LOGRADOURO'
-                            || element === 'INT_CD_ORIGEM'
+                            
                             // adiciona th dos botões
                             || element === ''
                         ) {
@@ -72,11 +73,11 @@ const ListHandlersView = {
                         // adicionar um sort para o nome, endere vir primeiro...
                         if (
                             element === 'INT_TIN_CD'
-                            || element === 'INT_CR_LATITUDE'
-                            || element === 'INT_CR_LONGITUDE'
+                            || element === 'EMP_NM_USUARIO'
                             || element === 'EMP_NM_EMPREENDIMENTO'
                             || element === 'EMP_NU_CPFCNPJ'
-                            || element === 'EMP_NM_USUARIO'
+                            || element === 'INT_CR_LATITUDE'
+                            || element === 'INT_CR_LONGITUDE'
                             || element === 'EMP_DS_LOGRADOURO'
                             // adiciona th dos botões
                             || element === ''

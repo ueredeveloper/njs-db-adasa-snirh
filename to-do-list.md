@@ -22,3 +22,6 @@
 
 
 
+## 2024-04-19
+- [] Ao selecionar apenas as colunas principais de verificação utilizando o checkbox `list-handle-view`, organizar as colunas. Hoje o cnpj está sendo mostrado em lugares não muito próximos na `list-snirh-view` e na `list-adasa-view`.
+

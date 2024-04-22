@@ -36,4 +36,22 @@ const createLatLngPosition = (latitude, longitude) => {
 
 };
 
-export { maxLengthOfStrings, createTheadsValues, createLatLngPosition }
+/**
+ * Retorna o tipo de interferência com base nos códigos fornecidos.
+ * 
+ * @param {number} INT_TIN_CD O código para interferência tipo TIN.
+ * @param {number} INT_TSU_CD O código para interferência tipo TSU.
+ * @returns {number} O tipo de interferência: 1, 2 ou 3.
+ */
+const getInterferenceType = (INT_TIN_CD, INT_TSU_CD) => {
+    switch ([INT_TIN_CD, INT_TSU_CD].join('')) {
+        case "11":
+            return 1; // Interferência do tipo 1 (Superficial)
+        case "12":
+            return 2; // Interferência do tipo 2 (Subterrânea)
+        default:
+            return 3; // Outro tipo de interferência
+    }
+}
+
+export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, getInterferenceType }

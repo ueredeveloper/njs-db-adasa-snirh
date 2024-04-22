@@ -1,15 +1,15 @@
 import SubterraneaModel from "../models/subterranea-model";
-import { maxLengthOfStrings } from "../utils";
+import { getInterferenceType, maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
 const ListAdasaView = {
-    init: async function (accordionIndex, latitude, longitude) {
+    init: async function (accordionIndex, latitude, longitude, ti) {
 
         this.div = $(`#list-grants-view-${accordionIndex}`);
 
         this.accordionIndex = accordionIndex;
-        // Listagem de outorgas do banco de dados.
-        this.list = await SubterraneaModel.selectClosestPoints(latitude, longitude)
+        // Busca por proximidade as outorgas e indica qual tipo de interferência (ti).
+        this.list = await SubterraneaModel.selectClosestPoints(latitude, longitude, ti)
         // Valores das colunas de cabeçalho da lista de outorgas.
         this.theads = await this.createTheadsValues();
         // Renderização da tabela com cabeçalho.
@@ -131,6 +131,8 @@ const ListAdasaView = {
         });
     },
     createTheadsValues: async function () {
+
+        console.log(await this.list)
 
         // Captura o primeiro objeto com os valores (key, value)
         let keyValues = Object.entries(await this.list[0]);

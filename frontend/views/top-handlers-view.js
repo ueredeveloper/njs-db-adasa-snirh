@@ -29,8 +29,6 @@ const TopHandlersView = {
 
             if (isChecked) {
 
-                console.log('if is checked ', isChecked)
-
                 try {
                     // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
                     let { data } = await exportCsv(TopHandlersView.searchParams);
@@ -45,14 +43,19 @@ const TopHandlersView = {
 
             } else {
 
-                console.log('else ischecked, simple search ')
+
+
                 try {
 
                     let search = $('#inputSearch').val();
 
-                    let data = await selectByDesktopDb(search);
+                    if (search.length === 0) {
+                        alert('Digite algo que possa ser pesquisado!!! ')
+                    } else {
 
-                    $(document).trigger("updateSnirhTables", [data]);
+                        let data = await selectByDesktopDb(search);
+                        $(document).trigger("updateSnirhTables", [data]);
+                    }
 
                 } catch (error) {
                     console.log('simple search error: ', error)

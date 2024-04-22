@@ -1,13 +1,6 @@
 const router = require("express").Router();
 const sql = require("mssql");
-const mssqlConfig = require('../mssql-config');
-
-const querySelectSubterraneaForInsert = require("../queries/query-select-subterranea-for-insert");
-const { querySelectClosestPoints } = require("../queries");
-const { query } = require("express");
-
-
-
+const { querySelectClosestPoints, querySelectSuperficiaisForInsert, querySelectSubterraneasForInsert } = require("../queries");
 
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST } = process.env;
 
@@ -23,7 +16,9 @@ const config = {
 */
 router.get("/select-closest-points", async (req, res) => {
 
-    let { latitude, longitude } = req.query;
+    let { latitude, longitude, ti } = req.query;
+
+    console.log('backend sel closest points ', latitude, longitude, ti)
 
     sql.connect(config, async function (err) {
 
@@ -33,11 +28,22 @@ router.get("/select-closest-points", async (req, res) => {
 
             const request = new sql.Request();
             // Captura os pontos mais próximos.
-            let query1 = await querySelectClosestPoints(latitude, longitude);
+            let query1 = await querySelectClosestPoints(latitude, longitude, ti);
 
-            let {recordset} = await request.query(query1);
+            let { recordset } = await request.query(query1);
             // Captura as outorgas no modelo da Ana utilizando os ids dos pontos mais próximos.
-            let query2 = await querySelectSubterraneaForInsert(recordset.map(c => c.ID_INTERFERENCIA));
+
+            let query2;
+
+            switch (ti) {
+                case "1": query2 = await querySelectSuperficiaisForInsert(recordset.map(c => c.ID_INTERFERENCIA));
+                    break;
+                case "2": query2 = await querySelectSubterraneasForInsert(recordset.map(c => c.ID_INTERFERENCIA));
+                    break;
+                default:
+                    console.log('switch defalt ', ti)
+
+            }
 
             let points = await request.query(query2);
 

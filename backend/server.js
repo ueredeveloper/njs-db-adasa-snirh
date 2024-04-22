@@ -4,26 +4,17 @@ const httpProxy = require('http-proxy');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const { 
-  fetchSubterraneo, selectSubInsertModel, 
-  snirhExportJson, snirhExportCsv, 
-  selectClosestPoints, selectSupInsert, 
-  selectDesktopDb} = require('./services');
+const { snirhExportJson, snirhExportCsv, selectClosestPoints, selectDesktopDb } = require('./services');
 
-
-  
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = process.env.PORT || 3000;
 
-app.use('/services', fetchSubterraneo);
-app.use('/services', selectSubInsertModel);
 app.use('/services', snirhExportJson);
 app.use('/services', snirhExportCsv);
 app.use('/services', selectClosestPoints);
-app.use('/services', selectSupInsert);
 app.use('/services', selectDesktopDb);
 
 // Create a new proxy server instance

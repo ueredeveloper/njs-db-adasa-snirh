@@ -16,6 +16,7 @@ const TabGrantsView = {
          */
         $(document).on("displayTabButtons", async (event, data) => {
             data.forEach(item => {
+
                 const button = $(`.tablinks[value="${item.value}"]`);
                 
                 if (item.len > 0) {

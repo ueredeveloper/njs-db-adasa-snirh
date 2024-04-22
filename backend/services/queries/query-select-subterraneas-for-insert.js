@@ -1,11 +1,11 @@
-const querySelectSubterraneaForInsert = (ids) => {
+const querySelectSubterraneasForInsert = (ids) => {
 
     let paramsIds = ids.join(',');
 
     return `
         use srh;
         /* Criado por Welber Ferreira
-            RETORNA AS CAPTAÇÕES SUBTERRANEAS - VERIFICAR SE QUER QUE PREENCHA COM NULL OU EM BRANCO OS CAMPOS SEM DADOS
+            RETORNA AS CAPTAÇÕES SUBTERÂNEAS - VERIFICAR SE QUER QUE PREENCHA COM NULL OU EM BRANCO OS CAMPOS SEM DADOS
         */
         SELECT 1 as INT_TIN_CD, 
 
@@ -627,4 +627,4 @@ const querySelectSubterraneaForInsert = (ids) => {
         AND A.ID_INTERFERENCIA IN (${paramsIds})
     `
 }
-module.exports = querySelectSubterraneaForInsert;
+module.exports = querySelectSubterraneasForInsert;

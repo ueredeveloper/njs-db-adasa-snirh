@@ -33,7 +33,6 @@ const MapView = {
      * @param {Object} position - A posição para a qual o centro do mapa deve ser definido, com as propriedades lat (latitude) e lng (longitude).
      */
     setMapCenter: function (position) {
-        console.log('Map View set center')
         MapModel.setMapCenter(position)
     }
 };

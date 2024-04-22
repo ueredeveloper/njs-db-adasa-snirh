@@ -1,5 +1,3 @@
-//import { fetchSubterraneo } from "../services/fetchSubterraneo";
-
 import selectClosestPoints from "../services/select-closest-points";
 
 const SubterraneaModel = {
@@ -10,10 +8,10 @@ const SubterraneaModel = {
         "INT_CR_LATITUDE": "-15,856013",
         "INT_CR_LONGITUDE": "-47,884798",
     },
-    list:[],
+    list: [],
 
     listSubterraneas: async function () {
-        
+
 
         const data = {
             "recordsets": [
@@ -112,22 +110,21 @@ const SubterraneaModel = {
                 ]
             ]
         };
-        
+
 
         return data.recordsets[0];
 
         //let subterraneas = await fetchSubterraneo();
 
-       // return subterraneas.recordset;
+        // return subterraneas.recordset;
 
     },
-    selectClosestPoints : async function (latitude, longitude) {
-  
-                let {recordset} = await selectClosestPoints(latitude, longitude)
+    selectClosestPoints: async function (latitude, longitude, ti) {
 
-                return recordset;
-        
-            }
+        let data = await selectClosestPoints(latitude, longitude, ti);
+        return data.recordsets[0];
+
+    }
 }
 
 export default SubterraneaModel;

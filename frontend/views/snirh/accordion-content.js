@@ -53,6 +53,7 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
                 panel.show();
             }
             if (!this.ListGrantsController) {
+                // Envia o INT_CD, id da interferência e o ítem para remover deste ítem latitude e longitude e buscar por proximidade.
                 this.ListGrantsController = new ListGrantsController.init(item[0][1], snirhGrant)
             }
 
