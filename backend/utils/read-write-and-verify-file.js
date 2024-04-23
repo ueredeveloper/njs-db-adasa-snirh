@@ -1,5 +1,5 @@
-const fs = require('node:fs');
-//const fs = require('fs');
+//const fs = require('node:fs');
+const fs = require('fs');
 
 
 const readSnirhFile = (callback) => {
@@ -11,6 +11,7 @@ const readSnirhFile = (callback) => {
       }
       try {
         const dataArray = JSON.parse(data); // Parse the JSON string into an array
+        console.log('read snirh file ', dataArray.length)
         // retirar último registro vazio
         //dataArray.pop()
         callback(null, dataArray);

@@ -94,7 +94,7 @@ router.get('/snirh-export-csv', async (req, res) => {
     // Filtrar retirando os valores buscados.
     let newData = existingData.filter(removeValue)
     // Atualização com os novos valores buscados.
-    newData.push(data.map(d=>d));
+    data.map(_data=> newData.push(_data));
 
     // Escrita do banco de dados com valores antigos não solicitados e os novos solicitados.
     writeSnirhFile(newData)

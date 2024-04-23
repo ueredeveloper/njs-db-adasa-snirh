@@ -19,20 +19,17 @@ router.get('/select-desktop-db', async (req, res) => {
     /** @type {string} */
     let { search } = req.query;
 
-    readSnirhFile(async (err, localDB) => {
+    readSnirhFile(async (err, desktopDb) => {
         if (err) {
             console.error('Error reading file:', err);
             return;
         }
 
-        /** @type {Array<Object>} */
-        let files = await localDB;
-
         /** @type {string} */
         let _search = search.toLocaleLowerCase();
-    
+
         /** @type {Array<Object>} */
-        let results = files.filter(db => {
+        let results = desktopDb.filter(db => {
             // Checa se existe a propriedade no object e se a busca inclui algo neste objeto.
             return (db.INT_CD && db.INT_CD.includes(_search)) ||
                 (db.EMP_NM_EMPREENDIMENTO && db.EMP_NM_EMPREENDIMENTO.toLowerCase().includes(_search)) ||

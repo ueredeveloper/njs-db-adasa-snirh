@@ -124,8 +124,9 @@ const ListAdasaView = {
             // Cria posição no mapa.
             let position = ListAdasaView.createLatLngPosition(grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE);
 
-            // Mostra a posição utilizando a ferramenta marcador (Marker).
-            MapView.addMarker(position);
+            // Mostra a posição utilizando a ferramenta marcador (Marker) sem animação (false).
+            MapView.addMarker(position, false);
+            // Centralizar o mapa na posição do marcador adicionado.
             MapView.setMapCenter(position);
 
         });

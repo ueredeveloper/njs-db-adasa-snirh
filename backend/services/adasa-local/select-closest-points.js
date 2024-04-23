@@ -18,7 +18,7 @@ router.get("/select-closest-points", async (req, res) => {
 
     let { latitude, longitude, ti } = req.query;
 
-    console.log('backend sel closest points ', latitude, longitude, ti)
+    console.log('backend sel closest points ', latitude, longitude, ti);
 
     sql.connect(config, async function (err) {
 

@@ -6724,6 +6724,8 @@ const SNIRHGrantsModel = {
         // Remove o último ítem que está vazio.
         data.pop();
 
+        
+
         return await data;
 
     }

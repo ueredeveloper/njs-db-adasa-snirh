@@ -76,6 +76,7 @@ const ListSnirhView = {
 
         this.tables.forEach(table => {
 
+
             let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo)
 
             // Descreve tamanho mínimo de cada coluna de acordo com o tamanho da string do cabeçalho ou valor (th ou td).
@@ -210,7 +211,7 @@ const ListSnirhView = {
                     let position = createLatLngPosition(grant.INT_NU_LATITUDE, grant.INT_NU_LONGITUDE);
 
                     // Mostra a posição utilizando a ferramenta marcador (Marker).
-                    MapView.addMarker(position);
+                    MapView.addMarker(position, true);
                     MapView.setMapCenter(position)
 
                 });

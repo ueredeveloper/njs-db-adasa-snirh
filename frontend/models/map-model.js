@@ -10,14 +10,28 @@ const MapModel = {
     },
 
     // Function to add markers to the map
-    addMarker: function (position) {
-        new window.google.maps.Marker({
+    addMarker: function (position, animation) {
+        let marker = new window.google.maps.Marker({
             position: position,
             map: this.map
         });
+
+        console.log(position, animation)
+
+        if (animation){
+            console.log('marker animation', animation)
+            marker.setAnimation(window.google.maps.Animation.BOUNCE); 
+        }
     }, 
     setMapCenter : function (position){
         this.map.setCenter(position)
+    },
+    addMarkerWithBounceAnimation (position){
+        let marker = new window.google.maps.Marker({
+            position: position,
+            map: this.map
+        });
+        //marker.setAnimation(window.google.maps.Animation.BOUNCE);
     }
 };
 

@@ -23,8 +23,8 @@ const MapView = {
      * @function
      * @param {Object} position - A posição do marcador, com as propriedades lat (latitude) e lng (longitude).
      */
-    addMarker: function (position) {
-        MapModel.addMarker(position);
+    addMarker: function (position, animation) {
+        MapModel.addMarker(position, animation);
     },
 
     /**
