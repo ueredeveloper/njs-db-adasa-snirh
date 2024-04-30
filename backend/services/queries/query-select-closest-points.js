@@ -12,7 +12,7 @@ const querySelectClosestPoints = (latitude, longitude, ti) => {
     DECLARE @point GEOMETRY;
     SET @point = GEOMETRY::STGeomFromText('POINT(${longitude} ${latitude})', 4674);
     
-    SELECT TOP 5 *
+    SELECT TOP 10 *
     FROM (
         SELECT 
             C.NOME,
@@ -20,8 +20,16 @@ const querySelectClosestPoints = (latitude, longitude, ti) => {
             A.ID_INTERFERENCIA,
             A.LATITUDE,
             A.LONGITUDE,
-            @point.STDistance(geometry::STGeomFromText(A.SHAPE.ToString(), 4674)) AS DISTANCE,
-            A.SHAPE
+            @point.STDistance(geometry::STGeomFromText(
+                -- Converter pontos cadastrados errados, onde a latitude está cadastrada antes da longitude
+                CASE 
+                WHEN A.[SHAPE].ToString() LIKE '%POINT (-15%' OR A.[SHAPE].ToString() LIKE '%POINT (-16%' THEN 
+                    'POINT (' + CONVERT(NVARCHAR(20), [LONGITUDE]) + ' ' + CONVERT(NVARCHAR(20), [LATITUDE]) + ')'
+                ELSE 
+                    
+                    A.[SHAPE].ToString() 
+                    END, 4674)) AS DISTANCE,
+            A.SHAPE.ToString() SHAPE
     
         FROM [gisadmin].[INTERFERENCIA] A
         INNER JOIN gisadmin.EMPREENDIMENTO B ON A.ID_EMPREENDIMENTO = B.ID_EMPREENDIMENTO

@@ -1,5 +1,4 @@
-import ListSnirhView from "../../views/snirh/list-snirh-view";
-
+import ListSnirhView from "../views/list-snirh-view";
 
 const ListGrantsSNIRHController = {
     init: async function () {

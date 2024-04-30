@@ -1,9 +1,9 @@
 
-import SNIRHGrantsModel from "../../models/snirh/snirh-grants-model";
-import MapView from "../map-view";
+import SNIRHGrantsModel from "../models/snirh-grants-model";
+import MapView from "./map-view";
 import AccordionContent from "./accordion-content";
 
-const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../../utils");
+const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../utils");
 
 const ListSnirhView = {
     init: async function () {
@@ -68,6 +68,8 @@ const ListSnirhView = {
 
         // this.renderTheads();
 
+
+
         this.renderContentsTables();
 
 
@@ -98,11 +100,12 @@ const ListSnirhView = {
         // Para utilizar nas tabs com botões (Superficial, Subterrâneo, ect). Se o tamanho for maior que zero, mostraráo o botão, ou se zero, não mostrará.
         let displayTabButtons = []
 
-        this.tables.forEach(table => {
+
+        await Promise.all(this.tables.map(async (table) => {
 
             let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
 
-            displayTabButtons.push({id: table.id, value: table.id, len: list.length})
+            displayTabButtons.push({ id: table.id, value: table.id, len: list.length })
 
             /* list => A lista a filtrada por tipo de outorga, subterrânea, superficial etc: 
             Exemplo:   [ 
@@ -118,7 +121,8 @@ const ListSnirhView = {
             */
 
             // Só criar theads de listas com resultado, listas vazias não.
-            if (list.length !== 0) {
+            if (list.length > 0) {
+
                 // Descreve tamanho mínimo de cada coluna (style: min-width) de acordo com o tamanho da string do cabeçalho ou valor (th ou td).
                 let minLenghts = maxLengthOfStrings(list);
 
@@ -188,7 +192,7 @@ const ListSnirhView = {
                             })
                         }
                     </tr>
-                        ${AccordionContent(item.length - 1, index, item)}
+                        ${AccordionContent(item.length - 1, item)}
                     </tr>
                     `
                     )
@@ -207,9 +211,11 @@ const ListSnirhView = {
                         let textContent = $(element).text();
                         grant[ListSnirhView.theads[index]] = textContent
                     });
+
+                    console.log(grant)
                     // Cria posição no mapa.
                     let position = createLatLngPosition(grant.INT_NU_LATITUDE, grant.INT_NU_LONGITUDE);
-
+                    
                     // Mostra a posição utilizando a ferramenta marcador (Marker).
                     MapView.addMarker(position, true);
                     MapView.setMapCenter(position)
@@ -219,7 +225,7 @@ const ListSnirhView = {
                 // Limpa a tabela na parte tbody quando não houver outorga
                 $(`#${table.id}`).find('tbody').empty()
             }
-        });
+        }));
 
         $(document).trigger("displayTabButtons", [displayTabButtons]);
 

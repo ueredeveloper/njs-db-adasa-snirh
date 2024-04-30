@@ -16,10 +16,7 @@ const MapModel = {
             map: this.map
         });
 
-        console.log(position, animation)
-
         if (animation){
-            console.log('marker animation', animation)
             marker.setAnimation(window.google.maps.Animation.BOUNCE); 
         }
     }, 

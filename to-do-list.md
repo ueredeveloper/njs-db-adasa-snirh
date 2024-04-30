@@ -25,3 +25,8 @@
 ## 2024-04-19
 - [] Ao selecionar apenas as colunas principais de verificação utilizando o checkbox `list-handle-view`, organizar as colunas. Hoje o cnpj está sendo mostrado em lugares não muito próximos na `list-snirh-view` e na `list-adasa-view`.
 
+## 2024-04-23
+- [] A pesquisa no banco desktop em json deve atender à uma busca com acento, ex: José e Jose.
+
+## 2024-04-24
+- [] Verificar se modifica muito a query para barragens e lançamentos. Enviei um e-mail para o Welber à respeito.

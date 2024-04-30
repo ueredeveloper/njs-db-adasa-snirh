@@ -1,20 +1,18 @@
-//import { fetchSubterraneo } from "../services/fetchSubterraneo";
-
 import selectClosestPoints from "../services/select-closest-points";
 
-const SuperficialModel = {
-    superficial: {
+const AdasaGantsModel = {
+    subterranea: {
         "INT_TIN_CD": 1,
         "INT_TSU_CD": 2,
         "INT_TSI_CD": "",
         "INT_CR_LATITUDE": "-15,856013",
         "INT_CR_LONGITUDE": "-47,884798",
     },
-    list:[],
+    list: [],
 
-    selectClosestPoints : async function (latitude, longitude) {
-        
-/*
+    listSubterraneas: async function () {
+
+
         const data = {
             "recordsets": [
                 [
@@ -112,15 +110,21 @@ const SuperficialModel = {
                 ]
             ]
         };
-        */
 
-        //return data.recordsets[0];
 
-        let {recordset} = await selectClosestPoints(latitude, longitude)
+        return data.recordsets[0];
 
-        return recordset;
+        //let subterraneas = await fetchSubterraneo();
+
+        // return subterraneas.recordset;
+
+    },
+    selectClosestPoints: async function (latitude, longitude, ti) {
+
+        let data = await selectClosestPoints(latitude, longitude, ti);
+        return data.recordsets[0];
 
     }
 }
 
-export default SuperficialModel;
+export default AdasaGantsModel;

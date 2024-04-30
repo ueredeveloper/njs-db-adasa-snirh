@@ -1,6 +1,6 @@
-import ListGrantsController from "../../controllers/list-grants-controller";
+import ListAdasaGrantsController from "../controllers/list-adasa-grants-controller";
 
-const AccordionContent = (colspanValue, accordionIndex, item) => {
+const AccordionContent = (colspanValue, item) => {
 
     // Converte array em objeto (outorga)
     const snirhGrant = Object.fromEntries(item);
@@ -52,9 +52,9 @@ const AccordionContent = (colspanValue, accordionIndex, item) => {
             } else {
                 panel.show();
             }
-            if (!this.ListGrantsController) {
+            if (!this.ListAdasaGrantsController) {
                 // Envia o INT_CD, id da interferência e o ítem para remover deste ítem latitude e longitude e buscar por proximidade.
-                this.ListGrantsController = new ListGrantsController.init(item[0][1], snirhGrant)
+                this.ListAdasaGrantsController = new ListAdasaGrantsController.init(item[0][1], snirhGrant)
             }
 
         });

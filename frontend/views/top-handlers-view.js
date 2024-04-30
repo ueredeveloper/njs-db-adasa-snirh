@@ -10,14 +10,14 @@ const TopHandlersView = {
         this.div = $('#top-handlers');
         this.searchParams = {
             "uf": "DF",
-            "dataInicio": "20180101000000",
-            "dataFim": "20230101000000",
+            "dataInicio": "20170411000000",
+            "dataFim": "20200411000000",
             "idDominialidade": "1",
             "idTipoOutorga": "1",
             "idSituacaoOutorga": "1",
-            "idFinalidade": "5",
+            "idFinalidade": "6",
             "pagina": 1,
-            "tamanhoPagina": 30
+            "tamanhoPagina": 10000
         }
         this.render();
 
@@ -26,6 +26,8 @@ const TopHandlersView = {
 
             // Verifica se a busca é simples ou pelo SNIRH.
             let isChecked = $('#checkTypeSearch').is(":checked");
+
+            console.log(this.searchParams)
 
             if (isChecked) {
 
@@ -38,12 +40,10 @@ const TopHandlersView = {
                     $(document).trigger("updateSnirhTables", [data]);
 
                 } catch (error) {
-                    console.error(error);
+                    console.error('snirh search by snirh service ', error);
                 }
 
             } else {
-
-
 
                 try {
 
@@ -58,7 +58,7 @@ const TopHandlersView = {
                     }
 
                 } catch (error) {
-                    console.log('simple search error: ', error)
+                    console.log('simple search by desktopdb,  error: ', error)
                 }
 
             }

@@ -5,11 +5,11 @@ const TopHandlersSnirhSearch = () => {
     $this.params = {
         "uf": "DF",
         "dataInicio": "20180101000000",
-        "dataFim": "20230101000000",
+        "dataFim": "20250101000000",
         "idDominialidade": "1",
         "idTipoOutorga": "1",
         "idSituacaoOutorga": "1",
-        "idFinalidade": "5",
+        "idFinalidade": "1",
         "pagina": 1,
         "tamanhoPagina": 10000
     }
@@ -20,6 +20,7 @@ const TopHandlersSnirhSearch = () => {
             var selectedValue = $(this).val();
 
             $this.params = { ...$this.params, uf: selectedValue }
+
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 
@@ -27,6 +28,8 @@ const TopHandlersSnirhSearch = () => {
             var selectedDate = $(this).val();
             // converte data para formato snirh: 20170101000000 - Refere-se a data 01/01/2017 00:00, formato: yyyyMMddHHmm
             $this.params = { ...$this.params, dataInicio: selectedDate.replaceAll('-', '') + '000000' }
+
+            
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 

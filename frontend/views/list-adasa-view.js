@@ -1,5 +1,6 @@
-import SubterraneaModel from "../models/subterranea-model";
-import { getInterferenceType, maxLengthOfStrings } from "../utils";
+
+import AdasaGantsModel from "../models/adasa-grants-model";
+import { createLatLngPosition, getInterferenceType, getLatLng, maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
 const ListAdasaView = {
@@ -9,7 +10,7 @@ const ListAdasaView = {
 
         this.accordionIndex = accordionIndex;
         // Busca por proximidade as outorgas e indica qual tipo de interferência (ti).
-        this.list = await SubterraneaModel.selectClosestPoints(latitude, longitude, ti)
+        this.list = await AdasaGantsModel.selectClosestPoints(latitude, longitude, ti)
         // Valores das colunas de cabeçalho da lista de outorgas.
         this.theads = await this.createTheadsValues();
         // Renderização da tabela com cabeçalho.
@@ -45,16 +46,19 @@ const ListAdasaView = {
     },
     renderTheads: async function (id) {
 
-        // Descreve tamanho mínimo de cada coluna de acordo com o tamanho da string do cabeçalho ou valor (th ou td).
-        let minLenghts = maxLengthOfStrings(await this.list);
+        if (this.list.length > 0) {
 
-        // Regula largura da coluna  de acordo com o tamanho do tamanho do dado (string)
-        let thStyleWidth = minLenghts[0].map(ml => `style="min-width:${ml}rem;max-width:${ml}rem;"`);
-        //Cria os cabeçalhos (thead)
-        $(`#${id}`).find('thead').append(`
+            // Descreve tamanho mínimo de cada coluna de acordo com o tamanho da string do cabeçalho ou valor (th ou td).
+            let minLenghts = maxLengthOfStrings(await this.list);
+
+            // Regula largura da coluna  de acordo com o tamanho do tamanho do dado (string)
+            let thStyleWidth = minLenghts[0].map(ml => `style="min-width:${ml}rem;max-width:${ml}rem;"`);
+            //Cria os cabeçalhos (thead)
+            $(`#${id}`).find('thead').append(`
               <tr>
               ${this.theads.map((th, index) => `<th class="th-adasa" ${thStyleWidth[index]}>${th}</th>`)}
               </tr>`)
+        }
 
     },
     renderSubterranea: async function (accordionIndex) {
@@ -122,8 +126,11 @@ const ListAdasaView = {
                 grant[ListAdasaView.theads[index]] = textContent
             });
             // Cria posição no mapa.
-            let position = ListAdasaView.createLatLngPosition(grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE);
 
+            let latLng = getLatLng(grant)
+            let position = createLatLngPosition(latLng.lat, latLng.lng);
+            
+            console.log(position)
             // Mostra a posição utilizando a ferramenta marcador (Marker) sem animação (false).
             MapView.addMarker(position, false);
             // Centralizar o mapa na posição do marcador adicionado.
@@ -133,17 +140,18 @@ const ListAdasaView = {
     },
     createTheadsValues: async function () {
 
-        console.log(await this.list)
+        if (this.list.length > 0) {
 
-        // Captura o primeiro objeto com os valores (key, value)
-        let keyValues = Object.entries(await this.list[0]);
-        // Separa os valores `key` para criar os cabeçalhos (thead)
+            // Captura o primeiro objeto com os valores (key, value)
+            let keyValues = Object.entries(await this.list[0]);
+            // Separa os valores `key` para criar os cabeçalhos (thead)
 
-        let theads = keyValues.map(th => th[0]);
-        // Adiciona coluna a mais para  os botões
-        theads.push(``);
+            let theads = keyValues.map(th => th[0]);
+            // Adiciona coluna a mais para  os botões
+            theads.push(``);
 
-        return theads;
+            return theads;
+        }
 
     },
     /**
