@@ -1,5 +1,8 @@
 const Papa = require('papaparse');
 const fs = require('fs');
+const dictionary = require('./dictionary');
+const colors = require('colors');
+
 
 function parseCSVToJson(filePath) {
     return new Promise((resolve, reject) => {
@@ -42,21 +45,89 @@ describe('CSV Parsing with PapaParse', () => {
             result.push(newObj);
         });
 
+        const colorize = (text, color) => {
+            return colors[color](text);
+        };
+
         // Merge array2 elements with result
         data2.forEach(obj2 => {
             Object.keys(obj2).forEach(key => {
                 const existingObj = result.find(obj => obj.hasOwnProperty(key));
                 if (existingObj) {
                     existingObj[key].push(obj2[key]);
+                    let dic = Object.values(dictionary).find(item => item.nomeColuna === key);
+
+
+                    let tipoDado = dic ? dic.tipoDado : '';
+
+                    existingObj[key].push(tipoDado);
+
+                    // Adicionar xxx nos atributos vazios
+                    let existingObjWithColor = existingObj[key].map(arr => {
+                        if (arr === '') {
+                            return 'xxx'
+                        }
+                        return arr
+                    });
+
+                    let exemplo = dic ? dic.exemplo : '';
+                    // Cor verde
+                    exemplo = '\x1b[32m' + ', ' + exemplo + '\x1b[0m'
+                    existingObjWithColor = existingObjWithColor.join(',') + exemplo
+                    
+                    let obs = dic ? dic.obs : '';
+                    // Cor vermelho, se obrigatório ou não.
+                    obs = '\x1b[31m' + obs + '\x1b[0m]'
+              
+                    //existingObj[key] = existingObjWithColor + obs
+                    existingObj[key] = existingObjWithColor + ', ---> ' + obs
+
+
                 } else {
                     const newObj = {};
                     newObj[key] = [obj2[key]];
-                    result.push(newObj);
+
+                    let dic = Object.values(dictionary).find(item => item.nomeColuna === key);
+
+                    let tipoDado = dic ? dic.tipoDado : '';
+                    newObj[key].push(tipoDado);
+
+                    // Adicionar xxx nos atributos vazios
+                    let existingObjWithColor = newObj[key].map(arr => {
+                        if (arr === '') {
+                            return 'xxx'
+                        }
+                        return arr
+                    });
+
+                    let exemplo = dic ? dic.exemplo : '';
+                    // Cor verde, exemplo de dado.
+                    exemplo = '\x1b[32m' + exemplo + '\x1b[0m'
+                    existingObjWithColor = existingObjWithColor.join(',') + exemplo
+
+                    let obs = dic ? dic.obs : '';
+                    // Cor vermelho, se obrigatório ou não.
+                    obs = '\x1b[31m' + obs + '\x1b[0m]'
+                    //newObj[key].push(obs);
+
+
+                    newObj[key] = existingObjWithColor + ', ---> ' + obs
+
                 }
             });
         });
 
-        console.log(result);
+        // Variável para visualização
+        let print = []
+        for (const [key, value] of Object.entries(result[0])) {
+            print.push(`${key}: ${value} \n`);
+        }
+
+
+        console.log(print.join(''))
+
+
+
 
 
         //console.log(jsonData)
