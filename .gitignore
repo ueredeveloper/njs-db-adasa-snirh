@@ -110,6 +110,10 @@ dist
 # Serverless directories
 .serverless/
 
+# Arquivos csv de inserção e edição
+backend/data/csv/
+
+
 # FuseBox cache
 .fusebox/
 

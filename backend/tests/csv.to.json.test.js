@@ -42,13 +42,25 @@ describe('CSV Parsing with PapaParse', () => {
             Object.keys(obj1).forEach(key => {
                 newObj[key] = [obj1[key]]; // Push the attribute of array1
             });
-            result.push(newObj);
+
+            let newObjWithColor = {}
+            // Adiciona cor amarela ao valor
+            for (const [key, value] of Object.entries(newObj)) {
+
+                // Se valor vazio, preencha com 3 hífens (---)
+                if (value[0]==='') {
+                    newObjWithColor[key] =  ['\x1b[33m  '+'---'+' \x1b[0m']
+                } else {
+                    newObjWithColor[key] =  ['\x1b[33m  '+value+' \x1b[0m']
+                }
+                
+            }
+
+           result.push(newObjWithColor)
+
         });
 
-        const colorize = (text, color) => {
-            return colors[color](text);
-        };
-
+        
         // Merge array2 elements with result
         data2.forEach(obj2 => {
             Object.keys(obj2).forEach(key => {
@@ -57,15 +69,14 @@ describe('CSV Parsing with PapaParse', () => {
                     existingObj[key].push(obj2[key]);
                     let dic = Object.values(dictionary).find(item => item.nomeColuna === key);
 
-
                     let tipoDado = dic ? dic.tipoDado : '';
 
                     existingObj[key].push(tipoDado);
 
-                    // Adicionar xxx nos atributos vazios
+                    // Se valor vazio, preencha com 3 hífens (---)
                     let existingObjWithColor = existingObj[key].map(arr => {
                         if (arr === '') {
-                            return 'xxx'
+                            return '---'
                         }
                         return arr
                     });
@@ -73,14 +84,15 @@ describe('CSV Parsing with PapaParse', () => {
                     let exemplo = dic ? dic.exemplo : '';
                     // Cor verde
                     exemplo = '\x1b[32m' + ', ' + exemplo + '\x1b[0m'
+                    // Adiciona exemplo de dado em cor verde
                     existingObjWithColor = existingObjWithColor.join(',') + exemplo
-                    
+
                     let obs = dic ? dic.obs : '';
                     // Cor vermelho, se obrigatório ou não.
                     obs = '\x1b[31m' + obs + '\x1b[0m]'
-              
-                    //existingObj[key] = existingObjWithColor + obs
-                    existingObj[key] = existingObjWithColor + ', ---> ' + obs
+
+                    //Adiciona observação colorida em vermelho
+                    existingObj[key] = existingObjWithColor + ', -> ' + obs
 
 
                 } else {
@@ -92,10 +104,10 @@ describe('CSV Parsing with PapaParse', () => {
                     let tipoDado = dic ? dic.tipoDado : '';
                     newObj[key].push(tipoDado);
 
-                    // Adicionar xxx nos atributos vazios
+                    // Se valor vazio, preencha com 3 hífens (---)
                     let existingObjWithColor = newObj[key].map(arr => {
                         if (arr === '') {
-                            return 'xxx'
+                            return '---'
                         }
                         return arr
                     });
@@ -126,10 +138,7 @@ describe('CSV Parsing with PapaParse', () => {
 
         console.log(print.join(''))
 
-
-
-
-
+      
         //console.log(jsonData)
         // Assuming 'data.csv' contains CSV data
         // expect(jsonData).toHaveLength(1); // Assuming 3 rows in the CSV
