@@ -4,7 +4,9 @@ import { createLatLngPosition, getInterferenceType, getLatLng, maxLengthOfString
 import MapView from "./map-view";
 
 const ListAdasaView = {
-    init: async function (accordionIndex, latitude, longitude, ti) {
+    init: async function (snirhGrant, accordionIndex, latitude, longitude, ti) {
+
+        this.snirhGrant = snirhGrant;
 
         this.div = $(`#list-grants-view-${accordionIndex}`);
 
@@ -89,7 +91,7 @@ const ListAdasaView = {
                     </svg>
                 </button>
                 <!-- copy button -->
-                <button class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
+                <button id="btn-update" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                         <path d="M16.5 6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v7.5a3 3 0 0 0 3 3v-6A4.5 4.5 0 0 1 10.5 6h6Z" />
                         <path d="M18 7.5a3 3 0 0 1 3 3V18a3 3 0 0 1-3 3h-7.5a3 3 0 0 1-3-3v-7.5a3 3 0 0 1 3-3H18Z" />
@@ -135,6 +137,39 @@ const ListAdasaView = {
             MapView.addMarker(position, false);
             // Centralizar o mapa na posição do marcador adicionado.
             MapView.setMapCenter(position);
+
+        });
+
+        $('[id^="btn-update"]').click(function () {
+
+            // Captura tr tag
+            let parentRow = $(this).closest('tr');
+            // Captura valores da linha  selecionada (td)
+            let tds = parentRow.find('.td-adasa');
+            // Cria objecto a partir da linha selecionada
+            let grant = {}
+            // Interage com os  valores das linhas e preenche o objeto.
+            tds.each(function (index, element) {
+                let textContent = $(element).text();
+                grant[ListAdasaView.theads[index]] = textContent
+            });
+
+
+            console.log(grant, ListAdasaView.snirhGrant, this.snirhGrant)
+
+
+            
+
+            // Cria posição no mapa.
+
+           /* let latLng = getLatLng(grant)
+            let position = createLatLngPosition(latLng.lat, latLng.lng);
+            
+            console.log(position)
+            // Mostra a posição utilizando a ferramenta marcador (Marker) sem animação (false).
+            MapView.addMarker(position, false);
+            // Centralizar o mapa na posição do marcador adicionado.
+            MapView.setMapCenter(position);*/
 
         });
     },

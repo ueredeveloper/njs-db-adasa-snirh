@@ -11,7 +11,7 @@ const ListAdasaGrantsController = {
 
         let ti = getInterferenceType(INT_TIN_CD, INT_TSU_CD)
 
-        ListAdasaView.init(btnIndexId, latitude, longitude, ti);
+        ListAdasaView.init(snirhGrant, btnIndexId, latitude, longitude, ti);
     }
 }
 

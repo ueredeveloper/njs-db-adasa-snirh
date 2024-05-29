@@ -1,10 +1,10 @@
 const Papa = require('papaparse');
 const fs = require('fs');
-const dictionary = require('./dictionary');
+const dictionary = require('../data/dictionary')
 const colors = require('colors');
 
 
-function parseCSVToJson(filePath) {
+function convertCSVToJSON(filePath) {
     return new Promise((resolve, reject) => {
         fs.readFile(filePath, 'utf8', (err, data) => {
             if (err) {
@@ -25,13 +25,17 @@ function parseCSVToJson(filePath) {
     });
 }
 
-describe('CSV Parsing with PapaParse', () => {
-    test('should parse CSV file correctly and return JSON', async () => {
+function formatValueWithColor(value, colorCode) {
+    return `\x1b[${colorCode}m${value}\x1b[0m`;
+  }
+
+describe('CSV Comparison', () => {
+    test('compara dois arquivos csv e criar um json com dados do dicionário de regras', async () => {
 
         //C:\workspace\njs-db-adasa-snirh\backend\data\csv\edicao.csv
 
-        const data1 = await parseCSVToJson('./backend/data/csv/edicao.csv');
-        const data2 = await parseCSVToJson('./backend/data/csv/export-csv-test.csv')
+        const data1 = await convertCSVToJSON('./backend/data/csv/edicao-1.csv');
+        const data2 = await convertCSVToJSON('./backend/data/csv/export-csv-test.csv')
 
         // Juntar attibutos presentes nos dois arquivos 
         const result = [];
@@ -51,7 +55,8 @@ describe('CSV Parsing with PapaParse', () => {
                 if (value[0]==='') {
                     newObjWithColor[key] =  ['\x1b[33m  '+'---'+' \x1b[0m']
                 } else {
-                    newObjWithColor[key] =  ['\x1b[33m  '+value+' \x1b[0m']
+                    // 33 -> amarelo
+                    newObjWithColor[key] =  [formatValueWithColor(value, '33')]//['\x1b[33m  '+value+' \x1b[0m']
                 }
                 
             }
@@ -83,13 +88,13 @@ describe('CSV Parsing with PapaParse', () => {
 
                     let exemplo = dic ? dic.exemplo : '';
                     // Cor verde
-                    exemplo = '\x1b[32m' + ', ' + exemplo + '\x1b[0m'
+                    exemplo =  formatValueWithColor(exemplo, '32') //'\x1b[32m' + ', ' + exemplo + '\x1b[0m'
                     // Adiciona exemplo de dado em cor verde
                     existingObjWithColor = existingObjWithColor.join(',') + exemplo
 
                     let obs = dic ? dic.obs : '';
                     // Cor vermelho, se obrigatório ou não.
-                    obs = '\x1b[31m' + obs + '\x1b[0m]'
+                    obs = formatValueWithColor(obs, '31') //'\x1b[31m' + obs + '\x1b[0m]'
 
                     //Adiciona observação colorida em vermelho
                     existingObj[key] = existingObjWithColor + ', -> ' + obs
@@ -114,12 +119,12 @@ describe('CSV Parsing with PapaParse', () => {
 
                     let exemplo = dic ? dic.exemplo : '';
                     // Cor verde, exemplo de dado.
-                    exemplo = '\x1b[32m' + exemplo + '\x1b[0m'
+                    exemplo = formatValueWithColor(exemplo, '32') //'\x1b[32m' + exemplo + '\x1b[0m'
                     existingObjWithColor = existingObjWithColor.join(',') + exemplo
 
                     let obs = dic ? dic.obs : '';
                     // Cor vermelho, se obrigatório ou não.
-                    obs = '\x1b[31m' + obs + '\x1b[0m]'
+                    obs = formatValueWithColor(obs, '31') //'\x1b[31m' + obs + '\x1b[0m]'
                     //newObj[key].push(obs);
 
 
@@ -135,13 +140,7 @@ describe('CSV Parsing with PapaParse', () => {
             print.push(`${key}: ${value} \n`);
         }
 
-
         console.log(print.join(''))
-
-      
-        //console.log(jsonData)
-        // Assuming 'data.csv' contains CSV data
-        // expect(jsonData).toHaveLength(1); // Assuming 3 rows in the CSV
-        // Add more assertions based on your CSV content and JSON data
+       
     });
 });

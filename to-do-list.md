@@ -30,3 +30,7 @@
 
 ## 2024-04-24
 - [] Verificar se modifica muito a query para barragens e lançamentos. Enviei um e-mail para o Welber à respeito.
+
+## 2024-05-09
+- [] Criar objetos da planilha de edição e inserção na pasta models.
+

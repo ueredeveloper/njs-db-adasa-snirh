@@ -230,6 +230,10 @@ const SNIRHGrantsModel = {
         "ING_CS_CONAMA": "",
         "": ""
     },
+
+    editModel: {
+
+    },
     list: [],
 
     listGrants: async function () {
