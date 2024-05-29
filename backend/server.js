@@ -3,8 +3,7 @@ const express = require('express');
 const httpProxy = require('http-proxy');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
-const { snirhExportJson, snirhExportCsv, selectClosestPoints, selectDesktopDb } = require('./services');
+const { snirhExportJson, snirhExportCsv, selectClosestPoints, selectDesktopDb, selectByParam } = require('./services');
 
 const app = express();
 app.use(cors());
@@ -14,6 +13,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use('/services', snirhExportJson);
 app.use('/services', snirhExportCsv);
+app.use('/services', selectByParam);
 app.use('/services', selectClosestPoints);
 app.use('/services', selectDesktopDb);
 

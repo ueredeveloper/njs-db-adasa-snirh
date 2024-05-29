@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const sql = require("mssql");
-const { querySelectClosestPoints, querySelectSuperficiaisForInsert, querySelectSubterraneasForInsert, querySelectSuperficiaisForUpdate } = require("../queries");
+require('dotenv').config();
+const { querySelectClosestPoints, querySelectSuperficiaisForInsert, 
+    querySelectSubterraneasForInsert, querySelectSuperficiaisForUpdate } = require("../queries");
 
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST } = process.env;
 
@@ -11,7 +13,9 @@ const config = {
     server: ADASA_HOST,
     database: ADASA_DATABASE,
     trustServerCertificate: true,
-};/**
+};
+
+/**
     Captura os ponto mais próximos do ponto selecionado.
 */
 router.get("/select-closest-points", async (req, res) => {
@@ -29,6 +33,7 @@ router.get("/select-closest-points", async (req, res) => {
             let query1 = await querySelectClosestPoints(latitude, longitude, ti);
 
             let { recordset } = await request.query(query1);
+           
             // Captura as outorgas no modelo da Ana utilizando os ids dos pontos mais próximos.
 
             let query2;

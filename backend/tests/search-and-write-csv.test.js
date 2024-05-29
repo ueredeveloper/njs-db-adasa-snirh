@@ -1,13 +1,16 @@
 const fs = require('fs');
 const csv = require('csv-parser');
 const { writeSnirhFile } = require('../utils/read-write-and-verify-file');
+const querySelectByNameCpfProcessoAto = require('../services/queries/query-select-by-param');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 
 
-describe('Write Json to Csv', () => {
+describe('Search and Write CSV', () => {
 
-  
+let list = querySelectByNameCpfProcessoAto('IRENY')
+
+console.log(list)
 
   let data = {
     AMA_DT_ANALISE: "04/04/2017",

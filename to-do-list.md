@@ -34,3 +34,8 @@
 ## 2024-05-09
 - [] Criar objetos da planilha de edição e inserção na pasta models.
 
+## 2024-05-29
+- [] Erro
+    Não está selecionando por parâmetro `select-by-param`.
+
+    
