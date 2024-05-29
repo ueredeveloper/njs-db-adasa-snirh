@@ -18,6 +18,8 @@ const config = {
 /**
     Captura os ponto mais próximos do ponto selecionado.
 */
+
+/*
 router.get("/select-by-param", async (req, res) => {
 
     let { param } = req.query;
@@ -26,7 +28,7 @@ router.get("/select-by-param", async (req, res) => {
 
     sql.connect(config, async function (err) {
 
-        /* 29/05/2024 Está com erro  */
+        //29/05/2024 Está com erro  
 
         if (err) console.log(err);
 
@@ -50,6 +52,30 @@ router.get("/select-by-param", async (req, res) => {
 
     });// fim sql connect
 
+});*/
+
+router.get('/select-by-param', function (req, res) {
+    // mudar para post e assim enviar um polígono para o servidor repl.it
+
+    let { param } = req.query;
+
+    //conexão com o banco
+    sql.connect(config, function (err) {
+
+        if (err) console.log(err);
+
+        // criar requirisão
+        var request = new sql.Request();
+        // polígono  que ser enviado no body
+        let query = querySelectByParam(param);
+
+        // requisição
+        request.query(query, function (err, recordset) {
+            if (err) console.log(err)
+           
+            res.send(recordset.recordset);
+        });
+    });
 });
 
 module.exports = router;

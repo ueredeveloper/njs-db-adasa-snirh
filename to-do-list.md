@@ -20,8 +20,6 @@
 ## 2024-04-09
 - [] Melhorar ids de botões no component `AccordionView`.
 
-
-
 ## 2024-04-19
 - [] Ao selecionar apenas as colunas principais de verificação utilizando o checkbox `list-handle-view`, organizar as colunas. Hoje o cnpj está sendo mostrado em lugares não muito próximos na `list-snirh-view` e na `list-adasa-view`.
 
@@ -35,7 +33,6 @@
 - [] Criar objetos da planilha de edição e inserção na pasta models.
 
 ## 2024-05-29
-- [] Erro
+- [X] Erro
     Não está selecionando por parâmetro `select-by-param`.
-
-    
+        Funcionando.
