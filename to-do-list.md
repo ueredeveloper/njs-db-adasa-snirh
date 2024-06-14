@@ -36,3 +36,7 @@
 - [X] Erro
     Não está selecionando por parâmetro `select-by-param`.
         Funcionando.
+## 2024-06-03
+- []    Esperando resposta de e-mail de como verficiar as edições, no momento não estou conseguindo ver o resultado das edições.
+- []    Criando método de busca por parâmetro no banco da Adasa.
+

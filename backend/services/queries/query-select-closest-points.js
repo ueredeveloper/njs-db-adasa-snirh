@@ -11,13 +11,14 @@ const querySelectClosestPoints = (latitude, longitude, ti) => {
     USE SRH;
     DECLARE @point GEOMETRY;
     SET @point = GEOMETRY::STGeomFromText('POINT(${longitude} ${latitude})', 4674);
-    
+
     SELECT TOP 10 *
     FROM (
         SELECT 
             C.NOME,
             C.ENDERECO,
             A.ID_INTERFERENCIA,
+            TI.DESCRICAO,
             A.LATITUDE,
             A.LONGITUDE,
             @point.STDistance(geometry::STGeomFromText(
@@ -30,14 +31,14 @@ const querySelectClosestPoints = (latitude, longitude, ti) => {
                     A.[SHAPE].ToString() 
                     END, 4674)) AS DISTANCE,
             A.SHAPE.ToString() SHAPE
-    
+
         FROM [gisadmin].[INTERFERENCIA] A
         INNER JOIN gisadmin.EMPREENDIMENTO B ON A.ID_EMPREENDIMENTO = B.ID_EMPREENDIMENTO
         INNER JOIN gisadmin.USUARIO C ON B.ID_USUARIO = C.ID_USUARIO
         INNER JOIN gisadmin.TIPO_INTERFERENCIA TI ON A.ID_TIPO_INTERFERENCIA = TI.ID_TIPO_INTERFERENCIA
-        WHERE TI.ID_TIPO_INTERFERENCIA = ${ti}
-        ) AS SubQuery
-        ORDER BY DISTANCE`
+        WHERE TI.ID_TIPO_INTERFERENCIA = 2
+    ) AS SubQuery
+    ORDER BY DISTANCE;`
 }
 
 module.exports = querySelectClosestPoints;

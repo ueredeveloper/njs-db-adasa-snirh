@@ -316,7 +316,9 @@ const querySelectSuperficiaisForUpdate = (ids)=> {
     WHERE A.VERIFICADO = 'OK' 
 
     AND A.ID_SITUACAO = 4 -- Retorna aqueles que foram realmente outorgados
-    AND A.ID_INTERFERENCIA IN (${paramsIds})  
+    AND A.ID_INTERFERENCIA IN (${paramsIds})
+    -- Ordenar pela ordem de ids buscadas que é a ordem de proximidade do ponto
+    ORDER  BY CHARINDEX(CAST(A.ID_INTERFERENCIA AS VARCHAR), '${paramsIds}') 
 `
 }
 module.exports = querySelectSuperficiaisForUpdate;

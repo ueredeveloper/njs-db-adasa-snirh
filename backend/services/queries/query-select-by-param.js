@@ -25,7 +25,8 @@ const querySelectByParam = (param) => {
                 A.LONGITUDE,
                 A.NUM_PROCESSO,
                 A.NUM_ATO,
-                A.SHAPE.ToString() SHAPE
+                A.SHAPE.ToString() SHAPE,
+                TI.ID_TIPO_INTERFERENCIA
 
             FROM [gisadmin].[INTERFERENCIA] A
             INNER JOIN gisadmin.EMPREENDIMENTO B ON A.ID_EMPREENDIMENTO = B.ID_EMPREENDIMENTO

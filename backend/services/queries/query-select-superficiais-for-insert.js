@@ -433,7 +433,9 @@ const querySelectSuperficiaisForInsert = (ids)=> {
     --AND CONVERT(VARCHAR(10),A.DT_PUBLICACAO,103) > CAST('211231' AS DATE)
     --AND CONVERT(VARCHAR(10),A.DT_PUBLICACAO,103) < CAST('231231' AS DATE)
     AND A.VERIFICADO = 'OK' 
-    AND A.ID_INTERFERENCIA IN (${paramsIds})  
+    AND A.ID_INTERFERENCIA IN (${paramsIds})
+    -- Ordenar pela ordem de ids buscadas que é a ordem de proximidade do ponto
+    ORDER  BY CHARINDEX(CAST(A.ID_INTERFERENCIA AS VARCHAR), '${paramsIds}')  
 `
 }
 module.exports = querySelectSuperficiaisForInsert;

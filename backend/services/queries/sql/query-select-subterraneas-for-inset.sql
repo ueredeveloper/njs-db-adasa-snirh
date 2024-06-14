@@ -1,12 +1,8 @@
-const querySelectSubterraneasForInsert = (ids) => {
 
-    let paramsIds = ids.join(',');
-
-    return `
-        USE SRH;
         /* Criado por Welber Ferreira
             RETORNA AS CAPTAÇÕES SUBTERÂNEAS - VERIFICAR SE QUER QUE PREENCHA COM NULL OU EM BRANCO OS CAMPOS SEM DADOS
         */
+		USE SRH;
         SELECT 1 as INT_TIN_CD, 
 
         A.ID_TIPO_INTERFERENCIA AS INT_TSU_CD, 
@@ -624,9 +620,6 @@ const querySelectSubterraneasForInsert = (ids) => {
         ON A.ID_INTERFERENCIA = X.ID_INTERFERENCIA
         WHERE A.VERIFICADO = 'OK' AND A.ID_SITUACAO <> 9 AND C.CPF_CNPJ <> ''
 
-        AND A.ID_INTERFERENCIA IN (${paramsIds})
-        -- Ordenar pela ordem de ids buscadas que é a ordem de proximidade do ponto
-        ORDER  BY CHARINDEX(CAST(A.ID_INTERFERENCIA AS VARCHAR), '${paramsIds}')
-    `
-}
-module.exports = querySelectSubterraneasForInsert;
+        AND A.ID_INTERFERENCIA IN (6841,3899,9156,3900,8662,14061,6542,14062,7131,9591)
+		-- Ordenar pela ordem de ids buscadas que é a ordem de proximidade do ponto
+		ORDER  BY CHARINDEX(CAST(A.ID_INTERFERENCIA AS VARCHAR), '6841,3899,9156,3900,8662,14061,6542,14062,7131,9591')

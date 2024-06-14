@@ -22,6 +22,8 @@ router.get("/select-closest-points", async (req, res) => {
 
     let { latitude, longitude, ti } = req.query;
 
+    console.log(latitude, longitude, ti)
+
     sql.connect(config, async function (err) {
 
         if (err) console.log(err);
