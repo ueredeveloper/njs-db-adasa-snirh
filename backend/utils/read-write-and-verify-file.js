@@ -29,6 +29,14 @@ const writeSnirhFile = (data)=> {
   })
 }
 
+const writeCsvObject = (data, name)=> {
+
+  fs.writeFile(`./backend/data/${name}.json`, JSON.stringify(data), (err) => {
+    if (err) throw err;
+  })
+}
+
+
 // Function to verify if new objects are unique based on a specific property
 function verifyIsUnique(objects, newObj, property) {
   return !objects.some(obj => obj[property] === newObj[property]);

@@ -37,6 +37,10 @@
     Não está selecionando por parâmetro `select-by-param`.
         Funcionando.
 ## 2024-06-03
-- []    Esperando resposta de e-mail de como verficiar as edições, no momento não estou conseguindo ver o resultado das edições.
+- [X]    Esperando resposta de e-mail de como verficiar as edições, no momento não estou conseguindo ver o resultado das edições.
+    Em resposta a instituição avisa que solucionou o problema e que as edições serão atualizadas de 15 em 15 minutos.
 - []    Criando método de busca por parâmetro no banco da Adasa.
+
+## 2024-06-24
+- []    Mudar o nome da view `list-adasa-view` para `list-grants-view`. Isto adiciona um nome mais genérico pois depois pode ser utilizado para outorgas de outros Estados, por exemplo.
 
