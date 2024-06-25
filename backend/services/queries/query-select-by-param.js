@@ -4,8 +4,6 @@
  * @returns {string} - A consulta SQL para selecionar os pontos de acordo com o solicitado.
  */
 const querySelectByParam = (param) => {
-
-    console.log('query select by param ', param)
     
     // Sanitarização e prevenção de SQL injection.
     const escapedParam = param.replace(/'/g, "''");

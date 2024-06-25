@@ -20,9 +20,12 @@ const config = {
 */
 router.get("/select-closest-points", async (req, res) => {
 
+    /**
+     * latitude
+     * longitude
+     * ti ID_TIPO_INTERFERENCIA
+     */
     let { latitude, longitude, ti } = req.query;
-
-    console.log(latitude, longitude, ti)
 
     sql.connect(config, async function (err) {
 
@@ -50,7 +53,7 @@ router.get("/select-closest-points", async (req, res) => {
                 case "5": query2 = await querySelectSubterraneasForInsert(recordset.map(c => c.ID_INTERFERENCIA));
                     break;
                 default:
-                    console.log('switch defalt ', ti)
+                    console.log('switch default ', ti)
 
             }
 

@@ -44,3 +44,6 @@
 ## 2024-06-24
 - []    Mudar o nome da view `list-adasa-view` para `list-grants-view`. Isto adiciona um nome mais genérico pois depois pode ser utilizado para outorgas de outros Estados, por exemplo.
 
+## 2024-06-25
+- []    Revisão da ordem das colunas ao criar o csv.
+    Ao criar o csv revise a ordem das colunas. É necessário criar uma array com a ordem e orientar a criação do csv de evição por ela.

@@ -6,7 +6,7 @@
  * @returns {string} - A consulta SQL para selecionar os pontos mais próximos.
  */
 const querySelectClosestPoints = (latitude, longitude, ti) => {
-    
+
     return `
     USE SRH;
     DECLARE @point GEOMETRY;
@@ -36,7 +36,7 @@ const querySelectClosestPoints = (latitude, longitude, ti) => {
         INNER JOIN gisadmin.EMPREENDIMENTO B ON A.ID_EMPREENDIMENTO = B.ID_EMPREENDIMENTO
         INNER JOIN gisadmin.USUARIO C ON B.ID_USUARIO = C.ID_USUARIO
         INNER JOIN gisadmin.TIPO_INTERFERENCIA TI ON A.ID_TIPO_INTERFERENCIA = TI.ID_TIPO_INTERFERENCIA
-        WHERE TI.ID_TIPO_INTERFERENCIA = 2
+        WHERE TI.ID_TIPO_INTERFERENCIA = ${ti}
     ) AS SubQuery
     ORDER BY DISTANCE;`
 }

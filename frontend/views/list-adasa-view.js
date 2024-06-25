@@ -155,7 +155,7 @@ const ListAdasaView = {
             });
 
 
-            console.log('btn update ', grant, ListAdasaView.snirhGrant)
+            console.log('btn update ', 'adasa', grant, 'snirh', ListAdasaView.snirhGrant)
 
 
             

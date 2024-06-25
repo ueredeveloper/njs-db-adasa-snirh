@@ -15,8 +15,6 @@ const maxLengthOfStrings = (array) => {
 
 const createTheadsValues = async (list) => {
 
-    console.log(list)
-
     // Captura o primeiro objeto com os valores (key, value)
     let keyValues = Object.entries(await list[0]);
     // Separa os valores `key` para criar os cabeçalhos (thead)
@@ -31,8 +29,6 @@ const createTheadsValues = async (list) => {
 
 
 const createLatLngPosition = (latitude, longitude) => {
-
-    console.log(latitude, longitude)
 
     // Converte o valor para float e muda vígula para  ponto.
     let position = { lat: parseFloat(latitude.replace(/,/g, '.')), lng: parseFloat(longitude.replace(/,/g, '.')) }

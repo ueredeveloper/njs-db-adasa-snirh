@@ -1,31 +1,34 @@
-const { convertJSONToCSV } = require("./convert-json-to-csv");
+const { isFloat, convertFloatToCommaString } = require('./convert-float-to-string');
+const { convertJSONToCSV } = require('./convert-json-to-csv');
+const { formatCpfCnpj } = require('./format-cpf-cnpj');
+const { isDate, convertDateFormat } = require('./verify-and-convert-dates');
 
 const compareJson = () => {
 
 
 
-    let sJson = {
-        "INT_CD": "926335",
+    let snirhJson = {
+        "INT_CD": "928685",
         "INT_TIN_DS": "Captação",
         "INT_TIN_CD": "1",
-        "INT_TSU_DS": "Subterrânea",
-        "INT_TSU_CD": "2",
-        "INT_TCH_CD": "3",
-        "INT_TCH_DS": "Poço",
+        "INT_TSU_DS": "Superficial",
+        "INT_TSU_CD": "1",
+        "INT_TCH_CD": "1",
+        "INT_TCH_DS": "Rio ou Curso D'Água",
         "INT_TSI_DS": "Operação",
         "INT_TSI_CD": "3",
         "INT_TOD_DS": "ETL - Importação de Dados dos Estados",
         "INT_TOD_CD": "4",
         "INT_TDM_DS": "Estadual",
         "INT_TDM_CD": "1",
-        "INT_NU_CNARH": "700000088549",
+        "INT_NU_CNARH": "",
         "INT_NU_SIAGAS": "",
-        "INT_NU_LATITUDE": "-15.606429",
-        "INT_NU_LONGITUDE": "-48.138682",
+        "INT_NU_LATITUDE": "-15.00",
+        "INT_NU_LONGITUDE": "-47.00",
         "ING_NU_IBGEMUNICIPIO": "5300108",
         "ING_SG_UFMUNICIPIO": "DF",
         "ING_NM_MUNICIPIO": "BRASÍLIA",
-        "INT_NM_CORPOHIDRICO": "",
+        "INT_NM_CORPOHIDRICO": "Córrego Lamarão",
         "INT_NM_CORPOHIDRICOALTERADO": "",
         "INT_DS_ORGAO": "ADASA",
         "INT_CD_ORGAO": "53",
@@ -34,9 +37,9 @@ const compareJson = () => {
         "INT_CD_DECLARACAO": "",
         "INT_CD_ORIGEM": "",
         "INT_DS_OPCIONAL": "",
-        "EMP_NM_EMPREENDIMENTO": "ASSENTAMENTO BETINHO CONJUNTO A CHÁCARA 18",
-        "EMP_NM_USUARIO": "VALDIR PEREIRA DA TRINDADE",
-        "EMP_NU_CPFCNPJ": "03651175871",
+        "EMP_NM_EMPREENDIMENTO": "CHÁCARA 56 E 7",
+        "EMP_NM_USUARIO": "CLAUDIO MALINSKI",
+        "EMP_NU_CPFCNPJ": "36160741004",
         "EMP_DS_EMAILRESPONSAVEL": "",
         "EMP_NU_CEPENDERECO": "",
         "EMP_CD_IBGEMUNCORRESPONDENCIA": "",
@@ -49,28 +52,28 @@ const compareJson = () => {
         "EMP_NU_TELEFONE": "",
         "EMP_SG_UF": "",
         "EMP_NM_MUNICIPIO": "",
-        "OUT_TP_OUTORGA": "Direito de Uso",
-        "OUT_TPO_CD": "1",
+        "OUT_TP_OUTORGA": "Preventiva",
+        "OUT_TPO_CD": "2",
         "OUT_TP_SITUACAOOUTORGA": "Outorgado",
         "OUT_TSP_CD": "1",
-        "OUT_DT_OUTORGAFINAL": "2019-11-11",
-        "OUT_DT_OUTORGAINICIAL": "2014-11-11",
-        "OUT_NU_PROCESSO": "",
+        "OUT_DT_OUTORGAFINAL": "2019-05-25",
+        "OUT_DT_OUTORGAINICIAL": "2018-05-25",
+        "OUT_NU_PROCESSO": "19700001272017",
         "OUT_TP_ATO": "DESPACHO",
-        "OUT_NU_ATO": "6042014",
-        "DAD_QT_VAZAODIAJAN": "0.02",
-        "DAD_QT_VAZAODIAFEV": "0.02",
-        "DAD_QT_VAZAODIAMAR": "0.02",
-        "DAD_QT_VAZAODIAABR": "0.02",
-        "DAD_QT_VAZAODIAMAI": "0.02",
-        "DAD_QT_VAZAODIAJUN": "0.02",
-        "DAD_QT_VAZAODIAJUL": "0.02",
-        "DAD_QT_VAZAODIAAGO": "0.02",
-        "DAD_QT_VAZAODIASET": "0.02",
-        "DAD_QT_VAZAODIAOUT": "0.02",
-        "DAD_QT_VAZAODIANOV": "0.02",
-        "DAD_QT_VAZAODIADEZ": "0.02",
-        "DAD_QT_HORASJAN": "20",
+        "OUT_NU_ATO": "4652018",
+        "DAD_QT_VAZAODIAJAN": "0",
+        "DAD_QT_VAZAODIAFEV": "95.87",
+        "DAD_QT_VAZAODIAMAR": "95.87",
+        "DAD_QT_VAZAODIAABR": "95.87",
+        "DAD_QT_VAZAODIAMAI": "95.87",
+        "DAD_QT_VAZAODIAJUN": "95.87",
+        "DAD_QT_VAZAODIAJUL": "95.87",
+        "DAD_QT_VAZAODIAAGO": "95.87",
+        "DAD_QT_VAZAODIASET": "95.87",
+        "DAD_QT_VAZAODIAOUT": "95.87",
+        "DAD_QT_VAZAODIANOV": "95.87",
+        "DAD_QT_VAZAODIADEZ": "0",
+        "DAD_QT_HORASJAN": "0",
         "DAD_QT_HORASFEV": "20",
         "DAD_QT_HORASMAR": "20",
         "DAD_QT_HORASABR": "20",
@@ -81,8 +84,8 @@ const compareJson = () => {
         "DAD_QT_HORASSET": "20",
         "DAD_QT_HORASOUT": "20",
         "DAD_QT_HORASNOV": "20",
-        "DAD_QT_HORASDEZ": "20",
-        "DAD_QT_DIAJAN": "31",
+        "DAD_QT_HORASDEZ": "0",
+        "DAD_QT_DIAJAN": "0",
         "DAD_QT_DIAFEV": "28",
         "DAD_QT_DIAMAR": "31",
         "DAD_QT_DIAABR": "30",
@@ -93,10 +96,10 @@ const compareJson = () => {
         "DAD_QT_DIASET": "30",
         "DAD_QT_DIAOUT": "31",
         "DAD_QT_DIANOV": "30",
-        "DAD_QT_DIADEZ": "31",
-        "INT_QT_VAZAOMAXIMA": "0.02",
-        "INT_QT_VAZAOMEDIA": "0.02",
-        "INT_QT_VOLUMEANUAL": "146",
+        "DAD_QT_DIADEZ": "0",
+        "INT_QT_VAZAOMAXIMA": "95.87",
+        "INT_QT_VAZAOMEDIA": "79.89",
+        "INT_QT_VOLUMEANUAL": "580972.2",
         "FIN_TFN_DS": "Irrigação",
         "FIN_TFN_CD": "5",
         "FES_NU_PROFUNDIDADEMEDIATANQUE": "",
@@ -127,11 +130,11 @@ const compareJson = () => {
         "ETP_MPE_DS": "",
         "ETP_MPE_CD": "",
         "ETP_NU_QUANTIDADEMAXMENSAL": "",
-        "SIR_TSI_DS": "Aspersão por sistema pivô central",
-        "SIR_TSI_CD": "6",
-        "SIR_TCT_DS": "Hortaliças",
-        "SIR_TCT_CD": "1120",
-        "SIR_NU_AREAIRRIGADA": "1.5",
+        "SIR_TSI_DS": "Aspersão por sistema convencional",
+        "SIR_TSI_CD": "3",
+        "SIR_TCT_DS": "Trigo primavera",
+        "SIR_TCT_CD": "57",
+        "SIR_NU_AREAIRRIGADA": "32.5",
         "FIA_NU_POPULACAOATENDIDA": "",
         "FTE_NU_POTENCIAINSTALADA": "",
         "FTE_NU_PRODUCAOMENSALMEDIA": "",
@@ -226,158 +229,257 @@ const compareJson = () => {
         "AMA_QT_SULFATO": "",
         "AMA_QT_MAGNESIO": "",
         "DATA_EXTRACAO": "2022-09-27",
-        "ING_CD_OTTOBACIA_TRECHO": "64889",
-        "ING_CD_COMITEFEDERAL": "9",
-        "ING_NM_COMITEFEDERAL": "CBH do Rio Paranaíba",
-        "ING_CD_COMITEESTADUAL": "158",
-        "ING_NM_COMITEESTADUAL": "CBH do Rio Paranoá",
-        "ING_CS_CONAMA": "2",
-        }
+        "ING_CD_OTTOBACIA_TRECHO": "7684922",
+        "ING_CD_COMITEFEDERAL": "7",
+        "ING_NM_COMITEFEDERAL": "CBH do Rio São Francisco",
+        "ING_CD_COMITEESTADUAL": "159",
+        "ING_NM_COMITEESTADUAL": "CBH dos Afluentes do Rio Preto",
+        "ING_CS_CONAMA": "2"
+    }
 
-    convertJSONToCSV(sJson, './backend/data/csv/edicao-snirh.csv')
+    convertJSONToCSV(snirhJson, './backend/data/csv/test-1/edicao-snirh.csv')
 
-    let aJson = {
+    let adasaJson = {
+        "INT_CD": "",
+        "INT_CD_ORIGEM": "1112",
+        "INT_DS_OPTIONAL": "",
         "INT_TIN_CD": "1",
-        "INT_TSU_CD": "2",
-        "INT_TSI_CD": "",
-        "INT_CR_LATITUDE": "-15,606429",
-        "INT_CR_LONGITUDE": "-48,138682",
-        "ING_NU_IBGEMUNICIPIO": "5300108",
-        "EMP_NM_EMPREENDIMENTO": "ASSENTAMENTO BETINHO, CONJUNTO A, CHÁCARA 18",
-        "EMP_NU_CPFCNPJ": "#03651175871",
-        "EMP_NM_USUARIO": "VALDIR PEREIRA DA TRINDADE",
-        "EMP_DS_EMAILRESPONSAVEL": "naoinformado@gmail.com.br",
-        "EMP_NU_CEPENDERECO": "72700000",
-        "EMP_DS_LOGRADOURO": "ASSENTAMENTO BETINHO, CONJUNTO A, CHÁCARA 18",
-        "EMP_DS_COMPLEMENTOENDERECO": "",
-        "EMP_NU_LOGRADOURO": "",
-        "EMP_NU_CAIXAPOSTAL": "0",
-        "EMP_CD_CODIGOIBGECORRESPONDENCIA": "",
-        "EMP_NU_DDD": "61",
-        "EMP_NU_TELEFONE": "91707111",
-        "OUT_TPO_CD": "1",
-        "OUT_TSP_CD": "1",
-        "OUT_DT_FINAL": "16/08/2028",
-        "OUT_DT_INICIAL": "16/08/2018",
-        "OUT_NU_PROCESSO": "197000131/2014",
-        "OUT_DS_ATO": "DESPACHO",
-        "OUT_NU_ATO": "683/2018",
+        "INT_TSU_CD": "1",
         "INT_NU_SIAGAS": "",
-        "OPE_VZ_MESJAN": "0,400000",
-        "OPE_VZ_MESFEV": "0,400000",
-        "OPE_VZ_MESMAR": "0,400000",
-        "OPE_VZ_MESABR": "0,400000",
-        "OPE_VZ_MESMAI": "0,400000",
-        "OPE_VZ_MESJUN": "0,400000",
-        "OPE_VZ_MESJUL": "0,400000",
-        "OPE_VZ_MESAGO": "0,400000",
-        "OPE_VZ_MESSET": "0,400000",
-        "OPE_VZ_MESOUT": "0,400000",
-        "OPE_VZ_MESNOV": "0,400000",
-        "OPE_VZ_MESDEZ": "0,400000",
-        "OPE_QT_HORASJAN": "20",
-        "OPE_QT_HORASFEV": "20",
-        "OPE_QT_HORASMAR": "20",
-        "OPE_QT_HORASABR": "20",
-        "OPE_QT_HORASMAI": "20",
-        "OPE_QT_HORASJUN": "20",
-        "OPE_QT_HORASJUL": "20",
-        "OPE_QT_HORASAGO": "20",
-        "OPE_QT_HORASSET": "20",
-        "OPE_QT_HORASOUT": "20",
-        "OPE_QT_HORASNOV": "20",
-        "OPE_QT_HORASDEZ": "20",
-        "OPE_QT_DIAJAN": "31",
-        "OPE_QT_DIAFEV": "28",
-        "OPE_QT_DIAMAR": "31",
-        "OPE_QT_DIAABR": "30",
-        "OPE_QT_DIAMAI": "31",
-        "OPE_QT_DIAJUN": "30",
-        "OPE_QT_DIAJUL": "31",
-        "OPE_QT_DIAAGO": "31",
-        "OPE_QT_DIASET": "30",
-        "OPE_QT_DIAOUT": "31",
-        "OPE_QT_DIANOV": "30",
-        "OPE_QT_DIADEZ": "31",
-        "INT_VZ_MAXIMA": "0,40",
+        "INT_NU_LATITUDE": "-15.11",
+        "INT_NU_LONGITUDE": "-47.11",
+        "INT_NM_CORPOHIDRICOALTERADO": "",
+        "EMP_NM_EMPREENDIMENTO": "NÚCLEO RURAL JARDIM, LOTE 5, 6 E 7,NÚCLEO RURAL JARDIM, LOTE 5, 6 E 7",
+        "EMP_NM_RESPONSAVEL": "LEONARDO CENCI MALINSKI",
+        "EMP_NU_CPFCNPJ": "#00143344102",
+        "EMP_DS_EMAILRESPONSAVEL": "LMALINSKI@HOTMAIL.COM",
+        "EMP_NU_CEPENDERECO": "71218010",
+        "EMP_DS_LOGRADOURO": "SMAS TRECHO 01, LOTE C, BLOCO F, APARTAMENTO 204",
+        "EMP_DS_COMPLEMENTOENDERECO": "",
+        "EMP_NU_LOGRADOURO": "SMAS TRECHO 01, LOTE C, BLOCO F, APARTAMENTO 204",
+        "EMP_NU_CAIXAPOSTAL": "",
+        "EMP_DS_BAIRRO": "GUARÁ",
+        "EMP_NU_DDD": "DF",
+        "EMP_NU_TELEFONE": "(61) 98427-5893",
+        "EMP_CD_IBGEMUNCORRESPONDENCIA": "5300108",
+        "OUT_TP_OUTORGA": "1",
+        "OUT_TP_SITUACAOOUTORGA": "4",
+        "OUT_DT_OUTORGAINICIAL": "09/03/2023",
+        "OUT_DT_OUTORGAFINAL": "08/03/2033",
+        "OUT_NU_PROCESSO": "00197-00003456/2019-81",
+        "OUT_TP_AT": "OUTORGA",
+        "OUT_NU_ATO": "0403/2022",
+        "DAD_QT_VAZAODIAJAN": "100,30",
+        "DAD_QT_VAZAODIAFEV": "100,30",
+        "DAD_QT_VAZAODIAMAR": "100,30",
+        "DAD_QT_VAZAODIAABR": "100,30",
+        "DAD_QT_VAZAODIAMAI": "100,30",
+        "DAD_QT_VAZAODIAJUN": "100,30",
+        "DAD_QT_VAZAODIAJUL": "100,30",
+        "DAD_QT_VAZAODIAAGO": "100,30",
+        "DAD_QT_VAZAODIASET": "100,30",
+        "DAD_QT_VAZAODIAOUT": "100,30",
+        "DAD_QT_VAZAODIANOV": "100,30",
+        "DAD_QT_VAZAODIADEZ": "100,30",
+        "DAD_QT_HORASJAN": "20",
+        "DAD_QT_HORASFEV": "20",
+        "DAD_QT_HORASMAR": "20",
+        "DAD_QT_HORASABR": "20",
+        "DAD_QT_HORASMAI": "20",
+        "DAD_QT_HORASJUN": "20",
+        "DAD_QT_HORASJUL": "20",
+        "DAD_QT_HORASAGO": "20",
+        "DAD_QT_HORASSET": "20",
+        "DAD_QT_HORASOUT": "20",
+        "DAD_QT_HORASNOV": "20",
+        "DAD_QT_HORASDEZ": "20",
+        "DAD_QT_DIAJAN": "31",
+        "DAD_QT_DIAFEV": "28",
+        "DAD_QT_DIAMAR": "31",
+        "DAD_QT_DIAABR": "30",
+        "DAD_QT_DIAMAI": "31",
+        "DAD_QT_DIAJUN": "30",
+        "DAD_QT_DIAJUL": "31",
+        "DAD_QT_DIAAGO": "31",
+        "DAD_QT_DIASET": "30",
+        "DAD_QT_DIAOUT": "31",
+        "DAD_QT_DIANOV": "30",
+        "DAD_QT_DIADEZ": "31",
+        "FIN_CD": "",
         "FIN_TFN_CD": "5",
-        "FOU_TOU_CD": "null",
-        "SIR_TSI_CD": "3",
-        "SIR_TCT_CD": "1120",
-        "SIR_AR_IRRIGADA": "3,00",
+        "FES_NU_PROFUNDIDADEMEDIATANQUE": "",
+        "FES_NU_AREATOTALTANQUE": "",
+        "TTC_CD": "",
+        "TTC_TCU_CD": "",
+        "FSE_TES_CD": "",
+        "FIE_TPS_CD": "",
+        "FAH_TAH_CD": "",
+        "FAH_NU_POTENCIAINSTALADA": "",
+        "FAH_IC_APROVEITAMENTOFIODAGUA": "",
+        "FAH_NU_AREAINUNDADANA": "",
+        "FAH_NU_VOLUMENA": "",
+        "FPE_TPE_CD": "",
+        "FPE_CNA_CD": "",
+        "ETP_CD": "",
+        "ETP_MPE_CD": "",
+        "ETP_NU_QUANTIDADEMAXMENSAL": "",
         "IUS_NU_ALTURARES": "",
-        "IUS_AR_RESMAX": "",
-        "IUS_VO_RESMAX": "",
-        "EFL_QT_DBOBRUTO": "",
-        "EFL_QT_DBOTRATADO": "",
-        "EFL_QT_FOSFOROBRUTO": "",
-        "EFL_QT_FOSFOROTRATADO": "",
-        "EFL_QT_NITROGENIOBRUTO": "",
-        "EFL_QT_NITROGENIOTRATADO": "",
+        "IUS_NU_AREARESMAX": "",
+        "IUS_NU_VOLUMERES": "",
+        "IUS_NM_ENTIDADECONCEDENTE": "",
+        "IUS_NU_CONCESSAO": "",
+        "IUS_DT_FINALCONCESSAO": "",
+        "SIR_CD": "",
+        "SIR_TSI_CD": "",
+        "SIR_TCT_CDSIR_NU_AREAIRRIGADA": "",
+        "FTE_NU_POTENCIAINSTALADA": "",
+        "FTE_NU_PRODUCAOMENSALMEDIA": "",
+        "FTE_TCO_CD": "",
+        "FTE_TSR_CD": "",
+        "FEA_NU_PRODUCAOMAXMENSALAREIA": "",
+        "FEA_NU_PROPORCAOAGUAPOLPA": "",
+        "FEA_PC_TEORUMIDADE": "",
+        "FOH_TOH_CD": "",
+        "FRE_NU_AREAINUNDADANA": "",
+        "FRE_NU_VOLUMENA": "",
+        "OTO_TOU_CD": "",
+        "OTO_CD": "",
+        "OTO_NM_OUTROUSO": "",
+        "OTO_DS_OUTROUSO": "",
+        "HTE_CD": "",
+        "HTE_NU_QUANTIDADE": "",
+        "TUC_TEC_CD": "",
+        "TUC_CD": "",
+        "FTR_AR_TOTALEMPREENDIMENTO": "",
+        "ESC_CD": "",
+        "ESC_NU_PRODUCAOPRETENDIDA": "",
+        "ESC_TET_CD": "",
+        "CTE_CD": "",
+        "CTE_TSC_CD": "",
+        "CTE_TCA_CD": "",
+        "CTE_NU_CABECAS": "",
+        "ITC_CD": "",
+        "ITC_TUM_CD": "",
+        "ITC_NU_PRODUCAOANUAL": "",
+        "ITC_CNA_CD": "",
+        "EFL_NU_DBOBRUTO": "",
+        "EFL_NU_DBOTRATADO": "",
+        "EFL_NU_FOSFOROBRUTO": "",
+        "EFL_NU_FOSFOROTRATADO": "",
+        "EFL_NU_NITROGENIOBRUTO": "",
+        "EFL_NU_NITROGENIOTRATADO": "",
+        "EFL_NU_TEMPERATURA": "",
+        "EFL_TTE_CD": "",
         "ASB_DT_INSTALACAO": "",
-        "ASB_TNP_CD": "1",
+        "ASB_TNP_CD": "",
         "ASB_NU_DIAMETROPERFURACAO": "",
         "ASB_NU_DIAMETROFILTRO": "",
-        "ASB_AQP_CD": "",
-        "ASB_NU_TOPO": "0,00",
+        "ASB_TPA_CD": "",
+        "ASB_NU_TOPO": "",
         "ASB_NU_BASE": "",
-        "ASB_TPN_CD": " ",
-        "ASB_TCA_CD": " ",
+        "ASB_TCQ_CD": "",
         "ASB_NU_PROFUNDIDADEFINAL": "",
-        "ASB_NU_ALTURABOCATUBO": "0,00",
+        "ASB_NU_ALTURABOCATUBO": "",
         "ASB_NU_COTATERRENO": "",
-        "TST_DT": "",
-        "TST_TTB_CD": "0",
+        "ASB_DS_AQUIFEROEXPLOTADO": "",
+        "TST_TTB_CD": "",
         "TST_DS_TEMPODURACAO": "",
         "TST_NU_ND": "",
         "TST_NU_NE": "",
         "TST_VZ_ESTABILIZACAO": "",
         "TST_TMI_CD": "",
-        "TST_NU_COEFICIENTEARMAZENAMENTO": "",
+        "TST_NU_COEFICIENTEARMAZENAMENT": "",
         "TST_NU_TRANSMISSIVIDADE": "",
         "TST_NU_CONDUTIVIDADEHIDRAULICA": "",
         "TST_NU_PERMEABILIDADE": "",
-        "AMA_DT_COLETA": "10/01/2014",
-        "AMA_DT_ANALISE": "20/01/2014",
-        "AMA_NU_CONDUTIVIDADEELETRICA": "7,77",
+        "AMA_DT_COLETA": "",
+        "AMA_DT_ANALISE": "",
+        "AMA_NU_CONDUTIVIDADEELETRICA": "",
         "AMA_QT_TEMPERATURA": "",
-        "AMA_QT_STD": "7,27",
-        "AMA_QT_PH": "5,82",
+        "AMA_QT_STD": "",
+        "AMA_QT_PH": "",
         "AMA_QT_COLIFORMESTOTAIS": "",
         "AMA_QT_COLIFORMESFECAIS": "",
-        "AMA_QT_ BICARBONATO": "",
-        "AMA_QT_ CALCIO": "",
-        "AMA_QT_ CARBONATO": "",
-        "AMA_QT_ CLORETO": "1,83",
-        "AMA_QT_ DUREZATOTAL": "8,16",
-        "AMA_QT_ FERROTOTAL": "0,15",
-        "AMA_QT_ FLUORETOS": "",
-        "AMA_QT_ NITRATOS": "1,4",
-        "AMA_QT_ NITRITOS": "0,36",
-        "AMA_QT_ POTASSIO": "",
-        "AMA_QT_ SODIO": "",
-        "AMA_QT_ SULFATO": "",
-        "AMA_QT_MAGNESIO": "",
-        "INT_CD_ORIGEM": "3880",
-        "INT_DS_OPCIONAL": ""
+        "AMA_QT_BICARBONATO": "",
+        "AMA_QT_CALCIO": "",
+        "AMA_QT_CARBONATO": "",
+        "AMA_QT_CLORETO": "",
+        "AMA_QT_DUREZATOTAL": "",
+        "AMA_QT_FERROTOTAL": "",
+        "AMA_QT_FLUORETOS": "",
+        "AMA_QT_NITRATOS": "",
+        "AMA_QT_NITRITOS": "",
+        "AMA_QT_POTASSIO": "",
+        "AMA_QT_SODIO": "",
+        "AMA_QT_SULFATO": "",
+        "AMA_QT_MAGNESIO": ""
     }
 
-    convertJSONToCSV(sJson, './backend/data/csv/edicao-adasa.csv')
+    convertJSONToCSV(snirhJson, './backend/data/csv/test-1/edicao-adasa.csv')
 
-    let objectToSend = sJson;
+    let objectToSend = {};
+    
 
-    let array = Object.entries(aJson);
-    array.forEach(([key, value])=> {
-        objectToSend[key] = value
+    let snirhKeyValues = Object.entries(snirhJson);
+
+    console.log(snirhKeyValues)
+
+    snirhKeyValues.forEach(([key, value]) => {
+
+        // Remove aspas do valor, ex: 'rock' para rock
+        let _value = value.replace(/'/g, '');
+
+        console.log('+++++++ > ', value, _value)
+        // Converte float para string com vírgula, ex: -15.456 para -15,456
+        if (isFloat(_value)) {
+            let str = convertFloatToCommaString(_value);
+            console.log('------------------> ', str)
+
+            objectToSend[key] = str
+            // Adiciona máscara no cnpj ou cpf, ex: #22255544489 para #222.555.444-89
+        } else if (key === 'EMP_NU_CPFCNPJ') {
+            let cpfCnpj = '#' + formatCpfCnpj(_value);
+            objectToSend[key] = cpfCnpj;
+
+            // Verifica e converte a data 2020-05-27 para 27/05/2020
+        } else if (isDate(_value)) {
+            let dataConverted = convertDateFormat(_value)
+            objectToSend[key] = dataConverted;
+        }
+        else {
+            objectToSend[key] = _value
+        }
     });
-    array.forEach(([key, value])=> {
-        objectToSend[key] = value
+
+    // Edita os Snirh com os valores da Adasa, desde que existentes e válidos.
+    let adasaKeyValues = Object.entries(adasaJson);
+
+    adasaKeyValues.forEach(([key, value]) => {
+        //se o valor do atributo na adasa for nulo e houver um valor no snirh, não modificar.
+        if (value !== '' || value !== 'undefined' || value !== null) {
+
+            // INT_QT_VAZAOMAXIMA
+            let _value = value.replace(/'/g, '');
+
+            if (isFloat(_value)) {
+                let number = convertFloatToCommaString(_value);
+                console.log('adasa', typeof _value, _value, number)
+                objectToSend[key] = number
+            } else if (key === 'EMP_NU_CPFCNPJ') {
+                let cpfCnpj = '#' + formatCpfCnpj(_value);
+                objectToSend[key] = cpfCnpj;
+            } else {
+                objectToSend[key] = _value;
+            }
+            // adicionar verifiação de data 2019-11-11 to 01/04/2015
+        }
     });
 
-    convertJSONToCSV(objectToSend, './backend/data/csv/edicao-object-to-send.csv')
+    convertJSONToCSV(objectToSend, './backend/data/csv/test-1/edicao-object-to-send.csv')
 
     console.log(objectToSend)
 
 }
+
 
 compareJson()
