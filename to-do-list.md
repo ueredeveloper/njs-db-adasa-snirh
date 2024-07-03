@@ -39,11 +39,13 @@
 ## 2024-06-03
 - [X]    Esperando resposta de e-mail de como verficiar as edições, no momento não estou conseguindo ver o resultado das edições.
     Em resposta a instituição avisa que solucionou o problema e que as edições serão atualizadas de 15 em 15 minutos.
-- []    Criando método de busca por parâmetro no banco da Adasa.
+    03/07/2024 - No momento a edição que fiz ainda não foi verificada. Estou entrando novamente em contato com o Márlon da Ana.
+- [X]    Criando método de busca por parâmetro no banco da Adasa.
 
 ## 2024-06-24
 - []    Mudar o nome da view `list-adasa-view` para `list-grants-view`. Isto adiciona um nome mais genérico pois depois pode ser utilizado para outorgas de outros Estados, por exemplo.
 
 ## 2024-06-25
-- []    Revisão da ordem das colunas ao criar o csv.
+- [X]    Revisão da ordem das colunas ao criar o csv.
     Ao criar o csv revise a ordem das colunas. É necessário criar uma array com a ordem e orientar a criação do csv de evição por ela.
+        03/07/2024 - No momento não está sendo necessário. Consegui enviar uma planilha de edição de superficial apenas com a query e editando o id da interferência na Ana.

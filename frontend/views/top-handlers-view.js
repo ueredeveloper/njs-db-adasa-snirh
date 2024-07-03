@@ -10,12 +10,12 @@ const TopHandlersView = {
         this.div = $('#top-handlers');
         this.searchParams = {
             "uf": "DF",
-            "dataInicio": "20170411000000",
-            "dataFim": "20200411000000",
+            "dataInicio": "20180101000000",
+            "dataFim": "20250101000000",
             "idDominialidade": "1",
             "idTipoOutorga": "1",
             "idSituacaoOutorga": "1",
-            "idFinalidade": "6",
+            "idFinalidade": "5",
             "pagina": 1,
             "tamanhoPagina": 10000
         }

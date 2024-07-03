@@ -9,7 +9,7 @@ const TopHandlersSnirhSearch = () => {
         "idDominialidade": "1",
         "idTipoOutorga": "1",
         "idSituacaoOutorga": "1",
-        "idFinalidade": "1",
+        "idFinalidade": "5",
         "pagina": 1,
         "tamanhoPagina": 10000
     }
@@ -18,6 +18,8 @@ const TopHandlersSnirhSearch = () => {
     $(document).ready(function () {
         $('#sl-estado').change(function () {
             var selectedValue = $(this).val();
+
+            console.log(this.params)
 
             $this.params = { ...$this.params, uf: selectedValue }
 

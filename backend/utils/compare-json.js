@@ -8,7 +8,7 @@ const compareJson = () => {
 
 
     let snirhJson = {
-        "INT_CD": "928685",
+        "INT_CD": "928338",
         "INT_TIN_DS": "Captação",
         "INT_TIN_CD": "1",
         "INT_TSU_DS": "Superficial",
@@ -21,14 +21,14 @@ const compareJson = () => {
         "INT_TOD_CD": "4",
         "INT_TDM_DS": "Estadual",
         "INT_TDM_CD": "1",
-        "INT_NU_CNARH": "",
+        "INT_NU_CNARH": "710002572992",
         "INT_NU_SIAGAS": "",
-        "INT_NU_LATITUDE": "-15.00",
-        "INT_NU_LONGITUDE": "-47.00",
+        "INT_NU_LATITUDE": "-15.960674",
+        "INT_NU_LONGITUDE": "-47.38104",
         "ING_NU_IBGEMUNICIPIO": "5300108",
         "ING_SG_UFMUNICIPIO": "DF",
         "ING_NM_MUNICIPIO": "BRASÍLIA",
-        "INT_NM_CORPOHIDRICO": "Córrego Lamarão",
+        "INT_NM_CORPOHIDRICO": "",
         "INT_NM_CORPOHIDRICOALTERADO": "",
         "INT_DS_ORGAO": "ADASA",
         "INT_CD_ORGAO": "53",
@@ -37,9 +37,9 @@ const compareJson = () => {
         "INT_CD_DECLARACAO": "",
         "INT_CD_ORIGEM": "",
         "INT_DS_OPCIONAL": "",
-        "EMP_NM_EMPREENDIMENTO": "CHÁCARA 56 E 7",
-        "EMP_NM_USUARIO": "CLAUDIO MALINSKI",
-        "EMP_NU_CPFCNPJ": "36160741004",
+        "EMP_NM_EMPREENDIMENTO": "DF 100 KM 23 LOTE 10 A 1427 A 29 FAZENDA CANADÁ",
+        "EMP_NM_USUARIO": "MARIZA STUANI DE ALMEIDA MATSUI",
+        "EMP_NU_CPFCNPJ": "89746236687",
         "EMP_DS_EMAILRESPONSAVEL": "",
         "EMP_NU_CEPENDERECO": "",
         "EMP_CD_IBGEMUNCORRESPONDENCIA": "",
@@ -52,54 +52,54 @@ const compareJson = () => {
         "EMP_NU_TELEFONE": "",
         "EMP_SG_UF": "",
         "EMP_NM_MUNICIPIO": "",
-        "OUT_TP_OUTORGA": "Preventiva",
-        "OUT_TPO_CD": "2",
+        "OUT_TP_OUTORGA": "Direito de Uso",
+        "OUT_TPO_CD": "1",
         "OUT_TP_SITUACAOOUTORGA": "Outorgado",
         "OUT_TSP_CD": "1",
-        "OUT_DT_OUTORGAFINAL": "2019-05-25",
-        "OUT_DT_OUTORGAINICIAL": "2018-05-25",
-        "OUT_NU_PROCESSO": "19700001272017",
+        "OUT_DT_OUTORGAFINAL": "2023-08-22",
+        "OUT_DT_OUTORGAINICIAL": "2018-08-22",
+        "OUT_NU_PROCESSO": "197000003752018",
         "OUT_TP_ATO": "DESPACHO",
-        "OUT_NU_ATO": "4652018",
+        "OUT_NU_ATO": "7312018",
         "DAD_QT_VAZAODIAJAN": "0",
-        "DAD_QT_VAZAODIAFEV": "95.87",
-        "DAD_QT_VAZAODIAMAR": "95.87",
-        "DAD_QT_VAZAODIAABR": "95.87",
-        "DAD_QT_VAZAODIAMAI": "95.87",
-        "DAD_QT_VAZAODIAJUN": "95.87",
-        "DAD_QT_VAZAODIAJUL": "95.87",
-        "DAD_QT_VAZAODIAAGO": "95.87",
-        "DAD_QT_VAZAODIASET": "95.87",
-        "DAD_QT_VAZAODIAOUT": "95.87",
-        "DAD_QT_VAZAODIANOV": "95.87",
+        "DAD_QT_VAZAODIAFEV": "0",
+        "DAD_QT_VAZAODIAMAR": "0",
+        "DAD_QT_VAZAODIAABR": "0",
+        "DAD_QT_VAZAODIAMAI": "151.2",
+        "DAD_QT_VAZAODIAJUN": "151.2",
+        "DAD_QT_VAZAODIAJUL": "151.2",
+        "DAD_QT_VAZAODIAAGO": "151.2",
+        "DAD_QT_VAZAODIASET": "151.2",
+        "DAD_QT_VAZAODIAOUT": "151.2",
+        "DAD_QT_VAZAODIANOV": "0",
         "DAD_QT_VAZAODIADEZ": "0",
         "DAD_QT_HORASJAN": "0",
-        "DAD_QT_HORASFEV": "20",
-        "DAD_QT_HORASMAR": "20",
-        "DAD_QT_HORASABR": "20",
-        "DAD_QT_HORASMAI": "20",
-        "DAD_QT_HORASJUN": "20",
-        "DAD_QT_HORASJUL": "20",
-        "DAD_QT_HORASAGO": "20",
-        "DAD_QT_HORASSET": "20",
-        "DAD_QT_HORASOUT": "20",
-        "DAD_QT_HORASNOV": "20",
+        "DAD_QT_HORASFEV": "0",
+        "DAD_QT_HORASMAR": "0",
+        "DAD_QT_HORASABR": "0",
+        "DAD_QT_HORASMAI": "21",
+        "DAD_QT_HORASJUN": "21",
+        "DAD_QT_HORASJUL": "21",
+        "DAD_QT_HORASAGO": "21",
+        "DAD_QT_HORASSET": "21",
+        "DAD_QT_HORASOUT": "21",
+        "DAD_QT_HORASNOV": "0",
         "DAD_QT_HORASDEZ": "0",
         "DAD_QT_DIAJAN": "0",
-        "DAD_QT_DIAFEV": "28",
-        "DAD_QT_DIAMAR": "31",
-        "DAD_QT_DIAABR": "30",
+        "DAD_QT_DIAFEV": "0",
+        "DAD_QT_DIAMAR": "0",
+        "DAD_QT_DIAABR": "0",
         "DAD_QT_DIAMAI": "31",
         "DAD_QT_DIAJUN": "30",
         "DAD_QT_DIAJUL": "31",
         "DAD_QT_DIAAGO": "31",
         "DAD_QT_DIASET": "30",
         "DAD_QT_DIAOUT": "31",
-        "DAD_QT_DIANOV": "30",
+        "DAD_QT_DIANOV": "0",
         "DAD_QT_DIADEZ": "0",
-        "INT_QT_VAZAOMAXIMA": "95.87",
-        "INT_QT_VAZAOMEDIA": "79.89",
-        "INT_QT_VOLUMEANUAL": "580972.2",
+        "INT_QT_VAZAOMAXIMA": "151.2",
+        "INT_QT_VAZAOMEDIA": "75.6",
+        "INT_QT_VOLUMEANUAL": "584236.8",
         "FIN_TFN_DS": "Irrigação",
         "FIN_TFN_CD": "5",
         "FES_NU_PROFUNDIDADEMEDIATANQUE": "",
@@ -132,9 +132,9 @@ const compareJson = () => {
         "ETP_NU_QUANTIDADEMAXMENSAL": "",
         "SIR_TSI_DS": "Aspersão por sistema convencional",
         "SIR_TSI_CD": "3",
-        "SIR_TCT_DS": "Trigo primavera",
-        "SIR_TCT_CD": "57",
-        "SIR_NU_AREAIRRIGADA": "32.5",
+        "SIR_TCT_DS": "Hortaliças",
+        "SIR_TCT_CD": "1120",
+        "SIR_NU_AREAIRRIGADA": "150",
         "FIA_NU_POPULACAOATENDIDA": "",
         "FTE_NU_POTENCIAINSTALADA": "",
         "FTE_NU_PRODUCAOMENSALMEDIA": "",
@@ -228,84 +228,88 @@ const compareJson = () => {
         "AMA_QT_SODIO": "",
         "AMA_QT_SULFATO": "",
         "AMA_QT_MAGNESIO": "",
-        "DATA_EXTRACAO": "2022-09-27",
-        "ING_CD_OTTOBACIA_TRECHO": "7684922",
+        "DATA_EXTRACAO": "2024-07-01",
+        "ING_CD_OTTOBACIA_TRECHO": "7684921",
         "ING_CD_COMITEFEDERAL": "7",
-        "ING_NM_COMITEFEDERAL": "CBH do Rio São Francisco",
+        "ING_NM_COMITEFEDERAL": "São Francisco",
         "ING_CD_COMITEESTADUAL": "159",
         "ING_NM_COMITEESTADUAL": "CBH dos Afluentes do Rio Preto",
-        "ING_CS_CONAMA": "2"
+        "ING_CS_CONAMA": "",
+        "": "\n                            <div class=\"div-btn flex flex-row justify-around w-24 min-w-24 max-w-24\">\n                                <!-- select button -->\n                                <button id=\"btn-snirh-selection\" class=\"hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300\">\n                                    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"w-6 h-6\">\n                                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z\" />\n                                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z\" />\n                                    </svg>\n                                </button>\n                                <!-- copy button -->\n                                <button class=\"hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300\">\n                                    <svg xmlns=\"http://www.w3.org/2000/svg\" fill=\"none\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" class=\"size-6\">\n                                        <path stroke-linecap=\"round\" stroke-linejoin=\"round\" d=\"m4.5 12.75 6 6 9-13.5\" />\n                                    </svg>\n                                </button>\n                            </div>"
     }
 
-    convertJSONToCSV(snirhJson, './backend/data/csv/test-1/edicao-snirh.csv')
+    let id = snirhJson.INT_CD
+    console.log('snirh id: ', id)
 
-    let adasaJson = {
+    //convertJSONToCSV(snirhJson, './backend/data/csv/test-1/edicao-snirh.csv')
+
+    let adasa = {
         "INT_CD": "",
-        "INT_CD_ORIGEM": "1112",
+        "INT_CD_ORIGEM": "221",
         "INT_DS_OPTIONAL": "",
         "INT_TIN_CD": "1",
         "INT_TSU_CD": "1",
         "INT_NU_SIAGAS": "",
-        "INT_NU_LATITUDE": "-15.11",
-        "INT_NU_LONGITUDE": "-47.11",
+        "INT_NU_LATITUDE": "-15,960674",
+        "INT_NU_LONGITUDE": "-47,381040",
         "INT_NM_CORPOHIDRICOALTERADO": "",
-        "EMP_NM_EMPREENDIMENTO": "NÚCLEO RURAL JARDIM, LOTE 5, 6 E 7,NÚCLEO RURAL JARDIM, LOTE 5, 6 E 7",
-        "EMP_NM_RESPONSAVEL": "LEONARDO CENCI MALINSKI",
-        "EMP_NU_CPFCNPJ": "#00143344102",
-        "EMP_DS_EMAILRESPONSAVEL": "LMALINSKI@HOTMAIL.COM",
-        "EMP_NU_CEPENDERECO": "71218010",
-        "EMP_DS_LOGRADOURO": "SMAS TRECHO 01, LOTE C, BLOCO F, APARTAMENTO 204",
+        "EMP_NM_EMPREENDIMENTO": "DF 100, KM 23, LOTE 10 A 14/27 A 29, FAZENDA CANADÁ",
+        "EMP_NM_RESPONSAVEL": "MARIZA STUANI DE ALMEIDA MATSUI",
+        "EMP_NU_CPFCNPJ": "#89746236687",
+        "EMP_DS_EMAILRESPONSAVEL": "naoinformado@gmail.com.br",
+        "EMP_NU_CEPENDERECO": "71570000",
+        "EMP_DS_LOGRADOURO": "DF 100, KM 23, LOTE 10 A 14/27 A 29, FAZENDA CANADÁ,",
         "EMP_DS_COMPLEMENTOENDERECO": "",
-        "EMP_NU_LOGRADOURO": "SMAS TRECHO 01, LOTE C, BLOCO F, APARTAMENTO 204",
+        "EMP_NU_LOGRADOURO": "",
         "EMP_NU_CAIXAPOSTAL": "",
-        "EMP_DS_BAIRRO": "GUARÁ",
+        "EMP_DS_BAIRRO": "ITAPETI",
         "EMP_NU_DDD": "DF",
-        "EMP_NU_TELEFONE": "(61) 98427-5893",
+        "EMP_NU_TELEFONE": "6135011006",
         "EMP_CD_IBGEMUNCORRESPONDENCIA": "5300108",
         "OUT_TP_OUTORGA": "1",
         "OUT_TP_SITUACAOOUTORGA": "4",
-        "OUT_DT_OUTORGAINICIAL": "09/03/2023",
-        "OUT_DT_OUTORGAFINAL": "08/03/2033",
-        "OUT_NU_PROCESSO": "00197-00003456/2019-81",
-        "OUT_TP_AT": "OUTORGA",
-        "OUT_NU_ATO": "0403/2022",
-        "DAD_QT_VAZAODIAJAN": "100,30",
-        "DAD_QT_VAZAODIAFEV": "100,30",
-        "DAD_QT_VAZAODIAMAR": "100,30",
-        "DAD_QT_VAZAODIAABR": "100,30",
-        "DAD_QT_VAZAODIAMAI": "100,30",
-        "DAD_QT_VAZAODIAJUN": "100,30",
-        "DAD_QT_VAZAODIAJUL": "100,30",
-        "DAD_QT_VAZAODIAAGO": "100,30",
-        "DAD_QT_VAZAODIASET": "100,30",
-        "DAD_QT_VAZAODIAOUT": "100,30",
-        "DAD_QT_VAZAODIANOV": "100,30",
-        "DAD_QT_VAZAODIADEZ": "100,30",
-        "DAD_QT_HORASJAN": "20",
-        "DAD_QT_HORASFEV": "20",
-        "DAD_QT_HORASMAR": "20",
-        "DAD_QT_HORASABR": "20",
-        "DAD_QT_HORASMAI": "20",
-        "DAD_QT_HORASJUN": "20",
-        "DAD_QT_HORASJUL": "20",
-        "DAD_QT_HORASAGO": "20",
-        "DAD_QT_HORASSET": "20",
-        "DAD_QT_HORASOUT": "20",
-        "DAD_QT_HORASNOV": "20",
-        "DAD_QT_HORASDEZ": "20",
-        "DAD_QT_DIAJAN": "31",
-        "DAD_QT_DIAFEV": "28",
-        "DAD_QT_DIAMAR": "31",
-        "DAD_QT_DIAABR": "30",
+        "OUT_DT_OUTORGAINICIAL": "22/08/2018",
+        "OUT_DT_OUTORGAFINAL": "22/08/2028",
+        "OUT_NU_PROCESSO": "19700000375/2018",
+        "OUT_TP_AT": "DESPACHO",
+        "OUT_NU_ATO": "731/2018",
+        "DAD_QT_VAZAODIAJAN": "0,0",
+        "DAD_QT_VAZAODIAFEV": "0,0",
+        "DAD_QT_VAZAODIAMAR": "0,0",
+        "DAD_QT_VAZAODIAABR": "0,0",
+        "DAD_QT_VAZAODIAMAI": "151,2",
+        "DAD_QT_VAZAODIAJUN": "151,2",
+        "DAD_QT_VAZAODIAJUL": "151,2",
+        "DAD_QT_VAZAODIAAGO": "151,2",
+        "DAD_QT_VAZAODIASET": "151,2",
+        "DAD_QT_VAZAODIAOUT": "151,2",
+        "DAD_QT_VAZAODIANOV": "0,0",
+        "DAD_QT_VAZAODIADEZ": "0,0",
+        "DAD_QT_HORASJAN": "0",
+        "DAD_QT_HORASFEV": "0",
+        "DAD_QT_HORASMAR": "0",
+        "DAD_QT_HORASABR": "0",
+        "DAD_QT_HORASMAI": "21",
+        "DAD_QT_HORASJUN": "21",
+        "DAD_QT_HORASJUL": "21",
+        "DAD_QT_HORASAGO": "21",
+        "DAD_QT_HORASSET": "21",
+        "DAD_QT_HORASOUT": "21",
+        "DAD_QT_HORASNOV": "0",
+        "DAD_QT_HORASDEZ": "0",
+        "DAD_QT_DIAJAN": "0",
+        "DAD_QT_DIAFEV": "0",
+        "DAD_QT_DIAMAR": "0",
+        "DAD_QT_DIAABR": "0",
         "DAD_QT_DIAMAI": "31",
         "DAD_QT_DIAJUN": "30",
         "DAD_QT_DIAJUL": "31",
         "DAD_QT_DIAAGO": "31",
         "DAD_QT_DIASET": "30",
         "DAD_QT_DIAOUT": "31",
-        "DAD_QT_DIANOV": "30",
-        "DAD_QT_DIADEZ": "31",
-        "FIN_CD": "",
+        "DAD_QT_DIANOV": "0",
+        "DAD_QT_DIADEZ": "0",
+        "FIN_CD": "0",
         "FIN_TFN_CD": "5",
         "FES_NU_PROFUNDIDADEMEDIATANQUE": "",
         "FES_NU_AREATOTALTANQUE": "",
@@ -331,7 +335,8 @@ const compareJson = () => {
         "IUS_DT_FINALCONCESSAO": "",
         "SIR_CD": "",
         "SIR_TSI_CD": "",
-        "SIR_TCT_CDSIR_NU_AREAIRRIGADA": "",
+        "SIR_TCT_CD": "",
+        "SIR_NU_AREAIRRIGADA": "",
         "FTE_NU_POTENCIAINSTALADA": "",
         "FTE_NU_PRODUCAOMENSALMEDIA": "",
         "FTE_TCO_CD": "",
@@ -415,65 +420,44 @@ const compareJson = () => {
         "AMA_QT_MAGNESIO": ""
     }
 
-    convertJSONToCSV(snirhJson, './backend/data/csv/test-1/edicao-adasa.csv')
+    convertJSONToCSV(adasa, './backend/data/csv/test-1/edicao-adasa.csv')
 
-    let objectToSend = {};
-    
+    // Cria array para formatar valores de acordo com o SNIRH.
+    let adasaKeyValues = Object.entries(adasa);
+   
 
-    let snirhKeyValues = Object.entries(snirhJson);
+    let objectToSend = adasa
 
-    console.log(snirhKeyValues)
+    // VERIFICAR SE É NECESSÁRIO ESTES FILTROS E FORMATAÇÕES.
+    // ESTÁ DANDO ERRO NAS LINHAS DE VAZÕES, O VALOR ESTÁ VINDO 0,00 E CONVERTENDO PARA 0. TEM QUE SER DECIMAL, => 0,00
+    // Na primeira vez adiciona todos os atributos
+    adasaKeyValues.forEach(([key, value]) => {
 
-    snirhKeyValues.forEach(([key, value]) => {
-
-        // Remove aspas do valor, ex: 'rock' para rock
-        let _value = value.replace(/'/g, '');
-
-        console.log('+++++++ > ', value, _value)
         // Converte float para string com vírgula, ex: -15.456 para -15,456
-        if (isFloat(_value)) {
-            let str = convertFloatToCommaString(_value);
-            console.log('------------------> ', str)
+        if (isFloat(value)) {
+            let str = convertFloatToCommaString(value);
 
             objectToSend[key] = str
             // Adiciona máscara no cnpj ou cpf, ex: #22255544489 para #222.555.444-89
         } else if (key === 'EMP_NU_CPFCNPJ') {
-            let cpfCnpj = '#' + formatCpfCnpj(_value);
+            let cpfCnpj = '#' + formatCpfCnpj(value);
             objectToSend[key] = cpfCnpj;
 
             // Verifica e converte a data 2020-05-27 para 27/05/2020
-        } else if (isDate(_value)) {
-            let dataConverted = convertDateFormat(_value)
+        } else if (isDate(value)) {
+            let dataConverted = convertDateFormat(value)
             objectToSend[key] = dataConverted;
         }
         else {
-            objectToSend[key] = _value
+            objectToSend[key] = value
         }
+
+
     });
 
-    // Edita os Snirh com os valores da Adasa, desde que existentes e válidos.
-    let adasaKeyValues = Object.entries(adasaJson);
-
-    adasaKeyValues.forEach(([key, value]) => {
-        //se o valor do atributo na adasa for nulo e houver um valor no snirh, não modificar.
-        if (value !== '' || value !== 'undefined' || value !== null) {
-
-            // INT_QT_VAZAOMAXIMA
-            let _value = value.replace(/'/g, '');
-
-            if (isFloat(_value)) {
-                let number = convertFloatToCommaString(_value);
-                console.log('adasa', typeof _value, _value, number)
-                objectToSend[key] = number
-            } else if (key === 'EMP_NU_CPFCNPJ') {
-                let cpfCnpj = '#' + formatCpfCnpj(_value);
-                objectToSend[key] = cpfCnpj;
-            } else {
-                objectToSend[key] = _value;
-            }
-            // adicionar verifiação de data 2019-11-11 to 01/04/2015
-        }
-    });
+    // Adiciona o id de edição.
+    objectToSend.INT_CD = id;
+    objectToSend.EMP_NM_RESPONSAVEL = "Teste 010624 " + objectToSend.EMP_NM_RESPONSAVEL
 
     convertJSONToCSV(objectToSend, './backend/data/csv/test-1/edicao-object-to-send.csv')
 
