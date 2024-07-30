@@ -12,7 +12,8 @@ const ListAdasaView = {
 
         this.accordionIndex = accordionIndex;
         // Busca por proximidade as outorgas e indica qual tipo de interferência (ti).
-        this.list = await AdasaGantsModel.selectClosestPoints(latitude, longitude, ti)
+        // - Replace: remove o sinal # da coordenada. Ex: let latitude = "#-15.123456"
+        this.list = await AdasaGantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti)
         // Valores das colunas de cabeçalho da lista de outorgas.
         this.theads = await this.createTheadsValues();
         // Renderização da tabela com cabeçalho.

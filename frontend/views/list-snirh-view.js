@@ -212,9 +212,8 @@ const ListSnirhView = {
                         grant[ListSnirhView.theads[index]] = textContent
                     });
 
-                    console.log(grant)
                     // Cria posição no mapa.
-                    let position = createLatLngPosition(grant.INT_NU_LATITUDE, grant.INT_NU_LONGITUDE);
+                    let position = createLatLngPosition(grant.INT_NU_LATITUDE.replace("#", ""), grant.INT_NU_LONGITUDE.replace("#", ""));
                     
                     // Mostra a posição utilizando a ferramenta marcador (Marker).
                     MapView.addMarker(position, true);

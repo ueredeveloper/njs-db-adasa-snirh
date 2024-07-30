@@ -9,9 +9,9 @@ const TopHandlersSnirhSearch = () => {
         "idDominialidade": "1",
         "idTipoOutorga": "1",
         "idSituacaoOutorga": "1",
-        "idFinalidade": "5",
+        "idFinalidade": "6",
         "pagina": 1,
-        "tamanhoPagina": 10000
+        "tamanhoPagina": 10
     }
 
     // Estado
