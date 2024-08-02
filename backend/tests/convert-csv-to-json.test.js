@@ -24,7 +24,8 @@ describe('CSV to JSON Conversion', () => {
   let data;
 
   beforeAll(async () => {
-    data = await convertCSVToJSON('./backend/data/csv/export-csv-test.csv');
+    //data = await convertCSVToJSON('./backend/data/csv/export-csv-test.csv');
+    data = await convertCSVToJSON('./backend/data/csv/test-1/edicao-object-to-send');
   });
 
   test('deve converter um arquivo CSV para JSON e printar os dados', () => {

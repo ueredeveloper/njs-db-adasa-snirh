@@ -411,7 +411,7 @@ const compareJson = () => {
     objectToSend.INT_CD = id;
     // Este valor vem do SNIRH
     objectToSend.FIN_CD = snirhJson.FIN_CD
-    objectToSend.EMP_NM_RESPONSAVEL = "Teste 010624 " + objectToSend.EMP_NM_RESPONSAVEL
+    objectToSend.EMP_NM_RESPONSAVEL = "Teste 310724 " + objectToSend.EMP_NM_RESPONSAVEL
 
     convertJSONToCSV(objectToSend, './backend/data/csv/test-1/edicao-object-to-send.csv')
 

@@ -66,12 +66,7 @@ const ListSnirhView = {
 
         });
 
-        // this.renderTheads();
-
-
-
         this.renderContentsTables();
-
 
     },
     renderTheads: async function () {
@@ -97,12 +92,15 @@ const ListSnirhView = {
     },
     renderContentsTables: async function () {
 
+        
+
         // Para utilizar nas tabs com botões (Superficial, Subterrâneo, ect). Se o tamanho for maior que zero, mostraráo o botão, ou se zero, não mostrará.
         let displayTabButtons = []
 
 
         await Promise.all(this.tables.map(async (table) => {
 
+           
             let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
 
             displayTabButtons.push({ id: table.id, value: table.id, len: list.length })
@@ -150,6 +148,7 @@ const ListSnirhView = {
                 let keysValues = list.map(item => {
                     return Object.entries(item);
                 });
+
 
                 // preenchimento do corpo da tabela (tbody tag).
                 keysValues.map((item, index) => {

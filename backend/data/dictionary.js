@@ -1071,7 +1071,17 @@ const dictionary = {
         unidade: "m³/h",
         anexo: "-",
         comentarios: "CAMPO NÚMERICO QUE REPRESENTA A QUANTIDADE DE VAZÃO PARA O MÊS DE DEZEMBRO. SE INT_TIN_CD = 3 OU 4 ESTE CAMPO NÃO SERÁ OBRIGATÓRIO."
-      }
+      },
+      // Adicionados
+      FIN_CD: {
+        nomeColuna: "FIN_CD",
+        tipoDado: "NUMBER",
+        obs: "OBR",
+        exemplo: 123456,
+        unidade: "-",
+        anexo: "-",
+        comentarios: ""
+    },
 
 }
 
