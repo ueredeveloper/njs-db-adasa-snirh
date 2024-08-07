@@ -160,7 +160,7 @@ const ListSnirhView = {
                         `
                     <tr class="tr-btn hover:bg-gray-100">
                     
-                    <!-- adiciona botões -->
+                    <!-- Adiciona botões manipuladores a cada linha de dados na tabela. -->
                     ${item.push(
                             ['', `
                             <div class="div-btn flex flex-row justify-around w-24 min-w-24 max-w-24">
