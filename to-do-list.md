@@ -49,3 +49,8 @@
 - [X]    Revisão da ordem das colunas ao criar o csv.
     Ao criar o csv revise a ordem das colunas. É necessário criar uma array com a ordem e orientar a criação do csv de evição por ela.
         03/07/2024 - No momento não está sendo necessário. Consegui enviar uma planilha de edição de superficial apenas com a query e editando o id da interferência na Ana.
+
+## 2024-08-07
+- [X] Foi adicionado tabs separando inserção de dados e edição de dados, `ManageDataView`.
+
+- [] É preciso melhorar o css para que o manipulador de quantidade de colunas fique sempre na parte inferior da tela.

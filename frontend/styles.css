@@ -1,6 +1,9 @@
 #tab-grants-view button.active {
   background-color: rgb(156 163 175);
 }
+#manage-data-view button.active {
+  background-color: rgb(156 163 175);
+}
 
 .list-snirh tr:nth-child(even) {
   background-color: #dddddd;
