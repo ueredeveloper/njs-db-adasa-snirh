@@ -1,21 +1,21 @@
 
-import SNIRHGrantsModel from "../models/snirh-grants-model";
+import SNIRHGrantsModel from "../models/federal-grants-model";
 import MapView from "./map-view";
-import AccordionContent from "./accordion-content";
+import AccordionView from "./accordion-view";
 
 const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../utils");
 
-const ListSnirhView = {
+const FederalView = {
     init: async function () {
-        this.div = $('#list-snirh-view');
+        this.div = $('#federal-view');
         this.list = await SNIRHGrantsModel.listGrants();
         this.theads = await createTheadsValues(this.list);
-        this.tableId = 'list-snirh-sub';
+        this.tableId = 'federal-list-sub';
         this.tables = [
-            { class: 'list-snirh', id: 'list-snirh-sub', tipo: '1', subtipo: '2' },
-            { class: 'list-snirh hidden', id: 'list-snirh-sup', tipo: '1', subtipo: '1' },
-            { class: 'list-snirh hidden', id: 'list-snirh-lan', tipo: '2', subtipo: '1' },
-            { class: 'list-snirh hidden', id: 'list-snirh-bar', tipo: '3', subtipo: '1' }
+            { class: 'federal-list', id: 'federal-list-sub', tipo: '1', subtipo: '2' },
+            { class: 'federal-list hidden', id: 'federal-list-sup', tipo: '1', subtipo: '1' },
+            { class: 'federal-list hidden', id: 'federal-list-lan', tipo: '2', subtipo: '1' },
+            { class: 'federal-list hidden', id: 'federal-list-bar', tipo: '3', subtipo: '1' }
         ];
 
         this.render();
@@ -191,7 +191,7 @@ const ListSnirhView = {
                             })
                         }
                     </tr>
-                        ${AccordionContent(item.length - 1, item)}
+                        ${AccordionView(item.length - 1, item)}
                     </tr>
                     `
                     )
@@ -208,7 +208,7 @@ const ListSnirhView = {
                     // Interage com os  valores das linhas e preenche o objeto.
                     tds.each(function (index, element) {
                         let textContent = $(element).text();
-                        grant[ListSnirhView.theads[index]] = textContent
+                        grant[FederalView.theads[index]] = textContent
                     });
 
                     // Cria posição no mapa.
@@ -230,4 +230,4 @@ const ListSnirhView = {
     }
 }
 
-export default ListSnirhView;
+export default FederalView;

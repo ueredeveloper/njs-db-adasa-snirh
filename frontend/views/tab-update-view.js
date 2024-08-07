@@ -1,11 +1,11 @@
-const TabGrantsView = {
+const TabUpdateView = {
     init: function () {
-        this.div = $('#tab-grants-view');
+        this.div = $('#tab-update-view');
         this.tabButtons = [
-            { id: 'btn-list-sub', innerHTML: 'Subterrâneo', value: 'list-snirh-sub' },
-            { id: 'btn-list-sup', innerHTML: 'Superficial', value: 'list-snirh-sup'},
-            { id: 'btn-list-lan', innerHTML: 'Lançamento', value: 'list-snirh-lan'},
-            { id: 'btn-list-bar', innerHTML: 'Barragem', value: 'list-snirh-bar'},
+            { id: 'btn-list-sub', innerHTML: 'Subterrâneo', value: 'federal-list-sub' },
+            { id: 'btn-list-sup', innerHTML: 'Superficial', value: 'federal-list-sup'},
+            { id: 'btn-list-lan', innerHTML: 'Lançamento', value: 'federal-list-lan'},
+            { id: 'btn-list-bar', innerHTML: 'Barragem', value: 'federal-list-bar'},
         ];
 
         this.render();
@@ -53,7 +53,7 @@ const TabGrantsView = {
             $(this).addClass('active');
         
             // adiciona class hidden (display: none) que remove a tabela do documento.
-            $('.list-snirh').addClass('hidden');
+            $('.federal-list').addClass('hidden');
             // remove o display: hidden da tabela que se quer mostrar
             // adiciona a tabela na tela com display: block.
             $(`#${tableId}`).removeClass('hidden').addClass('block');
@@ -68,4 +68,4 @@ const TabGrantsView = {
     }
 }
 
-export default TabGrantsView;
+export default TabUpdateView;

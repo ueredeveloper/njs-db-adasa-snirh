@@ -1,19 +1,31 @@
 
-import AdasaGantsModel from "../models/adasa-grants-model";
-import { createLatLngPosition, getInterferenceType, getLatLng, maxLengthOfStrings } from "../utils";
+import StateGrantsModel from "../models/state-grants-model";
+import { createLatLngPosition, getLatLng, maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
-const ListAdasaView = {
-    init: async function (snirhGrant, accordionIndex, latitude, longitude, ti) {
+const StateView = {
+    initInsertData: async function(){
+        this.list = await StateGrantsModel.listSubterraneas();
 
-        this.snirhGrant = snirhGrant;
+        console.log('init ', this.list)
+
+        // Valores das colunas de cabeçalho da lista de outorgas.
+        this.theads = await this.createTheadsValues();
+        // Renderização da tabela com cabeçalho.
+        this.render();
+        // Renderização das outorgas.
+        //this.renderSubterranea(accordionIndex);
+    },
+    init: async function (federalGrant, accordionIndex, latitude, longitude, ti) {
+
+        this.federalGrant = federalGrant;
 
         this.div = $(`#list-grants-view-${accordionIndex}`);
 
         this.accordionIndex = accordionIndex;
         // Busca por proximidade as outorgas e indica qual tipo de interferência (ti).
         // - Replace: remove o sinal # da coordenada. Ex: let latitude = "#-15.123456"
-        this.list = await AdasaGantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti)
+        this.list = await StateGrantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti)
         // Valores das colunas de cabeçalho da lista de outorgas.
         this.theads = await this.createTheadsValues();
         // Renderização da tabela com cabeçalho.
@@ -24,13 +36,13 @@ const ListAdasaView = {
 
     render: function async() {
 
-        let grantsTables = [
-            { className: 'list-adasa', id: `list-sub-${this.accordionIndex}`, },
+        let tables = [
+            { className: 'state-list', id: `list-sub-${this.accordionIndex}`, },
             // hidden: não mostrar no  início, somente mostrar as outorgas subterrâneas
-            { className: 'list-adasa hidden', id: `list-sup-${this.accordionIndex}`, }
+            { className: 'state-list hidden', id: `list-sup-${this.accordionIndex}`, }
         ]
 
-        grantsTables.forEach(table => {
+        tables.forEach(table => {
 
             this.div.append(`
             <table class="${table.className} w-full " id=${table.id}>
@@ -126,7 +138,7 @@ const ListAdasaView = {
             // Interage com os  valores das linhas e preenche o objeto.
             tds.each(function (index, element) {
                 let textContent = $(element).text();
-                grant[ListAdasaView.theads[index]] = textContent
+                grant[StateView.theads[index]] = textContent
             });
             // Cria posição no mapa.
 
@@ -152,11 +164,11 @@ const ListAdasaView = {
             // Interage com os  valores das linhas e preenche o objeto.
             tds.each(function (index, element) {
                 let textContent = $(element).text();
-                grant[ListAdasaView.theads[index]] = textContent
+                grant[StateView.theads[index]] = textContent
             });
 
 
-            console.log('btn update ', 'adasa', grant, 'snirh', ListAdasaView.snirhGrant)
+            console.log('btn update ', 'adasa', grant, 'snirh', StateView.federalGrant)
 
 
             
@@ -175,6 +187,8 @@ const ListAdasaView = {
         });
     },
     createTheadsValues: async function () {
+
+        console.log(this.list)
 
         if (this.list.length > 0) {
 
@@ -203,4 +217,4 @@ const ListAdasaView = {
     }
 }
 
-export default ListAdasaView;
+export default StateView;

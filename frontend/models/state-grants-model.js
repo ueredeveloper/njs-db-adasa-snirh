@@ -1,6 +1,6 @@
 import selectClosestPoints from "../services/select-closest-points";
 
-const AdasaGantsModel = {
+const StateGrantsModel = {
     subterranea: {
         "INT_TIN_CD": 1,
         "INT_TSU_CD": 2,
@@ -124,7 +124,7 @@ const AdasaGantsModel = {
         let data = await selectClosestPoints(latitude, longitude, ti);
         return data.recordsets[0];
 
-    }
+    },
 }
 
-export default AdasaGantsModel;
+export default StateGrantsModel;

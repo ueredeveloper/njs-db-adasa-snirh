@@ -1,53 +1,62 @@
-#tab-grants-view button.active {
+#tab-update-view button.active {
   background-color: rgb(156 163 175);
 }
+#tab-insert-view button.active {
+  background-color: rgb(156 163 175);
+}
+
 #manage-data-view button.active {
   background-color: rgb(156 163 175);
 }
 
-.list-snirh tr:nth-child(even) {
+.federal-list tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-.list-snirh th {
+.federal-list th {
   color: #ffffff;
-  background-color:#3a55b4
+  background-color: #3a55b4
 }
-/*.list-adasa tr:nth-child(even) {
+
+/*.state-list tr:nth-child(even) {
   background-color: #197ef1;
 }*/
 
 /** Customizando table interna */
-.list-adasa {
+.state-list {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.list-adasa thead th {
+
+.state-list thead th {
   background-color: #009879;
   color: #ffffff;
   text-align: center;
 }
 
-.list-adasa th,
-.list-adasa td {
-    padding: 5px 5px;
-}
-.list-adasa tbody tr {
-    border-bottom: 1px solid #dddddd;
+.state-list th,
+.state-list td {
+  padding: 5px 5px;
 }
 
-.list-adasa tbody tr:nth-of-type(even) {
-    background-color: #dbe4f0;
+.state-list tbody tr {
+  border-bottom: 1px solid #dddddd;
 }
 
-.list-adasa tbody tr:nth-of-type(odd) {
-    background-color: white;
+.state-list tbody tr:nth-of-type(even) {
+  background-color: #dbe4f0;
 }
-.list-adasa tbody tr:last-of-type {
-    border-bottom: 2px solid #009879;
+
+.state-list tbody tr:nth-of-type(odd) {
+  background-color: white;
 }
-.list-adasa tbody tr.active-row {
-    font-weight: bold;
-    color: #009879;
+
+.state-list tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.state-list tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
 }
 
 
@@ -67,12 +76,12 @@
 }
 
 /* scroolbar width https://www.digitalocean.com/community/tutorials/css-scrollbars */
-#list-snirh-view::-webkit-scrollbar {
+#federal-list-view::-webkit-scrollbar {
   width: 15px;
   /* width of the entire scrollbar */
 }
 
-#list-snirh-view::-webkit-scrollbar-thumb {
+#federal-list-view::-webkit-scrollbar-thumb {
   background-color: gray;
   /* color of the scroll thumb */
   /* roundness of the scroll thumb */
@@ -86,5 +95,4 @@
 
 .td-bg-1 {
   background-color: white
-  
 }

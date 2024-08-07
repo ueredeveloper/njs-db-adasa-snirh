@@ -3,10 +3,10 @@ const ListHandlersView = {
         this.div = $('#list-handlers');
 
         this.tables = [
-            { class: 'list-snirh', id: 'list-snirh-sub', tipo: '1', subtipo: '2' },
-            { class: 'list-snirh hidden', id: 'list-snirh-sup', tipo: '1', subtipo: '1' },
-            { class: 'list-snirh hidden', id: 'list-snirh-lan', tipo: '2', subtipo: '1' },
-            { class: 'list-snirh hidden', id: 'list-snirh-bar', tipo: '3', subtipo: '1' }
+            { class: 'federal-list', id: 'federal-list-sub', tipo: '1', subtipo: '2' },
+            { class: 'federal-list hidden', id: 'federal-list-sup', tipo: '1', subtipo: '1' },
+            { class: 'federal-list hidden', id: 'federal-list-lan', tipo: '2', subtipo: '1' },
+            { class: 'federal-list hidden', id: 'federal-list-bar', tipo: '3', subtipo: '1' }
         ];
 
         this.render();

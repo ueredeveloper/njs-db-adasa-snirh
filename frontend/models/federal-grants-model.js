@@ -1,5 +1,5 @@
 
-const SNIRHGrantsModel = {
+const FederalGrantsModel = {
     objectModel: {
         "INT_CD": "",
         "INT_TIN_DS": "",
@@ -4763,4 +4763,4 @@ const SNIRHGrantsModel = {
     }
 }
 
-export default SNIRHGrantsModel;
+export default FederalGrantsModel;

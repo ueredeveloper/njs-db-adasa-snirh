@@ -1,8 +1,8 @@
 
 import exportCsv from "../services/export-csv";
 import selectByDesktopDb from "../services/select-by-desktop-db";
-import TopHandlersSimpleSearch from "./top-handlers-simple-search";
-import TopHandlersSnirhSearch from "./top-handlers-snirh-search";
+import FederalSimpleSearchView from "./federal-simple-search-view";
+import FederalSnirhSearchView from "./federal-snirh-search-view";
 
 const TopHandlersView = {
     init: function () {
@@ -94,12 +94,12 @@ const TopHandlersView = {
 
             <!-- Busca Simples -->
             <div class="flex-1 h-30 my-10" id="simpleSearch">
-            ${TopHandlersSimpleSearch()}
+            ${FederalSimpleSearchView()}
             </div>
         
             <!-- Busca SNIRH -->
             <div class="flex-1 h-30 my-2 bg-gray-100 hidden" id="snirhSearch">
-            ${TopHandlersSnirhSearch()}
+            ${FederalSnirhSearchView()}
             </div>
         
             <div class="flex flex-row">

@@ -1,15 +1,22 @@
-const { default: ListGrantsSNIRHController } = require("./controllers/list-grants-snirh-controller");
+const { default: FederalController } = require("./controllers/federal-controller");
 const { default: ListHandlersController } = require("./controllers/list-handlers-controller");
 const { default: ManageDataControler } = require("./controllers/manage-data-controller");
 const { default: MapController } = require("./controllers/map-controller");
+const { default: StateController } = require("./controllers/state-controller");
 const { default: TopHandlersController } = require("./controllers/top-handlers-controller");
-const { default: TabGrantsView } = require("./views/tab-grants-view");
+const { default: TabInsertView } = require("./views/tab-insert-view");
+const { default: TabUpdateView } = require("./views/tab-update-view");
 
 
 TopHandlersController.init();
 MapController.init();
 ManageDataControler.init();
-TabGrantsView.init();
 
-ListGrantsSNIRHController.init()
+
+TabInsertView.init();
+
+
+TabUpdateView.init();
+
+FederalController.init()
 ListHandlersController.init();

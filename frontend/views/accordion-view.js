@@ -1,9 +1,9 @@
-import ListAdasaGrantsController from "../controllers/list-adasa-grants-controller";
+import StateController from "../controllers/state-controller";
 
-const AccordionContent = (colspanValue, item) => {
+const AccordionView = (colspanValue, item) => {
 
     // Converte array em objeto (outorga)
-    const snirhGrant = Object.fromEntries(item);
+    const federalGrant = Object.fromEntries(item);
 
     //const $this = $(this);
 
@@ -52,9 +52,9 @@ const AccordionContent = (colspanValue, item) => {
             } else {
                 panel.show();
             }
-            if (!this.ListAdasaGrantsController) {
+            if (!this.StateController) {
                 // Envia o INT_CD, id da interferência e o ítem para remover deste ítem latitude e longitude e buscar por proximidade.
-                this.ListAdasaGrantsController = new ListAdasaGrantsController.init(item[0][1], snirhGrant)
+                this.StateController = new StateController.init(item[0][1], federalGrant)
             }
 
         });
@@ -74,4 +74,4 @@ const AccordionContent = (colspanValue, item) => {
             `;
 }
 
-export default AccordionContent;
+export default AccordionView;
