@@ -8,9 +8,9 @@ const StateGrantsModel = {
         "INT_CR_LATITUDE": "-15,856013",
         "INT_CR_LONGITUDE": "-47,884798",
     },
-    list: [],
+   // list: [],
 
-    listSubterraneas: async function () {
+    list: async function () {
 
 
         const data = {

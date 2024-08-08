@@ -3,9 +3,7 @@ const { default: StateView } = require("../views/state-view")
 
 const StateController = {
     initInsertData: async function (params) {
-
-
-        StateView.init()
+        StateView.initInsertData();
     },
     init: async function (btnIndexId, snirhGrant) {
 

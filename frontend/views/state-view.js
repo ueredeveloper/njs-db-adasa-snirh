@@ -4,18 +4,6 @@ import { createLatLngPosition, getLatLng, maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
 const StateView = {
-    initInsertData: async function(){
-        this.list = await StateGrantsModel.listSubterraneas();
-
-        console.log('init ', this.list)
-
-        // Valores das colunas de cabeçalho da lista de outorgas.
-        this.theads = await this.createTheadsValues();
-        // Renderização da tabela com cabeçalho.
-        this.render();
-        // Renderização das outorgas.
-        //this.renderSubterranea(accordionIndex);
-    },
     init: async function (federalGrant, accordionIndex, latitude, longitude, ti) {
 
         this.federalGrant = federalGrant;
@@ -144,7 +132,7 @@ const StateView = {
 
             let latLng = getLatLng(grant)
             let position = createLatLngPosition(latLng.lat, latLng.lng);
-            
+
             console.log(position)
             // Mostra a posição utilizando a ferramenta marcador (Marker) sem animação (false).
             MapView.addMarker(position, false);
@@ -171,18 +159,18 @@ const StateView = {
             console.log('btn update ', 'adasa', grant, 'snirh', StateView.federalGrant)
 
 
-            
+
 
             // Cria posição no mapa.
 
-           /* let latLng = getLatLng(grant)
-            let position = createLatLngPosition(latLng.lat, latLng.lng);
-            
-            console.log(position)
-            // Mostra a posição utilizando a ferramenta marcador (Marker) sem animação (false).
-            MapView.addMarker(position, false);
-            // Centralizar o mapa na posição do marcador adicionado.
-            MapView.setMapCenter(position);*/
+            /* let latLng = getLatLng(grant)
+             let position = createLatLngPosition(latLng.lat, latLng.lng);
+             
+             console.log(position)
+             // Mostra a posição utilizando a ferramenta marcador (Marker) sem animação (false).
+             MapView.addMarker(position, false);
+             // Centralizar o mapa na posição do marcador adicionado.
+             MapView.setMapCenter(position);*/
 
         });
     },

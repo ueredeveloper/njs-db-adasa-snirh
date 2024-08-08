@@ -2,25 +2,27 @@
 import SNIRHGrantsModel from "../models/federal-grants-model";
 import MapView from "./map-view";
 import AccordionView from "./accordion-view";
+import StateGrantsModel from "../models/state-grants-model";
 
 const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../utils");
 
-const FederalView = {
+const StateInsertView = {
     init: async function () {
-        this.div = $('#federal-view');
-        this.list = await SNIRHGrantsModel.listGrants();
+        this.div = $('#state-insert-view');
+        this.list = await StateGrantsModel.list();
+
         this.theads = await createTheadsValues(this.list);
-        this.tableId = 'federal-list-sub';
+        this.tableId = 'state-list-sub';
         this.tables = [
-            { class: 'federal-list', id: 'federal-list-sub', tipo: '1', subtipo: '2' },
-            { class: 'federal-list hidden', id: 'federal-list-sup', tipo: '1', subtipo: '1' },
-            { class: 'federal-list hidden', id: 'federal-list-lan', tipo: '2', subtipo: '1' },
-            { class: 'federal-list hidden', id: 'federal-list-bar', tipo: '3', subtipo: '1' }
+            { class: 'state-list', id: 'state-list-sub', tipo: 1, subtipo: 2 },
+            { class: 'state-list hidden', id: 'state-list-sup', tipo: 1, subtipo: 1 },
+            { class: 'state-list hidden', id: 'state-list-lan', tipo: 2, subtipo: 1 },
+            { class: 'state-list hidden', id: 'state-list-bar', tipo: 3, subtipo:  1 }
         ];
 
         this.render();
 
-        $(document).on("updateSnirhTables", async (event, data) => {
+        $(document).on("updateInsertStateTable", async (event, data) => {
             // Update the list with the received data
             this.list = await data;
 
@@ -28,7 +30,7 @@ const FederalView = {
             this.renderContentsTables();
         });
 
-        $(document).on('showTableById', (event, tableId) => {
+        $(document).on('showInsertTableId', (event, tableId) => {
             this.tableId = tableId;
 
             this.renderContentsTables();
@@ -51,7 +53,6 @@ const FederalView = {
 
         */
 
-
         this.tables.forEach(table => {
 
             this.div.append(`
@@ -69,7 +70,6 @@ const FederalView = {
         this.renderContentsTables();
 
     },
-  
     renderContentsTables: async function () {
 
         
@@ -80,7 +80,16 @@ const FederalView = {
 
         await Promise.all(this.tables.map(async (table) => {
 
-           
+            /*  Tipo: INT_TIN_CD
+                    1 – superficial e subterrânea 
+                    2 – efluente 
+                    3 - Barragem
+
+                Subtipo: INT_TSU_CD
+                    1 – superficial  
+                    2 – subterrânea 
+            */
+
             let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
 
             displayTabButtons.push({ id: table.id, value: table.id, len: list.length })
@@ -97,7 +106,7 @@ const FederalView = {
                     ...
                 ]
             */
-           
+
             // Só criar theads de listas com resultado, listas vazias não.
             if (list.length > 0) {
 
@@ -170,10 +179,9 @@ const FederalView = {
                                 return `<td class="td-snirh text-center">${_item[1]}</td>`
                             })
                         }
-                    </tr>
-                        ${AccordionView(item.length - 1, item)}
-                    </tr>
+                    
                     `
+                    // remove o acordeon
                     )
                 });
 
@@ -188,7 +196,7 @@ const FederalView = {
                     // Interage com os  valores das linhas e preenche o objeto.
                     tds.each(function (index, element) {
                         let textContent = $(element).text();
-                        grant[FederalView.theads[index]] = textContent
+                        grant[StateInsertView.theads[index]] = textContent
                     });
 
                     // Cria posição no mapa.
@@ -210,4 +218,4 @@ const FederalView = {
     }
 }
 
-export default FederalView;
+export default StateInsertView;
