@@ -1,5 +1,6 @@
 
 import StateGrantsModel from "../models/state-grants-model";
+import snirhUpdate from "../services/snirh-update";
 import { createLatLngPosition, getLatLng, maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
@@ -144,7 +145,7 @@ const StateUpdateView = {
 
         });
 
-        $('[id^="btn-update"]').click(function () {
+        $('[id^="btn-update"]').click(async function () {
 
             // Captura tr tag
             let parentRow = $(this).closest('tr');
@@ -158,17 +159,14 @@ const StateUpdateView = {
                 stateGrant[StateUpdateView.theads[index]] = textContent
             });
 
-
-            //console.log('btn update ', 'adasa', grant, 'snirh', StateUpdateView.federalGrant)
-
             let body = {
                 stateGrant: stateGrant,
                 federalGrant: StateUpdateView.federalGrant
             }
 
-            console.log(body)
+           let response =  await snirhUpdate('DF', body);
 
-
+           console.log(response)
 
 
 
