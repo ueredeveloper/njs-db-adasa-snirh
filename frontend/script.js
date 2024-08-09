@@ -1,5 +1,4 @@
 const { default: FederalController } = require("./controllers/federal-controller");
-const { default: StateController } = require("./controllers/state-controller");
 const { default: ListHandlersController } = require("./controllers/list-handlers-controller");
 const { default: ManageDataControler } = require("./controllers/manage-data-controller");
 const { default: MapController } = require("./controllers/map-controller");

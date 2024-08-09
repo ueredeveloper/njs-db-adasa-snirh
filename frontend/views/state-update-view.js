@@ -3,7 +3,8 @@ import StateGrantsModel from "../models/state-grants-model";
 import { createLatLngPosition, getLatLng, maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
 
-const StateView = {
+const StateUpdateView = {
+
     init: async function (federalGrant, accordionIndex, latitude, longitude, ti) {
 
         this.federalGrant = federalGrant;
@@ -13,7 +14,7 @@ const StateView = {
         this.accordionIndex = accordionIndex;
         // Busca por proximidade as outorgas e indica qual tipo de interferência (ti).
         // - Replace: remove o sinal # da coordenada. Ex: let latitude = "#-15.123456"
-        this.list = await StateGrantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti)
+        this.list = await StateGrantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti);
         // Valores das colunas de cabeçalho da lista de outorgas.
         this.theads = await this.createTheadsValues();
         // Renderização da tabela com cabeçalho.
@@ -23,6 +24,8 @@ const StateView = {
     },
 
     render: function async() {
+
+        console.log(this.list)
 
         let tables = [
             { className: 'state-list', id: `list-sub-${this.accordionIndex}`, },
@@ -126,7 +129,7 @@ const StateView = {
             // Interage com os  valores das linhas e preenche o objeto.
             tds.each(function (index, element) {
                 let textContent = $(element).text();
-                grant[StateView.theads[index]] = textContent
+                grant[StateUpdateView.theads[index]] = textContent
             });
             // Cria posição no mapa.
 
@@ -148,15 +151,23 @@ const StateView = {
             // Captura valores da linha  selecionada (td)
             let tds = parentRow.find('.td-adasa');
             // Cria objecto a partir da linha selecionada
-            let grant = {}
+            let stateGrant = {}
             // Interage com os  valores das linhas e preenche o objeto.
             tds.each(function (index, element) {
                 let textContent = $(element).text();
-                grant[StateView.theads[index]] = textContent
+                stateGrant[StateUpdateView.theads[index]] = textContent
             });
 
 
-            console.log('btn update ', 'adasa', grant, 'snirh', StateView.federalGrant)
+            //console.log('btn update ', 'adasa', grant, 'snirh', StateUpdateView.federalGrant)
+
+            let body = {
+                stateGrant: stateGrant,
+                federalGrant: StateUpdateView.federalGrant
+            }
+
+            console.log(body)
+
 
 
 
@@ -205,4 +216,4 @@ const StateView = {
     }
 }
 
-export default StateView;
+export default StateUpdateView;

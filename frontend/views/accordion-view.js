@@ -1,6 +1,9 @@
-import StateController from "../controllers/state-controller";
+import StateUpdateController from "../controllers/state-update-controller";
+
 
 const AccordionView = (colspanValue, item) => {
+
+    StateUpdateController
 
     // Converte array em objeto (outorga)
     const federalGrant = Object.fromEntries(item);
@@ -11,9 +14,9 @@ const AccordionView = (colspanValue, item) => {
     let btnId = `btn-edit-${item[0][1]}`; // item[0][1] = ['INT_CD', '926053'] = 926053
 
     // Talvez não seja necessário remover os listners dos botões, no momento está funcionando.
-    function removeButtonEventListener() {
+    /*function removeButtonEventListener() {
         $(`#${btnId}`).off('click'); // Remove click event listener
-    }
+    }*/
 
     $(document).ready(function () {
 
@@ -52,9 +55,9 @@ const AccordionView = (colspanValue, item) => {
             } else {
                 panel.show();
             }
-            if (!this.StateController) {
+            if (!this.StateUpdateController) {
                 // Envia o INT_CD, id da interferência e o ítem para remover deste ítem latitude e longitude e buscar por proximidade.
-                this.StateController = new StateController.init(item[0][1], federalGrant)
+                this.StateUpdateController = new StateUpdateController.init(item[0][1], federalGrant)
             }
 
         });

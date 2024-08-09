@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const sql = require("mssql");
 require('dotenv').config();
-const { querySelectClosestPoints, querySelectSuperficiaisForInsert, 
-    querySelectSubterraneasForInsert, querySelectSuperficiaisForUpdate } = require("../queries");
+const { querySelectClosestPoints, querySelectSuperficiaisForInsert,
+    querySelectSubterraneasForInsert, querySelectSuperficiaisForUpdate,
+    querySelectSubterraneasForUpdate } = require("../queries");
 
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST } = process.env;
 
@@ -38,7 +39,7 @@ router.get("/select-closest-points", async (req, res) => {
             let query1 = await querySelectClosestPoints(latitude, longitude, ti);
 
             let { recordset } = await request.query(query1);
-           
+
             // Captura as outorgas no modelo da Ana utilizando os ids dos pontos mais próximos.
 
             let query2;
@@ -46,12 +47,13 @@ router.get("/select-closest-points", async (req, res) => {
             switch (ti) {
                 case "1": query2 = await querySelectSuperficiaisForUpdate(recordset.map(c => c.ID_INTERFERENCIA));
                     break;
-                case "2": query2 = await querySelectSubterraneasForInsert(recordset.map(c => c.ID_INTERFERENCIA));
+                case "2": query2 = await querySelectSubterraneasForUpdate(recordset.map(c => c.ID_INTERFERENCIA));
                     break;
-                case "3": query2 = await querySelectSubterraneasForInsert(recordset.map(c => c.ID_INTERFERENCIA));
-                    break;
-                case "5": query2 = await querySelectSubterraneasForInsert(recordset.map(c => c.ID_INTERFERENCIA));
-                    break;
+                // Outros tipos de outorga
+                /* case "3": query2 = await querySelectSubterraneasForUpdate(recordset.map(c => c.ID_INTERFERENCIA));
+                     break;
+                 case "5": query2 = await querySelectSubterraneasForUpdate(recordset.map(c => c.ID_INTERFERENCIA));
+                     break;*/
                 default:
                     console.log('switch default ', ti)
 
