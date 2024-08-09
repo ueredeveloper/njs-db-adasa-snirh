@@ -32,11 +32,12 @@
   color: #ffffff;
   text-align: center;
 }
-
+/* remover para a tamanho da linha ficar igual o tamanho da linha da classe federal-list */
+/*
 .state-list th,
 .state-list td {
   padding: 5px 5px;
-}
+}*/
 
 .state-list tbody tr {
   border-bottom: 1px solid #dddddd;

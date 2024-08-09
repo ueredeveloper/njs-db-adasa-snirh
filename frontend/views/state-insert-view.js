@@ -22,6 +22,7 @@ const StateInsertView = {
 
         this.render();
 
+        /*
         $(document).on("updateInsertStateTable", async (event, data) => {
             // Update the list with the received data
             this.list = await data;
@@ -34,7 +35,7 @@ const StateInsertView = {
             this.tableId = tableId;
 
             this.renderContentsTables();
-        });
+        });*/
 
 
     },
