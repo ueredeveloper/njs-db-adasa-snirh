@@ -164,6 +164,7 @@ const StateUpdateView = {
                 federalGrant: StateUpdateView.federalGrant
             }
 
+            console.log(body)
            let response =  await snirhUpdate('DF', body);
 
            console.log(response)

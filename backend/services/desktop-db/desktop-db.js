@@ -36,6 +36,8 @@ router.get('/select-desktop-db', async (req, res) => {
                 (db.EMP_NM_USUARIO && db.EMP_NM_USUARIO.toLowerCase().includes(_search)) ||
                 (db.EMP_NU_CPFCNPJ && db.EMP_NU_CPFCNPJ.toLowerCase().includes(_search)) ||
                 (db.OUT_NU_PROCESSO && db.OUT_NU_PROCESSO.toLowerCase().includes(_search)) ||
+                (db.EMP_NM_RESPONSAVEL && db.EMP_NM_RESPONSAVEL.toLowerCase().includes(_search)) ||
+                
                 (db[''] && db[''].includes(_search));
         });
 

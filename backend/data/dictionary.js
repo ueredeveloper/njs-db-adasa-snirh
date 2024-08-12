@@ -1080,7 +1080,7 @@ const dictionary = {
         exemplo: 123456,
         unidade: "-",
         anexo: "-",
-        comentarios: ""
+        comentarios: "Este valor vem do SNIRH"
     },
 
 }

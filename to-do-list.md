@@ -54,3 +54,15 @@
 - [X] Foi adicionado tabs separando inserção de dados e edição de dados, `ManageDataView`.
 
 - [] É preciso melhorar o css para que o manipulador de quantidade de colunas fique sempre na parte inferior da tela.
+
+## 2024/08/12
+- [X] Edição Interferencia 3132
+    A edição foi feita com sucesso. Para buscar utilize: 
+        idFinalidade: 6 -> FIN_TFN_CD
+        idTipoOutorga: 1, 
+        idSituação: 4 -> OUT_TP_SITUACAOOUTORGA
+
+    [] Verificar pois a interferência 3132 tem tipo outorga 2, "OUT_TP_OUTORGA": "2", porém só se pesquisa  com idTipoOutorga: 1.
+
+- [] Verificar se todos os usuários do SNIRH ao pesquisar informa o atributo FIN_CD.
+

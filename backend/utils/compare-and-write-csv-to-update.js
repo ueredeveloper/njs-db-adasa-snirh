@@ -18,6 +18,11 @@ const compareAndWriteCsvToUpdate = (federalJson, stateJson) => {
     // Na primeira vez adiciona todos os atributos
     stateKeyValues.forEach(([key, value]) => {
 
+        // Verifica se a string é composta apenas por espaços
+        if (/^\s+$/.test(value)) {
+            value = ""; // Esvazia a variável
+        }
+
         // Converte float para string com vírgula, ex: -15.456 para -15,456
         if (isFloat(value)) {
             let str = convertFloatToCommaString(value);
