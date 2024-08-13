@@ -1,25 +1,17 @@
+import { snirhParams } from "../utils";
+
 const TopHandlersSnirhSearch = () => {
 
     const $this = $(this); // Store reference to $(this)
 
-    $this.params = {
-        "uf": "DF",
-        "dataInicio": "20180101000000",
-        "dataFim": "20290101000000",
-        "idDominialidade": "",
-        "idTipoOutorga": "",
-        "idSituacaoOutorga": "4",
-        "idFinalidade": "",
-        "pagina": 1,
-        "tamanhoPagina": 10
-    }
+    $this.params = snirhParams;
 
     // Estado
     $(document).ready(function () {
         $('#sl-estado').change(function () {
             var selectedValue = $(this).val();
 
-            console.log(this.params)
+            console.log($this.params)
 
             $this.params = { ...$this.params, uf: selectedValue }
 

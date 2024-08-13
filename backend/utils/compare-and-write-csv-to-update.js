@@ -51,6 +51,8 @@ const compareAndWriteCsvToUpdate = (federalJson, stateJson) => {
     // Adiciona o id de edição.
     objectToSend.INT_CD = id;
     // Este valor vem do SNIRH
+
+    // ERRO ---> Adicionar método com retorno para verificar quando o dado não tem FIN_CD.
     objectToSend.FIN_CD = federalJson.FIN_CD
     
     convertJSONToCSV(objectToSend, `./backend/data/csv/${objectToSend.INT_CD_ORIGEM}.csv`)

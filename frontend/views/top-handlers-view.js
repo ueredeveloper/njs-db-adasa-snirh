@@ -1,6 +1,7 @@
 
 import exportCsv from "../services/export-csv";
 import selectByDesktopDb from "../services/select-by-desktop-db";
+import { snirhParams } from "../utils";
 import FederalSimpleSearchView from "./federal-simple-search-view";
 import FederalSnirhSearchView from "./federal-snirh-search-view";
 
@@ -8,17 +9,7 @@ const TopHandlersView = {
     init: function () {
 
         this.div = $('#top-handlers');
-        this.searchParams = {
-            "uf": "DF",
-            "dataInicio": "20180101000000",
-            "dataFim": "20290101000000",
-            "idDominialidade": "",
-            "idTipoOutorga": "",
-            "idSituacaoOutorga": "4",
-            "idFinalidade": "",
-            "pagina": 1,
-            "tamanhoPagina": 10
-        }
+        this.params = snirhParams;
         this.render();
 
         // Add click event listener to the button
@@ -27,13 +18,13 @@ const TopHandlersView = {
             // Verifica se a busca é simples ou pelo SNIRH.
             let isChecked = $('#checkTypeSearch').is(":checked");
 
-            console.log(this.searchParams)
+            console.log(this.params)
 
             if (isChecked) {
 
                 try {
                     // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
-                    let { data } = await exportCsv(TopHandlersView.searchParams);
+                    let { data } = await exportCsv(TopHandlersView.params);
                     // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
                     data.pop();
 
@@ -82,7 +73,8 @@ const TopHandlersView = {
         })
 
         $(document).on('searchSnirhChanged', (event, params) => {
-            this.searchParams = params;
+            console.log(params)
+            this.params = params;
         });
 
     },

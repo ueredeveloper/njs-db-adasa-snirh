@@ -55,7 +55,7 @@
 
 - [] É preciso melhorar o css para que o manipulador de quantidade de colunas fique sempre na parte inferior da tela.
 
-## 2024/08/12
+## 2024-08-12
 - [X] Edição Interferencia 3132
     A edição foi feita com sucesso. Para buscar utilize: 
         idFinalidade: 6 -> FIN_TFN_CD
@@ -65,4 +65,14 @@
     [] Verificar pois a interferência 3132 tem tipo outorga 2, "OUT_TP_OUTORGA": "2", porém só se pesquisa  com idTipoOutorga: 1.
 
 - [] Verificar se todos os usuários do SNIRH ao pesquisar informa o atributo FIN_CD.
+- [] A interferência do SNIRH, INT_CD:1153745, tem formato de json diferente da interferência do mesmo usuário, INT_CD: 928961.
+
+
+## 2024-08-13
+- [] Adicionar número de página na busca.
+- [x] Criar uma única variável de parâmetro de buscas.
+    Foi criado na pasta `utils` a variável `searchParams`;.
+- [] Adicionar retorno no método `compare-and-write-csv-to-uptade`, pois há interferências no SNIRH sem o atributo FIN_CD e, desta forma, gerando erro na tentativa de editar.
+        Talvez esta conferência seja melhor no frontend.
+
 

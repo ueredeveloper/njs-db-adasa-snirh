@@ -1,3 +1,5 @@
+import snirhParams from "./snirhParams";
+
 const maxLengthOfStrings = (array) => {
 
     let maxLengths = array.map(record => {
@@ -40,21 +42,21 @@ const createLatLngPosition = (latitude, longitude) => {
  * @param {Object} grant - Objeto contendo os atributos de latitude e longitude.
  * @returns {Object} - Objeto contendo as coordenadas latitude e longitude.
  */
-const getLatLng = (grant) =>  {
+const getLatLng = (grant) => {
     let latLng;
     if (grant.INT_CR_LATITUDE) {
-      latLng = {
-        lat: grant.INT_CR_LATITUDE,
-        lng: grant.INT_CR_LONGITUDE
-      }
+        latLng = {
+            lat: grant.INT_CR_LATITUDE,
+            lng: grant.INT_CR_LONGITUDE
+        }
     } else {
-      latLng = {
-        lat: grant.INT_NU_LATITUDE,
-        lng: grant.INT_NU_LONGITUDE
-      }
+        latLng = {
+            lat: grant.INT_NU_LATITUDE,
+            lng: grant.INT_NU_LONGITUDE
+        }
     }
     return latLng;
-  }
+}
 
 /**
  * Retorna o tipo de interferência com base nos códigos fornecidos.
@@ -99,4 +101,6 @@ const getInterferenceType = (INT_TIN_CD, INT_TSU_CD) => {
     }
 }
 
-export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, getInterferenceType, getLatLng }
+
+
+export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, getInterferenceType, getLatLng, snirhParams }

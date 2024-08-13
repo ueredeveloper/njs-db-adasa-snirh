@@ -2,18 +2,17 @@ const ManageDataView = {
     init: function () {
         this.div = $('#manage-data-view');
         this.buttons = [
-            { id: 'btn-insert', innerHTML: 'Inserir', value: 'insert' },
-            { id: 'btn-update', innerHTML: 'Editar', value: 'update' },
+            { id: 'btn-manage-insert', innerHTML: 'Inserir', value: 'insert' },
+            { id: 'btn-manage-update', innerHTML: 'Editar', value: 'update' },
         ]
 
         this.render();
 
-        
     },
     render: function () {
 
         console.log('render')
-        this.buttons.forEach(button =>{ 
+        this.buttons.forEach(button => {
             this.div.append(`
             <button 
                 class="managers-buttons bg-gray-200 hover:bg-gray-300 p-1.5 my-0.5" 
@@ -21,16 +20,17 @@ const ManageDataView = {
                 ${button.innerHTML}
             </button>`)
 
-          
+
         });
-        $('.managers-buttons').on('click', function() {
-    
+        // Ação na classe .managers-buttons
+        $('.managers-buttons').on('click', function () {
+
             // Remove a classe 'active' de todos os botões
             $('.managers-buttons').removeClass('active');
-            
+
             // Adiciona 'active' no botão clicado
             $(this).addClass('active');
-        
+
             // adiciona class hidden (display: none) que remove a tabela do documento.
             $('.div-manage').addClass('hidden');
             // remove o display: hidden da tabela que se quer mostrar
