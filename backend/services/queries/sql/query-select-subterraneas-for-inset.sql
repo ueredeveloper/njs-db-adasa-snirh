@@ -3,6 +3,21 @@
             RETORNA AS CAPTAÇÕES SUBTERÂNEAS - VERIFICAR SE QUER QUE PREENCHA COM NULL OU EM BRANCO OS CAMPOS SEM DADOS
         */
 		USE SRH;
+
+		-- lista de ddds do brasil
+		DECLARE @DDDS TABLE (VALOR INT);
+		INSERT INTO @DDDS (VALOR)
+		VALUES 
+		(11), (12), (13), (14), (15), (16), (17), (18), (19),
+		(21), (22), (24), (27), (28),
+		(31), (32), (33), (34), (35), (37), (38),
+		(41), (42), (43), (44), (45), (46), (47), (48), (49),
+		(51), (53), (54), (55),
+		(61), (62), (63), (64), (65), (66), (67), (68), (69),
+		(71), (73), (74), (75), (77), (79),
+		(81), (82), (83), (84), (85), (86), (87), (88), (89),
+		(91), (92), (93), (94), (95), (96), (97), (98), (99);
+
         SELECT 1 as INT_TIN_CD, 
 
         A.ID_TIPO_INTERFERENCIA AS INT_TSU_CD, 
@@ -33,13 +48,28 @@
             THEN SUBSTRING(C.TELEFONE_1, 2, 2)
             ELSE SUBSTRING(C.TELEFONE_1, 0, 3)
         END AS EMP_NU_DDD,
-        CASE
+        /*CASE
             WHEN CHARINDEX('(', C.TELEFONE_1) = 1
             THEN SUBSTRING(C.TELEFONE_1, 6, LEN(C.TELEFONE_1)-4)
             WHEN LEN(C.TELEFONE_1) > 15
             THEN REPLACE(SUBSTRING(C.TELEFONE_1, 3, 9),'/','')
             ELSE SUBSTRING(C.TELEFONE_1, 3, LEN(C.TELEFONE_1))
-        END AS EMP_NU_TELEFONE,
+        END AS EMP_NU_TELEFONE,*/
+		CASE
+		-- remove caracteres especiais com replace
+		-- captura os dois primeiros números do telefone e verifica se é um ddd, caso sim, remove.
+        WHEN (SELECT COUNT(1) FROM @DDDS WHERE VALOR = CAST(SUBSTRING(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(TELEFONE_1, '(', ''), ')', ''), ' ', ''), '-', ''), '/',''), 1, 2) AS INT)) = 1 
+        -- remove caracteres e apresenta número
+		THEN 
+			CASE 
+				-- remove caracteres especiais e os dois primeiros números se o tamanho do dado for maior que 10
+				WHEN LEN(TELEFONE_1) > 10 THEN SUBSTRING(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(TELEFONE_1, '(', ''), ')', ''), ' ', ''), '-', ''), '/',''), 3, 10)
+				-- se não, remove apenas caracteres especiais
+				ELSE REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(TELEFONE_1, '(', ''), ')', ''), ' ', ''), '-', ''), '/','')
+			END
+		-- mostra caracteres especiais e limita o número a 10 caracteres
+        ELSE SUBSTRING(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(TELEFONE_1, '(', ''), ')', ''), ' ', ''), '-', ''), '/',''), 0, 10)
+		END AS EMP_NU_TELEFONE,
         CASE
             WHEN A.ID_TIPO_INTERFERENCIA IN (1, 2, 3) AND A.ID_TIPO_OUTORGA = 1
             THEN A.ID_TIPO_OUTORGA
@@ -623,3 +653,6 @@
         AND A.ID_INTERFERENCIA IN (6841,3899,9156,3900,8662,14061,6542,14062,7131,9591)
 		-- Ordenar pela ordem de ids buscadas que é a ordem de proximidade do ponto
 		ORDER  BY CHARINDEX(CAST(A.ID_INTERFERENCIA AS VARCHAR), '6841,3899,9156,3900,8662,14061,6542,14062,7131,9591')
+		--AND C.NOME LIKE '%JUVENCINA%'
+
+	

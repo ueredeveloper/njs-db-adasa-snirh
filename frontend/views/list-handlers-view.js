@@ -49,12 +49,18 @@ const ListHandlersView = {
                     let thIndex = theads.map((element, index) => {
                         // adicionar um sort para o nome, endere vir primeiro...
 
+
                         if (
                             element === 'INT_CD'
+                            || element === 'INT_TIN_CD'
+                            || element === 'INT_TSU_CD'
+                            || element === 'FIN_CD'
                             || element === 'INT_CD_ORIGEM'
                             || element === 'EMP_NM_RESPONSAVEL'
                             || element === 'EMP_NM_EMPREENDIMENTO'
                             || element === 'EMP_NU_CPFCNPJ'
+                            || element === 'INT_CR_LATITUDE'
+                            || element === 'INT_CR_LONGITUDE'
                             || element === 'INT_NU_LATITUDE'
                             || element === 'INT_NU_LONGITUDE'
                             || element === 'OUT_DT_OUTORGAINICIAL'
@@ -74,15 +80,18 @@ const ListHandlersView = {
 
                         // adicionar um sort para o nome, endere vir primeiro...
                         if (
-                            element === 'INT_TIN_CD'
+                            element === 'INT_CD'
+                            || element === 'INT_TIN_CD'
+                            || element === 'INT_TSU_CD'
+                            || element === 'FIN_CD'
                             || element === 'INT_CD_ORIGEM'
                             || element === 'EMP_NM_RESPONSAVEL'
                             || element === 'EMP_NM_EMPREENDIMENTO'
                             || element === 'EMP_NU_CPFCNPJ'
                             // Latitude e Longitude nos dois formatos
                             || element === 'INT_CR_LATITUDE'
-                            || element === 'INT_NU_LATITUDE'
                             || element === 'INT_CR_LONGITUDE'
+                            || element === 'INT_NU_LATITUDE'
                             || element === 'INT_NU_LONGITUDE'
                             || element === 'EMP_DS_LOGRADOURO'
                             // Datas nos dois formatos

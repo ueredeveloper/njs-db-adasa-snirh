@@ -75,4 +75,38 @@
 - [] Adicionar retorno no método `compare-and-write-csv-to-uptade`, pois há interferências no SNIRH sem o atributo FIN_CD e, desta forma, gerando erro na tentativa de editar.
         Talvez esta conferência seja melhor no frontend.
 
+- [] Separar Busca Snirh e Adasa
+    Talvez tenha que  separar as buscas no sistema da Adasa e a busca no sistema do SNIRH.
 
+- [] Dicionário
+    #### Atributos e suas descrições
+
+    | Atributo | Descrição |
+    |---|---|
+    | INT_TIN_CD | Tipo de instalação: 1 - superficial e subterrânea, 2 - efluente, 3 - Barragem |
+    | INT_TSU_CD | Tipo de Uso: 1 - superficial, 2 - subterrânea |
+    | INT_CR_LATITUDE | Latitude para consultas de inserção de dados. |
+    | INT_NU_LATITUDE | Latitude para consultas de edição de dados. |
+
+    #### Relações com a busca SNIRH
+
+    A busca SNIRH utiliza os seguintes atributos para filtrar os resultados:
+
+    * **Tipo de Outorga:** Corresponde ao atributo `INT_TIN_CD`.
+    * **Situação:** Corresponde ao atributo `OUT_TP_SITUACAOOUTORGA`.
+    * **Finalidade:** Corresponde ao atributo `FIN_TFN_CD`.
+
+- [X] - Erro no atributo EMP_NU_LOGRADOURO
+    Estava na query de update `C.ENDERECO EMP_NU_LOGRADOURO`, porém no dicionário tem que ser um número. Mudei para ficar igual à query de inserção `'' EMP_NU_LOGRADOURO`.
+
+- [] Adicionar espera de criação de CSV
+    Ao solicitar uma edição é criado um csv, é preciso esperar a criação para depois anexar no body e enviar para o serviço SNIRH.
+
+## 2024-08-14
+
+- [] - Busca sem Atributos
+    Adicionar valor vazio nos parâmetros de busca do SNIRH. Por exemplo, poder pesquisar no tipo de outorga os quatro valores, Captação, Lançamento, Barragem, Ponto de Referência e todos juntos, que seria o valor "".
+- [X] - Erro no atributo EMP_NU_TELEFONE
+    Foi editado o select para para remoção de caracteres especiais do telefone e remoção do 61 quando o valor for maio que 10 caracteres.
+- [] Checkbox nas Interferências
+    Adicionar um checkbox para selecionar várias interferências e criar o arquivo csv para edição.

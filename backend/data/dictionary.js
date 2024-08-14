@@ -36,7 +36,7 @@ const dictionary = {
         exemplo: "-3,8888888",
         unidade: "GRAU DECIMAL",
         anexo: "-",
-        comentarios: "CAMPO NÚMERICO QUE REPRESENTA A LATITUDE DE LOCALIZAÇÃO DO PONTO DE INTERFERÊNCIA, EM GRAU DECIMAL COM SETE CASAS DE PRECISÃO."
+        comentarios: "Para dados de Inserção. CAMPO NÚMERICO QUE REPRESENTA A LATITUDE DE LOCALIZAÇÃO DO PONTO DE INTERFERÊNCIA, EM GRAU DECIMAL COM SETE CASAS DE PRECISÃO."
     },
     INT_CR_LONGITUDE: {
         nomeColuna: "INT_CR_LONGITUDE",
@@ -45,7 +45,7 @@ const dictionary = {
         exemplo: "-35,8888888",
         unidade: "GRAU DECIMAL",
         anexo: "-",
-        comentarios: "CAMPO NÚMERICO QUE REPRESENTA A LONGITUDE DE LOCALIZAÇÃO DO PONTO DE INTERFERÊNCIA, EM GRAU DECIMAL COM SETE CASAS DE PRECISÃO."
+        comentarios: "Para dados de Inserção. CAMPO NÚMERICO QUE REPRESENTA A LONGITUDE DE LOCALIZAÇÃO DO PONTO DE INTERFERÊNCIA, EM GRAU DECIMAL COM SETE CASAS DE PRECISÃO."
     },
     ING_NU_IBGEMUNICIPIO: {
         nomeColuna: "ING_NU_IBGEMUNICIPIO",
@@ -917,7 +917,7 @@ const dictionary = {
         exemplo: "-15,631346",
         unidade: "-",
         anexo: "",
-        comentarios: ""
+        comentarios: "Para dados de edição"
     },
     INT_NU_LONGITUDE: {
         nomeColuna: "INT_NU_LONGITUDE",
@@ -926,7 +926,7 @@ const dictionary = {
         exemplo: "-47,78455",
         unidade: "-",
         anexo: "",
-        comentarios: ""
+        comentarios: "Para dados de edição"
     },
     INT_NM_CORPOHIDRICOALTERADO: {
         nomeColuna: "INT_NM_CORPOHIDRICOALTERADO",

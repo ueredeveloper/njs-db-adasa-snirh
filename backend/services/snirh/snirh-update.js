@@ -6,37 +6,43 @@ const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fet
 const router = express.Router();
 require('dotenv').config();
 
+
 router.post('/update', async (req, res) => {
-
   let url = "https://www.snirh.gov.br/cnarh40_treinamento/rest/api/atualizar?uf=DF";
-
   let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
-
   let body = req.body;
 
-  compareAndWriteCsvToUpdate(body.federalGrant, body.stateGrant);
-
-  // CACILDO 928961 CAPTAÇÃO OUTORGADO CRIAÇÃO DE ANIMAIS MUDAR 2023 PARA 2028
   let id = body.stateGrant.INT_CD_ORIGEM;
-  let file = `././backend/data/csv/${id}.csv`;
+  let file = `./backend/data/csv/${id}.csv`;
 
-  // ler o arquivo csv
-  let readStream = fs.createReadStream(file);
+  try {
+    // Espera a criação do arquivo CSV
+    await compareAndWriteCsvToUpdate(body.federalGrant, body.stateGrant);
 
-  // Enviar o arquivo csv
-  fetch(url, {
-    method: 'PUT',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'multipart/form-data',
-      'Authorization': SNIRH_TOKEN,
-    },
-    body: readStream
-  }).then((response) => {
-    return response.json()
-  }).then((response) => {
-    res.send(response)
-  });
+    // Verifica se o arquivo foi criado
+    if (fs.existsSync(file)) {
+      // Ler o arquivo CSV
+      let readStream = fs.createReadStream(file);
+
+      // Enviar o arquivo CSV
+      const response = await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'multipart/form-data',
+          'Authorization': SNIRH_TOKEN,
+        },
+        body: readStream
+      });
+
+      const responseData = await response.json();
+      res.send(responseData);
+    } else {
+      res.status(500).send({ error: 'CSV file was not created.' });
+    }
+  } catch (error) {
+    res.status(500).send({ error: 'An error occurred during the update process.' });
+  }
 });
 
 module.exports = router;
