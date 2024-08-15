@@ -2,14 +2,16 @@
 import SNIRHGrantsModel from "../models/federal-grants-model";
 import MapView from "./map-view";
 import AccordionView from "./accordion-view";
+import StateUpdateView from "./state-update-view";
+import toUpdateGrants from "../shared/to-update-grants";
 
 const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../utils");
 
 const FederalView = {
     init: async function () {
         this.div = $('#federal-view');
-        this.list = await SNIRHGrantsModel.listGrants();
-        this.theads = await createTheadsValues(this.list);
+        this.federalGrants = await SNIRHGrantsModel.listGrants();
+        this.theads = await createTheadsValues(this.federalGrants);
         this.tableId = 'federal-list-sub';
         this.tables = [
             { class: 'federal-list', id: 'federal-list-sub', tipo: '1', subtipo: '2' },
@@ -22,7 +24,7 @@ const FederalView = {
 
         $(document).on("updateSnirhTables", async (event, data) => {
             // Update the list with the received data
-            this.list = await data;
+            this.federalGrants = await data;
 
             // Re-render the view
             this.renderContentsTables();
@@ -33,6 +35,76 @@ const FederalView = {
 
             this.renderContentsTables();
         });
+
+        $(document).on("change", "input.cb-federal-group", function () {
+            // Verifica se o checkbos foi selecionado
+            var isChecked = $(this).is(":checked");
+
+            // Captura o id do checkbox clicado.
+            var federalGrantId = $(this).attr('id');
+
+            if (isChecked) {
+                let tr = $(this).closest('tr');
+                let tds = tr.find('.td-snirh');
+                let federalGrant = {}
+                // Interage com os  valores das linhas e preenche o objeto.
+                tds.each(function (index, element) {
+                    let textContent = $(element).text();
+                    federalGrant[FederalView.theads[index]] = textContent
+                });
+
+
+                // Captura o input tipo radio clicado pelo usuário
+                let stateGrantInput = $(`#list-sub-${federalGrantId}`).find('input.radio-update-state-group[type="radio"]:checked')
+                // Captura os dados próximos a input, que são os dados da outorga estadual
+                let statTrs = stateGrantInput.closest('tr');
+
+                // Captura valores da linha  selecionada (td)
+                let stateTds = statTrs.find('.td-state-update');
+                // Cria objecto a partir da linha selecionada
+                let stateGrant = {}
+                // Interage com os  valores das linhas e preenche o objeto.
+                stateTds.each(function (index, element) {
+                    let textContent = $(element).text();
+                    stateGrant[StateUpdateView.theads[index]] = textContent
+                });
+
+                // Cria objeto de edição para envio pelo serviço SNIRH
+                let toUpdate = {
+                    stateGrant: stateGrant,
+                    federalGrant: federalGrant
+                }
+                // Se o Estado estiver vazio não adiciona.
+                if (Object.keys(toUpdate.stateGrant).length === 0 && toUpdate.stateGrant.constructor === Object) {
+                    let newToUpdateList = toUpdateGrants.getToUpdateGrants().filter(item => item.federalGrant.INT_CD !== federalGrantId);
+                    toUpdateGrants.setToUpdateGrants(newToUpdateList);
+
+                    console.log('if remove ', toUpdateGrants.getToUpdateGrants())
+
+                } else {
+                    // Se o Estado está presente adiciona o objet para edição.
+                    let newToUpdateList = toUpdateGrants.getToUpdateGrants();
+                    newToUpdateList.push(toUpdate)
+                    toUpdateGrants.setToUpdateGrants(newToUpdateList);
+
+                    console.log('else add ', toUpdateGrants.getToUpdateGrants())
+                }
+
+                // Se input desselecionado remove objeto dos ítems a ser editado no serviço SNIRH.
+            } else {
+                let newToUpdateList = toUpdateGrants.getToUpdateGrants().filter(item => item.federalGrant.INT_CD !== federalGrantId);
+                toUpdateGrants.setToUpdateGrants(newToUpdateList);
+
+                console.log('else remove', toUpdateGrants.getToUpdateGrants())
+            }
+
+
+        });
+
+
+
+
+
 
 
     },
@@ -69,10 +141,10 @@ const FederalView = {
         this.renderContentsTables();
 
     },
-  
+
     renderContentsTables: async function () {
 
-        
+
 
         // Para utilizar nas tabs com botões (Superficial, Subterrâneo, ect). Se o tamanho for maior que zero, mostraráo o botão, ou se zero, não mostrará.
         let displayTabButtons = []
@@ -80,8 +152,8 @@ const FederalView = {
 
         await Promise.all(this.tables.map(async (table) => {
 
-           
-            let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
+
+            let list = this.federalGrants.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
 
             displayTabButtons.push({ id: table.id, value: table.id, len: list.length })
 
@@ -97,7 +169,7 @@ const FederalView = {
                     ...
                 ]
             */
-           
+
             // Só criar theads de listas com resultado, listas vazias não.
             if (list.length > 0) {
 
@@ -144,19 +216,16 @@ const FederalView = {
                     ${item.push(
                             ['', `
                             <div class="div-btn flex flex-row justify-around w-24 min-w-24 max-w-24">
-                                <!-- select button -->
-                                <button id="btn-snirh-selection" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
+                                <!-- Botão de setar o ponto no mapa -->
+                                <button id="btn-marker" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                                     </svg>
                                 </button>
-                                <!-- copy button -->
-                                <button class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                                    </svg>
-                                </button>
+                                <!-- CheckBox  de selecionar interferência. O id é o atributo INT_CD da interferência -->
+                                <input type="checkbox" id="${item[0][1]}" class="cb-federal-group">
+                                
                             </div>`])}
     
                
@@ -177,7 +246,7 @@ const FederalView = {
                     )
                 });
 
-                $('[id^="btn-snirh-selection"]').click(function () {
+                $('[id^="btn-marker"]').click(function () {
 
                     // Captura tr tag
                     let parentRow = $(this).closest('tr');
@@ -193,7 +262,7 @@ const FederalView = {
 
                     // Cria posição no mapa.
                     let position = createLatLngPosition(grant.INT_NU_LATITUDE.replace("#", ""), grant.INT_NU_LONGITUDE.replace("#", ""));
-                    
+
                     // Mostra a posição utilizando a ferramenta marcador (Marker).
                     MapView.addMarker(position, true);
                     MapView.setMapCenter(position)

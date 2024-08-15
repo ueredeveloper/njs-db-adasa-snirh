@@ -73,7 +73,6 @@ const TopHandlersView = {
         })
 
         $(document).on('searchSnirhChanged', (event, params) => {
-            console.log(params)
             this.params = params;
         });
 

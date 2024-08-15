@@ -1,6 +1,6 @@
 const express = require('express');
-const { compareAndWriteCsvToUpdate } = require('../../utils/compare-and-write-csv-to-update');
 const fs = require('fs');
+const { compareAndWriteListGrants } = require('../../utils/compare-and-write-list-grants');
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const router = express.Router();
@@ -12,12 +12,12 @@ router.post('/update', async (req, res) => {
   let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
   let body = req.body;
 
-  let id = body.stateGrant.INT_CD_ORIGEM;
-  let file = `./backend/data/csv/${id}.csv`;
+  //let id = body.stateGrant.INT_CD_ORIGEM;
+  let file = `./backend/data/csv/toUpdateGrants.csv`;
 
   try {
     // Espera a criação do arquivo CSV
-    await compareAndWriteCsvToUpdate(body.federalGrant, body.stateGrant);
+    await compareAndWriteListGrants(body);
 
     // Verifica se o arquivo foi criado
     if (fs.existsSync(file)) {

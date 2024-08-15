@@ -1,3 +1,6 @@
+import snirhUpdate from "../services/snirh-update";
+import toUpdateGrants from "../shared/to-update-grants";
+
 const ListHandlersView = {
     init: function () {
         this.div = $('#list-handlers');
@@ -25,13 +28,13 @@ const ListHandlersView = {
                 let tagTr = tagThead.find('tr');
                 let tagsThs = tagTr.find('.th-snirh');
 
-                // ListAdasaView
-                let tagAdasaThead = $(`#${element.id}`).find('table').find('thead');
+                // 
+                let theadState = $(`#${element.id}`).find('table').find('thead');
 
-                let tagAdasaTbody = $(`#${element.id}`).find('table').find('tbody');
+                let tbodyState = $(`#${element.id}`).find('table').find('tbody');
 
-                let tagAdasaTr = tagAdasaThead.find('tr');
-                let tagsAdasaThs = tagAdasaTr.find('.th-adasa');
+                let trState = theadState.find('tr');
+                let thsState = trState.find('.th-state-update');
 
                 if (isChecked) {
 
@@ -41,7 +44,7 @@ const ListHandlersView = {
                     }).get();
 
                     //Captura todos os textos do cabeçalho
-                    let theadsAdasa = tagsAdasaThs.map(function (index, th) {
+                    let theadsState = thsState.map(function (index, th) {
                         return $(th).text();
                     }).get();
 
@@ -75,7 +78,7 @@ const ListHandlersView = {
 
 
                     // Seleciona aqueles cabeçalhos que serão mostrados na tabela simples, com poucas colunas
-                    let thAdasaIndex = theadsAdasa.map((element, index) => {
+                    let thStateIndex = theadsState.map((element, index) => {
 
 
                         // adicionar um sort para o nome, endere vir primeiro...
@@ -109,7 +112,7 @@ const ListHandlersView = {
 
                     // Adiciona a última coluna, dos botões
                     thIndex.push(theads.length - 1)
-                    thAdasaIndex.push(theadsAdasa.length - 1)
+                    thStateIndex.push(theadsState.length - 1)
 
 
                     // Busca os componentes necessários para mostrar as colunas específicas.
@@ -138,25 +141,25 @@ const ListHandlersView = {
                     });
 
                     // Busca os componentes necessários para mostrar as colunas específicas.
-                    let thAdasaTrs = tagAdasaThead.find('tr');
-                    thAdasaTrs.each(function (index, tr) {
+                    let thStateTrs = theadState.find('tr');
+                    thStateTrs.each(function (index, tr) {
                         // Buscar as ths apenas com a classe `th-snirh`, pois há outras ths da outra tabela inserida.
-                        let tds = $(tr).find('.th-adasa');
+                        let tds = $(tr).find('.th-state-update');
 
                         tds.each(function (index, th) {
-                            if (!thAdasaIndex.includes(index)) { // Check if the current index is in the list
+                            if (!thStateIndex.includes(index)) { // Check if the current index is in the list
                                 $(th).css("display", "none");
                             }
                         });
                     });
 
-                    let tbAdasaTrs = tagAdasaTbody.find('tr');
-                    tbAdasaTrs.each(function (index, tr) {
+                    let tbStateTrs = tbodyState.find('tr');
+                    tbStateTrs.each(function (index, tr) {
                         // Buscar as tds apenas com a classe `td-snirh`, pois há outras tds da outra tabela inserida.
-                        let tds = $(tr).find('.td-adasa');
+                        let tds = $(tr).find('.td-state-update');
 
                         tds.each(function (index, td) {
-                            if (!thAdasaIndex.includes(index)) { // Check if the current index is in the list
+                            if (!thStateIndex.includes(index)) { // Check if the current index is in the list
                                 $(td).css("display", "none");
                             }
                         });
@@ -190,13 +193,23 @@ const ListHandlersView = {
             });
         })
 
+        $('#btn-save').on('click', async function() { 
+            let toUpdate = toUpdateGrants.getToUpdateGrants();
+
+            let response =  await snirhUpdate('DF', toUpdate);
+
+            console.log(response)
+
+        });
+
     },
     render() {
         this.div.append(`
-        <form>
+        <div>
             <input type="checkbox" id="toggle-columns">
             <label for="toggle-columns"> Alternar colunas </label>
-        </form>
+            <button id="btn-save" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 mx-10"> Salvar </button>
+        </div>
             `)
     }
 }

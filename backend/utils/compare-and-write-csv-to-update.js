@@ -4,6 +4,7 @@ const { formatCpfCnpj } = require('./format-cpf-cnpj');
 const { isDate, convertDateFormat } = require('./verify-and-convert-dates');
 
 const compareAndWriteCsvToUpdate = async (federalJson, stateJson) => {
+
     return new Promise(async (resolve, reject) => {
         try {
             let id = federalJson.INT_CD;
@@ -14,7 +15,7 @@ const compareAndWriteCsvToUpdate = async (federalJson, stateJson) => {
 
             stateKeyValues.forEach(([key, value]) => {
                 if (/^\s+$/.test(value)) {
-                    value = ""; 
+                    value = "";
                 }
 
                 if (isFloat(value)) {
@@ -43,4 +44,4 @@ const compareAndWriteCsvToUpdate = async (federalJson, stateJson) => {
     });
 };
 
-module.exports = {compareAndWriteCsvToUpdate}
+module.exports = { compareAndWriteCsvToUpdate }
