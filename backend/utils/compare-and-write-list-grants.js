@@ -63,5 +63,3 @@ const compareAndWriteListGrants = async (toUpdateGrants) => {
 };
 
 module.exports = { compareAndWriteListGrants }
-
-compareAndWriteListGrants(exampleJsonBody)
