@@ -1,5 +1,6 @@
 
 import StateGrantsModel from "../models/state-grants-model";
+import snirhError from "../services/snirh-error";
 import snirhUpdate from "../services/snirh-update";
 import { createLatLngPosition, getLatLng, maxLengthOfStrings } from "../utils";
 import MapView from "./map-view";
@@ -161,15 +162,29 @@ const StateUpdateView = {
                 let textContent = $(element).text();
                 stateGrant[StateUpdateView.theads[index]] = textContent
             });
-
-            let body = {
+            // Adicionar body como uma array, mesmo sendo um só registro, ex: [{stateGrant: ..., federalGrant: ...}]
+            let toUpdate = [{
                 stateGrant: stateGrant,
                 federalGrant: StateUpdateView.federalGrant
-            }
+            }]
+    
+            let response = await snirhUpdate('DF', toUpdate);
+            // response example: {sucesso: false, mensagem: 'Erro ao processar solicitação.', idArquivoErro: 13261}
+            console.log(response)
+            if (response.sucesso === true) {
+                alert(response.mensagem)
+            } else {
 
-            console.log(body)
-            let response =  await snirhUpdate('DF', body);
-            alert(response);
+                let params = {
+                    uf: 'DF',
+                    idArquivoErro: response.idArquivoErro
+                }
+                await snirhError(params).then(errorResponse =>{ 
+                    
+                    console.log(errorResponse)
+                    alert('Erro: ' + errorResponse)});
+
+            }
 
         });
     },
@@ -199,14 +214,14 @@ const StateUpdateView = {
         // Converte o valor para float e muda vígula para  ponto.
         let position = { lat: parseFloat(latitude.replace(/,/g, '.')), lng: parseFloat(longitude.replace(/,/g, '.')) }
         return position;
-    }, 
+    },
     /**
      * Busca uma outorga estadual relacionada com a outorga federal.
      * @param {*} origemId Id da outorga estadual: INT_CD_ORIGEM.
      * @returns Retorna uma outorga estadual relacionada com a outorga federal pelo atributo estadual INT_CD_ORIGEM.
      */
-    findStateGrant: function (origemId){
-        let stateGrant = this.stateGrants.find(item=> item.INT_CD_ORIGEM === Number(origemId))
+    findStateGrant: function (origemId) {
+        let stateGrant = this.stateGrants.find(item => item.INT_CD_ORIGEM === Number(origemId))
         return stateGrant;
     }
 }

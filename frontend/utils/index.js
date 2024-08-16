@@ -1,4 +1,3 @@
-import snirhParams from "./snirhParams";
 
 const maxLengthOfStrings = (array) => {
 
@@ -103,4 +102,4 @@ const getInterferenceType = (INT_TIN_CD, INT_TSU_CD) => {
 
 
 
-export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, getInterferenceType, getLatLng, snirhParams }
+export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, getInterferenceType, getLatLng }

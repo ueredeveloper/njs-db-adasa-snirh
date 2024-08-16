@@ -14,8 +14,8 @@ const MapView = {
         MapModel.initMap();
         // Adiciona event listeners ou outras inicializações relacionadas à visualização aqui
 
-        let adasaPosition = { lat: -15.7651947, lng: -47.8903739 }
-        this.addMarker(adasaPosition)
+        let statePosition = { lat: -15.7651947, lng: -47.8903739 }
+        this.addMarker(statePosition)
     },
 
     /**

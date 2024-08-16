@@ -1,3 +1,4 @@
+import snirhError from "../services/snirh-error";
 import snirhUpdate from "../services/snirh-update";
 import toUpdateGrants from "../shared/to-update-grants";
 
@@ -55,8 +56,8 @@ const ListHandlersView = {
 
                         if (
                             element === 'INT_CD'
-                            || element === 'INT_TIN_CD'
-                            || element === 'INT_TSU_CD'
+                            // || element === 'INT_TIN_CD'
+                            // || element === 'INT_TSU_CD'
                             || element === 'FIN_CD'
                             || element === 'INT_CD_ORIGEM'
                             || element === 'EMP_NM_RESPONSAVEL'
@@ -84,8 +85,8 @@ const ListHandlersView = {
                         // adicionar um sort para o nome, endere vir primeiro...
                         if (
                             element === 'INT_CD'
-                            || element === 'INT_TIN_CD'
-                            || element === 'INT_TSU_CD'
+                            //|| element === 'INT_TIN_CD'
+                            //|| element === 'INT_TSU_CD'
                             || element === 'FIN_CD'
                             || element === 'INT_CD_ORIGEM'
                             || element === 'EMP_NM_RESPONSAVEL'
@@ -193,12 +194,36 @@ const ListHandlersView = {
             });
         })
 
-        $('#btn-save').on('click', async function() { 
+        $('#btn-save').on('click', async function () {
             let toUpdate = toUpdateGrants.getToUpdateGrants();
 
-            let response =  await snirhUpdate('DF', toUpdate);
+            console.log(toUpdate.length, toUpdate)
 
-            console.log(response)
+            let response = await snirhUpdate('DF', toUpdate);
+
+            if (response.sucesso === true) {
+                alert(response.mensagem)
+            } else {
+
+                let params = {
+                    uf: 'DF',
+                    idArquivoErro: response.idArquivoErro
+                }
+                await snirhError(params).then(errorResponse => {
+
+                    console.log(errorResponse)
+                    alert('Erro: ' + errorResponse)
+                });
+
+            }
+
+
+        });
+        // Limpa dados para nova edição.
+        $('#btn-clear').on('click', async function () {
+
+            toUpdateGrants.setToUpdateGrants([]);
+            alert('Dados limpos com sucesso!!!')
 
         });
 
@@ -209,7 +234,9 @@ const ListHandlersView = {
             <input type="checkbox" id="toggle-columns">
             <label for="toggle-columns"> Alternar colunas </label>
             <button id="btn-save" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 mx-10"> Salvar </button>
-        </div>
+            <button id="btn-clear" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300 mx-10"> Limpar </button>
+     
+            </div>
             `)
     }
 }

@@ -5,7 +5,7 @@ const MapModel = {
         // Initialize the map
         this.map = new window.google.maps.Map(window.document.getElementById('map'), {
             center: {lat: -15.7495823, lng: -47.7086703},
-            zoom: 10
+            zoom: 15
         });
     },
 

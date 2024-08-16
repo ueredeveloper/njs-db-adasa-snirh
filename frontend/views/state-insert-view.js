@@ -1,7 +1,5 @@
 
-import SNIRHGrantsModel from "../models/federal-grants-model";
 import MapView from "./map-view";
-import AccordionView from "./accordion-view";
 import StateGrantsModel from "../models/state-grants-model";
 
 const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../utils");

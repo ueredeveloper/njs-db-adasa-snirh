@@ -26,6 +26,8 @@ const FederalView = {
             // Update the list with the received data
             this.federalGrants = await data;
 
+            console.log(this.federalGrants)
+
             // Re-render the view
             this.renderContentsTables();
         });

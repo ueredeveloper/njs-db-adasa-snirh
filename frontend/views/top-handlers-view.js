@@ -1,7 +1,8 @@
 
 import exportCsv from "../services/export-csv";
 import selectByDesktopDb from "../services/select-by-desktop-db";
-import { snirhParams } from "../utils";
+import snirhParams from "../shared/snirh-params";
+
 import FederalSimpleSearchView from "./federal-simple-search-view";
 import FederalSnirhSearchView from "./federal-snirh-search-view";
 
@@ -9,7 +10,7 @@ const TopHandlersView = {
     init: function () {
 
         this.div = $('#top-handlers');
-        this.params = snirhParams;
+        this.params = snirhParams.getSnirhParams();
         this.render();
 
         // Add click event listener to the button
@@ -74,6 +75,7 @@ const TopHandlersView = {
 
         $(document).on('searchSnirhChanged', (event, params) => {
             this.params = params;
+            snirhParams.setSnirhParams(params);
         });
 
     },

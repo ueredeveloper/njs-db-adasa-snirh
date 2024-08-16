@@ -415,8 +415,6 @@ const compareJson = () => {
 
     convertJSONToCSV(objectToSend, './backend/data/csv/test-1/edicao-object-to-send.csv')
 
-    console.log(objectToSend)
-
 }
 
 

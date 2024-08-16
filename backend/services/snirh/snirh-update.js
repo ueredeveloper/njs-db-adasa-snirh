@@ -13,7 +13,8 @@ router.post('/update', async (req, res) => {
   let body = req.body;
 
   //let id = body.stateGrant.INT_CD_ORIGEM;
-  let file = `./backend/data/csv/toUpdateGrants.csv`;
+              
+  let file = './backend/data/csv/to-update-grants.csv';
 
   try {
     // Espera a criação do arquivo CSV

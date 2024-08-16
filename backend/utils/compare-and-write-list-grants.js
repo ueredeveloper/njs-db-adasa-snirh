@@ -24,6 +24,10 @@ const compareAndWriteListGrants = async (toUpdateGrants) => {
                 if (/^\s+$/.test(value)) {
                     value = "";
                 }
+                // Alguns valores vem como "null", mudar para ""
+                if (value === "null"){
+                    value = "";
+                }
                 // Convert float para string
                 if (isFloat(value)) {
                     let str = convertFloatToCommaString(value);
@@ -50,11 +54,11 @@ const compareAndWriteListGrants = async (toUpdateGrants) => {
             return objectToSend;
 
          });
-
+         
          // Converte Json para Csv
-         await convertJSONToCSV(toUpdateGrantsEdited, `./backend/data/csv/toUpdateGrants.csv`);
+         await convertJSONToCSV(toUpdateGrantsEdited, `./backend/data/csv/to-update-grants.csv`);
          // Caminho que será salvo o arquivo csv.
-         resolve(`./backend/data/csv/toUpdateGrants.csv`);
+         resolve(`./backend/data/csv/to-update-grants.csv`);
 
         } catch (error) {
             reject(error);

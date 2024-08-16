@@ -5,7 +5,6 @@ const snirhUpdate = async (uf, body) => {
     let url = new URL('http://localhost:3000/services/update');
     url.searchParams.append('uf', uf);
 
-
     try {
         const response = await fetch(url, {
             method: 'POST',

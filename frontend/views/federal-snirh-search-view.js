@@ -1,14 +1,14 @@
-import { snirhParams } from "../utils";
+import snirhParams from "../shared/snirh-params";
 
 const TopHandlersSnirhSearch = () => {
 
     const $this = $(this); // Store reference to $(this)
 
-    $this.params = snirhParams;
+    $this.params = snirhParams.getSnirhParams();
 
     // Estado
     $(document).ready(function () {
-        $('#sl-estado').change(function () {
+        $('#select-state').change(function () {
             var selectedValue = $(this).val();
 
             console.log($this.params)
@@ -63,8 +63,8 @@ const TopHandlersSnirhSearch = () => {
         <div class="flex flex-1 my-2 ">
 
             <div class="flex flex-1 flex-col">
-            <label for="estado">Estado</label>
-            <select class="w-32" name="estado" id="sl-estado">
+            <label for="state">Estado</label>
+            <select class="w-32" name="state" id="select-state">
                 <option value="DF">DF</option>
                 <option value="SP">SP</option>
             </select>

@@ -110,3 +110,5 @@
     Foi editado o select para para remoção de caracteres especiais do telefone e remoção do 61 quando o valor for maio que 10 caracteres.
 - [] Checkbox nas Interferências
     Adicionar um checkbox para selecionar várias interferências e criar o arquivo csv para edição.
+## 20214-08-16
+- [] - Ao iniciar selecionar no snirh e banco estadual as outorgas novas, ou editadas recentemente.

@@ -11,7 +11,6 @@ const readSnirhFile = (callback) => {
       }
       try {
         const dataArray = JSON.parse(data); // Parse the JSON string into an array
-        console.log('read snirh file ', dataArray.length)
         // retirar último registro vazio
         //dataArray.pop()
         callback(null, dataArray);
