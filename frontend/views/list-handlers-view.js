@@ -22,71 +22,39 @@ const ListHandlersView = {
             ListHandlersView.tables.forEach(element => {
 
                 // ListSnirhView
-                let tagThead = $(`#${element.id}`).find('thead');
+                let federalThead = $(`#${element.id}`).find('thead');
 
-                let tagTbody = $(`#${element.id}`).find('tbody');
+                let federalTbody = $(`#${element.id}`).find('tbody');
 
-                let tagTr = tagThead.find('tr');
-                let tagsThs = tagTr.find('.th-snirh');
+                let federalTr = federalThead.find('tr');
+                let federalThs = federalTr.find('.th-snirh');
 
                 // 
-                let theadState = $(`#${element.id}`).find('table').find('thead');
+                let stateThead = $(`#${element.id}`).find('table').find('thead');
 
-                let tbodyState = $(`#${element.id}`).find('table').find('tbody');
+                let stateTbody = $(`#${element.id}`).find('table').find('tbody');
 
-                let trState = theadState.find('tr');
-                let thsState = trState.find('.th-state-update');
+                let stateTr = stateThead.find('tr');
+                let stateThs = stateTr.find('.th-state-update');
 
                 if (isChecked) {
 
                     //Captura todos os textos do cabeçalho
-                    let theads = tagsThs.map(function (index, th) {
+                    let theads = federalThs.map(function (index, th) {
                         return $(th).text();
                     }).get();
 
                     //Captura todos os textos do cabeçalho
-                    let theadsState = thsState.map(function (index, th) {
+                    let theadsState = stateThs.map(function (index, th) {
                         return $(th).text();
                     }).get();
 
                     // Seleciona aqueles cabeçalhos que serão mostrados na tabela simples, com poucas colunas
-                    let thIndex = theads.map((element, index) => {
+                    let thFederalIndexes = theads.map((element, index) => {
                         // adicionar um sort para o nome, endere vir primeiro...
-
 
                         if (
                             element === 'INT_CD'
-                            // || element === 'INT_TIN_CD'
-                            // || element === 'INT_TSU_CD'
-                            || element === 'FIN_CD'
-                            || element === 'INT_CD_ORIGEM'
-                            || element === 'EMP_NM_RESPONSAVEL'
-                            || element === 'EMP_NM_EMPREENDIMENTO'
-                            || element === 'EMP_NU_CPFCNPJ'
-                            || element === 'INT_CR_LATITUDE'
-                            || element === 'INT_CR_LONGITUDE'
-                            || element === 'INT_NU_LATITUDE'
-                            || element === 'INT_NU_LONGITUDE'
-                            || element === 'OUT_DT_OUTORGAINICIAL'
-                            || element === 'OUT_DT_OUTORGAFINAL'
-
-                            // adiciona th dos botões
-                            || element === ''
-                        ) {
-                            return index;
-                        }
-                    }).filter(index => index !== undefined);
-
-
-                    // Seleciona aqueles cabeçalhos que serão mostrados na tabela simples, com poucas colunas
-                    let thStateIndex = theadsState.map((element, index) => {
-
-
-                        // adicionar um sort para o nome, endere vir primeiro...
-                        if (
-                            element === 'INT_CD'
-                            //|| element === 'INT_TIN_CD'
-                            //|| element === 'INT_TSU_CD'
                             || element === 'FIN_CD'
                             || element === 'INT_CD_ORIGEM'
                             || element === 'EMP_NM_RESPONSAVEL'
@@ -97,7 +65,7 @@ const ListHandlersView = {
                             || element === 'INT_CR_LONGITUDE'
                             || element === 'INT_NU_LATITUDE'
                             || element === 'INT_NU_LONGITUDE'
-                            //|| element === 'EMP_DS_LOGRADOURO'
+                            
                             // Datas nos dois formatos
                             || element === 'OUT_DT_INICIAL'
                             || element === 'OUT_DT_OUTORGAINICIAL'
@@ -111,57 +79,85 @@ const ListHandlersView = {
                         }
                     }).filter(index => index !== undefined);
 
+                    // Seleciona aqueles cabeçalhos que serão mostrados na tabela simples, com poucas colunas
+                    let thStateIndexes = theadsState.map((element, index) => {
+
+                        // adicionar um sort para o nome, endere vir primeiro...
+                        if (
+                            element === 'INT_CD'
+                            || element === 'FIN_CD'
+                            || element === 'INT_CD_ORIGEM'
+                            || element === 'EMP_NM_RESPONSAVEL'
+                            || element === 'EMP_NM_EMPREENDIMENTO'
+                            || element === 'EMP_NU_CPFCNPJ'
+                            // Latitude e Longitude nos dois formatos
+                            || element === 'INT_CR_LATITUDE'
+                            || element === 'INT_CR_LONGITUDE'
+                            || element === 'INT_NU_LATITUDE'
+                            || element === 'INT_NU_LONGITUDE'
+                            
+                            // Datas nos dois formatos
+                            || element === 'OUT_DT_INICIAL'
+                            || element === 'OUT_DT_OUTORGAINICIAL'
+                            || element === 'OUT_DT_FINAL'
+                            || element === 'OUT_DT_OUTORGAFINAL'
+                            // adiciona th dos botões
+                            || element === 'OUT_NU_PROCESSO'
+                            || element === ''
+                        ) {
+                            return index;
+                        }
+                    }).filter(index => index !== undefined);
 
                     // Adiciona a última coluna, dos botões
-                    thIndex.push(theads.length - 1)
-                    thStateIndex.push(theadsState.length - 1)
-
+                    thFederalIndexes.push(theads.length - 1)
+                    thStateIndexes.push(theadsState.length - 1)
 
                     // Busca os componentes necessários para mostrar as colunas específicas.
-                    let thTrs = tagThead.find('tr');
+                    let thTrs = federalThead.find('tr');
                     thTrs.each(function (index, tr) {
                         // Buscar as ths apenas com a classe `th-snirh`, pois há outras ths da outra tabela inserida.
                         let tds = $(tr).find('.th-snirh');
 
                         tds.each(function (index, th) {
-                            if (!thIndex.includes(index)) { // Check if the current index is in the list
+                            if (!thFederalIndexes.includes(index)) { // Check if the current index is in the list
                                 $(th).css("display", "none");
                             }
                         });
                     });
 
-                    let tbTrs = tagTbody.find('tr');
+                    let tbTrs = federalTbody.find('tr');
                     tbTrs.each(function (index, tr) {
                         // Buscar as tds apenas com a classe `td-snirh`, pois há outras tds da outra tabela inserida.
                         let tds = $(tr).find('.td-snirh');
 
                         tds.each(function (index, td) {
-                            if (!thIndex.includes(index)) { // Check if the current index is in the list
+                            if (!thFederalIndexes.includes(index)) { // Check if the current index is in the list
                                 $(td).css("display", "none");
                             }
                         });
                     });
 
                     // Busca os componentes necessários para mostrar as colunas específicas.
-                    let thStateTrs = theadState.find('tr');
+                    let thStateTrs = stateThead.find('tr');
                     thStateTrs.each(function (index, tr) {
                         // Buscar as ths apenas com a classe `th-snirh`, pois há outras ths da outra tabela inserida.
                         let tds = $(tr).find('.th-state-update');
 
                         tds.each(function (index, th) {
-                            if (!thStateIndex.includes(index)) { // Check if the current index is in the list
+                            if (!thStateIndexes.includes(index)) { // Check if the current index is in the list
                                 $(th).css("display", "none");
                             }
                         });
                     });
 
-                    let tbStateTrs = tbodyState.find('tr');
+                    let tbStateTrs = stateTbody.find('tr');
                     tbStateTrs.each(function (index, tr) {
                         // Buscar as tds apenas com a classe `td-snirh`, pois há outras tds da outra tabela inserida.
                         let tds = $(tr).find('.td-state-update');
 
                         tds.each(function (index, td) {
-                            if (!thStateIndex.includes(index)) { // Check if the current index is in the list
+                            if (!thStateIndexes.includes(index)) { // Check if the current index is in the list
                                 $(td).css("display", "none");
                             }
                         });
@@ -169,7 +165,7 @@ const ListHandlersView = {
 
                 } else {
 
-                    let thTrs = tagThead.find('tr');
+                    let thTrs = federalThead.find('tr');
                     thTrs.each(function (index, tr) {
                         let tds = $(tr).find('th');
 
@@ -180,7 +176,7 @@ const ListHandlersView = {
                         });
                     });
 
-                    let tbTrs = tagTbody.find('tr');
+                    let tbTrs = federalTbody.find('tr');
                     tbTrs.each(function (index, tr) {
                         let tds = $(tr).find('td');
 
