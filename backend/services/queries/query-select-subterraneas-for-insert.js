@@ -2,6 +2,8 @@ const querySelectSubterraneasForInsert = (ids) => {
 
     let paramsIds = ids.join(',');
 
+    console.log('adasa: interferencias subterrâneos, ids pesquisados', paramsIds)
+
     return `
         USE SRH;
         /* Criado por Welber Ferreira

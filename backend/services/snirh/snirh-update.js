@@ -11,14 +11,15 @@ router.post('/update', async (req, res) => {
   let url = "https://www.snirh.gov.br/cnarh40_treinamento/rest/api/atualizar?uf=DF";
   let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
   let body = req.body;
-
-  //let id = body.stateGrant.INT_CD_ORIGEM;
-              
-  let file = './backend/data/csv/to-update-grants.csv';
-
+  
   try {
+
+    const currentTimestamp = new Date().getTime();
+
     // Espera a criação do arquivo CSV
-    await compareAndWriteListGrants(body);
+    await compareAndWriteListGrants(body, currentTimestamp);
+
+    let file = `./backend/data/csv/to-update-grants-${currentTimestamp}.csv`;
 
     // Verifica se o arquivo foi criado
     if (fs.existsSync(file)) {

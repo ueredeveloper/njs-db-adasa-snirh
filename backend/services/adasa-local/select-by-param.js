@@ -2,7 +2,7 @@ const router = require("express").Router();
 const sql = require("mssql");
 require('dotenv').config();
 
-const { querySelectByParam } = require("../queries");
+const { querySelectByParam, querySelectSuperficiaisForInsert, querySelectSubterraneasForInsert } = require("../queries");
 
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST } = process.env;
 
@@ -14,45 +14,6 @@ const config = {
     database: ADASA_DATABASE,
     trustServerCertificate: true,
 };
-
-/**
-    Captura os ponto mais próximos do ponto selecionado.
-*/
-
-/*
-router.get("/select-by-param", async (req, res) => {
-
-    let { param } = req.query;
-
-    console.log(param)
-
-    sql.connect(config, async function (err) {
-
-        //29/05/2024 Está com erro  
-
-        if (err) console.log(err);
-
-        try {
-
-            const request = new sql.Request();
-            // Captura os pontos mais próximos.
-            let query = await querySelectByParam(param);
-
-            let recordset  = await request.query(query);
-
-            console.log(recordset)
-
-            res.send('recordset');
-
-            sql.close();
-
-        } catch (err) {
-            console.error("Error:", error);
-        }
-
-    });// fim sql connect
-
-});*/
 
 router.get('/select-by-param', function (req, res) {
     // mudar para post e assim enviar um polígono para o servidor repl.it
@@ -70,10 +31,56 @@ router.get('/select-by-param', function (req, res) {
         let query = querySelectByParam(param);
 
         // requisição
-        request.query(query, function (err, recordset) {
+        request.query(query, async function (err, recordset) {
+
             if (err) console.log(err)
-           
-            res.send(recordset.recordset);
+
+            console.log(recordset.recordset.length)
+
+            /* Retorno se não escontrar nada: 
+
+            {
+                recordsets: [ [] ],
+                recordset: [],
+                output: {},
+                rowsAffected: [ 1, 0 ]
+            }
+            */
+
+            let grants = recordset.recordset;
+            // Se encontrar algum resultado pelos parâmetros
+            if (grants.length > 0) {
+
+                let allGrants = []
+
+                let supIds = grants.filter(item => item.ID_TIPO_INTERFERENCIA === 1).map(item => item.ID_INTERFERENCIA);
+                // Somente busca se houver id para buscar. A expressão in do sql exige pelo menos um id.
+                if (supIds.length > 0) {
+
+                    // Captura interferências pelos ids das interferências
+                    let supQuery = await querySelectSuperficiaisForInsert(supIds);
+                    // Busca os resultados por uma sql query
+                    let supPoints = await request.query(supQuery);
+                    // Push com operador spread que não deixa criar array dentro de array. Ex: [[1, 2, 3]] => [1, 2, 3].
+                    allGrants.push(...supPoints.recordset)
+
+                }
+
+                let subIds = grants.filter(item => item.ID_TIPO_INTERFERENCIA === 2).map(item => item.ID_INTERFERENCIA)
+                // Somente busca se houver id para buscar. A expressão in do sql exige pelo menos um id.
+                if (subIds > 0) {
+
+                    // Captura interferências pelos ids das interferências
+                    let subQuery = await querySelectSubterraneasForInsert(subIds);
+                    // Busca os resultados por uma sql query
+                    let subPoints = await request.query(subQuery);
+
+                    allGrants.push(...subPoints.recordset)
+
+                }
+
+                res.send(allGrants);
+            }
         });
     });
 });

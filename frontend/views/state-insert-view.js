@@ -7,9 +7,9 @@ const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require
 const StateInsertView = {
     init: async function () {
         this.div = $('#state-insert-view');
-        this.list = await StateGrantsModel.list();
+        this.stateGrants = await StateGrantsModel.list();
 
-        this.theads = await createTheadsValues(this.list);
+        this.theads = await createTheadsValues(this.stateGrants);
         this.tableId = 'state-list-sub';
         this.tables = [
             { class: 'state-list', id: 'state-list-sub', tipo: 1, subtipo: 2 },
@@ -23,7 +23,7 @@ const StateInsertView = {
         /*
         $(document).on("updateInsertStateTable", async (event, data) => {
             // Update the list with the received data
-            this.list = await data;
+            this.stateGrants = await data;
 
             // Re-render the view
             this.renderContentsTables();
@@ -34,6 +34,14 @@ const StateInsertView = {
 
             this.renderContentsTables();
         });*/
+
+        $(document).on("updateStateInsertTables", async (event, data) => {
+            // Update the list with the received data
+            this.stateGrants = await data;
+
+            // Re-render the view
+            this.renderContentsTables();
+        });
 
 
     },
@@ -89,7 +97,7 @@ const StateInsertView = {
                     2 – subterrânea 
             */
 
-            let list = this.list.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
+            let list = this.stateGrants.filter(item => item.INT_TIN_CD === table.tipo && item.INT_TSU_CD === table.subtipo);
 
             displayTabButtons.push({ id: table.id, value: table.id, len: list.length })
 
@@ -151,15 +159,15 @@ const StateInsertView = {
                     <!-- Adiciona botões manipuladores a cada linha de dados na tabela. -->
                     ${item.push(
                             ['', `
-                            <div class="div-btn flex flex-row justify-around w-24 min-w-24 max-w-24">
-                                <!-- select button -->
-                                <button id="btn-snirh-selection" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
+                            <div class="div-state-for-btn flex flex-row justify-around w-24 min-w-24 max-w-24">
+                                <!-- Botão de setar o ponto no mapa -->
+                                <button id="btn-state-insert-marker" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
                                     </svg>
                                 </button>
-                                <!-- copy button -->
+                                <!-- Botão de Salvar -->
                                 <button class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
@@ -175,7 +183,7 @@ const StateInsertView = {
                                     // Cria td e adiciona classe (td-bg-1 ou td-bg-0) para variar cor de fundo da linha
                                     return `<td class="td-bg-${classIndex} sticky right-0 ">${_item[1]}</td>`;
                                 }
-                                return `<td class="td-snirh text-center">${_item[1]}</td>`
+                                return `<td class="td-state-insert text-center">${_item[1]}</td>`
                             })
                         }
                     
@@ -184,12 +192,12 @@ const StateInsertView = {
                     )
                 });
 
-                $('[id^="btn-snirh-selection"]').click(function () {
+                $('[id^="btn-state-insert-marker"]').click(function () {
 
                     // Captura tr tag
                     let parentRow = $(this).closest('tr');
                     // Captura valores da linha  selecionada (td)
-                    let tds = parentRow.find('.td-snirh');
+                    let tds = parentRow.find('.td-state-insert');
                     // Cria objecto a partir da linha selecionada
                     let grant = {}
                     // Interage com os  valores das linhas e preenche o objeto.
@@ -199,8 +207,9 @@ const StateInsertView = {
                     });
 
                     // Cria posição no mapa.
-                    let position = createLatLngPosition(grant.INT_NU_LATITUDE.replace("#", ""), grant.INT_NU_LONGITUDE.replace("#", ""));
+                    let position = createLatLngPosition(grant.INT_CR_LATITUDE.replace("#", ""), grant.INT_CR_LONGITUDE.replace("#", ""));
                     
+                    console.log(grant,grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE)
                     // Mostra a posição utilizando a ferramenta marcador (Marker).
                     MapView.addMarker(position, true);
                     MapView.setMapCenter(position)

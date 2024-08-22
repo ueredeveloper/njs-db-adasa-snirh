@@ -112,3 +112,12 @@
     Adicionar um checkbox para selecionar várias interferências e criar o arquivo csv para edição.
 ## 20214-08-16
 - [] - Ao iniciar selecionar no snirh e banco estadual as outorgas novas, ou editadas recentemente.
+## 2024-08-22
+- [] Filtrar Colunas
+    Adicionar uma forma de renderizar já com as colunas filtradas. No caso, quando se quiser ver apenas as colunas principais e selecionar outorgas próximas estas outorgas já iniciarem com colunas filtradas, está iniciando com todas as colunas e é preciso desselecionar o `Alternar colunas` e selecionar novamente.
+- [] Filtrar Linhas
+    Adicionar forma de destacar a linha editada, ou colocando ela sozinha na tabela ou através de cor.
+
+- [] Limpeza da Variável `toUpdateGrants` e Componentes
+    Ao limpar a variável citada desselecionar os checkboxes.
+

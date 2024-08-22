@@ -2,6 +2,8 @@ const querySelectSuperficiaisForInsert = (ids)=> {
 
     let paramsIds = ids.join(',')
 
+    console.log('adasa: interferencias superficiais, ids pesquisados', paramsIds)
+
     return `
     USE SRH;
 
@@ -307,8 +309,9 @@ const querySelectSuperficiaisForInsert = (ids)=> {
         ELSE 1120
     END AS SIR_TCT_CD,
 
-    CASE WHEN T.AREA_IRRIGADA IS NULL
-        THEN ''
+    CASE
+		-- Tem que colocar sempre um número float, mesmo que zero 
+		WHEN T.AREA_IRRIGADA IS NULL THEN '0,0'
 
     ELSE REPLACE(SUBSTRING(CAST(ROUND(T.AREA_IRRIGADA,2) AS VARCHAR), 0, 
                         CHARINDEX(',', REPLACE(CAST(ROUND(T.AREA_IRRIGADA,2) AS VARCHAR),'.',','))+3),'.',',')

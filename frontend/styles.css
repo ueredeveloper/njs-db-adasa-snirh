@@ -1,6 +1,7 @@
 #tab-update-view button.active {
   background-color: rgb(156 163 175);
 }
+
 #tab-insert-view button.active {
   background-color: rgb(156 163 175);
 }
@@ -32,6 +33,7 @@
   color: #ffffff;
   text-align: center;
 }
+
 /* remover para a tamanho da linha ficar igual o tamanho da linha da classe federal-list */
 /*
 .state-list th,
@@ -96,4 +98,21 @@
 
 .td-bg-1 {
   background-color: white
+}
+
+/* Largura, cor etc do scrollbar, horizontal e vertical */
+.table-scrolls::-webkit-scrollbar {
+  height: 14px;
+  width: 14px;
+  background: gray;
+}
+
+.table-scrolls::-webkit-scrollbar-thumb:horizontal {
+  background: #bff306;
+  border-radius: 2px;
+}
+
+.table-scrolls::-webkit-scrollbar-thumb:vertical {
+  background: #bff306;
+  border-radius: 2px;
 }

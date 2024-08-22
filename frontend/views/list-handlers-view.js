@@ -97,13 +97,14 @@ const ListHandlersView = {
                             || element === 'INT_CR_LONGITUDE'
                             || element === 'INT_NU_LATITUDE'
                             || element === 'INT_NU_LONGITUDE'
-                            || element === 'EMP_DS_LOGRADOURO'
+                            //|| element === 'EMP_DS_LOGRADOURO'
                             // Datas nos dois formatos
                             || element === 'OUT_DT_INICIAL'
                             || element === 'OUT_DT_OUTORGAINICIAL'
                             || element === 'OUT_DT_FINAL'
                             || element === 'OUT_DT_OUTORGAFINAL'
                             // adiciona th dos botões
+                            || element === 'OUT_NU_PROCESSO'
                             || element === ''
                         ) {
                             return index;

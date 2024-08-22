@@ -19,43 +19,39 @@
     <!-- Left Map -->
     <div id="map" class="w-1/4 h-full"></div>
     <!-- Right - Tabs, Tables -->
-    <div class="w-3/4 flex-auto">
+    <div class="w-3/4 h-full overflow-hidden">
       <div class="h-full w-full flex flex-col">
-        <div id="top-handlers"></div>
         <!-- Manage Data Tabs -->
         <div id="manage-data-view"></div>
         <!-- Inserção de Dados -->
-        <div id="insert" class="div-manage">
+        <div id="insert" class="div-manage flex-1 overflow-hidden">
+          <div class="h-full flex flex-col">
+            <div id="top-handlers-state-insert-view"></div>
+            <!-- Tabs -->
+            <div id="tab-insert-view"></div>
+            <div id="state-insert-view" class="table-scrolls overflow-auto"></div>
+            <!-- Manipuladores -->
+            <div> Manipuladores da tabela </div>
 
-          <!-- Tabs -->
-          <div id="tab-insert-view"></div>
-          <div id="state-insert-view" class="block overflow-auto h-full"></div>
 
-
+          </div>
         </div>
         <!-- Edição de Dados -->
-        <div id="update" class="div-manage hidden">
-          <!-- Tabs -->
-          <div id="tab-update-view"></div>
-          <div id="tab-update-view" class="block"></div>
-          <!-- Tables -->
-          <div id="federal-view" class="overflow-auto h-full"></div>
+        <div id="update" class="div-manage flex-1 overflow-hidden hidden">
+          <div class="h-full flex flex-col">
+            <div id="top-handlers"></div>
+            <!-- Tabs -->
+            <div id="tab-update-view"></div>
+            <div id="tab-update-view" class="block"></div>
+            <div id="federal-view" class="table-scrolls overflow-auto"></div>
+            <!-- Manipuladores -->
+            <div id="list-handlers"></div>
+          </div>
         </div>
-
-        <!-- Manipuladores -->
-        <div id="list-handlers">
-
-        </div>
-
-
-
       </div>
-
-
     </div>
-  </div>
 
-  <script src="./script.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 

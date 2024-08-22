@@ -54,6 +54,8 @@ const TopHandlersSnirhSearch = () => {
         $('#slFinalidade').change(function () {
             var selectedValue = $(this).val();
             $this.params = { ...$this.params, idFinalidade: selectedValue }
+
+            console.log( $this.params)
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 

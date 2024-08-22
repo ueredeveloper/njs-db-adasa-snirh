@@ -7,6 +7,7 @@ const { default: TopHandlersController } = require("./controllers/top-handlers-c
 const { default: TabInsertView } = require("./views/tab-insert-view");
 const { default: TabUpdateView } = require("./views/tab-update-view");
 const { default: StateInsertController } = require("./controllers/state-insert-controller");
+const { default: TopHandlersStateController } = require("./controllers/top-handlers-state-controller");
 
 TopHandlersController.init();
 MapController.init();
@@ -16,6 +17,7 @@ TabInsertView.init();
 TabUpdateView.init();
 
 StateInsertController.init();
+
 FederalController.init();
 
 ListHandlersController.init();
