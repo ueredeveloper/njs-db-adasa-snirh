@@ -3,6 +3,8 @@ import StateGrantsModel from "../models/state-grants-model";
 import snirhError from "../services/snirh-error";
 import snirhUpdate from "../services/snirh-update";
 import { createLatLngPosition, getLatLng, maxLengthOfStrings } from "../utils";
+import { filterColumns } from "../utils/filter-columns";
+import ListHandlersView from "./list-handlers-view";
 import MapView from "./map-view";
 
 const StateUpdateView = {
@@ -22,7 +24,11 @@ const StateUpdateView = {
         // Renderização da tabela com cabeçalho.
         this.render();
         // Renderização das outorgas.
-        this.renderSubterranea(accordionIndex);
+        this.renderGrants(accordionIndex).then(async ()=>{
+            // Verifica de forma assíncrona se está mostrando poucas colunas e abre as outorgas estaduais também com as colunas seleiconadas.
+            let checkBox = $('#toggle-columns');
+            await filterColumns(ListHandlersView, checkBox);
+        });
     },
 
     render: function async() {
@@ -68,7 +74,7 @@ const StateUpdateView = {
         }
 
     },
-    renderSubterranea: async function (accordionIndex) {
+    renderGrants: async function (accordionIndex) {
 
         let tbody = $(`#list-sub-${accordionIndex}`).find('tbody')
 
@@ -187,6 +193,7 @@ const StateUpdateView = {
             }
 
         });
+
     },
     createTheadsValues: async function () {
 

@@ -1,9 +1,10 @@
 import StateUpdateController from "../controllers/state-update-controller";
+import { filterColumns } from "../utils/filter-columns";
+import ListHandlersView from "./list-handlers-view";
 
 
 const AccordionView = (colspanValue, item) => {
 
-    StateUpdateController
 
     // Converte array em objeto (outorga)
     const federalGrant = Object.fromEntries(item);
@@ -38,7 +39,7 @@ const AccordionView = (colspanValue, item) => {
             </svg>`);
 
         // Ação do botão
-        $(`#${btnId}`).on('click', function (event) {
+        $(`#${btnId}`).on('click', async function (event) {
 
             event.preventDefault();
 
@@ -58,7 +59,12 @@ const AccordionView = (colspanValue, item) => {
             if (!this.StateUpdateController) {
                 // Envia o INT_CD, id da interferência e o ítem para remover deste ítem latitude e longitude e buscar por proximidade.
                 this.StateUpdateController = new StateUpdateController.init(item[0][1], federalGrant)
+
             }
+
+            
+
+          
 
         });
 
