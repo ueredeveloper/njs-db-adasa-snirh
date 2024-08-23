@@ -29,6 +29,8 @@ const StateUpdateView = {
             let checkBox = $('#toggle-columns');
             await filterColumns(ListHandlersView, checkBox);
         });
+
+        this.i = 0;
     },
 
     render: function async() {
@@ -155,8 +157,8 @@ const StateUpdateView = {
 
         });
 
-        $('[id^="btn-update"]').click(async function () {
-
+        $('[id^="btn-update"]').click(async function (e) {
+            
             // Captura tr tag
             let parentRow = $(this).closest('tr');
             // Captura valores da linha  selecionada (td)
@@ -173,6 +175,10 @@ const StateUpdateView = {
                 stateGrant: stateGrant,
                 federalGrant: StateUpdateView.federalGrant
             }]
+
+            console.log('loop bnt update ', StateUpdateView.i)
+            StateUpdateView.i = StateUpdateView.i + 1;
+
     
             let response = await snirhUpdate('DF', toUpdate);
             // response example: {sucesso: false, mensagem: 'Erro ao processar solicitação.', idArquivoErro: 13261}

@@ -3,6 +3,7 @@ const sql = require("mssql");
 require('dotenv').config();
 
 const { querySelectByParam, querySelectSuperficiaisForInsert, querySelectSubterraneasForInsert } = require("../queries");
+const { all } = require("axios");
 
 const { ADASA_DATABASE, ADASA_USERNAME, ADASA_PASSWORD, ADASA_HOST } = process.env;
 
@@ -18,7 +19,11 @@ const config = {
 router.get('/select-by-param', function (req, res) {
     // mudar para post e assim enviar um polígono para o servidor repl.it
 
+   
+
     let { param } = req.query;
+
+    console.log('select by param: ', param)
 
     //conexão com o banco
     sql.connect(config, function (err) {
@@ -35,8 +40,6 @@ router.get('/select-by-param', function (req, res) {
 
             if (err) console.log(err)
 
-            console.log(recordset.recordset.length)
-
             /* Retorno se não escontrar nada: 
 
             {
@@ -48,6 +51,8 @@ router.get('/select-by-param', function (req, res) {
             */
 
             let grants = recordset.recordset;
+
+            console.log('outorgas len ', grants.length)
             // Se encontrar algum resultado pelos parâmetros
             if (grants.length > 0) {
 
@@ -67,8 +72,9 @@ router.get('/select-by-param', function (req, res) {
                 }
 
                 let subIds = grants.filter(item => item.ID_TIPO_INTERFERENCIA === 2).map(item => item.ID_INTERFERENCIA)
+
                 // Somente busca se houver id para buscar. A expressão in do sql exige pelo menos um id.
-                if (subIds > 0) {
+                if (subIds.length > 0) {
 
                     // Captura interferências pelos ids das interferências
                     let subQuery = await querySelectSubterraneasForInsert(subIds);
@@ -79,7 +85,11 @@ router.get('/select-by-param', function (req, res) {
 
                 }
 
+                console.log('search by param, len ', allGrants.length)
+
                 res.send(allGrants);
+            } else {
+                res.send([])
             }
         });
     });

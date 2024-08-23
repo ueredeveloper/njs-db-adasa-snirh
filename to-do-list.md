@@ -121,3 +121,14 @@
 - [] Limpeza da Variável `toUpdateGrants` e Componentes
     Ao limpar a variável citada desselecionar os checkboxes.
 
+## 2024-08-23
+- [] Loop Ao Salvar
+    Quando escolhe várias interferências e o usuário decide salvar apenas uma pelo botão de salvar do Estado é criado um loop e salva várias vezes a mesma interferência.
+        - O erro ocorre quando é enviado vários objetos e ocorre algum erro na transmissão, como CPF inválido, por exemplo. Se neste momento o usuário quiser salvar um destas outorgas separadas, pelo botão presente no `StateUpdateView` é gerado um loop e salva várias vezes o mesmo objeto.
+ - [] Botão de filtro de colunas na StateUpdateView.
+    Adicionar botão para que o usuário veja apenas as colunas nome, cpf, endereço e possa comparar rapidamente estas colunas principais de comparação.
+
+- [] Rever a busca por parâmetros no banco da Adasa.
+    Um endereço conhecido não é  encontrado.
+
+

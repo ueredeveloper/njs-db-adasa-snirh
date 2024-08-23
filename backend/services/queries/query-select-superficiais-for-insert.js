@@ -2,8 +2,6 @@ const querySelectSuperficiaisForInsert = (ids)=> {
 
     let paramsIds = ids.join(',')
 
-    console.log('adasa: interferencias superficiais, ids pesquisados', paramsIds)
-
     return `
     USE SRH;
 
