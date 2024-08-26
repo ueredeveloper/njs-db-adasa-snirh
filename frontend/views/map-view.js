@@ -34,7 +34,15 @@ const MapView = {
      */
     setMapCenter: function (position) {
         MapModel.setMapCenter(position)
+    },
+    /**
+     * Limpa todos os marcadores do mapa.
+     * @function
+     */
+    clearMarkers: function () {
+        MapModel.clearMarkers(); // Chama a função no MapModel para limpar os marcadores
     }
+
 };
 
 export default MapView;

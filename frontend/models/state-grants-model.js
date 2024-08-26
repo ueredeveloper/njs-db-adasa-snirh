@@ -3009,8 +3009,7 @@ const StateGrantsModel = {
     selectClosestPoints: async function (latitude, longitude, ti) {
 
         let data = await selectClosestPoints(latitude, longitude, ti);
-        return data.recordsets[0];
-
+        return data
     },
 }
 

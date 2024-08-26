@@ -278,6 +278,9 @@ const FederalView = {
 
         $(document).trigger("displayTabButtons", [displayTabButtons]);
 
+    },
+    getFederalGrants: function(){
+        return this.federalGrants;
     }
 }
 

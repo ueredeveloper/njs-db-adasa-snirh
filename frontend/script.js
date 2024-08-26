@@ -8,9 +8,11 @@ const { default: TabInsertView } = require("./views/tab-insert-view");
 const { default: TabUpdateView } = require("./views/tab-update-view");
 const { default: StateInsertController } = require("./controllers/state-insert-controller");
 const { default: TopHandlersStateController } = require("./controllers/top-handlers-state-controller");
+const { default: MapManagerController } = require("./controllers/map-manager-controller");
 
 TopHandlersController.init();
 MapController.init();
+MapManagerController.init();
 ManageDataControler.init();
 
 TabInsertView.init();

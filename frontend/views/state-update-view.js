@@ -30,11 +30,9 @@ const StateUpdateView = {
             await filterColumns(ListHandlersView, checkBox);
         });
 
-        this.i = 0;
     },
 
     render: function async() {
-
 
         let tables = [
             { className: 'state-list', id: `list-sub-${this.accordionIndex}`, },
@@ -170,19 +168,17 @@ const StateUpdateView = {
                 let textContent = $(element).text();
                 stateGrant[StateUpdateView.theads[index]] = textContent
             });
+            // O atributo distance não faz parte do padrão SNIRH, é usado somente para comparar distância entre o ponto federal e o estadual. 
+            delete stateGrant.DISTANCE
             // Adicionar body como uma array, mesmo sendo um só registro, ex: [{stateGrant: ..., federalGrant: ...}]
             let toUpdate = [{
                 stateGrant: stateGrant,
                 federalGrant: StateUpdateView.federalGrant
-            }]
+            }];
 
-            console.log('loop bnt update ', StateUpdateView.i)
-            StateUpdateView.i = StateUpdateView.i + 1;
-
-    
             let response = await snirhUpdate('DF', toUpdate);
             // response example: {sucesso: false, mensagem: 'Erro ao processar solicitação.', idArquivoErro: 13261}
-            console.log(response)
+            
             if (response.sucesso === true) {
                 alert(response.mensagem)
             } else {
@@ -195,9 +191,7 @@ const StateUpdateView = {
                     
                     console.log(errorResponse)
                     alert('Erro: ' + errorResponse)});
-
             }
-
         });
 
     },

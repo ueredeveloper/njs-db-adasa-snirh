@@ -11,6 +11,8 @@ router.post('/update', async (req, res) => {
   let url = "https://www.snirh.gov.br/cnarh40_treinamento/rest/api/atualizar?uf=DF";
   let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
   let body = req.body;
+
+  console.log(body)
   
   try {
 

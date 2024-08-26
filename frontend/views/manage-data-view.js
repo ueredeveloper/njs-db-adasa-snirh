@@ -11,7 +11,6 @@ const ManageDataView = {
     },
     render: function () {
 
-        console.log('render')
         this.buttons.forEach(button => {
             this.div.append(`
             <button 

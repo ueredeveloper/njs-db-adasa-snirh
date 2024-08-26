@@ -6,7 +6,7 @@ let snirhParams = {
     "idTipoOutorga": "",
     "idSituacaoOutorga": "",
     "idFinalidade": "5",
-    "pagina": 1,
+    "pagina": 2,
     "tamanhoPagina": 100
 }
 

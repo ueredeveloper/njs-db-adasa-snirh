@@ -16,7 +16,8 @@ const querySelectClosestPoints = (latitude, longitude, ti) => {
     FROM (
         SELECT 
             C.NOME,
-            C.ENDERECO,
+            -- Endereço do empreendimento
+		    B.ENDERECO,
             A.ID_INTERFERENCIA,
             TI.DESCRICAO,
             A.LATITUDE,
