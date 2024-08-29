@@ -135,3 +135,6 @@ backend/data/csv/
 
 # Dados do SNIRH
 backend/data/snirh-files.json
+
+#
+verificacoes-de-erro

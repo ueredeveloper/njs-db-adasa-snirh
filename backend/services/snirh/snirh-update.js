@@ -12,8 +12,6 @@ router.post('/update', async (req, res) => {
   let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
   let body = req.body;
 
-  console.log(body)
-  
   try {
 
     const currentTimestamp = new Date().getTime();

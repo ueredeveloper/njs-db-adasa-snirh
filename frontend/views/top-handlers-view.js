@@ -19,13 +19,14 @@ const TopHandlersView = {
             // Verifica se a busca é simples ou pelo SNIRH.
             let isChecked = $('#checkTypeSearch').is(":checked");
 
-            console.log(this.params)
-
             if (isChecked) {
 
                 try {
+
+                    TopHandlersView.params = snirhParams.getSnirhParams();
+
                     // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
-                    let { data } = await exportCsv(TopHandlersView.params);
+                    let { data } = await exportCsv(this.params);
                     // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
                     data.pop();
 

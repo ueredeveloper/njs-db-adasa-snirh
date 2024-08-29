@@ -9,6 +9,7 @@ const { default: TabUpdateView } = require("./views/tab-update-view");
 const { default: StateInsertController } = require("./controllers/state-insert-controller");
 const { default: TopHandlersStateController } = require("./controllers/top-handlers-state-controller");
 const { default: MapManagerController } = require("./controllers/map-manager-controller");
+const { default: FederalPaginationController } = require("./controllers/federal-pagination-controller");
 
 TopHandlersController.init();
 MapController.init();
@@ -23,3 +24,4 @@ StateInsertController.init();
 FederalController.init();
 
 ListHandlersController.init();
+FederalPaginationController.init();

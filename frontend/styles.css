@@ -116,3 +116,9 @@
   background: #bff306;
   border-radius: 2px;
 }
+
+/* pagination */
+.pagination-active {
+  background-color: dodgerblue;
+  color: white;
+}

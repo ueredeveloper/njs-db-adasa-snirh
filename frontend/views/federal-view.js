@@ -103,12 +103,6 @@ const FederalView = {
 
         });
 
-
-
-
-
-
-
     },
     render: async function () {
 
