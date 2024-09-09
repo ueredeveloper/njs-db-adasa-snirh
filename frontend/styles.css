@@ -118,7 +118,7 @@
 }
 
 /* pagination */
-.pagination-active {
+.active-page {
   background-color: dodgerblue;
   color: white;
 }

@@ -19,10 +19,10 @@ export default {
         return snirhParams;
     },
     /**
-     * Define novos parâmetros de busca no serviço SNIRH.
-     * @param {Object} newParams A nova lista de outorgas.
+     * Atualiza um atributo da variável.
+     * @param {Object} newParams Um objeto com o novo atributo e seu valor.
      */
     setSnirhParams: (newParams) => {
-        snirhParams = newParams;
+        snirhParams = {...snirhParams, ...newParams};
     }
 };
