@@ -55,12 +55,19 @@ const ListHandlersView = {
         });
 
         $('#btn-update-by-position').on('click', async function () {
+
+            // Lista de outorgas federais
             let federalGrants = FederalView.getFederalGrants();
 
             for (let federalGrant of federalGrants) {
+
+                // Não fazer atualização por posição próxima se a outorga federal estiver preenchida com o id de origem na outorga estadual (INT_CD_ORIGEM)
+                if (federalGrant.INT_CD_ORIGEM === '') {
                 // for (let federalGrant of federalGrants.slice(ListHandlersView.indexForTest, ++ListHandlersView.indexForTest)) {
 
                 let { INT_NU_LATITUDE: latitude, INT_NU_LONGITUDE: longitude, INT_TIN_CD, INT_TSU_CD } = federalGrant;
+
+                // Captura tipo de interferência
                 let ti = getInterferenceType(INT_TIN_CD, INT_TSU_CD);
 
                 try {
@@ -111,6 +118,11 @@ const ListHandlersView = {
                 } catch (error) {
                     console.error('Erro durante a execução:', error);
                 }
+
+
+            } else {
+                console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM}`);
+            }
             }
         });
 

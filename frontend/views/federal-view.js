@@ -76,7 +76,7 @@ const FederalView = {
                     stateGrant: stateGrant,
                     federalGrant: federalGrant
                 }
-                // Se o Estado estiver vazio não adiciona.
+                // Se a outorga estadual estiver vazia não adiciona.
                 if (Object.keys(toUpdate.stateGrant).length === 0 && toUpdate.stateGrant.constructor === Object) {
                     let newToUpdateList = toUpdateGrants.getToUpdateGrants().filter(item => item.federalGrant.INT_CD !== federalGrantId);
                     toUpdateGrants.setToUpdateGrants(newToUpdateList);
@@ -84,7 +84,7 @@ const FederalView = {
                     console.log('if remove ', toUpdateGrants.getToUpdateGrants())
 
                 } else {
-                    // Se o Estado está presente adiciona o objet para edição.
+                    // Se a outorga estadual está presente adiciona o objeto para edição.
                     let newToUpdateList = toUpdateGrants.getToUpdateGrants();
                     newToUpdateList.push(toUpdate)
                     toUpdateGrants.setToUpdateGrants(newToUpdateList);
