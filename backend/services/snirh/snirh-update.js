@@ -30,9 +30,9 @@ router.post('/update', async (req, res) => {
       const response = await fetch(url, {
         method: 'PUT',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'multipart/form-data',
-          'Authorization': SNIRH_TOKEN,
+          'Accept': 'application/json; charset=utf-8',
+          'Content-Type': 'text/csv; charset=utf-8',
+          'Authorization': 'Bearer ' + SNIRH_TOKEN,
         },
         body: readStream
       });

@@ -54,7 +54,7 @@ router.get("/select-closest-points", async (req, res) => {
                     query2 = await querySelectSubterraneasForUpdate(pointsByProximity.map(c => c.ID_INTERFERENCIA));
                     break;
                 default:
-                    console.log('default do switch ', ti);
+                    console.log('Tipo de interferência não avaliada no momento: ', ti);
             }
 
             // Obtém o conjunto de resultados da consulta

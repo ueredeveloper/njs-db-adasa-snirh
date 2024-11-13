@@ -7,13 +7,15 @@ import { filterColumns } from "../utils/filter-columns";
 import FederalView from "./federal-view";
 
 function generateErrorMessage(message, federalGrant, stateGrant) {
-    return `${message} 
-    SNIRH id: ${federalGrant.INT_CD} 
-    ADASA id: ${stateGrant.INT_CD_ORIGEM} 
-    Nome: ${stateGrant.EMP_NM_RESPONSAVEL} 
-    Endereço: ${stateGrant.EMP_NM_EMPREENDIMENTO} 
-    CPF/CNPJ: ${stateGrant.EMP_NU_CPFCNPJ} 
-    Processo: ${stateGrant.OUT_NU_PROCESSO}`;
+    return {
+        'message': message,
+        'SNIRH': federalGrant.INT_CD,
+        'ADASA': stateGrant.INT_CD_ORIGEM,
+        'Nome': stateGrant.EMP_NM_RESPONSAVEL,
+        'Endereço': stateGrant.EMP_NM_EMPREENDIMENTO,
+        'CPF/CNPJ': stateGrant.EMP_NU_CPFCNPJ,
+        'Processo': stateGrant.OUT_NU_PROCESSO
+    };
 }
 
 const ListHandlersView = {
@@ -54,6 +56,9 @@ const ListHandlersView = {
             }
         });
 
+        // Salva os errors de cpf e cnpj em uma variável sem que haja repetição de dados
+        let cpfcnpjResultsError = new Set();
+
         $('#btn-update-by-position').on('click', async function () {
 
             // Lista de outorgas federais
@@ -63,66 +68,69 @@ const ListHandlersView = {
 
                 // Não fazer atualização por posição próxima se a outorga federal estiver preenchida com o id de origem na outorga estadual (INT_CD_ORIGEM)
                 if (federalGrant.INT_CD_ORIGEM === '') {
-                // for (let federalGrant of federalGrants.slice(ListHandlersView.indexForTest, ++ListHandlersView.indexForTest)) {
+                    // for (let federalGrant of federalGrants.slice(ListHandlersView.indexForTest, ++ListHandlersView.indexForTest)) {
 
-                let { INT_NU_LATITUDE: latitude, INT_NU_LONGITUDE: longitude, INT_TIN_CD, INT_TSU_CD } = federalGrant;
+                    let { INT_NU_LATITUDE: latitude, INT_NU_LONGITUDE: longitude, INT_TIN_CD, INT_TSU_CD } = federalGrant;
 
-                // Captura tipo de interferência
-                let ti = getInterferenceType(INT_TIN_CD, INT_TSU_CD);
+                    // Captura tipo de interferência
+                    let ti = getInterferenceType(INT_TIN_CD, INT_TSU_CD);
 
-                try {
-                    let stateGrants = await StateGrantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti);
+                    try {
+                        let stateGrants = await StateGrantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti);
 
-                    if (stateGrants && stateGrants.length > 0) {
-                        function isSamePoint(distance, threshold) {
-                            return distance <= threshold;
-                        }
-
-                        let stateGrant = stateGrants[0];
-
-                        const limite = 1e-6;
-                        if (stateGrant.DISTANCE && isSamePoint(stateGrant.DISTANCE, limite)) {
-                            delete stateGrant.DISTANCE;
-
-                            // Transformar todos atributos para string. É necessário para a aceitação do SNIRH.
-                            for (let key in stateGrant) {
-                                stateGrant[key] = String(stateGrant[key]);
-                            }
-                            for (let key in federalGrant) {
-                                federalGrant[key] = String(federalGrant[key]);
+                        if (stateGrants && stateGrants.length > 0) {
+                            function isSamePoint(distance, threshold) {
+                                return distance <= threshold;
                             }
 
-                            let toUpdate = [{
-                                stateGrant: stateGrant,
-                                federalGrant: federalGrant
-                            }];
+                            let stateGrant = stateGrants[0];
 
-                            let response = await snirhUpdate('DF', toUpdate);
+                            const limite = 1e-6;
+                            if (stateGrant.DISTANCE && isSamePoint(stateGrant.DISTANCE, limite)) {
+                                delete stateGrant.DISTANCE;
 
-                            if (response && response.sucesso) {
-                                console.log(response.mensagem);
+                                // Transformar todos atributos para string. É necessário para a aceitação do SNIRH.
+                                for (let key in stateGrant) {
+                                    stateGrant[key] = String(stateGrant[key]);
+                                }
+                                for (let key in federalGrant) {
+                                    federalGrant[key] = String(federalGrant[key]);
+                                }
+
+                                let toUpdate = [{
+                                    stateGrant: stateGrant,
+                                    federalGrant: federalGrant
+                                }];
+
+                                let response = await snirhUpdate('DF', toUpdate);
+
+                                if (response && response.sucesso) {
+                                    console.log(response.mensagem);
+                                } else {
+                                    let params = {
+                                        uf: 'DF',
+                                        idArquivoErro: response.idArquivoErro
+                                    };
+                                    let errorResponse = await snirhError(params);
+
+                                    cpfcnpjResultsError.add(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant))
+                                    console.log(cpfcnpjResultsError)
+                                   // console.log(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant));
+                                }
                             } else {
-                                let params = {
-                                    uf: 'DF',
-                                    idArquivoErro: response.idArquivoErro
-                                };
-                                let errorResponse = await snirhError(params);
-                                console.log(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant));
+                                // console.log(generateErrorMessage('ERRO: Sem ponto de outorga próximo:', federalGrant, stateGrant));
                             }
                         } else {
-                            console.log(generateErrorMessage('ERRO: Sem ponto de outorga próximo:', federalGrant, stateGrant));
+                            //console.log(generateErrorMessage('Array de outorgas estaduais e federais com tamanho inválido:', federalGrant, stateGrant));
                         }
-                    } else {
-                        console.log(generateErrorMessage('Array de outorgas estaduais e federais com tamanho inválido:', federalGrant, stateGrant));
+                    } catch (error) {
+                        console.error('Erro durante a execução:', error);
                     }
-                } catch (error) {
-                    console.error('Erro durante a execução:', error);
+
+
+                } else {
+                    //  console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM}`);
                 }
-
-
-            } else {
-                console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM}`);
-            }
             }
         });
 

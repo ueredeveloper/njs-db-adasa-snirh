@@ -32,7 +32,9 @@ const FederalView = {
             this.renderContentsTables();
         });
 
-        $(document).on('showTableById', (event, tableId) => {
+        $(document).on('showTableStateUpdateById', (event, tableId) => {
+
+            console.log('show table state update by id')
             this.tableId = tableId;
 
             this.renderContentsTables();

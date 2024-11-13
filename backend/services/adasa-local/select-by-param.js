@@ -19,11 +19,7 @@ const config = {
 router.get('/select-by-param', function (req, res) {
     // mudar para post e assim enviar um polígono para o servidor repl.it
 
-   
-
     let { param } = req.query;
-
-    console.log('select by param: ', param)
 
     //conexão com o banco
     sql.connect(config, function (err) {
@@ -52,7 +48,7 @@ router.get('/select-by-param', function (req, res) {
 
             let grants = recordset.recordset;
 
-            console.log('outorgas len ', grants.length)
+            console.log('Adasa Local: quantidades de outorgas -> ', grants.length)
             // Se encontrar algum resultado pelos parâmetros
             if (grants.length > 0) {
 
@@ -85,7 +81,7 @@ router.get('/select-by-param', function (req, res) {
 
                 }
 
-                console.log('search by param, len ', allGrants.length)
+                console.log('Adasa Local: search by param, quantidade -> ', allGrants.length)
 
                 res.send(allGrants);
             } else {

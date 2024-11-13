@@ -5,9 +5,9 @@ let snirhParams = {
     "idDominialidade": "1",
     "idTipoOutorga": "",
     "idSituacaoOutorga": "",
-    "idFinalidade": "5",
+    "idFinalidade": "",
     "pagina": 1,
-    "tamanhoPagina": 25
+    "tamanhoPagina": 200
 }
 
 export default {

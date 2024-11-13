@@ -14,3 +14,5 @@ backend/node_modules/
 # Ignore Parcel cache and output files
 frontend/.cache/
 frontend/dist/
+# 
+frontend/verificacoes-de-erro

@@ -16,10 +16,12 @@ const router = express.Router();
 
 router.get('/select-desktop-db', async (req, res) => {
 
+
     /** @type {string} */
     let { search } = req.query;
 
     readSnirhFile(async (err, desktopDb) => {
+        
         if (err) {
             console.error('Error reading file:', err);
             return;
@@ -37,6 +39,8 @@ router.get('/select-desktop-db', async (req, res) => {
                 (db.EMP_NU_CPFCNPJ && db.EMP_NU_CPFCNPJ.toLowerCase().includes(_search)) ||
                 (db.OUT_NU_PROCESSO && db.OUT_NU_PROCESSO.toLowerCase().includes(_search)) ||
                 (db.EMP_NM_RESPONSAVEL && db.EMP_NM_RESPONSAVEL.toLowerCase().includes(_search)) ||
+                // Id da interferência estadual
+                (db.INT_CD_ORIGEM && db.INT_CD_ORIGEM.toLowerCase().includes(_search)) ||
                 
                 (db[''] && db[''].includes(_search));
         });

@@ -16,6 +16,8 @@ const TopHandlersView = {
         // Add click event listener to the button
         $('#btn-search').on('click', async () => {
 
+            console.log('btn search')
+
             // Verifica se a busca é simples ou pelo SNIRH.
             let isChecked = $('#checkTypeSearch').is(":checked");
 

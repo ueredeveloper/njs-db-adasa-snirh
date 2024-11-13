@@ -58,7 +58,7 @@ const TabUpdateView = {
             // adiciona a tabela na tela com display: block.
             $(`#${tableId}`).removeClass('hidden').addClass('block');
 
-            $(document).trigger('showTableById', tableId);
+            $(document).trigger('showTableStateUpdateById', tableId);
 
         });
 

@@ -1,6 +1,8 @@
 
 import MapView from "./map-view";
 import StateGrantsModel from "../models/state-grants-model";
+import snirhInsert from "../services/snirh-insert";
+import snirhError from "../services/snirh-error";
 
 const { createTheadsValues, maxLengthOfStrings, createLatLngPosition } = require("../utils");
 
@@ -15,7 +17,7 @@ const StateInsertView = {
             { class: 'state-list', id: 'state-list-sub', tipo: 1, subtipo: 2 },
             { class: 'state-list hidden', id: 'state-list-sup', tipo: 1, subtipo: 1 },
             { class: 'state-list hidden', id: 'state-list-lan', tipo: 2, subtipo: 1 },
-            { class: 'state-list hidden', id: 'state-list-bar', tipo: 3, subtipo:  1 }
+            { class: 'state-list hidden', id: 'state-list-bar', tipo: 3, subtipo: 1 }
         ];
 
         this.render();
@@ -36,6 +38,7 @@ const StateInsertView = {
         });*/
 
         $(document).on("updateStateInsertTables", async (event, data) => {
+    
             // Update the list with the received data
             this.stateGrants = await data;
 
@@ -79,7 +82,7 @@ const StateInsertView = {
     },
     renderContentsTables: async function () {
 
-        
+
 
         // Para utilizar nas tabs com botões (Superficial, Subterrâneo, ect). Se o tamanho for maior que zero, mostraráo o botão, ou se zero, não mostrará.
         let displayTabButtons = []
@@ -168,7 +171,7 @@ const StateInsertView = {
                                     </svg>
                                 </button>
                                 <!-- Botão de Salvar -->
-                                <button class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
+                                <button id="btn-insert-state-grant" class="hover:bg-sky-600 active:bg-sky-700 focus:outline-none focus:ring focus:ring-sky-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
                                     </svg>
@@ -188,40 +191,91 @@ const StateInsertView = {
                         }
                     
                     `
-                    // remove o acordeon
+                        // remove o acordeon
                     )
                 });
 
-                $('[id^="btn-state-insert-marker"]').click(function () {
 
-                    // Captura tr tag
-                    let parentRow = $(this).closest('tr');
-                    // Captura valores da linha  selecionada (td)
-                    let tds = parentRow.find('.td-state-insert');
-                    // Cria objecto a partir da linha selecionada
-                    let grant = {}
-                    // Interage com os  valores das linhas e preenche o objeto.
-                    tds.each(function (index, element) {
-                        let textContent = $(element).text();
-                        grant[StateInsertView.theads[index]] = textContent
-                    });
 
-                    // Cria posição no mapa.
-                    let position = createLatLngPosition(grant.INT_CR_LATITUDE.replace("#", ""), grant.INT_CR_LONGITUDE.replace("#", ""));
-                    
-                    console.log(grant,grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE)
-                    // Mostra a posição utilizando a ferramenta marcador (Marker).
-                    MapView.addMarker(position, true);
-                    MapView.setMapCenter(position)
 
-                });
             } else {
                 // Limpa a tabela na parte tbody quando não houver outorga
                 $(`#${table.id}`).find('tbody').empty()
             }
+
+
+
         }));
 
         $(document).trigger("displayTabButtons", [displayTabButtons]);
+
+        $('[id^="btn-state-insert-marker"]').click(function () {
+
+            console.log('on click - btn state insert marker')
+
+            // Captura tr tag
+            let parentRow = $(this).closest('tr');
+            // Captura valores da linha  selecionada (td)
+            let tds = parentRow.find('.td-state-insert');
+            // Cria objecto a partir da linha selecionada
+            let grant = {}
+            // Interage com os  valores das linhas e preenche o objeto.
+            tds.each(function (index, element) {
+                let textContent = $(element).text();
+                grant[StateInsertView.theads[index]] = textContent
+            });
+
+            // Cria posição no mapa.
+            let position = createLatLngPosition(grant.INT_CR_LATITUDE.replace("#", ""), grant.INT_CR_LONGITUDE.replace("#", ""));
+
+            console.log(grant, grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE)
+            // Mostra a posição utilizando a ferramenta marcador (Marker).
+            MapView.addMarker(position, true);
+            MapView.setMapCenter(position)
+
+        });
+
+
+        $('[id^="btn-insert-state-grant"]').click(async function (e) {
+
+            console.log('on click btn insert state grant')
+            // Captura tr tag
+            let parentRow = $(this).closest('tr');
+
+            console.log(parentRow)
+            // Captura valores da linha  selecionada (td)
+            let tds = parentRow.find('.td-state-insert');
+            // Cria objecto a partir da linha selecionada
+            let stateGrant = {}
+            // Interage com os  valores das linhas e preenche o objeto.
+            tds.each(function (index, element) {
+                let textContent = $(element).text();
+                stateGrant[StateInsertView.theads[index]] = textContent
+            });
+
+            let toInsert = [{
+                stateGrant: stateGrant,
+
+            }];
+
+            let response = await snirhInsert('DF', toInsert);
+            // response example: {sucesso: false, mensagem: 'Erro ao processar solicitação.', idArquivoErro: 13261}
+
+            if (response.sucesso === true) {
+                alert(response.mensagem)
+            } else {
+
+                let params = {
+                    uf: 'DF',
+                    idArquivoErro: response.idArquivoErro
+                }
+                await snirhError(params).then(errorResponse => {
+
+                    console.log(errorResponse)
+                    alert('Erro: ' + errorResponse)
+                });
+            }
+        });
 
     }
 }
