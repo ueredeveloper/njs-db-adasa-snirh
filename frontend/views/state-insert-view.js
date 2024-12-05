@@ -277,6 +277,9 @@ const StateInsertView = {
             }
         });
 
+    },
+    getStateGrants: function(){
+        return this.stateGrants;
     }
 }
 

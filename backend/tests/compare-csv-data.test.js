@@ -34,8 +34,10 @@ describe('CSV Comparison', () => {
 
         //C:\workspace\njs-db-adasa-snirh\backend\data\csv\edicao.csv
 
-        const data1 = await convertCSVToJSON('./backend/data/csv/test-1/edicao-object-to-send.csv');
-        const data2 = await convertCSVToJSON('./backend/data/csv/3132.csv')
+        // Este arquivo foi bem inserido e aceito, por isso é um exemplo para  comparação
+        const data1 = await convertCSVToJSON('./backend/data/csv/to-insert-grants-OK-1248360-INSERIDO-1731421475297.csv');
+       
+        const data2 = await convertCSVToJSON('./backend/data/csv/to-insert-grants-benetti-1732187166378.csv')
 
         // Juntar attibutos presentes nos dois arquivos 
         const result = [];

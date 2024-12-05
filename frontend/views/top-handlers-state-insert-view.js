@@ -1,4 +1,5 @@
-import selectStateGrantsByParam from "../services/select-state-grants-by-param";
+
+import localDbSelectByParams from "../services/local-db-select-by-params";
 import StateSimpleSearch from "./state-simple-search-view";
 
 const TopHandlersStateInsertView = {
@@ -19,8 +20,8 @@ const TopHandlersStateInsertView = {
                     alert('Digite algo que possa ser pesquisado!!! ')
                 } else {
 
-                    //let data = await selectByDesktopDb(search);
-                    let data = await selectStateGrantsByParam(param);
+                    //let data = await desktopDbSearchByParams(search);
+                    let data = await localDbSelectByParams(param);
                     
 
                     $(document).trigger("updateStateInsertTables", [data]);

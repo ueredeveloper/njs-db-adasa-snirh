@@ -132,3 +132,10 @@
     Um endereço conhecido não é  encontrado.
 
 
+## 2024-11-18
+
+Erro, id: 1038980. 
+
+Foi nescessário mudar a vírgula para ponto na coordenada. Verificar o arquivo `select-closest points.js`.
+
+Como as coordenadas do arquivo de backupd .csv baixado do Cnarh vem com vírgula, tem que mudar para ponto e assim poder encontrar as outorgas próximas.

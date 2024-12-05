@@ -1,5 +1,5 @@
 
-const selectDesktopDb = require('./desktop-db/desktop-db');
+const selectDesktopDb = require('./desktop-db/desktop-db-search-by-params');
 
 const selectByParam = require('./adasa-local/select-by-param');
 const selectClosestPoints = require('./adasa-local/select-closest-points');

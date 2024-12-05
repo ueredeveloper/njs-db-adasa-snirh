@@ -11,6 +11,8 @@ const { default: TopHandlersStateController } = require("./controllers/top-handl
 const { default: MapManagerController } = require("./controllers/map-manager-controller");
 const { default: FederalPaginationController } = require("./controllers/federal-pagination-controller");
 
+const { default: InsertListHandlersController } = require("./controllers/state-insert/ListHandlersController.js");
+
 TopHandlersController.init();
 MapController.init();
 MapManagerController.init();
@@ -25,3 +27,5 @@ FederalController.init();
 
 ListHandlersController.init();
 FederalPaginationController.init();
+
+InsertListHandlersController.init();

@@ -316,13 +316,15 @@ const querySelectSubterraneasForInsert = (ids) => {
         END AS ASB_DT_INSTALACAO,
 
         CASE
-            WHEN T.ID_TIPO_POCO = 1 AND S.SUBFINALIDADE NOT LIKE '%PIEZÔMETRO%' AND S.SUBFINALIDADE NOT LIKE '%PIEZOMETRO%'
+            -- Condição: se poço manual, nos sistema (1,2,3,4)
+            WHEN T.ID_SISTEMA IN (1, 2, 3, 4) AND S.SUBFINALIDADE NOT LIKE '%PIEZÔMETRO%' AND S.SUBFINALIDADE NOT LIKE '%PIEZOMETRO%'
             THEN 1
-            WHEN T.ID_TIPO_POCO = 1 AND (S.SUBFINALIDADE LIKE '%PIEZÔMETRO%' OR S.SUBFINALIDADE LIKE '%PIEZOMETRO%')
+            WHEN T.ID_SISTEMA IN (1, 2, 3, 4) AND (S.SUBFINALIDADE LIKE '%PIEZÔMETRO%' OR S.SUBFINALIDADE LIKE '%PIEZOMETRO%')
             THEN 6
-            WHEN T.ID_TIPO_POCO = 2 AND (S.SUBFINALIDADE LIKE '%PESQUISA%' OR S.SUBFINALIDADE LIKE '%MONITORAMENTO%')
+            -- Condição: se poço tubular, não nos sistemas (1,2,3,4)
+            WHEN T.ID_SISTEMA NOT IN (1, 2, 3, 4) AND (S.SUBFINALIDADE LIKE '%PESQUISA%' OR S.SUBFINALIDADE LIKE '%MONITORAMENTO%')
             THEN 11
-            WHEN T.ID_TIPO_POCO = 2 
+            WHEN T.ID_SISTEMA NOT IN (1, 2, 3, 4)
             THEN 10
         END AS ASB_TNP_CD,
 
@@ -375,7 +377,7 @@ const querySelectSubterraneasForInsert = (ids) => {
             THEN 3
             WHEN V.TIPO_TESTE = 'CONTÍNUO'
             THEN 6
-            ELSE ''
+            ELSE 6
         END AS TST_TTB_CD,
 
         CASE

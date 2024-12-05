@@ -1,6 +1,6 @@
 let snirhParams = {
     "uf": "DF",
-    "dataInicio": "20150101000000",
+    "dataInicio": "",
     "dataFim": "",
     "idDominialidade": "1",
     "idTipoOutorga": "",

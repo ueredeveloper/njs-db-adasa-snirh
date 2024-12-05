@@ -67,6 +67,7 @@ const ListHandlersView = {
             for (let federalGrant of federalGrants) {
 
                 // Não fazer atualização por posição próxima se a outorga federal estiver preenchida com o id de origem na outorga estadual (INT_CD_ORIGEM)
+                //Se não estiver preenchida, ou seja, string vazia '', editar
                 if (federalGrant.INT_CD_ORIGEM === '') {
                     // for (let federalGrant of federalGrants.slice(ListHandlersView.indexForTest, ++ListHandlersView.indexForTest)) {
 
@@ -132,6 +133,8 @@ const ListHandlersView = {
                     //  console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM}`);
                 }
             }
+
+            console.log("Atualizações realizadas!!!")
         });
 
         $('#btn-clear').on('click', async function () {

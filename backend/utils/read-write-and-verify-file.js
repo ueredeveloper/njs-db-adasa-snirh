@@ -3,7 +3,7 @@ const fs = require('fs');
 
 
 const readSnirhFile = (callback) => {
-  fs.readFile('./backend/data/snirh-files.json', 'utf8', (err, data) => {
+  fs.readFile('./backend/data/merged-snirh.json', 'utf8', (err, data) => {
       if (err) {
           console.error(err);
           callback(err, null);
@@ -23,6 +23,9 @@ const readSnirhFile = (callback) => {
 
 const writeSnirhFile = (data)=> {
 
+  /**
+   * Lê o arquivo que une os dados editados e o backup feito no sistema Cnarh (.csv convertido para .json)
+   */
   fs.writeFile('./backend/data/snirh-files.json', JSON.stringify(data), (err) => {
     if (err) throw err;
   })

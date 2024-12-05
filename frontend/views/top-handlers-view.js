@@ -1,6 +1,7 @@
 
+import desktopDbSearchByParams from "../services/desktop-db-search-by-params";
 import exportCsv from "../services/export-csv";
-import selectByDesktopDb from "../services/select-by-desktop-db";
+
 import snirhParams from "../shared/snirh-params";
 
 import FederalSimpleSearchView from "./federal-simple-search-view";
@@ -48,7 +49,7 @@ const TopHandlersView = {
                         alert('Digite algo que possa ser pesquisado!!! ')
                     } else {
 
-                        let data = await selectByDesktopDb(search);
+                        let data = await desktopDbSearchByParams(search);
                         $(document).trigger("updateSnirhTables", [data]);
                     }
 
