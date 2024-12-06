@@ -8,17 +8,17 @@
  * a busca por estes atributos.
  * 
  * @async
- * @function desktopDbSearchByParams
+ * @function desktopDbSearchByKeyword
  * @param {string} search - O termo de busca para procurar no banco de dados local.
  * @returns {Promise<Object>} Os dados retornados pela requisição em formato JSON.
  * @throws {Error} Lança um erro se a requisição falhar.
  */
 
-const desktopDbSearchByParams = async (search) => {
+const desktopDbSearchByKeyword = async (keyword) => {
 
     // Constructing the URL with parameters
-    let url = new URL('http://localhost:3000/services/desktop-db-search-by-params');
-    url.searchParams.append('search', search);
+    let url = new URL('http://localhost:3000/services/desktop-db-search-by-keyword');
+    url.searchParams.append('keyword', keyword);
 
     try {
         const response = await fetch(url, {
@@ -37,4 +37,4 @@ const desktopDbSearchByParams = async (search) => {
     }
 }
 
-export default desktopDbSearchByParams;
+export default desktopDbSearchByKeyword;

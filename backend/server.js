@@ -3,17 +3,18 @@ const express = require('express');
 const httpProxy = require('http-proxy');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { snirhExportJson, snirhExportCsv, selectClosestPoints, selectDesktopDb, selectByParam, snirhUpdate, snirhProcessError, snirhInsert } = require('./services');
-
+const { snirhExportJson, snirhExportCsv, selectClosestPoints, selectByParam, snirhUpdate, snirhProcessError, snirhInsert, desktopDbSearchByKeyword, desktopDbSearchByParams } = require('./services');
 
 const app = express();
-app.use(cors());
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors());
+
 const PORT = process.env.PORT || 3000;
 
-app.use('/services', selectDesktopDb);
-
+app.use('/services', desktopDbSearchByKeyword);
+app.use('/services', desktopDbSearchByParams);
 app.use('/services', snirhExportJson);
 app.use('/services', snirhExportCsv);
 

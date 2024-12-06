@@ -3,7 +3,11 @@ const fs = require('fs');
 const dictionary = require('../data/dictionary')
 const colors = require('colors');
 
-
+/**
+ * Comparação de jsons. Use: npx jest tests/compare-csv-data.test.js
+ * @param {*} filePath 
+ * @returns 
+ */
 function convertCSVToJSON(filePath) {
     return new Promise((resolve, reject) => {
         fs.readFile(filePath, 'utf8', (err, data) => {
@@ -37,7 +41,9 @@ describe('CSV Comparison', () => {
         // Este arquivo foi bem inserido e aceito, por isso é um exemplo para  comparação
         const data1 = await convertCSVToJSON('./backend/data/csv/to-insert-grants-OK-1248360-INSERIDO-1731421475297.csv');
        
-        const data2 = await convertCSVToJSON('./backend/data/csv/to-insert-grants-benetti-1732187166378.csv')
+       // C:\workspace\njs-db-adasa-snirh\backend\data\csv\to-insert-grants-1733499386164.csv
+
+        const data2 = await convertCSVToJSON('./backend/data/csv/to-insert-grants-1733499386164.csv')
 
         // Juntar attibutos presentes nos dois arquivos 
         const result = [];

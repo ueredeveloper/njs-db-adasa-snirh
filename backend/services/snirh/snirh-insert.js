@@ -34,8 +34,8 @@ router.post('/inserir', async (req, res) => {
       const response = await fetch(url, {
         method: 'POST',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'text/csv',
+          'Accept': 'application/json; charset=utf-8',
+          'Content-Type': 'text/csv; charset=utf-8',
           'Authorization': 'Bearer ' + SNIRH_TOKEN,
         },
         body: readStream,

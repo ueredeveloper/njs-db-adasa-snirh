@@ -1,6 +1,8 @@
-import desktopDbSearchByParams from "../../services/desktop-db-search-by-params";
-import localDbSelectByParams from "../../services/local-db-select-by-params";
-import StateInsertView from "../state-insert-view";
+
+import desktopDbSearchByParams from "../../services/desktop-db-search-by-params-1.js";
+import snirhInsert from "../../services/snirh-insert.js";
+import { convertValuesToString } from "../../utils/index.js";
+import StateInsertView from "../state-insert-view.js";
 
 function generateErrorMessage(message, federalGrant, stateGrant) {
     return {
@@ -25,21 +27,54 @@ const ListHandlersView = {
             let stateGrants = StateInsertView.getStateGrants();
 
             for (let stateGrant of stateGrants) {
-                console.log('Outorga a ser inserida: ', stateGrant, stateGrant.EMP_NM_USUARIO, stateGrant.INT_CD_ORIGEM)
 
+                let params = {
+                    OUT_NU_PROCESSO: stateGrant.EMP_NM_USUARIO,
+                    OUT_NU_ATO: stateGrant.OUT_NU_ATO,
+                    EMP_NU_CPFCNPJ: stateGrant.EMP_NU_CPFCNPJ,
+                    EMP_NM_USUARIO: stateGrant.EMP_NM_USUARIO,
+                    INT_CD_ORIGEM: stateGrant.INT_CD_ORIGEM
+                }
+                console.log('front search by params')
 
-                let dataByName = await desktopDbSearchByParams(stateGrant.EMP_NM_USUARIO);
+                let results = await desktopDbSearchByParams(params);
 
-                console.log(' Outorga - Desktop Snirh - by name ', dataByName.INT_CD_ORIGEM)
+                // Não encontrou a outorga no desktop db
+                if (results.length === 0) {
 
+                    // Inserção da Outorga no SNIRH
 
-                let dataByIntOrigem = await desktopDbSearchByParams(stateGrant.INT_CD_ORIGEM);
+                    let toInsert = [{
+                        // Antes converte valores para string; Ex: INT_TIN_CD: 1 => INT_TIN_CD: '1'
+                        stateGrant: convertValuesToString(stateGrant),
+        
+                    }];
 
-                console.log(' Outorga - Desktop Snirh - by origem ', dataByIntOrigem.INT_CD_ORIGEM)
+                    // Sempre adicione uma array, ex: [stateGrant]
+                    let response = await snirhInsert('DF', toInsert);
+
+                    if (response.sucesso === true) {
+                        alert(response.mensagem)
+                    } else {
+
+                        let params = {
+                            uf: 'DF',
+                            idArquivoErro: response.idArquivoErro
+                        }
+                        await snirhError(params).then(errorResponse => {
+
+                            console.log(errorResponse)
+                            alert('Erro: ' + errorResponse)
+                        });
+                    }
+
+                }
+
+                results.forEach(result => console.log("SIM", params.INT_CD_ORIGEM, '===> ', result.INT_CD_ORIGEM, result.EMP_NM_RESPONSAVEL))
 
 
             }
-            
+
         });
 
     },

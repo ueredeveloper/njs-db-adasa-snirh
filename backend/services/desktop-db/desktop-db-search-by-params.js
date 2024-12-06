@@ -14,11 +14,24 @@ const { readSnirhFile } = require('../../utils/read-write-and-verify-file');
 
 const router = express.Router();
 
-router.get('/desktop-db-search-by-params', async (req, res) => {
+router.post('/desktop-db-search-by-params', async (req, res) => {
 
+    /** @type {object} */
+    let params = req.body;
 
-    /** @type {string} */
-    let { search } = req.query;
+    console.log('desk db search by params ', params)
+
+   /* params = {
+        OUT_NU_PROCESSO: stateGrant.EMP_NM_USUARIO,
+        OUT_NU_ATO: stateGrant.OUT_NU_ATO,
+        EMP_NU_CPFCNPJ: stateGrant.EMP_NU_CPFCNPJ,
+        EMP_NM_USUARIO: stateGrant.EMP_NM_USUARIO,
+        INT_CD_ORIGEM: stateGrant.INT_CD_ORIGEM
+    }
+    */
+
+    /*No momento será pesquisado apenas se o id da interferência já está presento no banco desktop, porém
+    depois podemos fazer outras pesquisas.*/
 
     readSnirhFile(async (err, desktopDb) => {
         
@@ -27,26 +40,13 @@ router.get('/desktop-db-search-by-params', async (req, res) => {
             return;
         }
 
-        /** @type {string} */
-        let _search = search.toLocaleLowerCase();
-
-        /** @type {Array<Object>} */
+        // @type {Array<Object>} 
         let results = desktopDb.filter(db => {
             // Checa se existe a propriedade no object e se a busca inclui algo neste objeto.
-            return (db.INT_CD && db.INT_CD.includes(_search)) ||
-                (db.EMP_NM_EMPREENDIMENTO && db.EMP_NM_EMPREENDIMENTO.toLowerCase().includes(_search)) ||
-                (db.EMP_NM_USUARIO && db.EMP_NM_USUARIO.toLowerCase().includes(_search)) ||
-                (db.EMP_NU_CPFCNPJ && db.EMP_NU_CPFCNPJ.toLowerCase().includes(_search)) ||
-                (db.OUT_NU_PROCESSO && db.OUT_NU_PROCESSO.toLowerCase().includes(_search)) ||
-                (db.EMP_NM_RESPONSAVEL && db.EMP_NM_RESPONSAVEL.toLowerCase().includes(_search)) ||
-                // Id da interferência estadual
-                (db.INT_CD_ORIGEM && db.INT_CD_ORIGEM.toLowerCase().includes(_search)) ||
-                
-                (db[''] && db[''].includes(_search));
+            return db.INT_CD_ORIGEM && db.INT_CD_ORIGEM === String(params.INT_CD_ORIGEM); 
+    
         });
-
         res.send(results)
-
     });
 
 });

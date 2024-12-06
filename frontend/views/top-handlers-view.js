@@ -1,9 +1,7 @@
 
-import desktopDbSearchByParams from "../services/desktop-db-search-by-params";
+import desktopDbSearchByKeyword from "../services/desktop-db-search-by-keyword";
 import exportCsv from "../services/export-csv";
-
 import snirhParams from "../shared/snirh-params";
-
 import FederalSimpleSearchView from "./federal-simple-search-view";
 import FederalSnirhSearchView from "./federal-snirh-search-view";
 
@@ -16,8 +14,6 @@ const TopHandlersView = {
 
         // Add click event listener to the button
         $('#btn-search').on('click', async () => {
-
-            console.log('btn search')
 
             // Verifica se a busca é simples ou pelo SNIRH.
             let isChecked = $('#checkTypeSearch').is(":checked");
@@ -43,13 +39,13 @@ const TopHandlersView = {
 
                 try {
 
-                    let search = $('#inputSearch').val();
+                    let keyword = $('#inputSearch').val();
 
-                    if (search.length === 0) {
+                    if (keyword.length === 0) {
                         alert('Digite algo que possa ser pesquisado!!! ')
                     } else {
 
-                        let data = await desktopDbSearchByParams(search);
+                        let data = await desktopDbSearchByKeyword(keyword);
                         $(document).trigger("updateSnirhTables", [data]);
                     }
 

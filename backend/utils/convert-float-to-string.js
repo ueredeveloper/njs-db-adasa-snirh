@@ -1,5 +1,7 @@
 function isFloat(value) {
 
+    console.log(value)
+
     // Remover as aspas se existirem
     if (value.startsWith("'") && value.endsWith("'")) {
         value = value.slice(1, -1); // remover aspas no início e no fim

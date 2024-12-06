@@ -101,5 +101,33 @@ const getInterferenceType = (INT_TIN_CD, INT_TSU_CD) => {
 }
 
 
+/**
+ * Converte todos os valores de um objeto ou array para strings.
+ *
+ * @param {Object|Array} obj - O objeto ou array de entrada cujos valores devem ser convertidos para strings.
+ * @returns {Object|Array|string} - Um novo objeto ou array com todos os valores convertidos para strings,
+ *                                  ou o próprio valor de entrada como string, caso não seja um objeto nem um array.
+ *
+ * @example
+ * // Exemplo de uso com um objeto:
+ * const entrada = INT_TIN_CD: 1 
+ * const resultado = convertValuesToString(entrada);
+ * console.log(resultado); INT_TIN_CD: '1'
+ 
+ */
+function convertValuesToString(obj) {
+    if (Array.isArray(obj)) {
+        return obj.map(convertValuesToString);
+    } else if (typeof obj === 'object' && obj !== null) {
+        return Object.fromEntries(
+            Object.entries(obj).map(([key, value]) => [key, convertValuesToString(value)])
+        );
+    }
+    return String(obj); // Convert all non-object, non-array values to strings
+}
 
-export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, getInterferenceType, getLatLng }
+
+
+
+
+export { maxLengthOfStrings, createTheadsValues, createLatLngPosition, getInterferenceType, getLatLng, convertValuesToString }
