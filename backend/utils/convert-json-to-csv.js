@@ -5,7 +5,7 @@ function  convertJSONToCSV(jsonData, filePath) {
 
     return new Promise((resolve, reject) => {
         try {
-            const json2csvParser = new Parser({ delimiter: ';', quote: '' });
+            const json2csvParser = new Parser({ delimiter: ';', quote: '', withBOM: true });
             let csv = json2csvParser.parse(jsonData);
 
             // Removendo todas as aspas duplas

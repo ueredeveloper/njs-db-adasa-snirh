@@ -1,13 +1,13 @@
 
 import desktopDbSearchByParams from "../../services/desktop-db-search-by-params-1.js";
+import snirhError from "../../services/snirh-error.js";
 import snirhInsert from "../../services/snirh-insert.js";
 import { convertValuesToString } from "../../utils/index.js";
 import StateInsertView from "../state-insert-view.js";
 
-function generateErrorMessage(message, federalGrant, stateGrant) {
+function generateErrorMessage(message, stateGrant) {
     return {
         'message': message,
-        'SNIRH': federalGrant.INT_CD,
         'ADASA': stateGrant.INT_CD_ORIGEM,
         'Nome': stateGrant.EMP_NM_RESPONSAVEL,
         'Endereço': stateGrant.EMP_NM_EMPREENDIMENTO,
@@ -43,7 +43,6 @@ const ListHandlersView = {
                 if (results.length === 0) {
 
                     // Inserção da Outorga no SNIRH
-
                     let toInsert = [{
                         // Antes converte valores para string; Ex: INT_TIN_CD: 1 => INT_TIN_CD: '1'
                         stateGrant: convertValuesToString(stateGrant),
@@ -54,7 +53,7 @@ const ListHandlersView = {
                     let response = await snirhInsert('DF', toInsert);
 
                     if (response.sucesso === true) {
-                        alert(response.mensagem)
+                        console.log(response.mensagem)
                     } else {
 
                         let params = {
@@ -63,8 +62,10 @@ const ListHandlersView = {
                         }
                         await snirhError(params).then(errorResponse => {
 
-                            console.log(errorResponse)
-                            alert('Erro: ' + errorResponse)
+                            let errorMesssage = generateErrorMessage(errorResponse, stateGrant);
+
+                            console.log(errorMesssage);
+                            
                         });
                     }
 

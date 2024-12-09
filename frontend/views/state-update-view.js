@@ -34,6 +34,8 @@ const StateUpdateView = {
 
     render: function async() {
 
+        console.log('render ', this.stateGrants)
+
         let tables = [
             { className: 'state-list', id: `list-sub-${this.accordionIndex}`, },
             // hidden: não mostrar no  início, somente mostrar as outorgas subterrâneas

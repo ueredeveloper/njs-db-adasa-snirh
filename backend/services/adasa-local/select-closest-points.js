@@ -41,6 +41,7 @@ router.get("/select-closest-points", async (req, res) => {
 
             // Captura os pontos mais próximos.
             let query1 = await querySelectClosestPoints(latitude, longitude, ti);
+
             let { recordset: pointsByProximity } = await request.query(query1);
 
             // Captura concessões no modelo Ana usando os IDs dos pontos mais próximos.

@@ -139,3 +139,10 @@ Erro, id: 1038980.
 Foi nescessário mudar a vírgula para ponto na coordenada. Verificar o arquivo `select-closest points.js`.
 
 Como as coordenadas do arquivo de backupd .csv baixado do Cnarh vem com vírgula, tem que mudar para ponto e assim poder encontrar as outorgas próximas.
+
+
+## 2024-12-06
+    No momento temos 11 registros na pesquisa de dados após 01/01/2024. 
+    
+    Hoje será inserido 26 dados, pela pesquisa de outorgas a partir de 01/11/2024.
+    Verificar dois registros depois SIDNEI PETER IZOTON nestes 26 enviados

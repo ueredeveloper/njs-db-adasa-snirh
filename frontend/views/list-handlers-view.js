@@ -38,9 +38,15 @@ const ListHandlersView = {
         })
 
         $('#btn-update-by-relation').on('click', async function () {
-            let toUpdate = toUpdateGrants.getToUpdateGrants();
+            // Lista de outorgas federais
+            let federalGrants = FederalView.getFederalGrants();
 
-            let response = await snirhUpdate('DF', toUpdate);
+            
+            console.log(federalGrants)
+
+            
+
+           /* let response = await snirhUpdate('DF', toUpdate);
 
             if (response.sucesso === true) {
                 console.log(response.mensagem)
@@ -53,7 +59,7 @@ const ListHandlersView = {
                     console.log(generateErrorMessage('Erro: ' + errorResponse, toUpdate.federalGrant, toUpdate.stateGrant));
                     alert('Erro: ' + errorResponse)
                 });
-            }
+            }*/
         });
 
         // Salva os errors de cpf e cnpj em uma variável sem que haja repetição de dados
