@@ -7,6 +7,7 @@ const querySelectByParam = (param) => {
     // Sanitize input to prevent SQL injection
     const escapedParam = param.replace(/'/g, "''");
 
+    
     // Build SQL query
     return `
         USE SRH;
@@ -37,8 +38,9 @@ const querySelectByParam = (param) => {
                 OR A.NUM_ATO COLLATE Latin1_General_CI_AI LIKE '%' + @param + '%'
                 -- Busca pela data inicial da outorga
                 OR (
-                    ISDATE(@param) = 1 -- Only evaluate the condition below if @param is a valid date
-                    AND A.DT_PUBLICACAO > CASE WHEN ISDATE(@param) = 1 THEN CONVERT(DATETIME, @param, 103) ELSE '1900-01-01' END
+                    ISDATE(@param) = 1
+                    AND A.DT_PUBLICACAO BETWEEN CONVERT(DATETIME, @param, 103) 
+                    AND DATEADD(DAY, 32, CONVERT(DATETIME, @param, 103))
                 )
         ) AS SubQuery;
     `;

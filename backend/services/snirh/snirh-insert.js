@@ -92,6 +92,7 @@ const router = express.Router();
 });*/
 
 
+
 router.post('/inserir', async (req, res) => {
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
   let url = `${SNIRH_URL}/rest/api/inserir?uf=DF`;
