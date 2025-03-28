@@ -11,10 +11,14 @@ require('dotenv').config();
 
 router.get('/snirh-export-json', async (req, res) => {
 
+  const { SNIRH_URL, SNIRH_TOKEN} = process.env;
+
   let { uf, idFinalidade, dataInicio, dataFim, idDominialidade, idTipoOutorga, idSituacaoOutorga, pagina, tamanhoPagina } = req.query;
 
   // Constructing the URL with parameters
-  let url = new URL('https://www.snirh.gov.br/cnarh40_treinamento/rest/api/exportacao/json');
+  let url = new URL(`${SNIRH_URL}/rest/api/exportacao/json`);
+
+  console.log('export json ', url)
   url.searchParams.append('uf', uf);
   url.searchParams.append('idFinalidade', idFinalidade);
   url.searchParams.append('dataInicio', dataInicio);
@@ -24,8 +28,6 @@ router.get('/snirh-export-json', async (req, res) => {
   url.searchParams.append('idSituacaoOutorga', idSituacaoOutorga);
   url.searchParams.append('pagina', pagina);
   url.searchParams.append('tamanhoPagina', tamanhoPagina);
-
-  const { SNIRH_TOKEN } = process.env;
 
   let response = await fetch(url, {
     headers: {

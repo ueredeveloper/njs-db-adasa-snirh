@@ -1,16 +1,22 @@
 const express = require('express');
+const axios = require('axios');
 const fs = require('fs');
-const { compareAndWriteListOfStateForInsert } = require('../../utils/compare-and-write-list-fo-state-for-insert');
-
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-
-const router = express.Router();
+const path = require('path');
+const FormData = require('form-data');
 require('dotenv').config();
 
-router.post('/inserir', async (req, res) => {
+const { compareAndWriteListOfStateForInsert } = require('../../utils/compare-and-write-list-fo-state-for-insert');
 
-  let url = "https://www.snirh.gov.br/cnarh40_treinamento/rest/api/inserir?uf=DF";
-  let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
+const router = express.Router();
+
+/*router.post('/inserir', async (req, res) => {
+
+  const { SNIRH_URL, SNIRH_TOKEN} = process.env;
+
+  let url = `${SNIRH_URL}/rest/api/inserir?uf=DF`;
+
+  console.log('insert ', url)
+
   //let file = './csv/teste-1-superficial-welber.csv';
 
   let body = req.body;
@@ -83,7 +89,56 @@ router.post('/inserir', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 
-});
+});*/
 
+
+router.post('/inserir', async (req, res) => {
+  const { SNIRH_URL, SNIRH_TOKEN } = process.env;
+  let url = `${SNIRH_URL}/rest/api/inserir?uf=DF`;
+
+  console.log('Insert Request to:', url);
+
+  let body = req.body;
+
+  try {
+    const currentTimestamp = new Date().getTime();
+
+    // Generate CSV file
+    await compareAndWriteListOfStateForInsert(body, currentTimestamp);
+
+    let filePath = path.join(__dirname, `../../data/csv/to-insert-grants-${currentTimestamp}.csv`);
+    console.log('CSV File Path:', filePath);
+
+    if (!fs.existsSync(filePath)) {
+      return res.status(500).json({ error: 'CSV file was not created.' });
+    }
+
+    // Read the CSV file using promises (async/await)
+    const data = await fs.promises.readFile(filePath, 'utf8');
+
+    let config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: url,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'text/csv',
+        'Authorization': `Bearer ${SNIRH_TOKEN}`,
+      },
+      data: data
+    };
+
+    // Send request
+    const response = await axios.request(config);
+    console.log('Response:', JSON.stringify(response.data));
+
+    // Send success response
+    res.json(response.data);
+
+  } catch (error) {
+    console.error('Error:', error.message);
+    res.status(500).json({ error: error.message });
+  }
+});
 
 module.exports = router;

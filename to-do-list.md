@@ -145,4 +145,14 @@ Como as coordenadas do arquivo de backupd .csv baixado do Cnarh vem com vírgula
     No momento temos 11 registros na pesquisa de dados após 01/01/2024. 
     
     Hoje será inserido 26 dados, pela pesquisa de outorgas a partir de 01/11/2024.
-    Verificar dois registros depois SIDNEI PETER IZOTON nestes 26 enviados
+    Verificar dois registros depois SIDNEI PETER IZOTON nestes 26 enviados.
+    
+## 2024-02/13
+    - Busca um ponto na tela insert em 2024
+        Busca: 01/11/2024
+            INT_CD_ORIGEM: 14854
+            Busca se ela existe na tela edição. Use a busca simples: 14854
+                Sim, já existe.
+                Faz outra busca.
+            Inseri por este critério as interferência 7019 (26/12/2034	27/12/2024) e 14922 (03/12/2034	04/12/2024).
+

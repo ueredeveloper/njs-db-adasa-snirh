@@ -8,12 +8,14 @@ require('dotenv').config();
 router.get('/snirh-process-error', async (req, res) => {
     let { uf, idArquivoErro } = req.query;
 
+    console.log('uf , n erro: ', uf, idArquivoErro)
+
+    const { SNIRH_URL, SNIRH_TOKEN} = process.env;
+
     // Constructing the URL with parameters
-    let url = new URL('https://www.snirh.gov.br/cnarh40_treinamento/rest/api/download/erros-processamento');
+    let url = new URL(`${SNIRH_URL}/rest/api/download/erros-processamento`);
     url.searchParams.append('uf', uf);
     url.searchParams.append('idArquivoErro', idArquivoErro);
-
-    const { SNIRH_TOKEN } = process.env;
 
     try {
         const response = await fetch(url, {

@@ -22,6 +22,8 @@ const TopHandlersView = {
 
                 try {
 
+                    console.log(this.params)
+
                     TopHandlersView.params = snirhParams.getSnirhParams();
 
                     // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.

@@ -1,49 +1,61 @@
 const express = require('express');
+const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
+const FormData = require('form-data');
+
 const { compareAndWriteListGrants } = require('../../utils/compare-and-write-list-grants');
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 
 const router = express.Router();
 require('dotenv').config();
 
 
-router.post('/update', async (req, res) => {
-  let url = "https://www.snirh.gov.br/cnarh40_treinamento/rest/api/atualizar?uf=DF";
-  let SNIRH_TOKEN = process.env['SNIRH_TOKEN'];
+router.post('/update', async (req, res) =>  {
+  const { SNIRH_URL, SNIRH_TOKEN } = process.env;
+  let url = `${SNIRH_URL}/rest/api/atualizar?uf=DF`;
+
+  console.log('Insert Request to:', url);
+
   let body = req.body;
 
   try {
-
     const currentTimestamp = new Date().getTime();
 
-    // Espera a criação do arquivo CSV
+    // Generate CSV file
     await compareAndWriteListGrants(body, currentTimestamp);
 
-    let file = `./backend/data/csv/to-update-grants-${currentTimestamp}.csv`;
+    let filePath = path.join(__dirname, `../../data/csv/to-update-grants-${currentTimestamp}.csv`);
+    console.log('CSV File Path:', filePath);
 
-    // Verifica se o arquivo foi criado
-    if (fs.existsSync(file)) {
-      // Ler o arquivo CSV
-      let readStream = fs.createReadStream(file);
-
-      // Enviar o arquivo CSV
-      const response = await fetch(url, {
-        method: 'PUT',
-        headers: {
-          'Accept': 'application/json; charset=utf-8',
-          'Content-Type': 'text/csv; charset=utf-8',
-          'Authorization': 'Bearer ' + SNIRH_TOKEN,
-        },
-        body: readStream
-      });
-
-      const responseData = await response.json();
-      res.send(responseData);
-    } else {
-      res.status(500).send({ error: 'CSV file was not created.' });
+    if (!fs.existsSync(filePath)) {
+      return res.status(500).json({ error: 'CSV file was not created.' });
     }
+
+    // Read the CSV file using promises (async/await)
+    const data = await fs.promises.readFile(filePath, 'utf8');
+
+    let config = {
+      method: 'put',
+      maxBodyLength: Infinity,
+      url: url,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'text/csv',
+        'Authorization': `Bearer ${SNIRH_TOKEN}`,
+      },
+      data: data
+    };
+
+    // Send request
+    const response = await axios.request(config);
+    console.log('Response:', JSON.stringify(response.data));
+
+    // Send success response
+    res.json(response.data);
+
   } catch (error) {
-    res.status(500).send({ error: 'An error occurred during the update process.' });
+    console.error('Error:', error.message);
+    res.status(500).json({ error: error.message });
   }
 });
 

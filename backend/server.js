@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 app.use('/services', desktopDbSearchByKeyword);
 app.use('/services', desktopDbSearchByParams);
 app.use('/services', snirhExportJson);
-app.use('/services', snirhExportCsv);
+app.use('/services', snirhExportCsv); 
 
 app.use('/services', snirhUpdate);
 app.use('/services', snirhInsert);
