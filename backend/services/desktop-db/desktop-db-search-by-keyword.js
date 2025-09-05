@@ -16,6 +16,8 @@ const router = express.Router();
 
 router.get('/desktop-db-search-by-keyword', async (req, res) => {
 
+    console.log('desktop-db-search-by-keyword endpoint called');
+
     /** @type {string} */
     let { keyword } = req.query;
 

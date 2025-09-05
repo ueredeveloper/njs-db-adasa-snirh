@@ -33,12 +33,12 @@ const mergeAndRemoveDuplicates = (file1Path, file2Path, outputFilePath) => {
       if (err2) return;
 
       const merged = [...data1, ...data2];
-      const uniqueById = merged.reduce((acc, current) => {
-        if (!acc.some(item => item.INT_CD === current.INT_CD)) {
+      const uniqueById = merged/*.reduce((acc, current) => {
+        if (!acc.some(item => item.INT_CD_ORIGEM !== undefined && item.INT_CD_ORIGEM === current.INT_CD_ORIGEM)) {
           acc.push(current);
         }
         return acc;
-      }, []);
+      }, []);*/
 
       fs.writeFile(outputFilePath, JSON.stringify(uniqueById, null, 2), (err) => {
         if (err) {
@@ -54,7 +54,7 @@ const mergeAndRemoveDuplicates = (file1Path, file2Path, outputFilePath) => {
 // Example usage:
 mergeAndRemoveDuplicates(
   './backend/data/snirh-files.json',
-  './backend/data/exportacao_cnarh40_app_DF-14112024.json',
+  './backend/data/exportacao_cnarh40_DF-04092025.json',
   './backend/data/merged-snirh.json'
 );
 

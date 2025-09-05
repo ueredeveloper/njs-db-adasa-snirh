@@ -38,10 +38,10 @@ const querySelectByParam = (param) => {
                 OR A.NUM_ATO COLLATE Latin1_General_CI_AI LIKE '%' + @param + '%'
                 -- Busca pela data inicial da outorga
                 OR (
-                    ISDATE(@param) = 1
-                    AND A.DT_PUBLICACAO BETWEEN CONVERT(DATETIME, @param, 103) 
-                    AND DATEADD(DAY, 32, CONVERT(DATETIME, @param, 103))
-                )
+					TRY_CONVERT(DATETIME, @param, 103) IS NOT NULL
+					AND A.DT_PUBLICACAO BETWEEN TRY_CONVERT(DATETIME, @param, 103) 
+					AND DATEADD(DAY, 32, TRY_CONVERT(DATETIME, @param, 103))
+				)
         ) AS SubQuery;
     `;
 };

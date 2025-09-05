@@ -18,7 +18,7 @@ const compareAndWriteListOfStateForInsert = async (toInsertGrants, currentTimest
     return new Promise(async (resolve, reject) => {
         try {
 
-            let toUpdateGrantsEdited = toInsertGrants.map(item => {
+            let toInsertGrantsEdited = toInsertGrants.map(item => {
 
                 let { stateGrant } = item;
 
@@ -57,8 +57,10 @@ const compareAndWriteListOfStateForInsert = async (toInsertGrants, currentTimest
 
             });
 
+            console.log('to insert grants edited ', toInsertGrantsEdited)
+
             // Converte Json para Csv
-            await convertJSONToCSV(toUpdateGrantsEdited, `./backend/data/csv/to-insert-grants-${currentTimestamp}.csv`);
+            await convertJSONToCSV(toInsertGrantsEdited, `./backend/data/csv/to-insert-grants-${currentTimestamp}.csv`);
             // Caminho que será salvo o arquivo csv.
             resolve(`./backend/data/csv/to-insert-grants-${currentTimestamp}.csv`);
 

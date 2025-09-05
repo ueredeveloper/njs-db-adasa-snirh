@@ -156,3 +156,21 @@ Como as coordenadas do arquivo de backupd .csv baixado do Cnarh vem com vírgula
                 Faz outra busca.
             Inseri por este critério as interferência 7019 (26/12/2034	27/12/2024) e 14922 (03/12/2034	04/12/2024).
 
+## 04/09/2025
+- [] Foi melhorado a query de busca com parâmetros para aceitar melhor a busca
+por nomes ou datas. Quando buscar por nome não precisa buscar por data
+
+```
+-- Busca pela data inicial da outorga
+                OR (
+					TRY_CONVERT(DATETIME, @param, 103) IS NOT NULL
+					AND A.DT_PUBLICACAO BETWEEN TRY_CONVERT(DATETIME, @param, 103) 
+					AND DATEADD(DAY, 32, TRY_CONVERT(DATETIME, @param, 103))
+				)
+```
+
+## 05/09/2025
+-   [] Converter para utf 8 o resultado da busca no snirh via csv
+-   [] Verificar o atributo FIN_CD no momento desta busca por csv, ou o atributo anterior
+
+

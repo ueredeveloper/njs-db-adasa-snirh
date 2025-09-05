@@ -198,6 +198,7 @@ const FederalView = {
                 let keysValues = list.map(item => {
                     return Object.entries(item);
                 });
+                console.log(keysValues)
 
 
                 // preenchimento do corpo da tabela (tbody tag).

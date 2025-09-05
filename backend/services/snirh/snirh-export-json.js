@@ -38,6 +38,8 @@ router.get('/snirh-export-json', async (req, res) => {
   
   let json = await response.json();
 
+  console.log(json)
+
   res.send(json)
 
 });

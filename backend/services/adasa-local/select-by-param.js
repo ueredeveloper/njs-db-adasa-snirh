@@ -46,7 +46,11 @@ router.get('/select-by-param', function (req, res) {
             }
             */
 
+            //console.log(recordset)
+
             let grants = recordset.recordset;
+
+
 
             console.log('Adasa Local: quantidades de outorgas -> ', grants.length)
             // Se encontrar algum resultado pelos parâmetros

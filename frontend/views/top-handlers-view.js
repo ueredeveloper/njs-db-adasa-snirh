@@ -31,6 +31,8 @@ const TopHandlersView = {
                     // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
                     data.pop();
 
+                    console.log(data, data.length, 'registros encontrados na busca CNARH');
+
                     $(document).trigger("updateSnirhTables", [data]);
 
                 } catch (error) {
@@ -41,7 +43,7 @@ const TopHandlersView = {
 
                 try {
 
-                    let keyword = $('#inputSearch').val();
+                    let keyword = $('#in-simple-search').val();
 
                     if (keyword.length === 0) {
                         alert('Digite algo que possa ser pesquisado!!! ')

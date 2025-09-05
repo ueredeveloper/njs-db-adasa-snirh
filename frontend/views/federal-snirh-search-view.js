@@ -8,7 +8,7 @@ const TopHandlersSnirhSearch = () => {
 
     // Estado
     $(document).ready(function () {
-        $('#select-state').change(function () {
+        $('#sl-state').change(function () {
             var selectedValue = $(this).val();
 
             console.log($this.params)
@@ -18,7 +18,7 @@ const TopHandlersSnirhSearch = () => {
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 
-        $('#slInitialDate').change(function () {
+        $('#sl-initial-date').change(function () {
             var selectedDate = $(this).val();
             // converte data para formato snirh: 20170101000000 - Refere-se a data 01/01/2017 00:00, formato: yyyyMMddHHmm
             $this.params = { ...$this.params, dataInicio: selectedDate.replaceAll('-', '') + '000000' }
@@ -27,7 +27,7 @@ const TopHandlersSnirhSearch = () => {
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 
-        $('#slfinalDate').change(function () {
+        $('#sl-final-date').change(function () {
             var selectedDate = $(this).val();
             // converte data para formato snirh: 20170101000000 - Refere-se a data 01/01/2017 00:00, formato: yyyyMMddHHmm
             $this.params = { ...$this.params, dataFim: selectedDate.replaceAll('-', '') + '000000' }
@@ -46,12 +46,12 @@ const TopHandlersSnirhSearch = () => {
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 
-        $('#slSituacao').change(function () {
+        $('#sl-situcao-processo').change(function () {
             var selectedValue = $(this).val();
             $this.params = { ...$this.params, idSituacaoOutorga: selectedValue }
             $(document).trigger('searchSnirhChanged', $this.params);
         });
-        $('#slFinalidade').change(function () {
+        $('#sl-finalidade-interferencia').change(function () {
             var selectedValue = $(this).val();
             $this.params = { ...$this.params, idFinalidade: selectedValue }
 
@@ -65,18 +65,18 @@ const TopHandlersSnirhSearch = () => {
         <div class="flex flex-1 my-2 ">
         <div class="flex flex-1 flex-col">
             <label for="state">Estado</label>
-            <select class="w-32" name="state" id="select-state">
+            <select class="w-32" name="state" id="sl-state">
                 <option value="DF">DF</option>
                 <option value="SP">SP</option>
             </select>
         </div>
         <div class="flex flex-1 flex-col">
-            <label for="slInitialDate">Início</label>
-            <input type="date" id="slInitialDate" name="slInitialDate" class="w-32">
+            <label for="sl-initial-date">Início</label>
+            <input type="date" id="sl-initial-date" name="sl-initial-date" class="w-32">
         </div>
         <div class="flex flex-1 flex-col">
-            <label for="slInitialDate">Fim</label>
-            <input type="date" id="slfinalDate" name="slfinalDate" class="w-32">
+            <label for="sl-initial-date">Fim</label>
+            <input type="date" id="sl-final-date" name="sl-final-date" class="w-32">
         </div>
         </div>
         <div class="flex flex-1 my-2">
@@ -97,8 +97,8 @@ const TopHandlersSnirhSearch = () => {
             </select>
         </div>
         <div class="flex flex-1 flex-col">
-            <label for="slSituacao">Situação Outorga</label>
-            <select name="slSituacao" id="slSituacao" class="w-32">
+            <label for="sl-situcao-processo">Situação Outorga</label>
+            <select name="sl-situcao-processo" id="sl-situcao-processo" class="w-32">
                 <option value="1">Outorgado</option>
                 <option value="2">Não Outorgável</option>
                 <option value="4">Uso Insignificante</option>
@@ -110,8 +110,8 @@ const TopHandlersSnirhSearch = () => {
             </select>
         </div>
         <div class="flex flex-1 flex-col">
-            <label for="slFinalidade">Finalidade</label>
-            <select id="slFinalidade" name="slFinalidade" class="w-60">
+            <label for="sl-finalidade-interferencia">Finalidade</label>
+            <select id="sl-finalidade-interferencia" name="sl-finalidade-interferencia" class="w-60">
                 <option value="0">Sem Finalidade</option>
                 <option value="1">Abastecimento Público</option>
                 <option value="2">Esgotamento Sanitário</option>

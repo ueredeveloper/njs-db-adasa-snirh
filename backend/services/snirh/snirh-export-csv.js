@@ -2,7 +2,7 @@ const express = require('express');
 
 const fs = require('fs');
 const csv = require('csv-parser');
-const papa = require('papaparse');
+
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
 const axios = require('axios');
 const { readFile, readSnirhFile, writeSnirhFile } = require('../../utils/read-write-and-verify-file');
@@ -10,18 +10,15 @@ const { readFile, readSnirhFile, writeSnirhFile } = require('../../utils/read-wr
 const router = express.Router();
 
 require('dotenv').config();
+const iconv = require('iconv-lite');
+const papa = require('papaparse');
 
 router.get('/snirh-export-csv', async (req, res) => {
-
-  const { SNIRH_URL, SNIRH_TOKEN} = process.env;
+  const { SNIRH_URL, SNIRH_TOKEN } = process.env;
 
   let { uf, idFinalidade, dataInicio, dataFim, idDominialidade, idTipoOutorga, idSituacaoOutorga, pagina, tamanhoPagina } = req.query;
-
-  // Constructing the URL with parameters
-  //let url = new URL('https://www.snirh.gov.br/cnarh40_treinamento/rest/api/exportacao/csv');
   let url = new URL(`${SNIRH_URL}/rest/api/exportacao/csv`);
 
-  console.log('export csv', url)
   url.searchParams.append('uf', uf);
   url.searchParams.append('idFinalidade', idFinalidade);
   url.searchParams.append('dataInicio', dataInicio);
@@ -32,59 +29,48 @@ router.get('/snirh-export-csv', async (req, res) => {
   url.searchParams.append('pagina', pagina);
   url.searchParams.append('tamanhoPagina', tamanhoPagina);
 
-  let response = await fetch(url, {
-    method: 'GET',
-    headers: {
-      'Authorization': SNIRH_TOKEN,
-    }
-  })
-    .then(response => {
-      let text = response.text()
-      return text;
-    })
-    .then(text => {
-      //retorna conversão de csv para json.
-      return papa.parse(text, {
-        header: true,
-        delimiter: ";"
-      })
-    })
-    .catch(err => console.log(err));
-
-
-  readSnirhFile((err, existingData) => {
-    if (err) {
-      console.error('Error reading file:', err);
-      return;
-    }
-
-    let { data } = response;
-
-    // retirar último resultado vazio, por causa da conversão csv para json.
-    data.pop();
-
-    data.map(d=> existingData.push(d));
-
-    let uniqueItems = {};
-
-    // Iterate through the array
-    existingData.forEach(item => {
-        // Use INT_CD as the key to check uniqueness
-        uniqueItems[item.INT_CD] = item;
+  try {
+    let response = await fetch(url, {
+      method: 'GET',
+      headers: { 'Authorization': SNIRH_TOKEN },
     });
 
-    // Convert the unique items object back to an array
-    let uniqueArray = Object.values(uniqueItems);
+    // Ler como buffer
+    let buffer = await response.arrayBuffer();
+    let csvText = iconv.decode(Buffer.from(buffer), 'latin1'); // ou 'win1252' dependendo do arquivo
 
-    // Escrita do banco de dados com valores antigos não solicitados e os novos solicitados.
-    writeSnirhFile(uniqueArray)
+    // Converter CSV para JSON
+    let parsed = papa.parse(csvText, {
+      header: true,
+      delimiter: ";"
+    });
 
-  });
+    // Integrar com arquivo existente
+    readSnirhFile((err, existingData) => {
+      if (err) {
+        console.error('Error reading file:', err);
+        return;
+      }
 
+      let { data } = parsed;
+      data.pop(); // remover último vazio
+      data.forEach(d => existingData.push(d));
 
-  res.send(response);
+      let uniqueItems = {};
+      existingData.forEach(item => { uniqueItems[item.INT_CD] = item; });
+      let uniqueArray = Object.values(uniqueItems);
 
+      writeSnirhFile(uniqueArray);
+    });
+
+    res.send(parsed);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ error: 'Erro ao buscar CSV SNIRH' });
+  }
 });
+
 
 module.exports = router;
 

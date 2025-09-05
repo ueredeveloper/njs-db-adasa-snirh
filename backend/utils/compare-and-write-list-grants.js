@@ -18,6 +18,8 @@ const compareAndWriteListGrants = async (toUpdateGrants, currentTimestamp) => {
     return new Promise(async (resolve, reject) => {
         try {
 
+           
+
             let toUpdateGrantsEdited = toUpdateGrants.map(item => {
 
                 let { stateGrant, federalGrant } = item;
@@ -69,6 +71,8 @@ const compareAndWriteListGrants = async (toUpdateGrants, currentTimestamp) => {
                 return objectToSend;
 
             });
+
+            console.log('to update grants edited ', toUpdateGrantsEdited)
 
             // Converte Json para Csv
             await convertJSONToCSV(toUpdateGrantsEdited, `./backend/data/csv/to-update-grants-${currentTimestamp}.csv`);
