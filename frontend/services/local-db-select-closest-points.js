@@ -21,9 +21,7 @@ const localDbSelectClosestPoints = async (latitude, longitude, ti) => {
     try {
         const response = await fetch(url, {
             method: 'GET',
-            headers: {
-                'Accept': 'application/json',
-            }
+           // redirect: "follow"
         });
 
         const data = await response.json();

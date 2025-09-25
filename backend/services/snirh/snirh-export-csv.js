@@ -14,6 +14,7 @@ const iconv = require('iconv-lite');
 const papa = require('papaparse');
 
 router.get('/snirh-export-csv', async (req, res) => {
+
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
 
   let { uf, idFinalidade, dataInicio, dataFim, idDominialidade, idTipoOutorga, idSituacaoOutorga, pagina, tamanhoPagina } = req.query;
@@ -32,45 +33,80 @@ router.get('/snirh-export-csv', async (req, res) => {
   try {
     let response = await fetch(url, {
       method: 'GET',
-      headers: { 'Authorization': SNIRH_TOKEN },
-    });
+      headers: {
+        "Content-Type": "text/csv; charset=utf-8",
+        'Authorization': SNIRH_TOKEN,
+      }
+    })
+      .then(async (response) => {
+        // Se o arquivo estiver bem salvo, virá um utf-8.
+        let text = response.text()
 
-    // Ler como buffer
-    let buffer = await response.arrayBuffer();
-    let csvText = iconv.decode(Buffer.from(buffer), 'latin1'); // ou 'win1252' dependendo do arquivo
+        return text;
+      })
+      .then(text => {
 
-    // Converter CSV para JSON
-    let parsed = papa.parse(csvText, {
-      header: true,
-      delimiter: ";"
-    });
+        // Converte de ISO-8859-1 para UTF-8
+        let utf8Text = iconv.decode(Buffer.from(text, 'binary'), 'utf-8');
+
+        //retorna conversão de csv para json.
+        return papa.parse(utf8Text, {
+          header: true,
+          delimiter: ";"
+        })
+      })
+      .catch(err => console.log(err));
+
 
     // Integrar com arquivo existente
-    readSnirhFile((err, existingData) => {
+    readSnirhFile((err, oldData) => {
       if (err) {
         console.error('Error reading file:', err);
         return;
       }
 
-      let { data } = parsed;
-      data.pop(); // remover último vazio
-      data.forEach(d => existingData.push(d));
+      let { data: newData } = response;
 
-      let uniqueItems = {};
-      existingData.forEach(item => { uniqueItems[item.INT_CD] = item; });
-      let uniqueArray = Object.values(uniqueItems);
+      newData.pop(); // remover último vazio
 
-      writeSnirhFile(uniqueArray);
+      // Verifica se o valor já existe e, se não, adiciona..
+      newData.forEach(nd => {
+        oldData = oldData.filter(od => {
+          // Sempre compara INT_CD
+          if (od.INT_CD === nd.INT_CD) return false
+
+          // Só compara INT_CD_ORIGEM se não for vazio
+          if (od.INT_CD_ORIGEM && od.INT_CD_ORIGEM === nd.INT_CD_ORIGEM) return false
+
+          return true
+        })
+
+        oldData.push(nd)
+      })
+
+      let path = './backend/data/exportacao_cnarh40_DF.json';
+
+      try {
+        fs.writeFile(path, JSON.stringify(oldData), { encoding: 'utf-8' }, (err) => {
+          if (err) {
+            console.error('Erro ao escrever o arquivo:', err);
+            throw err;
+          }
+          console.log('Arquivo SNIRH salvo no formato UTF-8 com sucesso.');
+        });
+      } catch (err) {
+        console.error('Erro inesperado:', err);
+      }
+
     });
 
-    res.send(parsed);
+    res.send(response);
 
   } catch (err) {
     console.error(err);
     res.status(500).send({ error: 'Erro ao buscar CSV SNIRH' });
   }
 });
-
 
 module.exports = router;
 

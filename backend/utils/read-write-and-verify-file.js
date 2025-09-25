@@ -13,7 +13,7 @@ const { Parser } = require('json2csv');
 let path = './backend/data/exportacao_cnarh40_DF.json';
 
 const readSnirhFile = (callback) => {
-  console.log('reading file:', path);
+
   fs.readFile(path, 'utf8', (err, data) => {
     if (err) {
       console.error('Erro ao ler o arquivo:', err);
@@ -21,10 +21,9 @@ const readSnirhFile = (callback) => {
       return;
     }
     try {
-      console.log('Arquivo lido com sucesso. Parseando JSON...', data.length);
 
       const dataArray = JSON.parse(data); // Parseia o conteúdo JSON em um array ou objeto
-      console.log(dataArray.length, 'registros encontrados no arquivo.');
+
       // Remove o último registro se estiver vazio (comportamento opcional)
       // if (dataArray.length > 0 && Object.keys(dataArray[dataArray.length - 1]).length === 0) {
       //   dataArray.pop();
@@ -83,8 +82,6 @@ const writeSnirhFile = (data) => {
       }
     });
 
-    console.log('Escrevendo arquivo SNIRH com dados:', mergedsFiles.length);
-
     // Define o BOM UTF-8
     // const utf8Bom = '\uFEFF';
     // const jsonData = JSON.stringify(mergedsFiles);
@@ -92,7 +89,7 @@ const writeSnirhFile = (data) => {
     const jsonData = JSON.stringify(mergedsFiles);
 
     try {
-      fs.writeFile(path, jsonData, (err) => {
+      fs.writeFile(path, jsonData, { encoding: 'utf-8' }, (err) => {
         if (err) {
           console.error('Erro ao escrever o arquivo:', err);
           throw err;

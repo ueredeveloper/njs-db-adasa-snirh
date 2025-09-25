@@ -2,8 +2,6 @@ const filterColumns = (component, checkBox)=> {
 
     var isChecked = checkBox.is(":checked");
 
-    console.log(isChecked)
-
     component.tables.forEach(element => {
 
         // ListSnirhView

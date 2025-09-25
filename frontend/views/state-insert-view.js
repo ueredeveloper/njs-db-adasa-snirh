@@ -211,8 +211,6 @@ const StateInsertView = {
 
         $('[id^="btn-state-insert-marker"]').click(function () {
 
-            console.log('on click - btn state insert marker')
-
             // Captura tr tag
             let parentRow = $(this).closest('tr');
             // Captura valores da linha  selecionada (td)
@@ -228,7 +226,6 @@ const StateInsertView = {
             // Cria posição no mapa.
             let position = createLatLngPosition(grant.INT_CR_LATITUDE.replace("#", ""), grant.INT_CR_LONGITUDE.replace("#", ""));
 
-            console.log(grant, grant.INT_CR_LATITUDE, grant.INT_CR_LONGITUDE)
             // Mostra a posição utilizando a ferramenta marcador (Marker).
             MapView.addMarker(position, true);
             MapView.setMapCenter(position)
@@ -238,11 +235,9 @@ const StateInsertView = {
 
         $('[id^="btn-insert-state-grant"]').click(async function (e) {
 
-            console.log('on click btn insert state grant')
             // Captura tr tag
             let parentRow = $(this).closest('tr');
 
-            console.log(parentRow)
             // Captura valores da linha  selecionada (td)
             let tds = parentRow.find('.td-state-insert');
             // Cria objecto a partir da linha selecionada

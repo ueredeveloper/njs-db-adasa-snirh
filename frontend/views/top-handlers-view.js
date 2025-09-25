@@ -21,6 +21,8 @@ const TopHandlersView = {
             if (isChecked) {
 
                 try {
+                    // Atualiza os parâmetros globais.
+                    this.params = snirhParams.getSnirhParams();
 
                     console.log(this.params)
 
@@ -31,7 +33,6 @@ const TopHandlersView = {
                     // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
                     data.pop();
 
-                    console.log(data, data.length, 'registros encontrados na busca CNARH');
 
                     $(document).trigger("updateSnirhTables", [data]);
 

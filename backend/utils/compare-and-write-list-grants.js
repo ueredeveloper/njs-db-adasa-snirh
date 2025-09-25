@@ -59,21 +59,23 @@ const compareAndWriteListGrants = async (toUpdateGrants, currentTimestamp) => {
 
                 // O valor INT_CD vem do SNRIH.
                 objectToSend.INT_CD = id;
-                // O valor FIN_CD vem do SNRIH.
-                objectToSend.FIN_CD = federalGrant.FIN_CD;
+                // O valor FIN_CD vem do SNRIH, ou FIN_TFN_CD.
+                objectToSend.FIN_CD = federalGrant.FIN_CD || federalGrant.FIN_TFN_CD;
+
                 // Este dado vem do SNIRH
                 objectToSend.SIR_CD === '' ? objectToSend.SIR_CD = federalGrant.SIR_CD : null;
                 // Estes dados são no caso de id finalidade 5, irrigação
                 //objectToSend.SIR_TSI_CD === '' ? objectToSend.SIR_TSI_CD = federalGrant.SIR_TSI_CD : null;
                 //objectToSend.SIR_TCT_CD === '' ? objectToSend.SIR_TCT_CD = federalGrant.SIR_TCT_CD : null;
                 //objectToSend.SIR_NU_AREAIRRIGADA === '' ? objectToSend.SIR_NU_AREAIRRIGADA = federalGrant.SIR_NU_AREAIRRIGADA : null;
+
+                console.log('compare and write list of grants ', objectToSend)
                 
                 return objectToSend;
 
             });
 
-            console.log('to update grants edited ', toUpdateGrantsEdited)
-
+           
             // Converte Json para Csv
             await convertJSONToCSV(toUpdateGrantsEdited, `./backend/data/csv/to-update-grants-${currentTimestamp}.csv`);
             // Caminho que será salvo o arquivo csv.

@@ -19,7 +19,7 @@ function convertCSVToJSON(filePath, outputFilePath) {
                 return;
             }
             // Força a conversão do arquivo do cnarh para UTF-8
-            const data = iconv.decode(buffer, "latin1");
+            const data = iconv.decode(buffer, "utf8");
 
             Papa.parse(data, {
                 header: true,
@@ -111,13 +111,6 @@ let dataExample = {
     "AMA_QT_CLORETO": "", "AMA_QT_DUREZATOTAL": "", "AMA_QT_FERROTOTAL": "", "AMA_QT_FLUORETOS": "", "AMA_QT_NITRATOS": "", "AMA_QT_NITRITOS": "",
     "AMA_QT_POTASSIO": "", "AMA_QT_SODIO": "", "AMA_QT_SULFATO": "", "AMA_QT_MAGNESIO": ""
 }
-
-function toUTF8(str) {
-    if (typeof str !== "string") return str;
-    return Buffer.from(str, "latin1").toString("utf8");
-}
-
-
 
 // Usage example:
 convertCSVToJSON('./backend/data/csv/exportacao_cnarh40_DF-04092025.csv', './backend/data/exportacao_cnarh40_DF.json')

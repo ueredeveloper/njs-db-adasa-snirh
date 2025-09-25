@@ -11,7 +11,7 @@ const TopHandlersSnirhSearch = () => {
         $('#sl-state').change(function () {
             var selectedValue = $(this).val();
 
-            console.log($this.params)
+            $this.params = snirhParams.getSnirhParams();
 
             $this.params = { ...$this.params, uf: selectedValue }
 
@@ -20,15 +20,20 @@ const TopHandlersSnirhSearch = () => {
 
         $('#sl-initial-date').change(function () {
             var selectedDate = $(this).val();
+
+            $this.params = snirhParams.getSnirhParams();
+
             // converte data para formato snirh: 20170101000000 - Refere-se a data 01/01/2017 00:00, formato: yyyyMMddHHmm
             $this.params = { ...$this.params, dataInicio: selectedDate.replaceAll('-', '') + '000000' }
 
-            
+
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 
         $('#sl-final-date').change(function () {
             var selectedDate = $(this).val();
+
+            $this.params = snirhParams.getSnirhParams();
             // converte data para formato snirh: 20170101000000 - Refere-se a data 01/01/2017 00:00, formato: yyyyMMddHHmm
             $this.params = { ...$this.params, dataFim: selectedDate.replaceAll('-', '') + '000000' }
             $(document).trigger('searchSnirhChanged', $this.params);
@@ -36,26 +41,37 @@ const TopHandlersSnirhSearch = () => {
 
         $('#sl-dominialidade').change(function () {
             var selectedValue = $(this).val();
+
+            $this.params = snirhParams.getSnirhParams();
+
             $this.params = { ...$this.params, idDominialidade: selectedValue }
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 
         $('#sl-tipo').change(function () {
             var selectedValue = $(this).val();
+
+            $this.params = snirhParams.getSnirhParams();
+
             $this.params = { ...$this.params, idTipoOutorga: selectedValue }
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 
         $('#sl-situcao-processo').change(function () {
             var selectedValue = $(this).val();
+
+            $this.params = snirhParams.getSnirhParams();
+
             $this.params = { ...$this.params, idSituacaoOutorga: selectedValue }
             $(document).trigger('searchSnirhChanged', $this.params);
         });
         $('#sl-finalidade-interferencia').change(function () {
             var selectedValue = $(this).val();
+
+            $this.params = snirhParams.getSnirhParams();
+
             $this.params = { ...$this.params, idFinalidade: selectedValue }
 
-            console.log( $this.params)
             $(document).trigger('searchSnirhChanged', $this.params);
         });
 

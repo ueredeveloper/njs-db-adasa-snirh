@@ -8,8 +8,6 @@ require('dotenv').config();
 router.get('/snirh-process-error', async (req, res) => {
     let { uf, idArquivoErro } = req.query;
 
-    console.log('uf , n erro: ', uf, idArquivoErro)
-
     const { SNIRH_URL, SNIRH_TOKEN} = process.env;
 
     // Constructing the URL with parameters

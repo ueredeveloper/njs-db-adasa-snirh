@@ -1,11 +1,11 @@
 
 const snirhUpdate = async (uf, body) => {
+
+    console.log('Iniciando atualização de outorgas...', body);
    
     // Constructing the URL with parameters
     let url = new URL('http://localhost:3000/services/update');
     url.searchParams.append('uf', uf);
-
-    console.log(body)
 
     try {
         const response = await fetch(url, {

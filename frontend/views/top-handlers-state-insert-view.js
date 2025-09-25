@@ -11,7 +11,6 @@ const TopHandlersStateInsertView = {
         // Add click event listener to the button
         $('#btn-state-simple-search').on('click', async () => {
 
-            console.log('btn simple search')
             try {
 
                 let param = $('#input-state-simple-search').val();

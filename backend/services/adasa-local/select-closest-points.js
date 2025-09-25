@@ -14,6 +14,8 @@ const config = {
     server: ADASA_HOST,
     database: ADASA_DATABASE,
     trustServerCertificate: true,
+    // esperar mais pelo resultado
+    connectionTimeout: 30000, // 30s
 };
 
 /**

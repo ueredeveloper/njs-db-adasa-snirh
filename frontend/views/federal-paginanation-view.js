@@ -19,6 +19,10 @@ const FederalPaginationView = {
                 // Atualizar valor compartilhado pelas páginas.
                 snirhParams.setSnirhParams({ tamanhoPagina: tamanhoPagina })
 
+                if(!this.params) {
+                    this.params = snirhParams.getSnirhParams();
+                }
+
                 // Atualiza os valores após buscar no serviço e envia para `ListSnirhView`.
                 let { data } = await exportCsv(snirhParams.getSnirhParams());
                 // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
@@ -159,6 +163,7 @@ const FederalPaginationView = {
                 let { data } = await exportCsv(snirhParams.getSnirhParams());
                 // Remove o último ítem, no servidor, ao converter csv para json, o último resultado vem vazio.
                 data.pop();
+                console.log('pagination: ', pagina, data.length)
 
                 $(document).trigger("updateSnirhTables", [data]);
             });

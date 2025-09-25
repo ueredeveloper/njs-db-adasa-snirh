@@ -10,7 +10,6 @@ describe('Search and Write CSV', () => {
 
 let list = querySelectByNameCpfProcessoAto('IRENY')
 
-console.log(list)
 
   let data = {
     AMA_DT_ANALISE: "04/04/2017",

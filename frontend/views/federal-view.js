@@ -26,15 +26,12 @@ const FederalView = {
             // Update the list with the received data
             this.federalGrants = await data;
 
-            console.log(this.federalGrants)
-
             // Re-render the view
             this.renderContentsTables();
         });
 
         $(document).on('showTableStateUpdateById', (event, tableId) => {
 
-            console.log('show table state update by id')
             this.tableId = tableId;
 
             this.renderContentsTables();
@@ -83,15 +80,12 @@ const FederalView = {
                     let newToUpdateList = toUpdateGrants.getToUpdateGrants().filter(item => item.federalGrant.INT_CD !== federalGrantId);
                     toUpdateGrants.setToUpdateGrants(newToUpdateList);
 
-                    console.log('if remove ', toUpdateGrants.getToUpdateGrants())
-
                 } else {
                     // Se a outorga estadual está presente adiciona o objeto para edição.
                     let newToUpdateList = toUpdateGrants.getToUpdateGrants();
                     newToUpdateList.push(toUpdate)
                     toUpdateGrants.setToUpdateGrants(newToUpdateList);
 
-                    console.log('else add ', toUpdateGrants.getToUpdateGrants())
                 }
 
                 // Se input desselecionado remove objeto dos ítems a ser editado no serviço SNIRH.
@@ -99,7 +93,6 @@ const FederalView = {
                 let newToUpdateList = toUpdateGrants.getToUpdateGrants().filter(item => item.federalGrant.INT_CD !== federalGrantId);
                 toUpdateGrants.setToUpdateGrants(newToUpdateList);
 
-                console.log('else remove', toUpdateGrants.getToUpdateGrants())
             }
 
 
@@ -198,9 +191,7 @@ const FederalView = {
                 let keysValues = list.map(item => {
                     return Object.entries(item);
                 });
-                console.log(keysValues)
-
-
+              
                 // preenchimento do corpo da tabela (tbody tag).
                 keysValues.map((item, index) => {
 

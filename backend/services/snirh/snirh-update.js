@@ -10,39 +10,39 @@ const router = express.Router();
 require('dotenv').config();
 
 
-router.post('/update', async (req, res) =>  {
+router.post('/update', async (req, res) => {
+  // Chaves de acesso
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
+  // Link de acesso
   let url = `${SNIRH_URL}/rest/api/atualizar?uf=DF`;
-
-  console.log('Insert Request to:', url);
-
+  // Json com dois registros (Snirh e Adasa)
   let body = req.body;
 
   try {
     const currentTimestamp = new Date().getTime();
 
-    // Generate CSV file
+    // Compara o json da Adasa com o json do SRINH e gera um json para envio via serviço
     await compareAndWriteListGrants(body, currentTimestamp);
 
     let filePath = path.join(__dirname, `../../data/csv/to-update-grants-${currentTimestamp}.csv`);
-    console.log('CSV File Path:', filePath);
 
     if (!fs.existsSync(filePath)) {
       return res.status(500).json({ error: 'CSV file was not created.' });
     }
 
     // Read the CSV file using promises (async/await)
-    const data = await fs.promises.readFile(filePath, 'utf8');
+    const data = await fs.promises.readFile(filePath, { encoding: 'utf-8' });
 
-
-    
     let config = {
       method: 'put',
       maxBodyLength: Infinity,
       url: url,
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'text/csv',
+        // original 'Content-Type': 'text/csv; charset=utf-8',
+        "Content-Type": "multipart/form-data; charset=utf-8", // teste 1
+        // 'content-type': 'application/octet-stream', // teste 2
+        //'Content-Type': 'text/csv; charset=iso-8859-1',
         'Authorization': `Bearer ${SNIRH_TOKEN}`,
       },
       data: data
@@ -50,7 +50,6 @@ router.post('/update', async (req, res) =>  {
 
     // Send request
     const response = await axios.request(config);
-    console.log('Response:', JSON.stringify(response.data));
 
     // Send success response
     res.json(response.data);
@@ -60,5 +59,6 @@ router.post('/update', async (req, res) =>  {
     res.status(500).json({ error: error.message });
   }
 });
+
 
 module.exports = router;

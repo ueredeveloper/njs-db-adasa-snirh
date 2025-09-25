@@ -1,18 +1,20 @@
 const fs = require('fs');
 const { Parser } = require('json2csv');
+const iconv = require('iconv-lite');
 
-function  convertJSONToCSV(jsonData, filePath) {
+function convertJSONToCSV(jsonData, filePath) {
 
     return new Promise((resolve, reject) => {
         try {
-            const json2csvParser = new Parser({ delimiter: ';', quote: '', withBOM: true });
+            const json2csvParser = new Parser({ delimiter: ';', quote: '' });
             let csv = json2csvParser.parse(jsonData);
 
             // Removendo todas as aspas duplas
             csv = csv.replace(/"/g, '');
 
 
-            fs.writeFile(filePath, csv, 'utf8', (err) => {
+            fs.writeFile(filePath, csv, { encoding: 'utf8' }, (err) => {
+                //fs.writeFile(filePath, csv, { encoding: "utf8" }, (err) => {
                 if (err) {
                     reject(err);
                     return;

@@ -18,7 +18,6 @@ router.get('/snirh-export-json', async (req, res) => {
   // Constructing the URL with parameters
   let url = new URL(`${SNIRH_URL}/rest/api/exportacao/json`);
 
-  console.log('export json ', url)
   url.searchParams.append('uf', uf);
   url.searchParams.append('idFinalidade', idFinalidade);
   url.searchParams.append('dataInicio', dataInicio);
@@ -37,8 +36,6 @@ router.get('/snirh-export-json', async (req, res) => {
   });
   
   let json = await response.json();
-
-  console.log(json)
 
   res.send(json)
 

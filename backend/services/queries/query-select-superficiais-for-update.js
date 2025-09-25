@@ -31,7 +31,7 @@ const querySelectSuperficiaisForUpdate = (ids)=> {
     -- id da interferência no sistema da adasa
     A.ID_INTERFERENCIA as INT_CD_ORIGEM,
     -- mais informações sobre a interferência
-    '' INT_DS_OPTIONAL,
+    COALESCE(A.NOME, '') AS INT_DS_OPTIONAL,
     1 INT_TIN_CD,
     -- se superficial ou subterrânea
     A.ID_TIPO_INTERFERENCIA AS INT_TSU_CD,

@@ -35,7 +35,7 @@ const ListHandlersView = {
                     EMP_NM_USUARIO: stateGrant.EMP_NM_USUARIO,
                     INT_CD_ORIGEM: stateGrant.INT_CD_ORIGEM
                 }
-                console.log('front search by params')
+ 
 
                 let results = await desktopDbSearchByParams(params);
 
@@ -64,7 +64,7 @@ const ListHandlersView = {
 
                             let errorMesssage = generateErrorMessage(errorResponse, stateGrant);
 
-                            console.log(errorMesssage);
+                            console.log('error: ', errorMesssage);
                             
                         });
                     }

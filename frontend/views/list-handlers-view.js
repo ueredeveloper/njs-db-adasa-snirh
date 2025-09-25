@@ -42,10 +42,6 @@ const ListHandlersView = {
             let federalGrants = FederalView.getFederalGrants();
 
             
-            console.log(federalGrants)
-
-            
-
            /* let response = await snirhUpdate('DF', toUpdate);
 
             if (response.sucesso === true) {

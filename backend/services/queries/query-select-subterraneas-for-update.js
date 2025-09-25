@@ -25,7 +25,7 @@ const querySelectSubterraneasForUpdate = (ids)=> {
 		-- id da interferência no sistema da adasa
 		A.ID_INTERFERENCIA as INT_CD_ORIGEM,
 		-- informação complementar da interferência
-		'' INT_DS_OPTIONAL,
+		COALESCE(A.NOME, '') AS INT_DS_OPTIONAL,
 		-- 1 -> superficial ou subterrânea, 2 -> efluente, 3 -> barragem
 		1 INT_TIN_CD,
 		-- 1 -> superficial , 2 -> subterrânea

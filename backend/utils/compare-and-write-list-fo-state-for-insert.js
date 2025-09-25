@@ -57,8 +57,6 @@ const compareAndWriteListOfStateForInsert = async (toInsertGrants, currentTimest
 
             });
 
-            console.log('to insert grants edited ', toInsertGrantsEdited)
-
             // Converte Json para Csv
             await convertJSONToCSV(toInsertGrantsEdited, `./backend/data/csv/to-insert-grants-${currentTimestamp}.csv`);
             // Caminho que será salvo o arquivo csv.

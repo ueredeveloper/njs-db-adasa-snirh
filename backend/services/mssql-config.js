@@ -11,6 +11,4 @@ const mssqlConfig = {
     trustServerCertificate: true,
 };
 
-
-
-module.exports = {mssqlConfig}
+module.exports = { mssqlConfig }
