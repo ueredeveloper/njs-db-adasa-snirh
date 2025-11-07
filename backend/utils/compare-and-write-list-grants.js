@@ -18,8 +18,6 @@ const compareAndWriteListGrants = async (toUpdateGrants, currentTimestamp) => {
     return new Promise(async (resolve, reject) => {
         try {
 
-           
-
             let toUpdateGrantsEdited = toUpdateGrants.map(item => {
 
                 let { stateGrant, federalGrant } = item;
@@ -47,6 +45,12 @@ const compareAndWriteListGrants = async (toUpdateGrants, currentTimestamp) => {
                     } else if (key === 'EMP_NU_CPFCNPJ') {
                         let cpfCnpj = '#' + formatCpfCnpj(value);
                         objectToSend[key] = cpfCnpj;
+
+                        if (objectToSend[key].includes("##")) {
+                            console.log("cpf número: ", objectToSend[key], "processo:", objectToSend.OUT_NU_PROCESSO);
+                        }
+
+
                         //Converte data para formato dos SNIRH, 2015-01-02 => 02/01/2015    
                     } else if (isDate(value)) {
                         let dataConverted = convertDateFormat(value);
@@ -69,13 +73,11 @@ const compareAndWriteListGrants = async (toUpdateGrants, currentTimestamp) => {
                 //objectToSend.SIR_TCT_CD === '' ? objectToSend.SIR_TCT_CD = federalGrant.SIR_TCT_CD : null;
                 //objectToSend.SIR_NU_AREAIRRIGADA === '' ? objectToSend.SIR_NU_AREAIRRIGADA = federalGrant.SIR_NU_AREAIRRIGADA : null;
 
-                console.log('compare and write list of grants ', objectToSend)
-                
                 return objectToSend;
 
             });
 
-           
+
             // Converte Json para Csv
             await convertJSONToCSV(toUpdateGrantsEdited, `./backend/data/csv/to-update-grants-${currentTimestamp}.csv`);
             // Caminho que será salvo o arquivo csv.

@@ -7,7 +7,7 @@ const querySelectByParam = (param) => {
     // Sanitize input to prevent SQL injection
     const escapedParam = param.replace(/'/g, "''");
 
-    
+
     // Build SQL query
     return `
         USE SRH;
@@ -39,8 +39,12 @@ const querySelectByParam = (param) => {
                 -- Busca pela data inicial da outorga
                 OR (
 					TRY_CONVERT(DATETIME, @param, 103) IS NOT NULL
-					AND A.DT_PUBLICACAO BETWEEN TRY_CONVERT(DATETIME, @param, 103) 
-					AND DATEADD(DAY, 32, TRY_CONVERT(DATETIME, @param, 103))
+                    -- para até 32 dias após a data especificada na variável @param
+					--AND A.DT_PUBLICACAO BETWEEN TRY_CONVERT(DATETIME, @param, 103) 
+                    
+					--AND DATEADD(DAY, 32, TRY_CONVERT(DATETIME, @param, 103))
+                    -- para as outorgas do ano especificado
+                    AND YEAR(A.DT_PUBLICACAO) = YEAR(TRY_CONVERT(DATETIME, @param, 103))
 				)
         ) AS SubQuery;
     `;

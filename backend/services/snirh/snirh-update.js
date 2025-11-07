@@ -18,6 +18,8 @@ router.post('/update', async (req, res) => {
   // Json com dois registros (Snirh e Adasa)
   let body = req.body;
 
+  console.log('editando concessões...');
+
   try {
     const currentTimestamp = new Date().getTime();
 

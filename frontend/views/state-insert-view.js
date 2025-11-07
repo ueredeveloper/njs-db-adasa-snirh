@@ -257,7 +257,7 @@ const StateInsertView = {
             // response example: {sucesso: false, mensagem: 'Erro ao processar solicitação.', idArquivoErro: 13261}
 
             if (response.sucesso === true) {
-                alert(response.mensagem)
+                console.log(response.mensagem)
             } else {
 
                 let params = {
@@ -266,8 +266,8 @@ const StateInsertView = {
                 }
                 await snirhError(params).then(errorResponse => {
 
-                    console.log(errorResponse)
-                    alert('Erro: ' + errorResponse)
+                   // console.log(errorResponse)
+                    console.log('Erro: ', errorResponse)
                 });
             }
         });

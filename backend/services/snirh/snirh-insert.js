@@ -38,7 +38,8 @@ router.post('/inserir', async (req, res) => {
       headers: {
         'Accept': 'application/json',
         //'Content-Type': 'text/csv; charset=utf-8',
-        "Content-Type": "multipart/form-data; charset=utf-8",
+        //"Content-Type": "multipart/form-data; charset=utf-8",
+        "Content-Type": "text/csv",
         'Authorization': `Bearer ${SNIRH_TOKEN}`,
       },
       data: data

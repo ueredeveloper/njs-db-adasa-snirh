@@ -41,21 +41,21 @@ const ListHandlersView = {
             // Lista de outorgas federais
             let federalGrants = FederalView.getFederalGrants();
 
-            
-           /* let response = await snirhUpdate('DF', toUpdate);
 
-            if (response.sucesso === true) {
-                console.log(response.mensagem)
-            } else {
-                let params = {
-                    uf: 'DF',
-                    idArquivoErro: response.idArquivoErro
-                }
-                await snirhError(params).then(errorResponse => {
-                    console.log(generateErrorMessage('Erro: ' + errorResponse, toUpdate.federalGrant, toUpdate.stateGrant));
-                    alert('Erro: ' + errorResponse)
-                });
-            }*/
+            /* let response = await snirhUpdate('DF', toUpdate);
+ 
+             if (response.sucesso === true) {
+                 console.log(response.mensagem)
+             } else {
+                 let params = {
+                     uf: 'DF',
+                     idArquivoErro: response.idArquivoErro
+                 }
+                 await snirhError(params).then(errorResponse => {
+                     console.log(generateErrorMessage('Erro: ' + errorResponse, toUpdate.federalGrant, toUpdate.stateGrant));
+                     alert('Erro: ' + errorResponse)
+                 });
+             }*/
         });
 
         // Salva os errors de cpf e cnpj em uma variável sem que haja repetição de dados
@@ -69,7 +69,6 @@ const ListHandlersView = {
             for (let federalGrant of federalGrants) {
 
                 // Não fazer atualização por posição próxima se a outorga federal estiver preenchida com o id de origem na outorga estadual (INT_CD_ORIGEM)
-                //Se não estiver preenchida, ou seja, string vazia '', editar
                 if (federalGrant.INT_CD_ORIGEM === '') {
                     // for (let federalGrant of federalGrants.slice(ListHandlersView.indexForTest, ++ListHandlersView.indexForTest)) {
 
@@ -79,7 +78,7 @@ const ListHandlersView = {
                     let ti = getInterferenceType(INT_TIN_CD, INT_TSU_CD);
 
                     try {
-                        let stateGrants = await StateGrantsModel.selectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti);
+                        let stateGrants = await StateGrantsModel.localDbSelectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti);
 
                         if (stateGrants && stateGrants.length > 0) {
                             function isSamePoint(distance, threshold) {
@@ -118,7 +117,7 @@ const ListHandlersView = {
 
                                     cpfcnpjResultsError.add(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant))
                                     console.log(cpfcnpjResultsError)
-                                   // console.log(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant));
+                                    // console.log(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant));
                                 }
                             } else {
                                 // console.log(generateErrorMessage('ERRO: Sem ponto de outorga próximo:', federalGrant, stateGrant));
@@ -132,7 +131,7 @@ const ListHandlersView = {
 
 
                 } else {
-                    //  console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM}`);
+                    console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM} não será atualizada!`);
                 }
             }
 

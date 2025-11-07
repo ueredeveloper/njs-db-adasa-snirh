@@ -10,32 +10,34 @@
  */
 
 const express = require('express');
+const fs = require('fs');
 const { readSnirhFile } = require('../../utils/read-write-and-verify-file');
 
 const router = express.Router();
 
+let path = './backend/data/json/duplicatedIds.json';
+
 router.get('/desktop-db-search-duplicated-ids', async (req, res) => {
 
-    readSnirhFile(async (err, desktopDb) => {
-
+    fs.readFile(path, 'utf8', (err, data) => {
         if (err) {
-            console.error('Error reading file:', err);
+            console.error('Erro ao ler o arquivo:', err);
+            callback(err, null);
             return;
         }
+        try {
 
-        /** @type {Array<Object>} */
-        let results = desktopDb.filter(
-            // Busca valores duplicados pelo id da interferência na Adasa (INT_CD_ORIGEM)
-            (objeto, indice, arr) => {
-                if (objeto.INT_CD_ORIGEM !== "") {
-                    return arr.findIndex(obj => obj.INT_CD_ORIGEM === objeto.INT_CD_ORIGEM) !== indice
-                }
+            const dataArray = JSON.parse(data); // Parseia o conteúdo JSON em um array ou objeto
 
-            }
-        );
+            // Remove o último registro se estiver vazio (comportamento opcional)
+            // if (dataArray.length > 0 && Object.keys(dataArray[dataArray.length - 1]).length === 0) {
+            //   dataArray.pop();
+            // }
+            res.send(dataArray);
+        } catch (parseErr) {
+            console.error('Erro ao parsear JSON:', parseErr);
 
-        res.send(results)
-
+        }
     });
 
 });

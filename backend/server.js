@@ -44,7 +44,6 @@ app.use('/', (req, res) => {
   proxy.web(req, res, { target: 'http://localhost:1234' });
 });
 
-
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

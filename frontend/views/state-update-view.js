@@ -24,7 +24,7 @@ const StateUpdateView = {
         // Renderização da tabela com cabeçalho.
         this.render();
         // Renderização das outorgas.
-        this.renderGrants(accordionIndex).then(async ()=>{
+        this.renderGrants(accordionIndex).then(async () => {
             // Verifica de forma assíncrona se está mostrando poucas colunas e abre as outorgas estaduais também com as colunas seleiconadas.
             let checkBox = $('#toggle-columns');
             await filterColumns(ListHandlersView, checkBox);
@@ -157,7 +157,7 @@ const StateUpdateView = {
         });
 
         $('[id^="btn-update"]').click(async function (e) {
-            
+
             // Captura tr tag
             let parentRow = $(this).closest('tr');
             // Captura valores da linha  selecionada (td)
@@ -179,19 +179,26 @@ const StateUpdateView = {
 
             let response = await snirhUpdate('DF', toUpdate);
             // response example: {sucesso: false, mensagem: 'Erro ao processar solicitação.', idArquivoErro: 13261}
-            
+
             if (response.sucesso === true) {
-                alert(response.mensagem)
+                console.log(response.mensagem)
             } else {
 
-                let params = {
-                    uf: 'DF',
-                    idArquivoErro: response.idArquivoErro
+                if (response.idArquivoErro) {
+
+                    let params = {
+                        uf: 'DF',
+                        idArquivoErro: response.idArquivoErro
+                    }
+                    await snirhError(params).then(errorResponse => {
+
+                        console.log(errorResponse)
+                        console.log('Erro: ' + errorResponse)
+                    });
+
                 }
-                await snirhError(params).then(errorResponse =>{ 
-                    
-                    console.log(errorResponse)
-                    alert('Erro: ' + errorResponse)});
+
+
             }
         });
 

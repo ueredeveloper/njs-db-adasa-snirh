@@ -36,15 +36,17 @@ function convertCSVToJSON(filePath, outputFilePath) {
                         }
 
                         array.forEach((attr, index) => {
+                            //console.log(attr["INT_CD"])
                             // Pula o atributo INT_ID, já adicionado na ciração do objeto
-                            if (index > 0) {
+                            //if (index > 0) {
+                                
                                 if (attr === "EMP_NM_RESPONSAVEL") {
                                     grant[attr] = toUpdateAttributes["EMP_NM_USUARIO"]
                                 } else {
                                     grant[attr] = toUpdateAttributes[attr]
                                 }
 
-                            }
+                            //}
 
                         });
 
@@ -55,6 +57,28 @@ function convertCSVToJSON(filePath, outputFilePath) {
                         return grant;
 
                     })
+
+                    /** @type {Array<Object>} */
+                    let toWriteDuplicateds = toWrite.filter(
+                        // Busca valores duplicados pelo id da interferência na Adasa (INT_CD_ORIGEM)
+                        (objeto, indice, arr) => {
+                            if (objeto.INT_CD_ORIGEM !== "") {
+                                return arr.findIndex(obj => obj.INT_CD_ORIGEM === objeto.INT_CD_ORIGEM) !== indice
+                            }
+
+                        }
+                    );
+
+                    // Write the JSON data to a file
+                    fs.writeFile("./backend/data/json/duplicatedIds.json", JSON.stringify(toWriteDuplicateds), 'utf8', (writeErr) => {
+                        if (writeErr) {
+                            reject(writeErr);
+                            return;
+                        }
+                        resolve(jsonData);  // Resolve with JSON data if successful
+                    });
+
+
 
                     // Write the JSON data to a file
                     fs.writeFile(outputFilePath, JSON.stringify(toWrite), 'utf8', (writeErr) => {
@@ -74,8 +98,8 @@ function convertCSVToJSON(filePath, outputFilePath) {
 }
 
 let dataExample = {
-    "INT_CD": "1681691",
-    "INT_CD_ORIGEM": "17808",
+    "INT_CD": "",
+    "INT_CD_ORIGEM": "",
     "INT_DS_OPCIONAL": "",
     "INT_TIN_CD": "1", "INT_TSU_CD": "2", "INT_NU_SIAGAS": "", "INT_NU_LATITUDE": "#-15.898411", "INT_NU_LONGITUDE": "#-47.561376",
     "INT_NM_CORPOHIDRICOALTERADO": "", "EMP_NM_EMPREENDIMENTO": "NÃCLEO RURAL CAFÃ SEM TROCO, FAZENDA SANTO ANTÃNIO DOS GUIMARÃES",
@@ -113,7 +137,7 @@ let dataExample = {
 }
 
 // Usage example:
-convertCSVToJSON('./backend/data/csv/exportacao_cnarh40_DF-04092025.csv', './backend/data/exportacao_cnarh40_DF.json')
+convertCSVToJSON('./backend/data/csv/cnarh/exportacao_cnarh40_app_DF-221025.csv', './backend/data/json/exportacao_cnarh40_DF.json')
     .then((jsonData) => {
         console.log("CSV successfully converted to JSON and written to file.");
     })

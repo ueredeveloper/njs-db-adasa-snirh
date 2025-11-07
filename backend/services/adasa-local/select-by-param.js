@@ -80,6 +80,7 @@ router.get('/select-by-param', function (req, res) {
                     allGrants.push(...subPoints.recordset)
 
                 }
+                //console.log(`select by params, length: ${allGrants.length}`)
 
                 res.send(allGrants);
             } else {

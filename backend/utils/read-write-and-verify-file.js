@@ -10,25 +10,29 @@ const { Parser } = require('json2csv');
  * @param {Array|Object|null} data - Dados do arquivo em formato JSON, ou `null` em caso de erro.
  */
 
-let path = './backend/data/exportacao_cnarh40_DF.json';
+let path = './backend/data/json/exportacao_cnarh40_DF.json';
 
 const readSnirhFile = (callback) => {
 
   fs.readFile(path, 'utf8', (err, data) => {
+
     if (err) {
       console.error('Erro ao ler o arquivo:', err);
       callback(err, null);
       return;
     }
+
     try {
 
-      const dataArray = JSON.parse(data); // Parseia o conteúdo JSON em um array ou objeto
+      let jsObject = JSON.parse(data);
+
+      //const dataArray = JSON.parse(data); // Parseia o conteúdo JSON em um array ou objeto
 
       // Remove o último registro se estiver vazio (comportamento opcional)
       // if (dataArray.length > 0 && Object.keys(dataArray[dataArray.length - 1]).length === 0) {
       //   dataArray.pop();
       // }
-      callback(null, dataArray);
+      callback(null, jsObject);
     } catch (parseErr) {
       console.error('Erro ao parsear JSON:', parseErr);
       callback(parseErr, null);

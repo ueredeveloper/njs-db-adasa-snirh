@@ -15,7 +15,7 @@ const { readSnirhFile, writeSnirhFile } = require('../../utils/read-write-and-ve
 
 const router = express.Router();
 
-let path = './backend/data/exportacao_cnarh40_DF.json';
+let path = './backend/data/json/exportacao_cnarh40_DF.json';
 
 router.get('/desktop-db-remove-interference', async (req, res) => {
 

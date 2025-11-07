@@ -83,8 +83,8 @@ router.get('/snirh-export-csv', async (req, res) => {
 
         oldData.push(nd)
       })
-
-      let path = './backend/data/exportacao_cnarh40_DF.json';
+      // C:\Users\fabricio.barrozo\Desktop\workspace\njs-db-adasa-snirh\backend\data\json\exportacao_cnarh40_DF.json
+      let path = './backend/data/json/exportacao_cnarh40_DF.json';
 
       try {
         fs.writeFile(path, JSON.stringify(oldData), { encoding: 'utf-8' }, (err) => {

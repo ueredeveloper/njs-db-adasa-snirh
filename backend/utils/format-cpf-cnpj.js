@@ -1,4 +1,5 @@
 function formatCpfCnpj(number) {
+
     // Remover quaisquer caracteres não numéricos
     const cleanNumber = number.replace(/\D/g, '');
 

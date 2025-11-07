@@ -1,13 +1,14 @@
 /**
- * Atualiza a plinilha exportacao_cnarh40_DF.json
+ * Atualiza a planilha exportacao_cnarh40_DF.json
  * Como usuar: node backend/tests/snirh-fetch.test.js
  */
 
 import fetch from "node-fetch";
 
 const years = [
-  "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018",
-   "2019", "2020", "2021", "2022", "2023", "2024", "2025"
+    "2004", "2005", "2006", "2007", "2008",
+    "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018",
+    "2019", "2020", "2021", "2022", "2023", "2024", "2025"
 ];
 const pages = [1, 2, 3, 4, 5];
 
@@ -56,12 +57,12 @@ const runTest = async () => {
                 uf: "DF",
                 dataInicio: date,
                 dataFim: "",
-                idDominialidade: "1",
+                idDominialidade: "",
                 idTipoOutorga: "",
                 idSituacaoOutorga: "",
                 idFinalidade: "",
                 pagina: page,
-                tamanhoPagina: 500
+                tamanhoPagina: 700
             };
 
             console.log(`🔎 Buscando ano=${year}, página=${page}...`);
@@ -69,7 +70,7 @@ const runTest = async () => {
             let data = await exportCsv(params);
 
 
-            if (data!==undefined && data?.data && Array.isArray(data?.data)) {
+            if (data !== undefined && data?.data && Array.isArray(data?.data)) {
                 data?.data.pop(); // remove último item vazio
                 console.log(`✔️ Retornou ${data?.data.length} registros`);
             } else {

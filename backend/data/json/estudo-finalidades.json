@@ -1,0 +1,301 @@
+{
+  "descricao": "ANEXO 6 – FIN_TFN_CD- CÓDIGO IDENTIFICADOR DO TIPO DA FINALIDADE",
+  "finalidades": [
+    {
+      "codigo": 0,
+      "descricao": "Sem Finalidade"
+    },
+    {
+      "codigo": 1,
+      "descricao": "Abastecimento Público (exclusivamente para captação)"
+    },
+    {
+      "codigo": 2,
+      "descricao": "Esgotamento Sanitário (exclusivamente para lançamento)"
+    },
+    {
+      "codigo": 3,
+      "descricao": "Indústria (captação ou lançamento)"
+    },
+    {
+      "codigo": 4,
+      "descricao": "Mineração – Extração de Areia/Cascalho em Leito de Rio (exclusivamente para captação)"
+    },
+    {
+      "codigo": 5,
+      "descricao": "Irrigação (exclusivamente para captação)"
+    },
+    {
+      "codigo": 6,
+      "descricao": "Criação Animal (captação ou lançamento)"
+    },
+    {
+      "codigo": 7,
+      "descricao": "Aquicultura em Tanque Escavado (captação ou lançamento)"
+    },
+    {
+      "codigo": 8,
+      "descricao": "Termoelétrica (captação ou lançamento)"
+    },
+    {
+      "codigo": 9,
+      "descricao": "Transposição (captação ou lançamento)"
+    },
+    {
+      "codigo": 10,
+      "descricao": "Aproveitamento Hidroelétrico (exclusivamente barramento)"
+    },
+    {
+      "codigo": 11,
+      "descricao": "Reservatório/Barramento/Regularização de Vazões para Usos Múltiplos (exclusivamente barramento)"
+    },
+    {
+      "codigo": 12,
+      "descricao": "Consumo Humano (captação ou lançamento)"
+    },
+    {
+      "codigo": 13,
+      "descricao": "Mineração – Outros Processos Extrativos (captação ou lançamento)"
+    },
+    {
+      "codigo": 15,
+      "descricao": "Obras Hidráulicas (ponto de referência)"
+    },
+    {
+      "codigo": 16,
+      "descricao": "Serviços (ponto de referência)"
+    },
+    {
+      "codigo": 18,
+      "descricao": "Aquicultura em Tanque Rede (ponto de referência)"
+    },
+    {
+      "codigo": 99,
+      "descricao": "Outras (captação ou lançamento)"
+    }
+  ]
+}
+
+
+
+{
+  "descricao": "ANEXO 7 – FOU_TOU_CD- CÓDIGO IDENTIFICADOR DO TIPO DE OUTRO USO",
+  "outrosUsos": [
+    {
+      "codigo": 1,
+      "descricao": "Eclusa"
+    },
+    {
+      "codigo": 2,
+      "descricao": "Recreação"
+    },
+    {
+      "codigo": 3,
+      "descricao": "Salvamento"
+    },
+    {
+      "codigo": 14,
+      "descricao": "Poço de bombeamento de recuperação ambiental"
+    },
+    {
+      "codigo": 15,
+      "descricao": "Poço de monitoramento/Piezometro"
+    },
+    {
+      "codigo": 16,
+      "descricao": "Poço de injeção para recuperação ambiental"
+    },
+    {
+      "codigo": 17,
+      "descricao": "Umectação de vias"
+    },
+    {
+      "codigo": 19,
+      "descricao": "Sistema de Resfriamento"
+    },
+    {
+      "codigo": 21,
+      "descricao": "Lavagem de veículos"
+    },
+    {
+      "codigo": 22,
+      "descricao": "Clarificação da água"
+    },
+    {
+      "codigo": 26,
+      "descricao": "Depuração de efluentes"
+    },
+    {
+      "codigo": 27,
+      "descricao": "Disposição de rejeitos"
+    },
+    {
+      "codigo": 28,
+      "descricao": "Pesquisa mineral"
+    },
+    {
+      "codigo": 29,
+      "descricao": "Pesquisa hidrogeológica / teste de bombeamento"
+    },
+    {
+      "codigo": 30,
+      "descricao": "Recirculação de água"
+    },
+    {
+      "codigo": 31,
+      "descricao": "Urbanização"
+    },
+    {
+      "codigo": 32,
+      "descricao": "Rebaixamento de aquífero"
+    },
+    {
+      "codigo": 39,
+      "descricao": "Balneário - lazer e clube"
+    },
+    {
+      "codigo": 44,
+      "descricao": "Lavanderia"
+    },
+    {
+      "codigo": 45,
+      "descricao": "Combate a incêndio"
+    },
+    {
+      "codigo": 49,
+      "descricao": "Hortas, pomares, jardins, paisagismo (área < 1 ha)"
+    },
+    {
+      "codigo": 50,
+      "descricao": "Teste hidrostático"
+    },
+    {
+      "codigo": 51,
+      "descricao": "Abastecimento de pulverizadores"
+    },
+    {
+      "codigo": 53,
+      "descricao": "Outro"
+    },
+    {
+      "codigo": 54,
+      "descricao": "Construção Civil"
+    }
+  ]
+}
+
+
+{
+ "descricao": "Tabelas Adasa",
+ "subterranea": {
+  "tiposDeFinalidades": [
+    {
+      "idTipoFinalidade": 7,
+      "descricao": "ABASTECIMENTO HUMANO",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 8,
+      "descricao": "CRIAÇÃO/DESSEDENTAÇÃO ANIMAL",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 9,
+      "descricao": "INDUSTRIAL",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 10,
+      "descricao": "IRRIGAÇÃO DE CULTURAS",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 11,
+      "descricao": "COMERCIAL",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 12,
+      "descricao": "OUTROS",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 35,
+      "descricao": "AQUICULTURA",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 37,
+      "descricao": "CONSTRUÇÃO CIVIL",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 39,
+      "descricao": "IRRIGAÇÃO PAISAGÍSTICA",
+      "idTipoInterferencia": 2
+    },
+    {
+      "idTipoFinalidade": 41,
+      "descricao": "MINERAÇÃO",
+      "idTipoInterferencia": 2
+    }
+  ]
+ }, 
+ "superficial": {
+	 {
+  "tiposDeFinalidades": [
+    {
+      "idTipoFinalidade": 1,
+      "descricao": "ABASTECIMENTO HUMANO",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 2,
+      "descricao": "CRIAÇÃO/DESSEDENTAÇÃO ANIMAL",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 3,
+      "descricao": "INDUSTRIAL",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 4,
+      "descricao": "IRRIGAÇÃO DE CULTURAS",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 5,
+      "descricao": "COMERCIAL",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 6,
+      "descricao": "OUTROS",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 34,
+      "descricao": "AQUICULTURA",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 36,
+      "descricao": "CONSTRUÇÃO CIVIL",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 38,
+      "descricao": "IRRIGAÇÃO PAISAGÍSTICA",
+      "idTipoInterferencia": 1
+    },
+    {
+      "idTipoFinalidade": 40,
+      "descricao": "MINERAÇÃO",
+      "idTipoInterferencia": 1
+    }
+  ]
+}
+
+ }
+}
