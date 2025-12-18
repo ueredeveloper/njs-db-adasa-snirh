@@ -32,7 +32,8 @@ router.get('/desktop-db-search-by-keyword', async (req, res) => {
         /** @type {Array<Object>} */
         let results = desktopDb.filter(db => {
             // Checa se existe a propriedade no object e se a busca inclui algo neste objeto.
-            return (db.INT_CD && db.INT_CD.includes(_keyword)) ||
+            return (db.INT_CD_CNARH40 && db.INT_CD_CNARH40.includes(_keyword)) ||
+                (db.INT_CD && db.INT_CD.includes(_keyword)) ||
                 (db.EMP_NM_EMPREENDIMENTO && db.EMP_NM_EMPREENDIMENTO.toLowerCase().includes(_keyword)) ||
                 (db.EMP_NM_USUARIO && db.EMP_NM_USUARIO.toLowerCase().includes(_keyword)) ||
                 (db.EMP_NU_CPFCNPJ && db.EMP_NU_CPFCNPJ.toLowerCase().includes(_keyword)) ||

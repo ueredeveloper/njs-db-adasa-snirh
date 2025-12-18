@@ -21,6 +21,8 @@ router.get('/select-by-param', function (req, res) {
 
     let { param } = req.query;
 
+    
+
     //conexão com o banco
     sql.connect(config, function (err) {
 
@@ -80,7 +82,7 @@ router.get('/select-by-param', function (req, res) {
                     allGrants.push(...subPoints.recordset)
 
                 }
-                //console.log(`select by params, length: ${allGrants.length}`)
+                console.log(`inserção: select by params, length: ${allGrants.length}`)
 
                 res.send(allGrants);
             } else {

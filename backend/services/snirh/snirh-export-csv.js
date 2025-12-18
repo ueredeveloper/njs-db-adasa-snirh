@@ -15,6 +15,8 @@ const papa = require('papaparse');
 
 router.get('/snirh-export-csv', async (req, res) => {
 
+ 
+
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
 
   let { uf, idFinalidade, dataInicio, dataFim, idDominialidade, idTipoOutorga, idSituacaoOutorga, pagina, tamanhoPagina } = req.query;
@@ -99,6 +101,8 @@ router.get('/snirh-export-csv', async (req, res) => {
       }
 
     });
+
+     console.log('export csv ', response.length)
 
     res.send(response);
 

@@ -310,43 +310,71 @@ fs.writeFile(path, jsonData, { encoding: 'latin1' }, (err) => {...
 - [] Verificar se é possível buscar todas as outorgas de 2025 e inserir. Talvez esperar remover os duplicados já solicitado à Ana pelo whatsapp.
 - [] Criar um método no backend de buscar todas as outorgas e editálas tudo de uma vez, por posição ou por id na Adasa (INT_CD_ORIGEM).
 
-## 08/10/2025
-- [] Verificar edições: 
-    1154908		#-15,739372	#-47,746406	RUA TENENTE ANTONIO JO�O N�MERO 31 QUINH�O 6 SOBRADINHO DOS MELOS	LAURA FLORES BRANT CAMPOS	01246567148	29/01/2016	29/01/2026	1970012192011	99	
-
-    1045068		#-15,906118	#-47,609171	DF-130 KM 30 LINHA CAFSEM TROCO	NJF INDTRIA E COMCIO LTDA	04918453000152	19/10/2015	19/10/2025	1970011622015	12	
-
-    QUATRO REGISTROS, MUDA O ENDEREÇO PARA FAZENDA MILANO II, CHÁCARA 40 A
-
-        926822		#-15.612742	#-48.161208	QI 03, BLOCO A, LOJA 04/05, SETOR NORTE	FABIANE CORDEIRO PERIM ALVES	019.368.611-27	12/01/2015	12/01/2020		715406	
-
-
-
-Verificar também, 09/10/25
-927259		#-15.613076	#-48.162119	FAZENDA MILANO II FAZENDA CHAMAS CH�CARA 40 B	LUCAS CORDEIRO PERIM	011.620.031-62	28/10/2014	28/10/2019		715843	
-
-
-
-927207		#-15.610399	#-48.168599	FAZENDA MILANO II CH�CARA N� 14 (PO�O 1)	CRISTIANO SOARES	181.574.318-24	10/03/2015	10/03/2020		715791	
-
-
-
-927518		#-15.611343	#-48.168896	FAZENDA MILANO II, CH�CARA 14 (PO�O 2)	CRISTIANO SOARES	181.574.318-24	10/03/2015	10/03/2020		716102	
-
-
-
-926840		#-15.616123	#-48.158606	RODOVIA DF 220, KM 05, FAZENDA CHAMAS, CH�CARA FAZENDA MILANO II, BRAZL�NDIA	JO�O BATISTA DA SILVA	377.003.324-87	05/01/2016	05/01/2021		715424	
-
 
 ## 21/10/2025
 - [X] No arquivo gerado `exportacao_cnrarh40_DF.json` nesta parte estava com uma vírgula a mais (,,), gerando erro de leitura da array `desktopDB`.
     Ex:  "EMP_NM_EMPREENDIMENTO": "RODOVIA DF 150, KM 2,5, SETOR HABITACIONAL COLORADO,, MODULO N, CASA 12",...
 
 
+## 10/11/2025
+    - [] Edição e Finalidade
+        No SNIRH não é possível mudar a finalidade. Desta forma não editarei a finalidade, deixando a finalidade que estiver no SNIRH.
+        Ver arquivos `compare-and-write-list-grants`
+
+```
+// O valor FIN_CD vem do SNRIH, ou FIN_TFN_CD.
+objectToSend.FIN_CD = federalGrant.FIN_TFN_CD //federalGrant.FIN_CD || federalGrant.FIN_TFN_CD;
+
+// 10/11/2025 - Não é possível modificar a finalidade principal
+objectToSend.FIN_TFN_CD = federalGrant.FIN_TFN_CD;
+```
+        Vou esperar a edição de hoje. Interferência 627.
+
+        No processo 197001817/2010 fiz a edição mantendo em FIN_CD E FIN_TFN_CD o valor do SNIRH.
 
 
+## 01/12/2025
+- [X] Precisei atualizar o arquivo do CNARH e verificar se haviam items repetidos. Verifiquei 10 items.
+    Passos: 
+        Baixei a planilha no site `https://www2.snirh.gov.br/cnarh40/restrito/carga_planilha.jsf`.
+        Atualizei o arquivo e os items repetidos com o comando `node backend/utils/convert-csv-to-json-and-write.js`.
 
 
+- [] Atualizar dados do cnarh automaticamente: `node ./backend/utils/update-snirh-files.js`.
 
+
+- [] Adicionar a coluna int_cd_cnarh como int_cd no arquivo ao buscar uma outorga para editar.
+
+
+## 02/12/2025
+
+- [] Verificar retorno search closest points
+    Se não for outorga ainda estudada, como lançamento, retornar array vazia, [].
+
+- [] Buscar todos os dados do CNARH `node backend/tests/snirh-fetch.test.js`
+
+
+## 15/12/2025
+- [] Regra 16 - Serviços - SQL
+    Mudar esta regra para 99. Verificar erros no cnarh. Me parece que não precisa colocar nada como serviços, pois esta finalidade é só
+    para poços de monitoramento.
+
+```
+WHEN S.ID_TIPO_FINALIDADE = 11 AND (SUBFINALIDADE NOT LIKE '%LAVAGEM DE VEÍCULOS%' AND SUBFINALIDADE NOT LIKE '%LAVANDERIA%')
+    THEN 16 para 99
+```
+
+Id dos errados, adicionar para finalidade 99 OU outra solução: 
+
+```
+--AND A.ID_INTERFERENCIA  IN (18068,16724, 17978, 4929, 17892, 14647, 7017, 17807, 3272, 17802, 16788, 16751, 16306, 16398, 9889, 15007, 17944, 17943, 17944, 17943)
+```
+Adiciona no Snirh a finalidade de maior consumo, visto que só pode adicionar uma finalidade.
+
+## 16/12/2025
+
+- [] Edições
+    Me parece que ao editar outorgas sem o número do processo salvo no Cnarh, tem que salvar também cep, telefone, endereço. Todos estes dados de 
+    caráter obrigatório. Se não houver estes dados criar genéricos para cep etc. Como é feito no email que tem um e-mail genérico.
 
 

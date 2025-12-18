@@ -364,7 +364,7 @@ const dictionary = {
         exemplo: 3,
         unidade: "-",
         anexo: 7,
-        comentarios: "CODIGO IDENTIFICADOR DO TIPO DE OUTRO USO. SOMENTE SE FIN_TFN_CD = 99."
+        comentarios: "CODIGO IDENTIFICADOR DO TIPO DE OUTRO USO. SOMENTE SE FIN_TFN_CD = 99. Na planilha de edição: OTO_CD"
     },
     SIR_TSI_CD: {
         nomeColuna: "SIR_TSI_CD",

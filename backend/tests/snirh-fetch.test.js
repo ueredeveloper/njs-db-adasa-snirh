@@ -10,7 +10,7 @@ const years = [
     "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018",
     "2019", "2020", "2021", "2022", "2023", "2024", "2025"
 ];
-const pages = [1, 2, 3, 4, 5];
+const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 
 const exportCsv = async (params) => {
@@ -62,7 +62,7 @@ const runTest = async () => {
                 idSituacaoOutorga: "",
                 idFinalidade: "",
                 pagina: page,
-                tamanhoPagina: 700
+                tamanhoPagina: 1000
             };
 
             console.log(`🔎 Buscando ano=${year}, página=${page}...`);

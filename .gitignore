@@ -142,3 +142,6 @@ backend/data/*.csv
 
 #
 verificacoes-de-erro
+
+# Revisão de dados, edições e persistências que não deram certo, etc.
+revisions.md

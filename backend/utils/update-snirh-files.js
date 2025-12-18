@@ -158,8 +158,11 @@ const updateSnirhFiles = async () => {
         });
     });
 
-    // Limit number of requests for test speed
-    const items = desktopDb.slice(0, 100);
+    // Limite de dados do banco capturados para edição
+    let lenDB = 1000;
+    // Quando atingir tantos registros, enviar para o SNIRH
+    let lenToEdit = 10;
+    const items = desktopDb.slice(200, lenDB);
 
     let toUpdateGrants = [];
 
@@ -200,6 +203,8 @@ const updateSnirhFiles = async () => {
                         federalGrant: federalGrant
                     };
 
+                   
+
                     toUpdateGrants.push(toUpdate);
 
                 }
@@ -208,6 +213,8 @@ const updateSnirhFiles = async () => {
 
             // Se houver relacionamento, procurar pelo id da outorga na Adasa
         } else {
+
+            console.log('buscar pelo tipo de interferencia ', ID_TIPO_INTERFERENCIA)
 
             const stateGrants = await fetchPointByTypeAndId(ID_TIPO_INTERFERENCIA, INT_CD_ORIGEM);
 
@@ -232,8 +239,8 @@ const updateSnirhFiles = async () => {
 
         }
 
-        // Quando atingir 10 registros, enviar para o SNIRH
-        if (toUpdateGrants?.length === 30) {
+        // Quando atingir tantos registros, enviar para o SNIRH
+        if (toUpdateGrants?.length === lenToEdit) {
 
             let response = await fetchSNIRHUpdate(toUpdateGrants)
 
@@ -270,7 +277,7 @@ const updateSnirhFiles = async () => {
 
     } // fim loop
 
-    console.log(errors)
+    console.log('errors ', errors)
 
 }
 
