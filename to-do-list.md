@@ -378,3 +378,32 @@ Adiciona no Snirh a finalidade de maior consumo, visto que só pode adicionar um
     caráter obrigatório. Se não houver estes dados criar genéricos para cep etc. Como é feito no email que tem um e-mail genérico.
 
 
+## 07/01/2026
+- [] No caso da Caesb, no arquivo `compare-and-write-list-grants-for-update` tive que fazer uma mudança no código. 
+
+ ```
+
+objectToSend.FIN_CD = federalGrant.FIN_TFN_CD, ao invés de: federalGrant.FIN_CD
+
+objectToSend.FIN_TFN_CD = 99 ou 1  ao invés de: federalGrant.FIN_TFN_CD;
+
+```
+
+Se a finalidade for outras, poço de monitoramento FIN_TFN_CD = 99  15 FOU_TOU_CD = 15 TNP_CD = 6
+
+Ex: 
+
+```
+
+federalGrant =
+{ 
+    FIN_CD: "0"
+    FIN_TFN_CD: "716257"
+}
+
+stateGrant = {
+    FIN_CD: "0"
+    FIN_TFN_CD: "99"
+}
+
+```

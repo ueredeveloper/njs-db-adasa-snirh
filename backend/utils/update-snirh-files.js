@@ -159,10 +159,10 @@ const updateSnirhFiles = async () => {
     });
 
     // Limite de dados do banco capturados para edição
-    let lenDB = 1000;
+    let lenDB = 5000;
     // Quando atingir tantos registros, enviar para o SNIRH
     let lenToEdit = 10;
-    const items = desktopDb.slice(200, lenDB);
+    const items = desktopDb.slice(4000, lenDB);
 
     let toUpdateGrants = [];
 

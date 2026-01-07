@@ -15,8 +15,7 @@ const papa = require('papaparse');
 
 router.get('/snirh-export-csv', async (req, res) => {
 
- 
-
+  console.log('export to csv ')
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
 
   let { uf, idFinalidade, dataInicio, dataFim, idDominialidade, idTipoOutorga, idSituacaoOutorga, pagina, tamanhoPagina } = req.query;
@@ -36,7 +35,8 @@ router.get('/snirh-export-csv', async (req, res) => {
     let response = await fetch(url, {
       method: 'GET',
       headers: {
-        "Content-Type": "text/csv; charset=utf-8",
+       // "Content-Type": "text/csv; charset=utf-8", 06/01/2025 remove utf 8
+        "Content-Type": "text/csv;",
         'Authorization': SNIRH_TOKEN,
       }
     })
@@ -48,17 +48,16 @@ router.get('/snirh-export-csv', async (req, res) => {
       })
       .then(text => {
 
-        // Converte de ISO-8859-1 para UTF-8
-        let utf8Text = iconv.decode(Buffer.from(text, 'binary'), 'utf-8');
+        // Converte de ISO-8859-1 para UTF-8 - Pelo visto não precisa converter, já vem em utf-8 do banco quando salva em ISO-8859-1
+        //let utf8Text = iconv.decode(Buffer.from(text, 'binary'), 'utf-8');
 
         //retorna conversão de csv para json.
-        return papa.parse(utf8Text, {
+        return papa.parse(text, {
           header: true,
           delimiter: ";"
         })
       })
       .catch(err => console.log(err));
-
 
     // Integrar com arquivo existente
     readSnirhFile((err, oldData) => {
@@ -101,8 +100,6 @@ router.get('/snirh-export-csv', async (req, res) => {
       }
 
     });
-
-     console.log('export csv ', response.length)
 
     res.send(response);
 

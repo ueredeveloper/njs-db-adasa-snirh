@@ -49,7 +49,9 @@ const compareAndWriteListGrantsForUpdate = async (toUpdateGrants, currentTimesta
                         objectToSend[key] = cpfCnpj;
 
                         if (objectToSend[key].includes("##")) {
-                            console.log("o número inclui dois ##, cpf:", objectToSend[key], "processo:", objectToSend.OUT_NU_PROCESSO);
+                            console.log("O número inclui dois ##, CPF/CNPJ: ", objectToSend[key], 
+                                "Processo: ", objectToSend.OUT_NU_PROCESSO, 
+                                "Nome: ", objectToSend.EMP_NM_RESPONSAVEL, "INT_CD: ", objectToSend.INT_CD);
                         }
 
                         //Converte data para formato dos SNIRH, 2015-01-02 => 02/01/2015    
@@ -71,9 +73,13 @@ const compareAndWriteListGrantsForUpdate = async (toUpdateGrants, currentTimesta
                 // 10/11/2025 - Não é possível modificar a finalidade principal
                 objectToSend.FIN_TFN_CD = federalGrant.FIN_TFN_CD;
 
-
                 // Este dado vem do SNIRH
                 objectToSend.SIR_CD === '' ? objectToSend.SIR_CD = federalGrant.SIR_CD : null;
+
+                --
+                // TIPO DE OUTRO USO. SOMENTE SE FIN_TFN_CD = 99. Em caso finalidade = 99, outros. Ex: piezômetro, OTO_CD = 15.
+                objectToSend.OTO_CD = federalGrant.OTO_CD
+
                 // Estes dados são no caso de id finalidade 5, irrigação
                 //objectToSend.SIR_TSI_CD === '' ? objectToSend.SIR_TSI_CD = federalGrant.SIR_TSI_CD : null;
                 //objectToSend.SIR_TCT_CD === '' ? objectToSend.SIR_TCT_CD = federalGrant.SIR_TCT_CD : null;
