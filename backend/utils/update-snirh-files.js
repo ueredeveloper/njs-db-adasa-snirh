@@ -7,6 +7,10 @@ app.use(cors());
 const { readSnirhFile } = require("../utils/read-write-and-verify-file");
 const { selectByParam, selectClosestPoints } = require('../services');
 
+/**
+ * Como usar: node ./backend/utils/update-snirh-files.js
+ */
+
 const getInterferenceType = (INT_TIN_CD, INT_TSU_CD) => {
 
     /* 
@@ -146,9 +150,7 @@ const snirhError = async (params) => {
         console.error('Error:', error);
     }
 }
-/**
- * Como usar: node ./backend/utils/update-snirh-files.js
- */
+
 const updateSnirhFiles = async () => {
 
     const desktopDb = await new Promise((resolve, reject) => {
@@ -158,11 +160,19 @@ const updateSnirhFiles = async () => {
         });
     });
 
+    console.log("tamanho do banco: ", desktopDb.length)
+
+    // Valor de inicialiação. Normalmente 0, para iniciar do princípio do banco.
+     let initValue = 0;
     // Limite de dados do banco capturados para edição
-    let lenDB = 5000;
+    let lenDB = 13000;
+   
     // Quando atingir tantos registros, enviar para o SNIRH
     let lenToEdit = 10;
-    const items = desktopDb.slice(4000, lenDB);
+    const items = desktopDb.slice(initValue, lenDB);
+
+
+    console.log('inicio da edição: ', initValue, 'até valor: ', lenDB, 'tamanho do csv para edição: ', lenToEdit)
 
     let toUpdateGrants = [];
 
@@ -203,18 +213,14 @@ const updateSnirhFiles = async () => {
                         federalGrant: federalGrant
                     };
 
-                   
-
                     toUpdateGrants.push(toUpdate);
 
                 }
 
             }
 
-            // Se houver relacionamento, procurar pelo id da outorga na Adasa
+        // Se houver relacionamento, procurar pelo id da outorga na Adasa
         } else {
-
-            console.log('buscar pelo tipo de interferencia ', ID_TIPO_INTERFERENCIA)
 
             const stateGrants = await fetchPointByTypeAndId(ID_TIPO_INTERFERENCIA, INT_CD_ORIGEM);
 
@@ -255,15 +261,15 @@ const updateSnirhFiles = async () => {
 
                 let errorResponse = await snirhError(params);
 
-                console.log('errorResponse: ', errorResponse,
+               /* console.log('errorResponse: ', errorResponse,
                     'snirh id: ', INT_CD, 'adasa id: ',
                     stateGrant.INT_CD_ORIGEM, 'processo: ',
-                    stateGrant.OUT_NU_PROCESSO, 'cpf: ', stateGrant.EMP_NU_CPFCNPJ);
+                    stateGrant.OUT_NU_PROCESSO, 'cpf: ', stateGrant.EMP_NU_CPFCNPJ);*/
 
-                    errors.push({processo: stateGrant.OUT_NU_PROCESSO, cpf: stateGrant.EMP_NU_CPFCNPJ})
+                    errors.push({Processo: stateGrant.OUT_NU_PROCESSO, "CPF/CNPJ": stateGrant.EMP_NU_CPFCNPJ, error: errorResponse})
 
                 if (response?.mensagem) {
-                    console.log('mensagem ', response.mensagem);
+                    console.log('mensagem: ', response.mensagem);
                 }
 
                 // console.log(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant));

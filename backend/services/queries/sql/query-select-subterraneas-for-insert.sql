@@ -352,7 +352,8 @@
 
         U.TP_PENETR_AQUIF AS ASB_TPN_CD,
 
-        U.CONDICAO_AQUIF AS ASB_TCA_CD,
+        --U.CONDICAO_AQUIF AS ASB_TCA_CD, Não é cadastrado na Adasa
+        '' AS ASB_TCA_CD,
 
         CASE
             WHEN U.PROFUN_POCO IS NULL

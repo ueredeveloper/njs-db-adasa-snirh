@@ -1,4 +1,5 @@
 import localDbSelectClosestPoints from "../services/local-db-select-closest-points";
+import localDBSelectPointByTypeAndId from "../services/local-db-select-point-by-type-and-id";
 
 
 const StateGrantsModel = {
@@ -162,6 +163,10 @@ const StateGrantsModel = {
         let data = await localDbSelectClosestPoints(latitude, longitude, ti);
         return data
     },
+    localDBSelectPointByTypeAndId: async function (ti, id) {
+         let data = await localDBSelectPointByTypeAndId(ti, id);
+        return data
+    }
 }
 
 export default StateGrantsModel;

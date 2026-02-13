@@ -76,7 +76,7 @@ const compareAndWriteListGrantsForUpdate = async (toUpdateGrants, currentTimesta
                 // Este dado vem do SNIRH
                 objectToSend.SIR_CD === '' ? objectToSend.SIR_CD = federalGrant.SIR_CD : null;
 
-                --
+                
                 // TIPO DE OUTRO USO. SOMENTE SE FIN_TFN_CD = 99. Em caso finalidade = 99, outros. Ex: piezômetro, OTO_CD = 15.
                 objectToSend.OTO_CD = federalGrant.OTO_CD
 

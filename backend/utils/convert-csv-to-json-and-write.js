@@ -139,7 +139,7 @@ let dataExample = {
 }
 
 // Usage example:
-convertCSVToJSON('./backend/data/csv/cnarh/exportacao_cnarh40_DF-011225.csv', './backend/data/json/exportacao_cnarh40_DF.json')
+convertCSVToJSON('./backend/data/csv/cnarh/exportacao_cnarh40_DF.csv', './backend/data/json/exportacao_cnarh40_DF.json')
     .then((jsonData) => {
         console.log("CSV successfully converted to JSON and written to file.");
     })

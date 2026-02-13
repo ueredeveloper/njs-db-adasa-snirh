@@ -51,6 +51,8 @@ router.get('/snirh-export-csv', async (req, res) => {
         // Converte de ISO-8859-1 para UTF-8 - Pelo visto não precisa converter, já vem em utf-8 do banco quando salva em ISO-8859-1
         //let utf8Text = iconv.decode(Buffer.from(text, 'binary'), 'utf-8');
 
+        
+
         //retorna conversão de csv para json.
         return papa.parse(text, {
           header: true,

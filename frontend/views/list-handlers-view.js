@@ -1,9 +1,12 @@
+
 import StateGrantsModel from "../models/state-grants-model";
+
 import snirhError from "../services/snirh-error";
 import snirhUpdate from "../services/snirh-update";
 import toUpdateGrants from "../shared/to-update-grants";
-import { getInterferenceType } from "../utils";
+
 import { filterColumns } from "../utils/filter-columns";
+import { getInterferenceType } from "../utils/get-interference-type";
 import FederalView from "./federal-view";
 
 function generateErrorMessage(message, federalGrant, stateGrant) {
@@ -80,7 +83,11 @@ const ListHandlersView = {
                     try {
                         let stateGrants = await StateGrantsModel.localDbSelectClosestPoints(latitude.replace("#", ""), longitude.replace("#", ""), ti);
 
+
                         if (stateGrants && stateGrants.length > 0) {
+
+                            console.log("iniciando atualização por posição próxima na adasa")
+                            
                             function isSamePoint(distance, threshold) {
                                 return distance <= threshold;
                             }
@@ -103,6 +110,8 @@ const ListHandlersView = {
                                     stateGrant: stateGrant,
                                     federalGrant: federalGrant
                                 }];
+
+
 
                                 let response = await snirhUpdate('DF', toUpdate);
 
@@ -131,7 +140,59 @@ const ListHandlersView = {
 
 
                 } else {
-                    console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM} não será atualizada!`);
+
+                    console.log('iniciando atualização por id na adasa')
+
+                    let ti = getInterferenceType(federalGrant.INT_TIN_CD, federalGrant.INT_TSU_CD);
+
+                    // Se superficial ou subterrâneo
+                    if (ti === 1 || ti === 2) {
+
+                        let stateGrants = await StateGrantsModel.localDBSelectPointByTypeAndId(ti, federalGrant.INT_CD_ORIGEM);
+
+                        if (stateGrants && stateGrants.length > 0) {
+
+                            // Capturar o primeiro resultado
+                            let stateGrant = stateGrants[0];
+
+                            // Transformar todos atributos para string. É necessário para a aceitação do SNIRH.
+                            for (let key in stateGrant) {
+                                stateGrant[key] = String(stateGrant[key]);
+                            }
+                            for (let key in federalGrant) {
+                                federalGrant[key] = String(federalGrant[key]);
+                            }
+
+                            let toUpdate = [{
+                                stateGrant: stateGrant,
+                                federalGrant: federalGrant
+                            }];
+
+                            let response = await snirhUpdate('DF', toUpdate);
+
+                            if (response && response.sucesso) {
+                                console.log(response.mensagem);
+                            } else {
+                                let params = {
+                                    uf: 'DF',
+                                    idArquivoErro: response.idArquivoErro
+                                };
+                                let errorResponse = await snirhError(params);
+
+                                cpfcnpjResultsError.add(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant))
+                                console.log(cpfcnpjResultsError)
+                                // console.log(generateErrorMessage('Erro: ' + errorResponse, federalGrant, stateGrant));
+                            }
+
+
+
+                        }
+
+                    }
+
+
+
+                    //console.log(`Outorga federal, id ${federalGrant.INT_CD}, relacionada outorga estadual, id ${federalGrant.INT_CD_ORIGEM} não será atualizada!`);
                 }
             }
 

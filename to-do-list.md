@@ -407,3 +407,26 @@ stateGrant = {
 }
 
 ```
+
+## 15/01/2026
+- [] Condição do Aquífero
+    A condição do aquífero não é cadastrada na Adasa.
+```
+ANEXO 12 - ASB_TCA_CD - CÓDIGO IDENTIFICADOR DO TIPO DE CONDIÇÃO DO AQUÍFERO: 
+    Código Descrição 1 Livre 2 Confinado 3 Semi-livre 4 Semi-confinado 
+```
+No sql de inserção foi removido este dado:
+
+```
+
+--U.CONDICAO_AQUIF AS ASB_TCA_CD,
+...
+ON A.ID_INTERFERENCIA = T.ID_INTERFERENCIA
+        INNER JOIN gisadmin.POCO U
+        ON A.ID_INTERFERENCIA = U.ID_INTERFERENCIA
+        
+ ```
+- [] Codificação UTF-8 NA INSERÇÃO
+    Para funcionar o CSV tem estar convertido para ISO-8859-1, verificar no csv se os acentos estão assim: RAFAEL CARVALHO DE ARA�JO
+
+

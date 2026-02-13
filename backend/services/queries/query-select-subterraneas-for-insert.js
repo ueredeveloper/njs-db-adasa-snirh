@@ -22,8 +22,8 @@ const querySelectSubterraneasForInsert = (ids) => {
 		(81), (82), (83), (84), (85), (86), (87), (88), (89),
 		(91), (92), (93), (94), (95), (96), (97), (98), (99);
 
-        SELECT 1 as INT_TIN_CD, 
-
+        SELECT 
+        1 as INT_TIN_CD, 
         A.ID_TIPO_INTERFERENCIA AS INT_TSU_CD, 
         '' AS INT_TSI_CD,
         REPLACE(CAST(A.LATITUDE AS VARCHAR),'.',',') AS INT_CR_LATITUDE,
@@ -357,7 +357,9 @@ const querySelectSubterraneasForInsert = (ids) => {
 
         U.TP_PENETR_AQUIF AS ASB_TPN_CD,
 
-        U.CONDICAO_AQUIF AS ASB_TCA_CD,
+        -- Não é cadastrado a condição do aquífero
+        --U.CONDICAO_AQUIF AS ASB_TCA_CD,
+        '' AS ASB_TCA_CD,
 
         CASE
             WHEN U.PROFUN_POCO IS NULL

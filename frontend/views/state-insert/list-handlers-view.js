@@ -39,6 +39,8 @@ const ListHandlersView = {
 
                 let results = await desktopDbSearchByParams(params);
 
+                console.log(results)
+
                 // Não encontrou a outorga no desktop db
                 if (results.length === 0) {
 

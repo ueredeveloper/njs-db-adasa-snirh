@@ -10,6 +10,11 @@ const { compareAndWriteListOfStateForInsert } = require('../../utils/compare-and
 
 const router = express.Router();
 
+
+/*
+  15/01/2026 - Este método ainda não está inserindo os dados com os acentos. Os acentos só estão sendo bem inseridos na edição.
+  */
+
 router.post('/inserir', async (req, res) => {
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
   let url = `${SNIRH_URL}/rest/api/inserir?uf=DF`;

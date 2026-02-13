@@ -12,6 +12,7 @@ require('dotenv').config();
 
 
 router.post('/update', async (req, res) => {
+
   // Chaves de acesso
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
   // Link de acesso

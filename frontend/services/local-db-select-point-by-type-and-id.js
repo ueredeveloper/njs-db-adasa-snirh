@@ -10,10 +10,10 @@
 
 const localDBSelectPointByTypeAndId = async (ti, id) => {
 
+    //`http://localhost:3000/services/select-point-by-type-and-id?ti=${ti}&id=${id}`
+
     // Constructing the URL with parameters
-    let url = new URL(`http://localhost:3000/services/select-point-by-type-and-id`);
-    url.searchParams.append('ti', ti);
-    url.searchParams.append('id', id);
+    let url = new URL(`http://localhost:3000/services/select-point-by-type-and-id?ti=${ti}&id=${id}`);
 
     try {
         const response = await fetch(url, {
