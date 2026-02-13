@@ -1,0 +1,303 @@
+new Set([
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925409",
+        "ADASA": "723",
+        "Nome": "JOAQUIM PINTO RAMOS",
+        "Endereço": "CHÁCARA RAMOS",
+        "CPF/CNPJ": "#1024302172",
+        "Processo": "197001169/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925708",
+        "ADASA": "668",
+        "Nome": "SEAGRI",
+        "Endereço": "SMPW QUADRA 17",
+        "CPF/CNPJ": "#",
+        "Processo": "197000235/2011"
+    }
+])
+
+
+new Set([
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924920",
+        "ADASA": "488",
+        "Nome": "DIOMAR JORGE DA SILVA DE SOUZA",
+        "Endereço": "CHÁCARA 124",
+        "CPF/CNPJ": "#9910042134",
+        "Processo": "197001430/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924921",
+        "ADASA": "236",
+        "Nome": "LUIZ MELO",
+        "Endereço": "FAZENDA SÃO JOSÉ, COMUNIDADE JIBÓIA (PONTO 2)",
+        "CPF/CNPJ": "#923125272",
+        "Processo": "190000469/2003"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924933",
+        "ADASA": "158",
+        "Nome": "JOAQUIM GOMES DE SOUZA",
+        "Endereço": "FAZENDA TABOQUINHA, QUINHÃO 04,  GLEBAS 20/21/23/26/29",
+        "CPF/CNPJ": "#5983398172",
+        "Processo": "197001435/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924936",
+        "ADASA": "239",
+        "Nome": "JULEMAR NERES SANTANA",
+        "Endereço": "CHÁCARA JIBÓIA N° 18 (PONTO 1)",
+        "CPF/CNPJ": "#5734185191",
+        "Processo": "197000291/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924948",
+        "ADASA": "212",
+        "Nome": "LAÉCIO DA MOTA RODRIGUES",
+        "Endereço": "BR 020, KM 49, CHÁCARA 79, LOTE 13",
+        "CPF/CNPJ": "#725062614",
+        "Processo": "197001469/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924962",
+        "ADASA": "829",
+        "Nome": "SECRETARIA DE AGRICULTURA E DESENVOLVIMENTO RURAL DO DF",
+        "Endereço": "RODOVIA DF-003, KM 30, GRANJA MODELO DO IPÊ, QUADRA 08, CONJUNTO 03",
+        "CPF/CNPJ": "# ",
+        "Processo": "197000267/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924992",
+        "ADASA": "216",
+        "Nome": "REVALINO FRANCISCO SIMÕES",
+        "Endereço": "ÁREA D, MÓDULO 17/2",
+        "CPF/CNPJ": "#2436191115",
+        "Processo": "197001140/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "924995",
+        "ADASA": "206",
+        "Nome": "EDUARDO FELIPE PIENIZ",
+        "Endereço": "CHÁCARA Nº 12",
+        "CPF/CNPJ": "#2567886184",
+        "Processo": "197000983/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925031",
+        "ADASA": "254",
+        "Nome": "JOÃO FERNANDES RIBEIRO",
+        "Endereço": "COLÔNIA AGRÍCOLA CARIRU, CHÁCARA 04",
+        "CPF/CNPJ": "#2630594807",
+        "Processo": "197000888/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925037",
+        "ADASA": "227",
+        "Nome": "MANOEL JUVENAL DA SILVA",
+        "Endereço": "CHÁCARA MONTE SIÃO, Nº 235",
+        "CPF/CNPJ": "#845809172",
+        "Processo": "197000356/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925044",
+        "ADASA": "169",
+        "Nome": "JUVENIL ANTÔNIO CENCI",
+        "Endereço": "FAZENDA MARAGATO, ÁREA C MÓDULO 28 (PIVO E)",
+        "CPF/CNPJ": "#1,18E+11",
+        "Processo": "197001050/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925053",
+        "ADASA": "155",
+        "Nome": "ANTÔNIO COSTA FILHO",
+        "Endereço": "CHÁCARA 01, MD 11",
+        "CPF/CNPJ": "#6804128320",
+        "Processo": "197001607/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925109",
+        "ADASA": "361",
+        "Nome": "GENÉSIO ANTÔNIO MULLER",
+        "Endereço": "CHÁCARA Nº 53",
+        "CPF/CNPJ": "#22103879049",
+        "Processo": "197000114/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925114",
+        "ADASA": "678",
+        "Nome": "FRANCISCO HONORATO GOMES DE SOUSA - ME",
+        "Endereço": "RODOVIA DF-075, KM 08, CHÁCARA II",
+        "CPF/CNPJ": "# ",
+        "Processo": "197000765/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925135",
+        "ADASA": "238",
+        "Nome": "LUIZ MELO",
+        "Endereço": "FAZENDA SÃO JOSÉ, COMUNIDADE JIBÓIA (PONTO 3)",
+        "CPF/CNPJ": "#923125272",
+        "Processo": "190000469/2003"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925137",
+        "ADASA": "340",
+        "Nome": "HOTEL FAZENDA E AGROPECUÁRIA ÁGUAS EMENDADAS LTDA",
+        "Endereço": "ÁREA ISOLADA SÍTIO NOVO, LOTE 04",
+        "CPF/CNPJ": "# ",
+        "Processo": "197000250/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925147",
+        "ADASA": "641",
+        "Nome": "DEMETRIOS CHRISTOFIDIS",
+        "Endereço": "SMPW QUADRA 21, CONJUNTO 02 LOTE 10",
+        "CPF/CNPJ": "#3021777104",
+        "Processo": "197000665/2011"
+    },
+  
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925247",
+        "ADASA": "240",
+        "Nome": "JULEMAR NERES SANTANA",
+        "Endereço": "CHÁCARA JIBOIA N° 18 (PONTO 2)",
+        "CPF/CNPJ": "#5734185191",
+        "Processo": "197000291/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925347",
+        "ADASA": "180",
+        "Nome": "MARCONI NEIVA MIRANDA",
+        "Endereço": "DF 230, KM 02, GLEBA D, CHÁCARA 03",
+        "CPF/CNPJ": "#9810862172",
+        "Processo": "197001418/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925409",
+        "ADASA": "723",
+        "Nome": "JOAQUIM PINTO RAMOS",
+        "Endereço": "CHÁCARA RAMOS",
+        "CPF/CNPJ": "#1024302172",
+        "Processo": "197001169/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925455",
+        "ADASA": "722",
+        "Nome": "JOÃO TITO RIBEIRO FILHO",
+        "Endereço": "BR 020, KM 18, CHÁCARA SÃO JOÃO",
+        "CPF/CNPJ": "#2881950191",
+        "Processo": "197000124/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925476",
+        "ADASA": "739",
+        "Nome": "JOSÉ FRANCO DE MORAIS",
+        "Endereço": "CHÁCARA 05",
+        "CPF/CNPJ": "#909335168",
+        "Processo": "197001260/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925539",
+        "ADASA": "335",
+        "Nome": "DEL REY ARTEFATOS CERÂMICOS LTDA",
+        "Endereço": "QUADRA 09, CHÁCARA 04, SETOR TRADICIONAL",
+        "CPF/CNPJ": "# ",
+        "Processo": "197000081/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925624",
+        "ADASA": "312",
+        "Nome": "AUGUSTO MARTIMON",
+        "Endereço": "CHÁCARA BONFIM, Nº 19",
+        "CPF/CNPJ": "#4647670163",
+        "Processo": "197001621/2010"
+    }
+])
+
+
+new Set([
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925196",
+        "ADASA": "667",
+        "Nome": "FAZENDA ÁGUA LIMPA - FAL/UNB",
+        "Endereço": "SMPW QUADRA 17, CONJUNTO 01 (PONTO 1)",
+        "CPF/CNPJ": "#38174000143",
+        "Processo": "197000235/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925843",
+        "ADASA": "666",
+        "Nome": "SEAGRI",
+        "Endereço": "SMPW QUADRA 17",
+        "CPF/CNPJ": "#",
+        "Processo": "197000235/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926678",
+        "ADASA": "5447",
+        "Nome": "CIRIO WILSON DOSE",
+        "Endereço": "RUA 07, CHACARA 147, NUCLEO RURAL LAGO OESTE (CHACARA MCMM)",
+        "CPF/CNPJ": "#23033009904",
+        "Processo": "197000439/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926948",
+        "ADASA": "5439",
+        "Nome": "ARY COSTA TAIRA",
+        "Endereço": "RUA 05, CHACARA 72, NUCLEO RURAL LAGO OESTE",
+        "CPF/CNPJ": "#65589701653",
+        "Processo": "197001021/2009"
+    }
+])
+
+
+new Set([
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1043614",
+        "ADASA": "6481",
+        "Nome": "VOTORANTIM CIMENTOS S.A",
+        "Endereço": "RODOVIA DF 150, KM 18 (POÇO 04)",
+        "CPF/CNPJ": "#1637895007498",
+        "Processo": "197000187/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045068",
+        "ADASA": "4929",
+        "Nome": "NJF INDÚSTRIA E COMÉRCIO LTDA",
+        "Endereço": "DF-130, KM 30, LINHA CAFÉ SEM TROCO",
+        "CPF/CNPJ": "#4920000000000",
+        "Processo": "197001162/2015"
+    }
+])

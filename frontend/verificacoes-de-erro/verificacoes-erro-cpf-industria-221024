@@ -1,0 +1,102 @@
+// Indústria 
+ [
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926649",
+        "ADASA": "2852",
+        "Nome": "FORNECEDORA DE AREIA BELA VISTA",
+        "Endereço": "RODOVIA DF 150, KM 2,5, CHÁCARA BELA VISTA, FAZ. PARANOAZINHO? ÁREA ISOLADA",
+        "CPF/CNPJ": "#01911452000183",
+        "Processo": "197001417/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "928003",
+        "ADASA": "7406",
+        "Nome": "TSUTOMU ONO",
+        "Endereço": "SMPW, NÚCLEO RURAL VARGEM BONITA, RUA 03, CHÁCARA 41",
+        "CPF/CNPJ": "#21434662181",
+        "Processo": "197000330/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1031299",
+        "ADASA": "6095",
+        "Nome": "INDÚSTRIA BRASILEIRA DE CONCRETO - INBRACOL",
+        "Endereço": "QUADRA 21, LOTES 20 A 58",
+        "CPF/CNPJ": "#0123376600260",
+        "Processo": "197000118/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1031592",
+        "ADASA": "8008",
+        "Nome": "PRODESIVO INDUSTRIA E COMERCIO LTDA",
+        "Endereço": "Q CSG 8, LOTE 9/2",
+        "CPF/CNPJ": "#26500600000000",
+        "Processo": "197001002/2016"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038938",
+        "ADASA": "8563",
+        "Nome": "VALDEMAR FLOR DA SILVA",
+        "Endereço": "SGA ÁREA ESPECIAL 11, LOTE 13, BR 020, KM 10",
+        "CPF/CNPJ": "#2936917115",
+        "Processo": "197000194/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044994",
+        "ADASA": "4958",
+        "Nome": "RECICLÁVEIS SOUSA LTDA",
+        "Endereço": "RODOVIA DF 290, KM 05, CHÁCARA 02 (POÇO 01)",
+        "CPF/CNPJ": "#9082690000000",
+        "Processo": "197000318/2016"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045049",
+        "ADASA": "4923",
+        "Nome": "NIPPOBRAS INDÚSTRIA, COMÉRCIO E EXPORTAÇÃO DE CARNES LTDA",
+        "Endereço": "FAZENDA PIPIRIPAU, RODOVIA DF-230, KM 10, MÓDULO 01",
+        "CPF/CNPJ": "#6060000000000",
+        "Processo": "197001207/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045139",
+        "ADASA": "4872",
+        "Nome": "VOTORANTIM CIMENTOS S.A",
+        "Endereço": "RODOVIA 150, KM 18 (POÇO 05)",
+        "CPF/CNPJ": "#1637895007498",
+        "Processo": "197000187/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153797",
+        "ADASA": "7928",
+        "Nome": "CENTRO OESTE ASFALTO S.A.",
+        "Endereço": "SETOR DE INFLAMÁVEIS, TRECHO 02 LOTE 1100",
+        "CPF/CNPJ": "#01593821000181",
+        "Processo": "19700003769/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155156",
+        "ADASA": "6441",
+        "Nome": "PETROENGE ENGENHARIA S.A.",
+        "Endereço": "NÚCLEO RURAL ALAGADOS, CHÁCARA 21",
+        "CPF/CNPJ": "#10199342000180",
+        "Processo": "197000062/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155181",
+        "ADASA": "4868",
+        "Nome": "REFRIGERANTES CERRADINHO LTDA",
+        "Endereço": "POLO INDUSTRIAL JK, TRECHO 01, CONJUNTO 08, LOTE 19 (POÇO 01)",
+        "CPF/CNPJ": "#3824850000000",
+        "Processo": "197000150/2011"
+    }
+];

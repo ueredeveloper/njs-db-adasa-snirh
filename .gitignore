@@ -111,7 +111,7 @@ dist
 .serverless/
 
 # Arquivos csv de inserção e edição
-backend/data/csv/
+backend/data/
 
 
 # FuseBox cache
@@ -133,15 +133,6 @@ backend/data/csv/
 .yarn/install-state.gz
 .pnp.*
 
-# Dados do SNIRH
-backend/data/snirh-files.json
-backend/data/merged-snirh.json
-backend/data/*.json
-backend/data/*.csv
-
-
-#
-verificacoes-de-erro
 
 # Revisão de dados, edições e persistências que não deram certo, etc.
 revisions.md

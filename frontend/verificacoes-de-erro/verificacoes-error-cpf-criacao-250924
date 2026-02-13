@@ -1,0 +1,1623 @@
+
+new Set([
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925294",
+        "ADASA": "602",
+        "Nome": "ARIENÁ NUNES DE SOUSA",
+        "Endereço": "FAZENDA BOCAINA, CHÁCARA NOSSA SENHORA APARECIDA",
+        "CPF/CNPJ": "#80221335158",
+        "Processo": "197000264/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925423",
+        "ADASA": "686",
+        "Nome": "GERALDO JACINTO NUNES",
+        "Endereço": "GLEBA 3 E 4, FAZENDA SANTO ANTONIO",
+        "CPF/CNPJ": "#9670920191",
+        "Processo": "197000962/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925577",
+        "ADASA": "688",
+        "Nome": "GILBERTO AIRTON ZENKNER",
+        "Endereço": "COLONÔNIA AGRÍCOLA DO CÓRREGO AGUILHADA, BR 251, FAZENDA PRIMAVERA II",
+        "CPF/CNPJ": "#969052715",
+        "Processo": "197000681/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926903",
+        "ADASA": "2833",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "FAZENDA PITOMBA, CHÁCARA 76/77",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197001375/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933261",
+        "ADASA": "7840",
+        "Nome": "JOSÉ MARTINS DE VASCONCELOS SOBRINHO",
+        "Endereço": "QUINTAS DO PIPIRIPAU II, CHÁCARA 23",
+        "CPF/CNPJ": "#91922203104",
+        "Processo": "19700002634/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933424",
+        "ADASA": "4000",
+        "Nome": "IVAN VITORIO PROLA",
+        "Endereço": "NÚCLEO RURAL ALAGADO, CHÁCARA 7",
+        "CPF/CNPJ": "#7024720000",
+        "Processo": "19700000148/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933426",
+        "ADASA": "2944",
+        "Nome": "JUVENIL ANTÔNIO CENCI",
+        "Endereço": "MÓDULO E, LOTE 06, FAZENDA UMBURAMA - DF 270 KM 4",
+        "CPF/CNPJ": "#1,18E+11",
+        "Processo": "197001054/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024731",
+        "ADASA": "1822",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP B)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024754",
+        "ADASA": "1823",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP C)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1031291",
+        "ADASA": "3579",
+        "Nome": "EDUARDO LUIZ CAMEIRO",
+        "Endereço": "CHÁCARA NÚMERO 13",
+        "CPF/CNPJ": "#146439104",
+        "Processo": "197000667/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038590",
+        "ADASA": "8622",
+        "Nome": "ROBERTO COVAS",
+        "Endereço": "GRANJA SANTO AMARO, DF-205, ENTRADA 07, LOTES 200 E 202",
+        "CPF/CNPJ": "#3803605865",
+        "Processo": "197001676/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038718",
+        "ADASA": "8435",
+        "Nome": "3 IRMÃOS MATERIAIS DE CONSTRUÇÃO LTDA",
+        "Endereço": "SITÍO 3 IRMÃOS, MARGEM ESQUERDA RODOVIA, DF 250, KM 07",
+        "CPF/CNPJ": "#00616839/0001",
+        "Processo": "19700002161/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038918",
+        "ADASA": "8530",
+        "Nome": "FLÁVIO AUGUSTO D' ARAÚJO COUTO",
+        "Endereço": "RODOVIA DF - 100, KM 37, MÓDULO G, SÍTIO CAMPO ALEGRE, LOTES 26 E 42",
+        "CPF/CNPJ": "#417009615",
+        "Processo": "197000485/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1040246",
+        "ADASA": "135",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "RODOVIA DF 250, KM. 21, CHÁCARA SINHÁ CRISTINA",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197000006/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044917",
+        "ADASA": "4750",
+        "Nome": "RUI CRISTINO BARBOSA",
+        "Endereço": "NÚCLEO RURAL BOA ESPERANÇA, RODOVIA DF-190, KM 02, FAZENDA SALTADOR",
+        "CPF/CNPJ": "#2880105153",
+        "Processo": "197000199/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044951",
+        "ADASA": "4933",
+        "Nome": "ABILIO CEZAR TARDIN",
+        "Endereço": "NÚCLEO RURAL TAQUARA, CHÁCARA 50",
+        "CPF/CNPJ": "#5136059834",
+        "Processo": "197000111/2016"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045058",
+        "ADASA": "4685",
+        "Nome": "MARIA HELENA DUTRA MAIA",
+        "Endereço": "NÚCLEO RURAL ALAGADOS, CHÁCARA NÚMERO 24",
+        "CPF/CNPJ": "#975869191",
+        "Processo": "197000562/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045089",
+        "ADASA": "4939",
+        "Nome": "AVICULTURA SAINT SIMON LTDA",
+        "Endereço": "FAZENDA RETIRO DO MEIO, RODOVIA BR-020, KM 44, NÚCLEO RURAL TAQUARA",
+        "CPF/CNPJ": "#8920000000000",
+        "Processo": "197000936/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045142",
+        "ADASA": "4924",
+        "Nome": "MARIO EUDES DE MEDEIROS FILHO",
+        "Endereço": "COLÔNIA AGRÍCOLA ESTANISLAU, CHÁCARA 16 - NÚCLEO RURAL TABATINGA",
+        "CPF/CNPJ": "#4975393140",
+        "Processo": "19700003189/2020"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045205",
+        "ADASA": "4907",
+        "Nome": "MARIA ZILA FROTA BEZERRA DE OLIVEIRA",
+        "Endereço": "ÁREA ISOLADA LAGOA BONITA S/N",
+        "CPF/CNPJ": "#932710182",
+        "Processo": "197001018/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045319",
+        "ADASA": "5869",
+        "Nome": "RAIMUNDO ALVES DE CARVALHO",
+        "Endereço": "QNA 45, CASA 13, TAGUATINGA NORTE",
+        "CPF/CNPJ": "#178837172",
+        "Processo": "197001156/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1051089",
+        "ADASA": "8713",
+        "Nome": "RAIMUNDO BEZERRA DE FARIAS",
+        "Endereço": "COLONIA AGRÍCOLA PONTE ALTA DE BAIXO, CHÁCARA 73",
+        "CPF/CNPJ": "#822019191",
+        "Processo": "197000829/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151172",
+        "ADASA": "1821",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP A)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151212",
+        "ADASA": "2143",
+        "Nome": "ROGERIO MONTENEGRO LAGUARDIA",
+        "Endereço": "NÚCLEO RURAL SOBRADINHO I, LOTE Nº 50",
+        "CPF/CNPJ": "#",
+        "Processo": "19700003795/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153619",
+        "ADASA": "3914",
+        "Nome": "ADAYL PAVECK URANGA",
+        "Endereço": "RODOVIA DF 190, KM 9.5(ANTIGO KM 14.5), GRANJA SANTA FÉ",
+        "CPF/CNPJ": "#1374540072",
+        "Processo": "19700003777/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153904",
+        "ADASA": "4042",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL SANTOS DUMONT, CHÁCARA 57",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000714/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153905",
+        "ADASA": "4043",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL TABATINGA, CHÁCARA 143",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000715/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153955",
+        "ADASA": "6627",
+        "Nome": "ELIAS VALMOR MARCHESE",
+        "Endereço": "DF 295, KM 09, NÚCLEO RURAL JARDIM II, MÓDULO B, LOTE 21, FAZENDA MANGA",
+        "CPF/CNPJ": "#804916004",
+        "Processo": "197001033/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153994",
+        "ADASA": "2913",
+        "Nome": "FELICIANO GARCIA SANTANA",
+        "Endereço": "DF-130, KM 26, NÚCLEO RURAL QUEBRADA DOS GUIMARÃES, LOTES 30 E 31",
+        "CPF/CNPJ": "#8191034891",
+        "Processo": "197000051/2006"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154051",
+        "ADASA": "4554",
+        "Nome": "GALDINO NUNES MELO",
+        "Endereço": "CHÁCARA 06 IRMÃOS, COLÔNIA AGRÍCOLA PONTE ALTA",
+        "CPF/CNPJ": "#1017349134",
+        "Processo": "197000839/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154220",
+        "ADASA": "4091",
+        "Nome": "LÚCIA MARIA PEREIRA ERVILHA",
+        "Endereço": "DF-280, KM 5,5 - FAZENDA SAMAMBAIA (POÇO 2)",
+        "CPF/CNPJ": "#5945194115",
+        "Processo": "197000286/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154976",
+        "ADASA": "4668",
+        "Nome": "MANOEL SCARTEZINI",
+        "Endereço": "RODOVIA DF-180, NÚMEROS 57/58, NÚCLEO RURAL TAGUATINGA",
+        "CPF/CNPJ": "#22780149",
+        "Processo": "197000250/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154992",
+        "ADASA": "3771",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154993",
+        "ADASA": "4955",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155229",
+        "ADASA": "3273",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 1)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155230",
+        "ADASA": "3274",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 2)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925294",
+        "ADASA": "602",
+        "Nome": "ARIENÁ NUNES DE SOUSA",
+        "Endereço": "FAZENDA BOCAINA, CHÁCARA NOSSA SENHORA APARECIDA",
+        "CPF/CNPJ": "#80221335158",
+        "Processo": "197000264/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925423",
+        "ADASA": "686",
+        "Nome": "GERALDO JACINTO NUNES",
+        "Endereço": "GLEBA 3 E 4, FAZENDA SANTO ANTONIO",
+        "CPF/CNPJ": "#9670920191",
+        "Processo": "197000962/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925577",
+        "ADASA": "688",
+        "Nome": "GILBERTO AIRTON ZENKNER",
+        "Endereço": "COLONÔNIA AGRÍCOLA DO CÓRREGO AGUILHADA, BR 251, FAZENDA PRIMAVERA II",
+        "CPF/CNPJ": "#969052715",
+        "Processo": "197000681/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926903",
+        "ADASA": "2833",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "FAZENDA PITOMBA, CHÁCARA 76/77",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197001375/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933261",
+        "ADASA": "7840",
+        "Nome": "JOSÉ MARTINS DE VASCONCELOS SOBRINHO",
+        "Endereço": "QUINTAS DO PIPIRIPAU II, CHÁCARA 23",
+        "CPF/CNPJ": "#91922203104",
+        "Processo": "19700002634/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933424",
+        "ADASA": "4000",
+        "Nome": "IVAN VITORIO PROLA",
+        "Endereço": "NÚCLEO RURAL ALAGADO, CHÁCARA 7",
+        "CPF/CNPJ": "#7024720000",
+        "Processo": "19700000148/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933426",
+        "ADASA": "2944",
+        "Nome": "JUVENIL ANTÔNIO CENCI",
+        "Endereço": "MÓDULO E, LOTE 06, FAZENDA UMBURAMA - DF 270 KM 4",
+        "CPF/CNPJ": "#1,18E+11",
+        "Processo": "197001054/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024731",
+        "ADASA": "1822",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP B)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024754",
+        "ADASA": "1823",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP C)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1031291",
+        "ADASA": "3579",
+        "Nome": "EDUARDO LUIZ CAMEIRO",
+        "Endereço": "CHÁCARA NÚMERO 13",
+        "CPF/CNPJ": "#146439104",
+        "Processo": "197000667/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038590",
+        "ADASA": "8622",
+        "Nome": "ROBERTO COVAS",
+        "Endereço": "GRANJA SANTO AMARO, DF-205, ENTRADA 07, LOTES 200 E 202",
+        "CPF/CNPJ": "#3803605865",
+        "Processo": "197001676/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038718",
+        "ADASA": "8435",
+        "Nome": "3 IRMÃOS MATERIAIS DE CONSTRUÇÃO LTDA",
+        "Endereço": "SITÍO 3 IRMÃOS, MARGEM ESQUERDA RODOVIA, DF 250, KM 07",
+        "CPF/CNPJ": "#00616839/0001",
+        "Processo": "19700002161/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038918",
+        "ADASA": "8530",
+        "Nome": "FLÁVIO AUGUSTO D' ARAÚJO COUTO",
+        "Endereço": "RODOVIA DF - 100, KM 37, MÓDULO G, SÍTIO CAMPO ALEGRE, LOTES 26 E 42",
+        "CPF/CNPJ": "#417009615",
+        "Processo": "197000485/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1040246",
+        "ADASA": "135",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "RODOVIA DF 250, KM. 21, CHÁCARA SINHÁ CRISTINA",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197000006/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044917",
+        "ADASA": "4750",
+        "Nome": "RUI CRISTINO BARBOSA",
+        "Endereço": "NÚCLEO RURAL BOA ESPERANÇA, RODOVIA DF-190, KM 02, FAZENDA SALTADOR",
+        "CPF/CNPJ": "#2880105153",
+        "Processo": "197000199/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044951",
+        "ADASA": "4933",
+        "Nome": "ABILIO CEZAR TARDIN",
+        "Endereço": "NÚCLEO RURAL TAQUARA, CHÁCARA 50",
+        "CPF/CNPJ": "#5136059834",
+        "Processo": "197000111/2016"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045058",
+        "ADASA": "4685",
+        "Nome": "MARIA HELENA DUTRA MAIA",
+        "Endereço": "NÚCLEO RURAL ALAGADOS, CHÁCARA NÚMERO 24",
+        "CPF/CNPJ": "#975869191",
+        "Processo": "197000562/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045089",
+        "ADASA": "4939",
+        "Nome": "AVICULTURA SAINT SIMON LTDA",
+        "Endereço": "FAZENDA RETIRO DO MEIO, RODOVIA BR-020, KM 44, NÚCLEO RURAL TAQUARA",
+        "CPF/CNPJ": "#8920000000000",
+        "Processo": "197000936/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045142",
+        "ADASA": "4924",
+        "Nome": "MARIO EUDES DE MEDEIROS FILHO",
+        "Endereço": "COLÔNIA AGRÍCOLA ESTANISLAU, CHÁCARA 16 - NÚCLEO RURAL TABATINGA",
+        "CPF/CNPJ": "#4975393140",
+        "Processo": "19700003189/2020"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045205",
+        "ADASA": "4907",
+        "Nome": "MARIA ZILA FROTA BEZERRA DE OLIVEIRA",
+        "Endereço": "ÁREA ISOLADA LAGOA BONITA S/N",
+        "CPF/CNPJ": "#932710182",
+        "Processo": "197001018/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045319",
+        "ADASA": "5869",
+        "Nome": "RAIMUNDO ALVES DE CARVALHO",
+        "Endereço": "QNA 45, CASA 13, TAGUATINGA NORTE",
+        "CPF/CNPJ": "#178837172",
+        "Processo": "197001156/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1051089",
+        "ADASA": "8713",
+        "Nome": "RAIMUNDO BEZERRA DE FARIAS",
+        "Endereço": "COLONIA AGRÍCOLA PONTE ALTA DE BAIXO, CHÁCARA 73",
+        "CPF/CNPJ": "#822019191",
+        "Processo": "197000829/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151172",
+        "ADASA": "1821",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP A)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151212",
+        "ADASA": "2143",
+        "Nome": "ROGERIO MONTENEGRO LAGUARDIA",
+        "Endereço": "NÚCLEO RURAL SOBRADINHO I, LOTE Nº 50",
+        "CPF/CNPJ": "#",
+        "Processo": "19700003795/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153619",
+        "ADASA": "3914",
+        "Nome": "ADAYL PAVECK URANGA",
+        "Endereço": "RODOVIA DF 190, KM 9.5(ANTIGO KM 14.5), GRANJA SANTA FÉ",
+        "CPF/CNPJ": "#1374540072",
+        "Processo": "19700003777/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153904",
+        "ADASA": "4042",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL SANTOS DUMONT, CHÁCARA 57",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000714/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153905",
+        "ADASA": "4043",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL TABATINGA, CHÁCARA 143",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000715/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153955",
+        "ADASA": "6627",
+        "Nome": "ELIAS VALMOR MARCHESE",
+        "Endereço": "DF 295, KM 09, NÚCLEO RURAL JARDIM II, MÓDULO B, LOTE 21, FAZENDA MANGA",
+        "CPF/CNPJ": "#804916004",
+        "Processo": "197001033/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153994",
+        "ADASA": "2913",
+        "Nome": "FELICIANO GARCIA SANTANA",
+        "Endereço": "DF-130, KM 26, NÚCLEO RURAL QUEBRADA DOS GUIMARÃES, LOTES 30 E 31",
+        "CPF/CNPJ": "#8191034891",
+        "Processo": "197000051/2006"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154051",
+        "ADASA": "4554",
+        "Nome": "GALDINO NUNES MELO",
+        "Endereço": "CHÁCARA 06 IRMÃOS, COLÔNIA AGRÍCOLA PONTE ALTA",
+        "CPF/CNPJ": "#1017349134",
+        "Processo": "197000839/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154220",
+        "ADASA": "4091",
+        "Nome": "LÚCIA MARIA PEREIRA ERVILHA",
+        "Endereço": "DF-280, KM 5,5 - FAZENDA SAMAMBAIA (POÇO 2)",
+        "CPF/CNPJ": "#5945194115",
+        "Processo": "197000286/2010"
+    },
+    {
+        "message": "Erro: {\"message\":\"Failed to fetch data from SNIRH\",\"status\":400,\"statusText\":\"Bad Request\",\"error\":\"{\\\"sucesso\\\":false,\\\"mensagem\\\":\\\"sistema.erro.problemawebservice\\\",\\\"listaPlanilha\\\":null,\\\"str\\\":null,\\\"resultadoEnvioPlanilha\\\":null,\\\"identificadorAcesso\\\":null,\\\"idArquivoErro\\\":null}\"}",
+        "SNIRH": "1154976",
+        "ADASA": "4668",
+        "Nome": "MANOEL SCARTEZINI",
+        "Endereço": "RODOVIA DF-180, NÚMEROS 57/58, NÚCLEO RURAL TAGUATINGA",
+        "CPF/CNPJ": "#22780149",
+        "Processo": "197000250/2011"
+    },
+    {
+        "message": "Erro: {\"message\":\"Failed to fetch data from SNIRH\",\"status\":400,\"statusText\":\"Bad Request\",\"error\":\"{\\\"sucesso\\\":false,\\\"mensagem\\\":\\\"sistema.erro.problemawebservice\\\",\\\"listaPlanilha\\\":null,\\\"str\\\":null,\\\"resultadoEnvioPlanilha\\\":null,\\\"identificadorAcesso\\\":null,\\\"idArquivoErro\\\":null}\"}",
+        "SNIRH": "1154992",
+        "ADASA": "3771",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: {\"message\":\"Failed to fetch data from SNIRH\",\"status\":400,\"statusText\":\"Bad Request\",\"error\":\"{\\\"sucesso\\\":false,\\\"mensagem\\\":\\\"sistema.erro.problemawebservice\\\",\\\"listaPlanilha\\\":null,\\\"str\\\":null,\\\"resultadoEnvioPlanilha\\\":null,\\\"identificadorAcesso\\\":null,\\\"idArquivoErro\\\":null}\"}",
+        "SNIRH": "1154993",
+        "ADASA": "4955",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155229",
+        "ADASA": "3273",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 1)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155230",
+        "ADASA": "3274",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 2)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925294",
+        "ADASA": "602",
+        "Nome": "ARIENÁ NUNES DE SOUSA",
+        "Endereço": "FAZENDA BOCAINA, CHÁCARA NOSSA SENHORA APARECIDA",
+        "CPF/CNPJ": "#80221335158",
+        "Processo": "197000264/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925423",
+        "ADASA": "686",
+        "Nome": "GERALDO JACINTO NUNES",
+        "Endereço": "GLEBA 3 E 4, FAZENDA SANTO ANTONIO",
+        "CPF/CNPJ": "#9670920191",
+        "Processo": "197000962/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925577",
+        "ADASA": "688",
+        "Nome": "GILBERTO AIRTON ZENKNER",
+        "Endereço": "COLONÔNIA AGRÍCOLA DO CÓRREGO AGUILHADA, BR 251, FAZENDA PRIMAVERA II",
+        "CPF/CNPJ": "#969052715",
+        "Processo": "197000681/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926903",
+        "ADASA": "2833",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "FAZENDA PITOMBA, CHÁCARA 76/77",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197001375/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933261",
+        "ADASA": "7840",
+        "Nome": "JOSÉ MARTINS DE VASCONCELOS SOBRINHO",
+        "Endereço": "QUINTAS DO PIPIRIPAU II, CHÁCARA 23",
+        "CPF/CNPJ": "#91922203104",
+        "Processo": "19700002634/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933424",
+        "ADASA": "4000",
+        "Nome": "IVAN VITORIO PROLA",
+        "Endereço": "NÚCLEO RURAL ALAGADO, CHÁCARA 7",
+        "CPF/CNPJ": "#7024720000",
+        "Processo": "19700000148/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933426",
+        "ADASA": "2944",
+        "Nome": "JUVENIL ANTÔNIO CENCI",
+        "Endereço": "MÓDULO E, LOTE 06, FAZENDA UMBURAMA - DF 270 KM 4",
+        "CPF/CNPJ": "#1,18E+11",
+        "Processo": "197001054/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024731",
+        "ADASA": "1822",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP B)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024754",
+        "ADASA": "1823",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP C)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1031291",
+        "ADASA": "3579",
+        "Nome": "EDUARDO LUIZ CAMEIRO",
+        "Endereço": "CHÁCARA NÚMERO 13",
+        "CPF/CNPJ": "#146439104",
+        "Processo": "197000667/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038590",
+        "ADASA": "8622",
+        "Nome": "ROBERTO COVAS",
+        "Endereço": "GRANJA SANTO AMARO, DF-205, ENTRADA 07, LOTES 200 E 202",
+        "CPF/CNPJ": "#3803605865",
+        "Processo": "197001676/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038718",
+        "ADASA": "8435",
+        "Nome": "3 IRMÃOS MATERIAIS DE CONSTRUÇÃO LTDA",
+        "Endereço": "SITÍO 3 IRMÃOS, MARGEM ESQUERDA RODOVIA, DF 250, KM 07",
+        "CPF/CNPJ": "#00616839/0001",
+        "Processo": "19700002161/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038918",
+        "ADASA": "8530",
+        "Nome": "FLÁVIO AUGUSTO D' ARAÚJO COUTO",
+        "Endereço": "RODOVIA DF - 100, KM 37, MÓDULO G, SÍTIO CAMPO ALEGRE, LOTES 26 E 42",
+        "CPF/CNPJ": "#417009615",
+        "Processo": "197000485/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1040246",
+        "ADASA": "135",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "RODOVIA DF 250, KM. 21, CHÁCARA SINHÁ CRISTINA",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197000006/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044917",
+        "ADASA": "4750",
+        "Nome": "RUI CRISTINO BARBOSA",
+        "Endereço": "NÚCLEO RURAL BOA ESPERANÇA, RODOVIA DF-190, KM 02, FAZENDA SALTADOR",
+        "CPF/CNPJ": "#2880105153",
+        "Processo": "197000199/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044951",
+        "ADASA": "4933",
+        "Nome": "ABILIO CEZAR TARDIN",
+        "Endereço": "NÚCLEO RURAL TAQUARA, CHÁCARA 50",
+        "CPF/CNPJ": "#5136059834",
+        "Processo": "197000111/2016"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045058",
+        "ADASA": "4685",
+        "Nome": "MARIA HELENA DUTRA MAIA",
+        "Endereço": "NÚCLEO RURAL ALAGADOS, CHÁCARA NÚMERO 24",
+        "CPF/CNPJ": "#975869191",
+        "Processo": "197000562/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045089",
+        "ADASA": "4939",
+        "Nome": "AVICULTURA SAINT SIMON LTDA",
+        "Endereço": "FAZENDA RETIRO DO MEIO, RODOVIA BR-020, KM 44, NÚCLEO RURAL TAQUARA",
+        "CPF/CNPJ": "#8920000000000",
+        "Processo": "197000936/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045142",
+        "ADASA": "4924",
+        "Nome": "MARIO EUDES DE MEDEIROS FILHO",
+        "Endereço": "COLÔNIA AGRÍCOLA ESTANISLAU, CHÁCARA 16 - NÚCLEO RURAL TABATINGA",
+        "CPF/CNPJ": "#4975393140",
+        "Processo": "19700003189/2020"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045205",
+        "ADASA": "4907",
+        "Nome": "MARIA ZILA FROTA BEZERRA DE OLIVEIRA",
+        "Endereço": "ÁREA ISOLADA LAGOA BONITA S/N",
+        "CPF/CNPJ": "#932710182",
+        "Processo": "197001018/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045319",
+        "ADASA": "5869",
+        "Nome": "RAIMUNDO ALVES DE CARVALHO",
+        "Endereço": "QNA 45, CASA 13, TAGUATINGA NORTE",
+        "CPF/CNPJ": "#178837172",
+        "Processo": "197001156/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1051089",
+        "ADASA": "8713",
+        "Nome": "RAIMUNDO BEZERRA DE FARIAS",
+        "Endereço": "COLONIA AGRÍCOLA PONTE ALTA DE BAIXO, CHÁCARA 73",
+        "CPF/CNPJ": "#822019191",
+        "Processo": "197000829/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151172",
+        "ADASA": "1821",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP A)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151212",
+        "ADASA": "2143",
+        "Nome": "ROGERIO MONTENEGRO LAGUARDIA",
+        "Endereço": "NÚCLEO RURAL SOBRADINHO I, LOTE Nº 50",
+        "CPF/CNPJ": "#",
+        "Processo": "19700003795/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153619",
+        "ADASA": "3914",
+        "Nome": "ADAYL PAVECK URANGA",
+        "Endereço": "RODOVIA DF 190, KM 9.5(ANTIGO KM 14.5), GRANJA SANTA FÉ",
+        "CPF/CNPJ": "#1374540072",
+        "Processo": "19700003777/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153904",
+        "ADASA": "4042",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL SANTOS DUMONT, CHÁCARA 57",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000714/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153905",
+        "ADASA": "4043",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL TABATINGA, CHÁCARA 143",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000715/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153955",
+        "ADASA": "6627",
+        "Nome": "ELIAS VALMOR MARCHESE",
+        "Endereço": "DF 295, KM 09, NÚCLEO RURAL JARDIM II, MÓDULO B, LOTE 21, FAZENDA MANGA",
+        "CPF/CNPJ": "#804916004",
+        "Processo": "197001033/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153994",
+        "ADASA": "2913",
+        "Nome": "FELICIANO GARCIA SANTANA",
+        "Endereço": "DF-130, KM 26, NÚCLEO RURAL QUEBRADA DOS GUIMARÃES, LOTES 30 E 31",
+        "CPF/CNPJ": "#8191034891",
+        "Processo": "197000051/2006"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154051",
+        "ADASA": "4554",
+        "Nome": "GALDINO NUNES MELO",
+        "Endereço": "CHÁCARA 06 IRMÃOS, COLÔNIA AGRÍCOLA PONTE ALTA",
+        "CPF/CNPJ": "#1017349134",
+        "Processo": "197000839/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154220",
+        "ADASA": "4091",
+        "Nome": "LÚCIA MARIA PEREIRA ERVILHA",
+        "Endereço": "DF-280, KM 5,5 - FAZENDA SAMAMBAIA (POÇO 2)",
+        "CPF/CNPJ": "#5945194115",
+        "Processo": "197000286/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154976",
+        "ADASA": "4668",
+        "Nome": "MANOEL SCARTEZINI",
+        "Endereço": "RODOVIA DF-180, NÚMEROS 57/58, NÚCLEO RURAL TAGUATINGA",
+        "CPF/CNPJ": "#22780149",
+        "Processo": "197000250/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154992",
+        "ADASA": "3771",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154993",
+        "ADASA": "4955",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155229",
+        "ADASA": "3273",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 1)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155230",
+        "ADASA": "3274",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 2)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925294",
+        "ADASA": "602",
+        "Nome": "ARIENÁ NUNES DE SOUSA",
+        "Endereço": "FAZENDA BOCAINA, CHÁCARA NOSSA SENHORA APARECIDA",
+        "CPF/CNPJ": "#80221335158",
+        "Processo": "197000264/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925423",
+        "ADASA": "686",
+        "Nome": "GERALDO JACINTO NUNES",
+        "Endereço": "GLEBA 3 E 4, FAZENDA SANTO ANTONIO",
+        "CPF/CNPJ": "#9670920191",
+        "Processo": "197000962/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925577",
+        "ADASA": "688",
+        "Nome": "GILBERTO AIRTON ZENKNER",
+        "Endereço": "COLONÔNIA AGRÍCOLA DO CÓRREGO AGUILHADA, BR 251, FAZENDA PRIMAVERA II",
+        "CPF/CNPJ": "#969052715",
+        "Processo": "197000681/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926903",
+        "ADASA": "2833",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "FAZENDA PITOMBA, CHÁCARA 76/77",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197001375/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933261",
+        "ADASA": "7840",
+        "Nome": "JOSÉ MARTINS DE VASCONCELOS SOBRINHO",
+        "Endereço": "QUINTAS DO PIPIRIPAU II, CHÁCARA 23",
+        "CPF/CNPJ": "#91922203104",
+        "Processo": "19700002634/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933424",
+        "ADASA": "4000",
+        "Nome": "IVAN VITORIO PROLA",
+        "Endereço": "NÚCLEO RURAL ALAGADO, CHÁCARA 7",
+        "CPF/CNPJ": "#7024720000",
+        "Processo": "19700000148/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933426",
+        "ADASA": "2944",
+        "Nome": "JUVENIL ANTÔNIO CENCI",
+        "Endereço": "MÓDULO E, LOTE 06, FAZENDA UMBURAMA - DF 270 KM 4",
+        "CPF/CNPJ": "#1,18E+11",
+        "Processo": "197001054/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024731",
+        "ADASA": "1822",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP B)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024754",
+        "ADASA": "1823",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP C)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1031291",
+        "ADASA": "3579",
+        "Nome": "EDUARDO LUIZ CAMEIRO",
+        "Endereço": "CHÁCARA NÚMERO 13",
+        "CPF/CNPJ": "#146439104",
+        "Processo": "197000667/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038590",
+        "ADASA": "8622",
+        "Nome": "ROBERTO COVAS",
+        "Endereço": "GRANJA SANTO AMARO, DF-205, ENTRADA 07, LOTES 200 E 202",
+        "CPF/CNPJ": "#3803605865",
+        "Processo": "197001676/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038718",
+        "ADASA": "8435",
+        "Nome": "3 IRMÃOS MATERIAIS DE CONSTRUÇÃO LTDA",
+        "Endereço": "SITÍO 3 IRMÃOS, MARGEM ESQUERDA RODOVIA, DF 250, KM 07",
+        "CPF/CNPJ": "#00616839/0001",
+        "Processo": "19700002161/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038918",
+        "ADASA": "8530",
+        "Nome": "FLÁVIO AUGUSTO D' ARAÚJO COUTO",
+        "Endereço": "RODOVIA DF - 100, KM 37, MÓDULO G, SÍTIO CAMPO ALEGRE, LOTES 26 E 42",
+        "CPF/CNPJ": "#417009615",
+        "Processo": "197000485/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1040246",
+        "ADASA": "135",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "RODOVIA DF 250, KM. 21, CHÁCARA SINHÁ CRISTINA",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197000006/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044917",
+        "ADASA": "4750",
+        "Nome": "RUI CRISTINO BARBOSA",
+        "Endereço": "NÚCLEO RURAL BOA ESPERANÇA, RODOVIA DF-190, KM 02, FAZENDA SALTADOR",
+        "CPF/CNPJ": "#2880105153",
+        "Processo": "197000199/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044951",
+        "ADASA": "4933",
+        "Nome": "ABILIO CEZAR TARDIN",
+        "Endereço": "NÚCLEO RURAL TAQUARA, CHÁCARA 50",
+        "CPF/CNPJ": "#5136059834",
+        "Processo": "197000111/2016"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045058",
+        "ADASA": "4685",
+        "Nome": "MARIA HELENA DUTRA MAIA",
+        "Endereço": "NÚCLEO RURAL ALAGADOS, CHÁCARA NÚMERO 24",
+        "CPF/CNPJ": "#975869191",
+        "Processo": "197000562/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045089",
+        "ADASA": "4939",
+        "Nome": "AVICULTURA SAINT SIMON LTDA",
+        "Endereço": "FAZENDA RETIRO DO MEIO, RODOVIA BR-020, KM 44, NÚCLEO RURAL TAQUARA",
+        "CPF/CNPJ": "#8920000000000",
+        "Processo": "197000936/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045142",
+        "ADASA": "4924",
+        "Nome": "MARIO EUDES DE MEDEIROS FILHO",
+        "Endereço": "COLÔNIA AGRÍCOLA ESTANISLAU, CHÁCARA 16 - NÚCLEO RURAL TABATINGA",
+        "CPF/CNPJ": "#4975393140",
+        "Processo": "19700003189/2020"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045205",
+        "ADASA": "4907",
+        "Nome": "MARIA ZILA FROTA BEZERRA DE OLIVEIRA",
+        "Endereço": "ÁREA ISOLADA LAGOA BONITA S/N",
+        "CPF/CNPJ": "#932710182",
+        "Processo": "197001018/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045319",
+        "ADASA": "5869",
+        "Nome": "RAIMUNDO ALVES DE CARVALHO",
+        "Endereço": "QNA 45, CASA 13, TAGUATINGA NORTE",
+        "CPF/CNPJ": "#178837172",
+        "Processo": "197001156/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1051089",
+        "ADASA": "8713",
+        "Nome": "RAIMUNDO BEZERRA DE FARIAS",
+        "Endereço": "COLONIA AGRÍCOLA PONTE ALTA DE BAIXO, CHÁCARA 73",
+        "CPF/CNPJ": "#822019191",
+        "Processo": "197000829/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151172",
+        "ADASA": "1821",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP A)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151212",
+        "ADASA": "2143",
+        "Nome": "ROGERIO MONTENEGRO LAGUARDIA",
+        "Endereço": "NÚCLEO RURAL SOBRADINHO I, LOTE Nº 50",
+        "CPF/CNPJ": "#",
+        "Processo": "19700003795/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153619",
+        "ADASA": "3914",
+        "Nome": "ADAYL PAVECK URANGA",
+        "Endereço": "RODOVIA DF 190, KM 9.5(ANTIGO KM 14.5), GRANJA SANTA FÉ",
+        "CPF/CNPJ": "#1374540072",
+        "Processo": "19700003777/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153904",
+        "ADASA": "4042",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL SANTOS DUMONT, CHÁCARA 57",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000714/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153905",
+        "ADASA": "4043",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL TABATINGA, CHÁCARA 143",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000715/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153955",
+        "ADASA": "6627",
+        "Nome": "ELIAS VALMOR MARCHESE",
+        "Endereço": "DF 295, KM 09, NÚCLEO RURAL JARDIM II, MÓDULO B, LOTE 21, FAZENDA MANGA",
+        "CPF/CNPJ": "#804916004",
+        "Processo": "197001033/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153994",
+        "ADASA": "2913",
+        "Nome": "FELICIANO GARCIA SANTANA",
+        "Endereço": "DF-130, KM 26, NÚCLEO RURAL QUEBRADA DOS GUIMARÃES, LOTES 30 E 31",
+        "CPF/CNPJ": "#8191034891",
+        "Processo": "197000051/2006"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154051",
+        "ADASA": "4554",
+        "Nome": "GALDINO NUNES MELO",
+        "Endereço": "CHÁCARA 06 IRMÃOS, COLÔNIA AGRÍCOLA PONTE ALTA",
+        "CPF/CNPJ": "#1017349134",
+        "Processo": "197000839/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154220",
+        "ADASA": "4091",
+        "Nome": "LÚCIA MARIA PEREIRA ERVILHA",
+        "Endereço": "DF-280, KM 5,5 - FAZENDA SAMAMBAIA (POÇO 2)",
+        "CPF/CNPJ": "#5945194115",
+        "Processo": "197000286/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154976",
+        "ADASA": "4668",
+        "Nome": "MANOEL SCARTEZINI",
+        "Endereço": "RODOVIA DF-180, NÚMEROS 57/58, NÚCLEO RURAL TAGUATINGA",
+        "CPF/CNPJ": "#22780149",
+        "Processo": "197000250/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154992",
+        "ADASA": "3771",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154993",
+        "ADASA": "4955",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155229",
+        "ADASA": "3273",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 1)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155230",
+        "ADASA": "3274",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 2)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925294",
+        "ADASA": "602",
+        "Nome": "ARIENÁ NUNES DE SOUSA",
+        "Endereço": "FAZENDA BOCAINA, CHÁCARA NOSSA SENHORA APARECIDA",
+        "CPF/CNPJ": "#80221335158",
+        "Processo": "197000264/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925423",
+        "ADASA": "686",
+        "Nome": "GERALDO JACINTO NUNES",
+        "Endereço": "GLEBA 3 E 4, FAZENDA SANTO ANTONIO",
+        "CPF/CNPJ": "#9670920191",
+        "Processo": "197000962/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925577",
+        "ADASA": "688",
+        "Nome": "GILBERTO AIRTON ZENKNER",
+        "Endereço": "COLONÔNIA AGRÍCOLA DO CÓRREGO AGUILHADA, BR 251, FAZENDA PRIMAVERA II",
+        "CPF/CNPJ": "#969052715",
+        "Processo": "197000681/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "926903",
+        "ADASA": "2833",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "FAZENDA PITOMBA, CHÁCARA 76/77",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197001375/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933261",
+        "ADASA": "7840",
+        "Nome": "JOSÉ MARTINS DE VASCONCELOS SOBRINHO",
+        "Endereço": "QUINTAS DO PIPIRIPAU II, CHÁCARA 23",
+        "CPF/CNPJ": "#91922203104",
+        "Processo": "19700002634/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933424",
+        "ADASA": "4000",
+        "Nome": "IVAN VITORIO PROLA",
+        "Endereço": "NÚCLEO RURAL ALAGADO, CHÁCARA 7",
+        "CPF/CNPJ": "#7024720000",
+        "Processo": "19700000148/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933426",
+        "ADASA": "2944",
+        "Nome": "JUVENIL ANTÔNIO CENCI",
+        "Endereço": "MÓDULO E, LOTE 06, FAZENDA UMBURAMA - DF 270 KM 4",
+        "CPF/CNPJ": "#1,18E+11",
+        "Processo": "197001054/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024731",
+        "ADASA": "1822",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP B)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1024754",
+        "ADASA": "1823",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP C)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1031291",
+        "ADASA": "3579",
+        "Nome": "EDUARDO LUIZ CAMEIRO",
+        "Endereço": "CHÁCARA NÚMERO 13",
+        "CPF/CNPJ": "#146439104",
+        "Processo": "197000667/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038590",
+        "ADASA": "8622",
+        "Nome": "ROBERTO COVAS",
+        "Endereço": "GRANJA SANTO AMARO, DF-205, ENTRADA 07, LOTES 200 E 202",
+        "CPF/CNPJ": "#3803605865",
+        "Processo": "197001676/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038718",
+        "ADASA": "8435",
+        "Nome": "3 IRMÃOS MATERIAIS DE CONSTRUÇÃO LTDA",
+        "Endereço": "SITÍO 3 IRMÃOS, MARGEM ESQUERDA RODOVIA, DF 250, KM 07",
+        "CPF/CNPJ": "#00616839/0001",
+        "Processo": "19700002161/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038918",
+        "ADASA": "8530",
+        "Nome": "FLÁVIO AUGUSTO D' ARAÚJO COUTO",
+        "Endereço": "RODOVIA DF - 100, KM 37, MÓDULO G, SÍTIO CAMPO ALEGRE, LOTES 26 E 42",
+        "CPF/CNPJ": "#417009615",
+        "Processo": "197000485/2014"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1040246",
+        "ADASA": "135",
+        "Nome": "LAURENTINO FERNANDES BATISTA",
+        "Endereço": "RODOVIA DF 250, KM. 21, CHÁCARA SINHÁ CRISTINA",
+        "CPF/CNPJ": "#8706875491",
+        "Processo": "197000006/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044917",
+        "ADASA": "4750",
+        "Nome": "RUI CRISTINO BARBOSA",
+        "Endereço": "NÚCLEO RURAL BOA ESPERANÇA, RODOVIA DF-190, KM 02, FAZENDA SALTADOR",
+        "CPF/CNPJ": "#2880105153",
+        "Processo": "197000199/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1044951",
+        "ADASA": "4933",
+        "Nome": "ABILIO CEZAR TARDIN",
+        "Endereço": "NÚCLEO RURAL TAQUARA, CHÁCARA 50",
+        "CPF/CNPJ": "#5136059834",
+        "Processo": "197000111/2016"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045058",
+        "ADASA": "4685",
+        "Nome": "MARIA HELENA DUTRA MAIA",
+        "Endereço": "NÚCLEO RURAL ALAGADOS, CHÁCARA NÚMERO 24",
+        "CPF/CNPJ": "#975869191",
+        "Processo": "197000562/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045089",
+        "ADASA": "4939",
+        "Nome": "AVICULTURA SAINT SIMON LTDA",
+        "Endereço": "FAZENDA RETIRO DO MEIO, RODOVIA BR-020, KM 44, NÚCLEO RURAL TAQUARA",
+        "CPF/CNPJ": "#8920000000000",
+        "Processo": "197000936/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045142",
+        "ADASA": "4924",
+        "Nome": "MARIO EUDES DE MEDEIROS FILHO",
+        "Endereço": "COLÔNIA AGRÍCOLA ESTANISLAU, CHÁCARA 16 - NÚCLEO RURAL TABATINGA",
+        "CPF/CNPJ": "#4975393140",
+        "Processo": "19700003189/2020"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045205",
+        "ADASA": "4907",
+        "Nome": "MARIA ZILA FROTA BEZERRA DE OLIVEIRA",
+        "Endereço": "ÁREA ISOLADA LAGOA BONITA S/N",
+        "CPF/CNPJ": "#932710182",
+        "Processo": "197001018/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045319",
+        "ADASA": "5869",
+        "Nome": "RAIMUNDO ALVES DE CARVALHO",
+        "Endereço": "QNA 45, CASA 13, TAGUATINGA NORTE",
+        "CPF/CNPJ": "#178837172",
+        "Processo": "197001156/2015"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1051089",
+        "ADASA": "8713",
+        "Nome": "RAIMUNDO BEZERRA DE FARIAS",
+        "Endereço": "COLONIA AGRÍCOLA PONTE ALTA DE BAIXO, CHÁCARA 73",
+        "CPF/CNPJ": "#822019191",
+        "Processo": "197000829/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151172",
+        "ADASA": "1821",
+        "Nome": "JOSÉ LUCIANO ARANTES",
+        "Endereço": "RODOVIA DF 130 KM 31, FAZENDA QUEBRADA DOS NERES (CAP A)",
+        "CPF/CNPJ": "#14670562172",
+        "Processo": "197001300/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1151212",
+        "ADASA": "2143",
+        "Nome": "ROGERIO MONTENEGRO LAGUARDIA",
+        "Endereço": "NÚCLEO RURAL SOBRADINHO I, LOTE Nº 50",
+        "CPF/CNPJ": "#",
+        "Processo": "19700003795/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153619",
+        "ADASA": "3914",
+        "Nome": "ADAYL PAVECK URANGA",
+        "Endereço": "RODOVIA DF 190, KM 9.5(ANTIGO KM 14.5), GRANJA SANTA FÉ",
+        "CPF/CNPJ": "#1374540072",
+        "Processo": "19700003777/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153904",
+        "ADASA": "4042",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL SANTOS DUMONT, CHÁCARA 57",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000714/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153905",
+        "ADASA": "4043",
+        "Nome": "DERMIVAL ALMEIDA FIALHO",
+        "Endereço": "NÚCLEO RURAL TABATINGA, CHÁCARA 143",
+        "CPF/CNPJ": "#7970617387",
+        "Processo": "197000715/2008"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153955",
+        "ADASA": "6627",
+        "Nome": "ELIAS VALMOR MARCHESE",
+        "Endereço": "DF 295, KM 09, NÚCLEO RURAL JARDIM II, MÓDULO B, LOTE 21, FAZENDA MANGA",
+        "CPF/CNPJ": "#804916004",
+        "Processo": "197001033/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153994",
+        "ADASA": "2913",
+        "Nome": "FELICIANO GARCIA SANTANA",
+        "Endereço": "DF-130, KM 26, NÚCLEO RURAL QUEBRADA DOS GUIMARÃES, LOTES 30 E 31",
+        "CPF/CNPJ": "#8191034891",
+        "Processo": "197000051/2006"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154051",
+        "ADASA": "4554",
+        "Nome": "GALDINO NUNES MELO",
+        "Endereço": "CHÁCARA 06 IRMÃOS, COLÔNIA AGRÍCOLA PONTE ALTA",
+        "CPF/CNPJ": "#1017349134",
+        "Processo": "197000839/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154220",
+        "ADASA": "4091",
+        "Nome": "LÚCIA MARIA PEREIRA ERVILHA",
+        "Endereço": "DF-280, KM 5,5 - FAZENDA SAMAMBAIA (POÇO 2)",
+        "CPF/CNPJ": "#5945194115",
+        "Processo": "197000286/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154976",
+        "ADASA": "4668",
+        "Nome": "MANOEL SCARTEZINI",
+        "Endereço": "RODOVIA DF-180, NÚMEROS 57/58, NÚCLEO RURAL TAGUATINGA",
+        "CPF/CNPJ": "#22780149",
+        "Processo": "197000250/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154992",
+        "ADASA": "3771",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154993",
+        "ADASA": "4955",
+        "Nome": "MARIA APARECIDA ALVES MONTEIRO",
+        "Endereço": "NÚCLEO RURAL OLHOS D'ÁGUA, CHÁCARA 09",
+        "CPF/CNPJ": "#11013262191",
+        "Processo": "197000386/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155229",
+        "ADASA": "3273",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 1)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155230",
+        "ADASA": "3274",
+        "Nome": "SAMIR SUAIDEN",
+        "Endereço": "RODOVIA DF-140, KM 08 - NOVA BETÂNIA (POÇO 2)",
+        "CPF/CNPJ": "#225096153",
+        "Processo": "197000208/2005"
+    }
+])

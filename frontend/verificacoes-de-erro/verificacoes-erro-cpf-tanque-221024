@@ -1,0 +1,153 @@
+// Tanque Escavado
+
+[
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925094",
+        "ADASA": "764",
+        "Nome": "LEOPOLDINA MARIN COELHO",
+        "Endereço": "1ª ENTRADA, DF 250, CHÁCARA TOCA DAS COELHAS",
+        "CPF/CNPJ": "#6794815168",
+        "Processo": "197000581/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925226",
+        "ADASA": "855",
+        "Nome": "VITOR RAMOS SIMÕES CORRÊA",
+        "Endereço": "TRECHO 01, CHÁCARA 61",
+        "CPF/CNPJ": "#66295122",
+        "Processo": "197000934/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925347",
+        "ADASA": "180",
+        "Nome": "MARCONI NEIVA MIRANDA",
+        "Endereço": "DF 230, KM 02, GLEBA D, CHÁCARA 03",
+        "CPF/CNPJ": "#9810862172",
+        "Processo": "197001418/2009"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925476",
+        "ADASA": "739",
+        "Nome": "JOSÉ FRANCO DE MORAIS",
+        "Endereço": "CHÁCARA 05",
+        "CPF/CNPJ": "#909335168",
+        "Processo": "197001260/2012"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925904",
+        "ADASA": "702",
+        "Nome": "INSTITUTO DE SAÚDE MENTAL",
+        "Endereço": "EPNB KM 04, ÁREA ESPECIAL S/N, AVENIDA DO CONTORNO",
+        "CPF/CNPJ": "# ",
+        "Processo": "197000688/2013"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1043850",
+        "ADASA": "1777",
+        "Nome": "PEDRO WANDERLEI VIZU",
+        "Endereço": "SÍTIO PASSAREDO, CHÁCARA 86, TABATINGA",
+        "CPF/CNPJ": "#941223850",
+        "Processo": "190000219/2003"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045232",
+        "ADASA": "4529",
+        "Nome": "ERASMO MOISÉS DE ARAÚJO RAMOS",
+        "Endereço": "ASSENTAMENTO OZIEL ALVES III, NÚCLEO 14, CHÁCARA 02",
+        "CPF/CNPJ": "#2396907405",
+        "Processo": "197000476/2015"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1051189",
+        "ADASA": "8994",
+        "Nome": "LUCAS BATISTA NUNES SILVA",
+        "Endereço": "CHÁCARA SANTA BÁRBARA, S/N, CHAPADA",
+        "CPF/CNPJ": "#3200106190",
+        "Processo": "197000902/2014"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154929",
+        "ADASA": "8994",
+        "Nome": "LUCAS BATISTA NUNES SILVA",
+        "Endereço": "CHÁCARA SANTA BÁRBARA, S/N, CHAPADA",
+        "CPF/CNPJ": "#3200106190",
+        "Processo": "197000902/2014"
+    },
+   
+
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925455",
+        "ADASA": "722",
+        "Nome": "JOÃO TITO RIBEIRO FILHO",
+        "Endereço": "BR 020, KM 18, CHÁCARA SÃO JOÃO",
+        "CPF/CNPJ": "#2881950191",
+        "Processo": "197000124/2013"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "925488",
+        "ADASA": "776",
+        "Nome": "MANOEL NETO GONÇALVES",
+        "Endereço": "CHÁCARA BOM SOSSEGO",
+        "CPF/CNPJ": "#256137583",
+        "Processo": "197000432/2013"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "928332",
+        "ADASA": "1514",
+        "Nome": "LUCIANA FERREIRA DA SILVA",
+        "Endereço": "SMPW QUADRA 06, CONJUNTO 09, CHÁCARA 02",
+        "CPF/CNPJ": "#",
+        "Processo": "19700002022/2018"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1043948",
+        "ADASA": "702",
+        "Nome": "INSTITUTO DE SAÚDE MENTAL",
+        "Endereço": "EPNB KM 04, ÁREA ESPECIAL S/N, AVENIDA DO CONTORNO",
+        "CPF/CNPJ": "# ",
+        "Processo": "197000688/2013"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1045310",
+        "ADASA": "5910",
+        "Nome": "LUIZ GONZAGA FERREIRA LOPES",
+        "Endereço": "CÓRREGO PULADOR, CHÁCARA N° 06",
+        "CPF/CNPJ": "#2724286472",
+        "Processo": "197000884/2015"
+    },
+
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1143972",
+        "ADASA": "2335",
+        "Nome": "APARECIDA DE JESUS PEREIRA",
+        "Endereço": "NÚCLEO RURAL CAPÃO DA ERVA, CHÁCARA Nº 7",
+        "CPF/CNPJ": "#",
+        "Processo": "19700002194/2020"
+    }
+]

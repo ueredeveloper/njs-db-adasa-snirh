@@ -1,0 +1,259 @@
+
+
+new Set([
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933198",
+        "ADASA": "7678",
+        "Nome": "MARIA NEUCILA DE OLIVEIRA",
+        "Endereço": "SMPW QUADRA 7, CONJUNTO 2, LOTE 1, UNIDADE A",
+        "CPF/CNPJ": "#04674461453",
+        "Processo": "19700000402/2018"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933438",
+        "ADASA": "7436",
+        "Nome": "VIAÇÃO PIONEIRA LTDA",
+        "Endereço": "QUADRA 02, Nº 1060 A 1100, QUADRA 03, Nº 1060 A 1180, SETOR DE INDUSTRIAS LESTE",
+        "CPF/CNPJ": "#5,83E+12",
+        "Processo": "19700002256/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933550",
+        "ADASA": "7435",
+        "Nome": "VIAÇÃO PIONEIRA LTDA",
+        "Endereço": "RUA 01, LOTE 100, TERMINAL, JARDIM BELA VISTA",
+        "CPF/CNPJ": "#5,83E+12",
+        "Processo": "19700002257/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "933740",
+        "ADASA": "7163",
+        "Nome": "DEUSDALMO DAVID DE OLIVEIRA",
+        "Endereço": "SHIN, QI. 04, CONJUNTO 09, CASA 05",
+        "CPF/CNPJ": "#25991400641",
+        "Processo": "197001350/2017"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1038848",
+        "ADASA": "8718",
+        "Nome": "FRANCISCO REIS DE PAULO LIMA",
+        "Endereço": "CHÁCARA 72/1, SETOR RURAL, P. SUL",
+        "CPF/CNPJ": "#35115390349",
+        "Processo": "19700003074/2019"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1144028",
+        "ADASA": "2154",
+        "Nome": "JOEL LUZ",
+        "Endereço": "CHÁCARA ARAGUAIA Nº 13, ASSENTAMENTO NOVA CAMAPUÃ",
+        "CPF/CNPJ": "#",
+        "Processo": "19700004077/2019"
+    }
+])
+
+new Set([
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154022",
+        "ADASA": "3251",
+        "Nome": "FRANCISCO DE BRITO ARAÚJO",
+        "Endereço": "NÚCLEO RURAL CASA GRANDE, 08 MA CHÁCARA 13",
+        "CPF/CNPJ": "#7527411104",
+        "Processo": "197000384/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154897",
+        "ADASA": "3258",
+        "Nome": "JURANDIR RODRIGUES GAMADO",
+        "Endereço": "NÚCLEO RURAL CASA GRANDE, RUA 14 MA, CHÁCARA 16",
+        "CPF/CNPJ": "#4627666837",
+        "Processo": "197000383/2007"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1053755",
+        "ADASA": "3616",
+        "Nome": "MARIA ABADIA SANTANA ALBERNAZ",
+        "Endereço": "EPPR DF 005, MI 09, CHÁCARA 15",
+        "CPF/CNPJ": "#2915057168",
+        "Processo": "197001414/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1053794",
+        "ADASA": "4121",
+        "Nome": "VALDEMIR PESSOA DE CARVALHO",
+        "Endereço": "NÚCLEO RURAL PONTE ALTA DE CIMA, GLEBA B, CHÁCARA 43A",
+        "CPF/CNPJ": "#2364000106",
+        "Processo": "197000802/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1053844",
+        "ADASA": "7094",
+        "Nome": "SECRETARIA DE SEGURANÇA PRESIDENCIAL-GSI/PR",
+        "Endereço": "SETOR DE ÁREAS ISOLADAS LESTE, VIA N2 LESTE",
+        "CPF/CNPJ": "#0939973600159",
+        "Processo": "197000633/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1054031",
+        "ADASA": "2869",
+        "Nome": "NÚBIA DE OLIVEIRA DE MATOS",
+        "Endereço": "CHÁCARA 27-A, CANA DO REINO,  NA DF 001, KM 83",
+        "CPF/CNPJ": "#571998178",
+        "Processo": "197000132/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1054084",
+        "ADASA": "7095",
+        "Nome": "32º GRUPO DE ARTILHARIA DE CAMPANHA",
+        "Endereço": "AVENIDA DUQUE DE CAXIAS, S/N",
+        "CPF/CNPJ": "#0962447100145",
+        "Processo": "197000847/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1054186",
+        "ADASA": "6085",
+        "Nome": "CENTRO DE ENSINO ESPECIAL 02 DE CEILÂNDIA",
+        "Endereço": "QNO 12, AREA ESPECIAL G",
+        "CPF/CNPJ": "#0393998100025",
+        "Processo": "197000749/2009"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1054194",
+        "ADASA": "3006",
+        "Nome": "ONILTON HILÁRIO MARQUES",
+        "Endereço": "RODOVIA DF 440, KM 17, CHÁCARA 25",
+        "CPF/CNPJ": "#4273664100",
+        "Processo": "197001336/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153673",
+        "ADASA": "3442",
+        "Nome": "ANTÔNIO FRANCISCO COSTA DE PINHO",
+        "Endereço": "NÚCLEO RURAL CASA GRANDE, CHÁCARA 1 MD 06",
+        "CPF/CNPJ": "#5525772191",
+        "Processo": "197001556/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1153966",
+        "ADASA": "4138",
+        "Nome": "ELOY PEREIRA DOS SANTOS",
+        "Endereço": "RUA 08 CHÁCARA 04 CHÁCARAS NOSSA SENHORA APARECIDA FAZENDA PARANOÁ",
+        "CPF/CNPJ": "#916714187",
+        "Processo": "197000924/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1154105",
+        "ADASA": "2948",
+        "Nome": "IDELBRANDO VIANA DE OLIVEIRA",
+        "Endereço": "FAZENDA FORQUILHA ENCRAVADA, LOTE 19",
+        "CPF/CNPJ": "#980668115",
+        "Processo": "197000793/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155024",
+        "ADASA": "3217",
+        "Nome": "MARIA JOSÉ DE SOUZA E SILVA LIMEIRA",
+        "Endereço": "FAZENDAS PONTE ALTA E ALAGADO DE SUZANA, DF-180",
+        "CPF/CNPJ": "#21387800158",
+        "Processo": "197001444/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155046",
+        "ADASA": "3160",
+        "Nome": "MARIO VIEIRA FRANÇA",
+        "Endereço": "COLÔNIA AGRÍCOLA SAMAMBAIA, CHÁCARA 52",
+        "CPF/CNPJ": "#6634877149",
+        "Processo": "197001072/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155048",
+        "ADASA": "4082",
+        "Nome": "MARISA SUELEN SOARES DOS REIS",
+        "Endereço": "NÚCLEO RURAL MONJOLO, CHÁCARA 56 A, ETAPA 11",
+        "CPF/CNPJ": "#2182868135",
+        "Processo": "197000192/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155084",
+        "ADASA": "4104",
+        "Nome": "NAOMI MELLO PORTO",
+        "Endereço": "NÚCLEO RURAL ENGENHO DAS LAJES, CHÁCARA PORTO SEGURO, RUA SÃO JOSÉ Nº 68",
+        "CPF/CNPJ": "#955558115",
+        "Processo": "197000592/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155157",
+        "ADASA": "3002",
+        "Nome": "PHILIPPE PAULINO DE SOUZA GOMES",
+        "Endereço": "RODOVIA DF-190, KM 4/5, NÚCLEO RURAL BOA ESPERANÇA",
+        "CPF/CNPJ": "#1404902139",
+        "Processo": "197001187/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155188",
+        "ADASA": "4120",
+        "Nome": "RENATO DA SILVA RAMOS",
+        "Endereço": "BR-020 KM-49 VC 107, LOTE 11 CHÁCARA 40 - FAZENDA LARGA",
+        "CPF/CNPJ": "#2531874194",
+        "Processo": "197000598/2013"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155216",
+        "ADASA": "3161",
+        "Nome": "RÔMULO MONTEIRO GUIMARÃES",
+        "Endereço": "DF - 440, KM 10 CHÁCARA 23",
+        "CPF/CNPJ": "#76104168",
+        "Processo": "197001097/2012"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155220",
+        "ADASA": "3564",
+        "Nome": "ROOSEVELT GENARO",
+        "Endereço": "16 MA 11, NÚCLEO RURAL CASA GRANDE",
+        "CPF/CNPJ": "#9866604187",
+        "Processo": "197000245/2010"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155368",
+        "ADASA": "2946",
+        "Nome": "ALEXANDRE GUTHIERRI RESENDE",
+        "Endereço": "ASSENTAMENTO 26 DE SETEMBRO, RUA 01, CHÁCARA 05-A, LOTE 25",
+        "CPF/CNPJ": "#355446197",
+        "Processo": "197000723/2011"
+    },
+    {
+        "message": "Erro: Na linha 2 CPF/CNPJ inválido.\n\r",
+        "SNIRH": "1155413",
+        "ADASA": "2929",
+        "Nome": "WILSON DOS PASSOS",
+        "Endereço": "CHÁCARA JOANA DARK (FUNDOS)",
+        "CPF/CNPJ": "#2885166134",
+        "Processo": "197000790/2011"
+    }
+])
