@@ -26,6 +26,7 @@ const readFile = (filePath, callback) => {
 };
 
 const mergeAndRemoveDuplicates = (file1Path, file2Path, outputFilePath) => {
+  
   readFile(file1Path, (err1, data1) => {
     if (err1) return;
 

@@ -15,6 +15,8 @@ const { isDate, convertDateFormat } = require('./verify-and-convert-dates');
  */
 const compareAndWriteListOfStateForInsert = async (toInsertGrants, currentTimestamp) => {
 
+    console.log(toInsertGrants)
+
     return new Promise(async (resolve, reject) => {
         try {
 

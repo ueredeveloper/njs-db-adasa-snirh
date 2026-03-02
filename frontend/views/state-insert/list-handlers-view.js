@@ -42,7 +42,7 @@ const ListHandlersView = {
                 console.log(results)
 
                 // Não encontrou a outorga no desktop db
-                if (results.length === 0) {
+                /*if (results.length === 0) {
 
                     // Inserção da Outorga no SNIRH
                     let toInsert = [{
@@ -71,7 +71,7 @@ const ListHandlersView = {
                         });
                     }
 
-                }
+                }*/
 
                 results.forEach(result => console.log("SIM", params.INT_CD_ORIGEM, '===> ', result.INT_CD_ORIGEM, result.EMP_NM_RESPONSAVEL))
 

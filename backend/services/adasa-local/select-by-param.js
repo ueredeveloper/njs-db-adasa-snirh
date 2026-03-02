@@ -22,7 +22,6 @@ router.get('/select-by-param', function (req, res) {
     let { param } = req.query;
 
     
-
     //conexão com o banco
     sql.connect(config, function (err) {
 

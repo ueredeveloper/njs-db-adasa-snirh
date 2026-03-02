@@ -16,6 +16,8 @@ const router = express.Router();
   */
 
 router.post('/inserir', async (req, res) => {
+
+  console.log('inserir dado no cnarh40')
   const { SNIRH_URL, SNIRH_TOKEN } = process.env;
   let url = `${SNIRH_URL}/rest/api/inserir?uf=DF`;
 
@@ -70,8 +72,10 @@ router.post('/inserir', async (req, res) => {
 
     const csvIsoBuffer = iconv.encode(csvUtf8Safe, 'ISO-8859-1');
 
+    console.log(csvIsoBuffer)
+
     // 4) Monte a requisição (com Content-Type e Content-Length do ISO)
-    const config = {
+    /*const config = {
       method: 'post',
       maxBodyLength: Infinity,
       url,
@@ -93,7 +97,7 @@ router.post('/inserir', async (req, res) => {
     const response = await axios.request(config);
 
     // Send success response
-    res.json(response.data);
+    res.json(response.data);*/
 
     // Send success response
     //res.json(response.data);

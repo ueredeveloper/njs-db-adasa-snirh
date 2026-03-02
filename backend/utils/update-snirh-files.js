@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
+const fs = require('fs');
 const { readSnirhFile } = require("../utils/read-write-and-verify-file");
 const { selectByParam, selectClosestPoints } = require('../services');
 
@@ -163,10 +164,15 @@ const updateSnirhFiles = async () => {
     console.log("tamanho do banco: ", desktopDb.length)
 
     // Valor de inicialiação. Normalmente 0, para iniciar do princípio do banco.
-     let initValue = 0;
+    let initValue = 3000;
     // Limite de dados do banco capturados para edição
-    let lenDB = 13000;
-   
+    let lenDB = 3200;
+
+
+    /**
+     * Como usar: node ./backend/utils/update-snirh-files.js
+     */
+
     // Quando atingir tantos registros, enviar para o SNIRH
     let lenToEdit = 10;
     const items = desktopDb.slice(initValue, lenDB);
@@ -219,7 +225,7 @@ const updateSnirhFiles = async () => {
 
             }
 
-        // Se houver relacionamento, procurar pelo id da outorga na Adasa
+            // Se houver relacionamento, procurar pelo id da outorga na Adasa
         } else {
 
             const stateGrants = await fetchPointByTypeAndId(ID_TIPO_INTERFERENCIA, INT_CD_ORIGEM);
@@ -261,12 +267,12 @@ const updateSnirhFiles = async () => {
 
                 let errorResponse = await snirhError(params);
 
-               /* console.log('errorResponse: ', errorResponse,
-                    'snirh id: ', INT_CD, 'adasa id: ',
-                    stateGrant.INT_CD_ORIGEM, 'processo: ',
-                    stateGrant.OUT_NU_PROCESSO, 'cpf: ', stateGrant.EMP_NU_CPFCNPJ);*/
+                /* console.log('errorResponse: ', errorResponse,
+                     'snirh id: ', INT_CD, 'adasa id: ',
+                     stateGrant.INT_CD_ORIGEM, 'processo: ',
+                     stateGrant.OUT_NU_PROCESSO, 'cpf: ', stateGrant.EMP_NU_CPFCNPJ);*/
 
-                    errors.push({Processo: stateGrant.OUT_NU_PROCESSO, "CPF/CNPJ": stateGrant.EMP_NU_CPFCNPJ, error: errorResponse})
+                errors.push({ Processo: stateGrant.OUT_NU_PROCESSO, "CPF/CNPJ": stateGrant.EMP_NU_CPFCNPJ, error: errorResponse })
 
                 if (response?.mensagem) {
                     console.log('mensagem: ', response.mensagem);
@@ -279,9 +285,18 @@ const updateSnirhFiles = async () => {
             toUpdateGrants = [];
         }
 
-        
+
 
     } // fim loop
+
+    // Escreve os erros em um arquivo json para utilizar posteriormente.
+    try {
+        const outPath = __dirname + '/../data/json/errors.json';
+        fs.writeFileSync(outPath, JSON.stringify(errors, null, 2), 'utf8');
+        console.log('errors written to', outPath);
+    } catch (err) {
+        console.error('failed to write errors file', err);
+    }
 
     console.log('errors ', errors)
 
